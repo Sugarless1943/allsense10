@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //AST
+    let str = `<div>
+        <h3>title</h3>
+        <ul>
+        <li>AAA</li>
+        <li>BBB</li>
+        </ul>
+        <div>
+            <div>1</div>
+        </div>
+    </div>`
+
+    // res = {
+    //     tagName: "div",
+    //     mag: "",
+    //     children: [
+    //
+    //     ]
+    // }
+
+    let index = 0
+    let arr = str.split("").filter(item => {
+        return item && item != " " && item != "\n"
+    })
+
+    let startReg = /^<[a-z][1-6]?>$/
+    while (index < arr.length) {
+        let endStr = arr.slice(index+1).join("")
+        // console.log(endStr)
+        let str_cur = arr[index]+endStr
+        if(str_cur.match(startReg)) {
+            console.log(str_cur.match(startReg))
+        }
+
+        index++
+    }
+
+
+
+</script>
+</html>

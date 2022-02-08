@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        main {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <main id="stations">
+        <div></div>
+        <div></div>
+        <div></div>
+    </main>
+</body>
+<script>
+    function extend(sub, sup) {
+        sub.prototype = Object.create(sup.prototype)
+        Object.defineProperty(sub.prototype, 'constructor', {
+            value: sub,
+            enumerable: false
+        })
+    }
+    function Animation() {
+
+    }
+    Animation.prototype.background = function(color) {
+       this.style.background = color
+    }
+    Animation.prototype.reset = function() {
+        console.log(this)
+        this.style.background = 'white'
+    }
+
+    function Stations(el) {
+        this.block = document.getElementById(el)
+        this.stations = this.block.querySelectorAll('div')
+    }
+
+    extend(Stations, Animation)
+
+    Stations.prototype.bindEvent = function() {
+        this.stations.forEach(item => {
+            item.addEventListener('click', e => {
+                this.clean()
+                Animation.prototype.background.call(item, 'red')
+            })
+        })
+    }
+
+    Stations.prototype.clean = function() {
+        this.stations.forEach(item => {
+            Animation.prototype.background.call(item, 'white')
+        })
+    }
+
+    Stations.prototype.backChange = function(el) {
+        Animation.prototype.background.call(el, 'red')
+    }
+
+    Stations.prototype.run = function() {
+        this.bindEvent()
+    }
+
+    let s = new Stations('stations').run()
+
+</script>
+</html>

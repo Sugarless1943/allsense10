@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <textarea id="input"></textarea>
+    <h4 id="output"></h4>
+    <script>
+
+        let input = document.getElementById("input")
+        let output = document.getElementById("output")
+        input.addEventListener("input", () => {
+            console.log(input.value)
+            go(input.value)
+        })
+
+        function go(str) {
+ //            let a = `60167 87039
+ // 76029 77080 113087.8 90714 51884 112359 123499 109400 50620 25412.5`
+ //            console.log(a.toString())
+
+            let b = []
+            if(str.includes("\\t")) {
+                b = str.replaceAll("\\t", " ").replaceAll("\\n","").split(" ")
+            }else {
+                b = str.split(" ")
+            }
+
+            b.forEach((item,index) => {
+                b[index] = item.trim()
+            })
+
+            // console.log(eval(b.join("+")))
+            output.innerText = eval(b.join("+"))
+        }
+
+
+    </script>
+</body>
+</html>

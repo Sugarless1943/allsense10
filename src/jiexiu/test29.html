@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let data = [
+        {"hour":"0","start":"6","end":"8"},
+        {"hour":"1","start":"5","end":"7"},
+        {"hour":"2","start":"4","end":"6"},
+        {"hour":"3","start":"3","end":"5"},
+        {"hour":"4","start":"2","end":"4"},
+        {"hour":"5","start":"1","end":"3"},
+        {"hour":"6","start":"0","end":"2"},
+        {"hour":"7","start":"0","end":"1"},
+        {"hour":"8","start":"0","end":"0"},
+        {"hour":"9","start":"21","end":"23"},
+        {"hour":"10","start":"20","end":"22"},
+        {"hour":"11","start":"19","end":"21"},
+        {"hour":"12","start":"18","end":"20"},
+        {"hour":"13","start":"17","end":"19"},
+        {"hour":"14","start":"16","end":"18"},
+        {"hour":"15","start":"15","end":"17"},
+        {"hour":"16","start":"14","end":"16"},
+        {"hour":"17","start":"13","end":"15"},
+        {"hour":"18","start":"12","end":"14"},
+        {"hour":"19","start":"11","end":"13"},
+        {"hour":"20","start":"10","end":"12"},
+        {"hour":"21","start":"9","end":"11"},
+        {"hour":"22","start":"8","end":"10"},
+        {"hour":"23","start":"7","end":"9"}
+    ]
+
+
+    let conditions = []
+
+    data.map(item => {
+        conditions.push( {
+            "condition": `pk_hour == ${item.hour}`,
+            "T_pre_avg": getWeathers(item.start, item.end)
+        })
+    })
+
+    console.log(JSON.stringify(conditions))
+
+    function getWeathers(start, end) {
+        let arr = []
+        for(let i=start;i<=end;i++) {
+            arr.push(`weather_${i}`)
+        }
+
+        return `avg(${arr.join(",")})`
+    }
+
+</script>
+</html>

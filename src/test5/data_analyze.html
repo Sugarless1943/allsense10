@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <style>
+    button {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <label>查询地址：https://www.allsmartcloud.com/api/queryengine/batch_query</label><br>
+    <label>查询字段（多个用,隔开）:</label>
+    <input type="text" id="search" style="min-width: 350px"><br>
+    <label>查询时间</label>
+    <input type="text" id="startTime"> -
+    <input type="text" id="endTime"><br>
+    <button onclick="go()">查询sql</button><br>
+    <textarea id="sql"></textarea>
+  </header>
+  <main>
+    <label>结果导入:</label><br>
+    <textarea id="res"></textarea><br>
+    <button onclick="change()">转换</button>
+  </main>
+  <footer>
+    <label>最终结果:</label><br>
+    <table id="tab"></table>
+  </footer>
+</body>
+<script>
+  let uidName = {"sm_a0223d12-469c-42e5-91ff-c2308469c0e7":"首站换执站1","b42529ad-1e38-44ba-a970-2dffaac0e989":"六中换热站","266cf4b6-4028-4b75-9d48-251aa1ed811f":"金华苑换热站","a3a6ca91-913c-45ac-bd3e-71fbb3c6c402":"御龙湾换热站","f30b9873-3cc4-4de2-afd7-20938b2e05fd":"闫冀堡树换热站","4ae724d3-c0cb-46b3-9c50-9ac9c08b3a1d":"棚户区B区换热站","ce01bdbc-5e43-44b7-b6fc-2576732455d2":"棚户区一期(沉陷区)换热站","73b46daf-d42d-48c3-9488-2cee279fec41":"安逸村换热站","46104474-a8e5-4b32-b69f-f8758774b784":"梁吉村换热站","409e2b31-8d6d-4733-8004-6089a5dda855":"绿都二期换热站","4d94f835-7c59-4ad0-a39d-2a90f1f80d79":"梁吉村东换热站","ac0d9010-bba2-4d53-91b3-029ae5207345":"李家堡换热站(纬四路)","ab7885ae-099d-4b00-a3ae-19897462f77a":"赵家堡村换热站","e1f35436-a1ae-41d0-bd29-b893afd318f2":"李家堡村换热站(纬三路)","096715ab-702c-44b1-8989-0317178c48f1":"韩屯村南换热站","747ed9de-4caa-494e-aa1d-8008d501f8e0":"韩屯村北换热站","ef1757e3-06cd-43b1-8cc3-d088b50065e7":"亚泰苑换热站","0a3e11a5-dca8-461f-b168-7ca7c2aa3122":"会计事务所换热站","441aabd9-43a9-4395-b596-f94ee371c9a5":"嘉禾园换热站","a58ad4ff-7488-44de-aeda-7056c6bb667a":"安居苑换热站","c5b9bb35-6deb-4066-b638-df1920064a40":"安泰换热站","0946f809-6e40-4d0f-bd98-032ce57b105d":"安康嘉园换热站","cc36c170-a62b-4d58-a53d-df4e8b628809":"上站村换热站","7117c79a-b3b9-450a-8b82-fbbf3af271da":"顺康换热站","fe5e3396-9059-417c-88d7-4aa6448c641e":"公安局换热站","ee8daff2-5a52-443d-bfb3-6b9786b91894":"蓉和菀换热站","e2c4cf74-1dc8-4b34-8822-48fe1cb4cb1c":"气象局换热站","b15bb406-e07f-41ef-9994-9d94acbad115":"嘉欣苑高区换热站","7a7fe618-214c-477d-bcae-1fd003fd47a0":"嘉欣苑中区换热站","18fe049d-76ee-40f9-b0a9-00a47f2e1fd3":"嘉欣苑低区换热站","4f1e3458-8f71-4544-ad28-368a35bf55d2":"三道河(信河苑)换热站","151f37ea-b0cf-4d33-8c23-8ecf8a4950dd":"宋古换热站","b479cee0-f702-462c-afcc-dde60e1dae26":"宋古村换热站","38d25e5f-37c9-472d-9a91-ddb7ae0229ee":"宋古驾校换热站","7a6c83a1-6668-45a8-994c-98ccc523fc85":"马女村换热站","94768ab2-55bd-44e7-a66f-3bad8e7ca0cd":"绵山一中换热站","c1ff3cdb-4b8a-4061-9c61-b9a863f9c92a":"南靳屯村换热站","a274d704-5bbd-498d-8c3b-f34d0c94a312":"交警队换热站","5780ca0f-8314-4ccc-adc5-6aae77a96678":"后党峪小区换热站","2d69300e-c87b-41c9-af27-9db83c13124a":"粮食局直属库换热站","be18e6c9-f444-45df-afb0-f97ba60d8021":"东南办事处换热站","75ba66df-ed3f-41ae-9a8f-67986595172c":"定阳路南换热站","500deff6-cd87-44fb-86e6-c1fc418afb30":"石油公司换热站","dfaa38e4-b56e-408f-8eeb-cf62044ad4e5":"电碳厂（一区）换热站","b6f29c99-45ab-45f6-a96d-35043e596ebf":"石河村换热站","f4f44852-3895-4138-a860-fadf602486b7":"电杆厂换热站","6e704d46-8f69-4a08-a2e9-54878ac543e9":"朝阳路换热站","f0468692-ae50-44a0-a0c5-3f6aec9d7f27":"永康换热站","324f589d-f646-446b-98c2-c2aca2ee97fc":"顺城关换热站","32ee3f1b-8bdb-4ee5-87c0-a8c8c081e31b":"彦泰换热站","9dee2c27-b1c6-4950-ba24-d9408fa50366":"介休一中换热站","f7cd7edf-3513-445e-b072-6688f22889f0":"泓达小区换热站","ec327a73-703f-4b7d-a4db-b9dc7d7a007c":"二中C区（高区）换热站","7c991498-0bbe-44ea-8462-86ad11cccd61":"二中（低区）换热站","88a89d45-0831-4c06-81ae-9033440f9e0d":"馨苑小区换热站","4ffcdaed-d332-498d-8309-e0a26341ca46":"邮政局换热站","4fdfa4cf-3d74-47a7-a327-d90976e19af9":"盛华丽苑换热站","dc3f2349-6bbc-4161-ac54-89de73ba2999":"人民医院换热站","9f34e840-dd46-4ba8-83c2-22f0a9df2205":"环保局换热站","80c1ed83-8d91-42e9-bfa7-97ab229587c3":"城健局换热站","0054fd1f-7df7-4c0f-b788-40bae223920c":"北坛小学换热站","19ed6586-2e9b-47c6-bb36-76c1fa54d4e3":"药材公司换热站","8f8ba1df-0fc1-42ac-aa10-f874f9d168eb":"城关一院换热站","08f2ed60-4b7e-4a3d-acb4-e4ea62c4c2d2":"秀南怡苑换热站","fb8877c7-ec5c-46d2-91af-dde97eb81ef2":"物资机关换热站","246fa455-8dcc-4cbe-8286-26439feb7d7a":"中仁换热站","13565321-edf0-4c73-a6fd-b96db89be16f":"一品天下换热站","92d56709-b24e-4bcd-87a8-d21224221cf7":"矿务局供应处换热站","3b4ec881-6dfa-496c-80c0-d614d40fb4c7":"铁亮大厦换热站","2929b3ad-9170-45be-bc14-77ad3f0d656b":"车站二区换热站","05a5d05e-fc3d-4557-afba-dceffc0bb5f1":"二运换热站","bdaa7ce8-d145-470e-a3ac-d9f7f1cf1033":"矿务局医院换热站","33bbc8b8-e2d3-4e42-807d-ea8513621642":"富康苑换热站","e8c17621-8906-451c-b196-26e4cfe5fe0f":"电碳厂换热站(宿舍)","b986e515-d4d5-48f4-b67b-a39fea6fd9f2":"城隍庙换热站","939e2f11-92b3-4a3a-81aa-39b8078500fd":"南大街换热站","6b2a0c3a-30db-4886-a8da-65c0753aa30a":"党校换热站","52cecd73-bf64-4efd-95bf-e1f22362fc3b":"体委换热站","b113143c-8e53-459e-a533-06dcb55df3fc":"中行换热站","addf3e51-f873-41cf-b6db-7e7122f4b3b9":"矿务局(汾矿)机关换热站","d11c3995-9c4e-4723-8056-9c66bc0faeb0":"矿务局技校换热站","8f6e3431-e8e1-44c3-945e-da4915cefe73":"农发行换热站","7cb048be-f7c5-4555-8718-5b23b02b0333":"景泰换热站","296bd631-fb9d-49ec-a8e8-e93139f0c713":"水泵厂换热站","73826f02-776d-4267-83ef-0fa34464b19d":"无机盐厂换热站","3249afaf-82a1-459c-919b-dbc4a995cb4b":"棚户区二期高区换热站","f28b5a31-2e15-4d36-a7e2-6d5aaf3a0159":"棚户区二期低区换热站","74324b6a-cabe-4b37-886b-59e1874fb764":"消防队换热站","408e509b-e95f-4f60-9f81-b18cb421f58d":"绵山墅高区换热站","424f2b3c-3602-4907-ac6a-5718f600e61d":"纸厂换热站","3301c33a-5fb6-48a1-bb18-5a2421aaacea":"北村东换热站","a66fe5ad-7556-46b9-84c9-f2283977379a":"北村西换热站","f6830324-db08-4d18-87b6-17142a9ba261":"小宋曲换热站","d215d902-db94-4e6b-b1d2-76924f8585d1":"钦屯小区换热站","6b82ff48-f998-4df8-96e9-04f4a04593d2":"滨河小区换热站","207d8659-160e-471f-b8bc-5068863873ec":"东内封换热站","3f6370d5-66c0-40f0-b054-96833ad57867":"西内封换热站","bce82b14-4ba0-4dfd-9c3a-42e8d841b047":"上城南村换热站","b2bbbdd5-90d3-46c6-8574-623c5c528929":"机务站换热站","3e46a853-928f-49ac-9d0a-171ef1646384":"种羊场换热站","d898574b-ca0f-48ff-8404-2a17171787d4":"东段屯换热站","8e4278f8-5626-4f47-b428-8ae4fe4181cf":"宋安屯换热站","145df8f3-0fe9-43d0-9fec-0ee6e71e8e6d":"洪善换热站","7a234a72-758d-480e-aa00-aa4b09a22977":"西段屯换热站","cf430d2b-9f6a-4f5e-89d4-9d5abbc9536b":"康和小区换热站","27ed4d57-bd91-4a14-bf09-d2ac328730f4":"韩屯村东换热站","fc32a6bf-4147-4555-b0b3-d9ade7814645":"岳家湾换热站","2744cee8-9b13-4c7b-947f-e72b2e54547f":"祥和嘉园换热站","3a319a8b-754f-4449-b17e-1d92c0c9b2b7":"西靳屯换热站"}
+
+  function go() {
+    let msg = $('#search').val()
+    let startTime = $('#startTime').val()
+    let endTime = $('#endTime').val()
+    let res = []
+    for(let i in uidName) {
+      res.push({
+        "query": "select uid,timestamp,supplyWaterTemperatureLine2_offset_rank as rank from smart_data where uid = \"sd_"+ i +"\" limit 1"
+      })
+    }
+    $('#sql').val(JSON.stringify(res))
+  }
+
+  function change() {
+    let tableData = $('#res').val()
+    makeTable(JSON.parse(tableData))
+  }
+
+  function makeTable(data) {
+    $('#tab').empty().append('<thead></thead><tbody></tbody>')
+    $('#tab').find('thead').append('<th>站名</th>')
+    let dataModel = data[0].dataModel.fieldList
+    let tr = []
+    dataModel.forEach(item => {
+      if(item.name != 'uid' && item.name != 'timestamp') {
+        tr.push(item.name)
+        $('#tab').find('thead').append('<th>'+item.name+'</th>')
+      }
+    })
+
+
+    data.forEach(item => {
+      let data = item.data
+      let res = {}
+      if(Object.keys(data).length > 0) {
+        res.name = uidName[data.uid[0].slice(3)]
+
+        for(let i in data) {
+          if(i != 'uid' && i != 'timestamp') res[i] = data[i][0]
+        }
+      }
+
+      if(Object.keys(res).length > 0) {
+        let str = '<tr>'
+        for(let i in res) {
+           str += '<td>'+ res[i] +'</td>'
+        }
+        str += '</tr>'
+        $('#tab').find('tbody').append(str)
+      }
+    })
+
+  }
+
+</script>
+</html>

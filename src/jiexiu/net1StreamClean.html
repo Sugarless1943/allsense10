@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<textarea id="in" rows="10" cols="100"></textarea>
+<button onclick="fn()">转换</button>
+<textarea id="out" rows="10" cols="100"></textarea>
+</body>
+<script>
+    let a = ["e700c79087ce9cfa","106f491a89ee6e22","1b6bcab3d92e5a8f","f146cb48b6f348c2","b2c6b9e03ef84ba6","578dc988289ea34f","4167f32408ed05f4","a0e849538359faa1","c1afc6bea83fa268","5ba51b7e78b71d7d","17af1cc94f1f6bfa","b0712f998ad862cb","0582f9975a1cc1f2","7751069353fe3f13","17aa4305aa1e24f1","f841684cc0f708a3","dfad9b994aeb35cf","9d13dbda9a61e3d6","6f1db6e52ea9b117","92f0eed423aafe09","9f7eecb504f181c6","a177f784e709249c","d2c7589d0fda1249","e2665e955e28f333","ce2fc6dfd1caef4e","4af5203795fa063a","b829991424383b38","c956a175100de8de","a07303d513a21a37","cece8c91c3acead8","2e3c3080e1cf54a2","048644ae5e2f94ea","774ce242767cccba","d83a11dd52f9b849","ad141974979e43b8","e3b1033dfdb9e20d","003232b8cf5fa701","6867696c12a576f1","78ee0f1ebb3693ce","f257035b94bd8a7f","e3fac596c9062f8d"]
+
+    let deleteNode = [
+        // {"uid":"7117c79a-b3b9-450a-8b82-fbbf3af271da", "node":'H24'},
+        // {"uid":"a3a6ca91-913c-45ac-bd3e-71fbb3c6c402", "node":'H3'},
+        // {"uid":"cf430d2b-9f6a-4f5e-89d4-9d5abbc9536b","node":'H105'}
+    ]
+
+    let deleteUids = deleteNode.map(item => {
+        return item.uid
+    })
+    let deleteNodes = deleteNode.map(item => {
+        return item.node
+    })
+
+    let addNode = [
+        // {"uid":"2f1bbd81-7cd2-48f3-880a-22a1ef480c1e","node":"H13_N"},
+        // {"uid":"9fa0b4ed-89bc-4691-81b7-b1e091e5467b","node":"H105_H"},
+        // {"uid":"b759cccd-b61a-4f4b-ac3c-2e548d09d65a","node":"H94_N"},
+        // {"uid":"cf430d2b-9f6a-4f5e-89d4-9d5abbc9536b","node":"H105_L"},
+        // {"uid":"780ba33d-6a54-47b5-a1e8-9f3fcfcb3f1e","node":"H29_N"},
+        // {"uid":"4a370fe9-f18b-4b7f-bc4b-88aa688ad5e1","node":"H24_L"},
+        // {"uid":"f1394e8f-7eb7-45b7-88a5-ca3a2260b981","node":"H24_H"},
+        // {"uid":"8fe92686-2afe-44a5-8f0e-76ffb5b591d0","node":"H3_L"},
+        // {"uid":"52531b1d-663b-46de-a816-6a5148208fce","node":"H3_M"},
+        // {"uid":"910a43fd-d055-4a16-b161-6f3854658138","node":"H3_H"},
+        // {"uid": "afd78e0d-9684-4ca8-810c-9af8d9b9dd09", "node":"H87_L"},
+        // {"uid": "ef8c97e1-d3d6-4d5c-ace1-26c67e7e67ea", "node":"H85_N"}
+
+        {"uid":"e1807a04-e588-4443-bfcb-b72967c4cf31","node":"H118"},
+        {"uid":"b6c16f47-a72f-4380-b317-6123ada01bb8","node":"H119_L"},
+        {"uid":"781c1a47-d6b5-434f-8a38-32e2e8f372e2","node":"H119_H"},
+        {"uid":"d989c75c-271c-4f67-8d6f-e36290ab79d0","node":"H120_L"},
+        {"uid":"08817f59-01b8-4560-99f3-716b93fdce9a","node":"H120_H"},
+        {"uid":"260fcff0-09b5-43c8-9c99-9399a6fba3ce","node":"H121"}
+    ]
+
+    // addNode.map(item => {
+    //     deleteUids.push(item.uid)
+    //     deleteNodes.push(item.node)
+    // })
+
+    function fn() {
+        let input = document.getElementById("in")
+        // let baseUid = '266cf4b6-4028-4b75-9d48-251aa1ed811f' //首站
+        // let baseNode = 'H2_'
+        let baseJson = JSON.parse(input.value)
+        // console.log(baseJson)
+
+        let [conditions,settings] = [baseJson.conditions, baseJson.settings]
+        let baseCondition1 = conditions[1]
+        let baseCondition2 = conditions[2]
+        // let baseSettings = {}
+        // for(let i in settings) {
+        //     if(i.includes(baseNode)) {
+        //         baseSettings[i] = settings[i]
+        //     }
+        // }
+        // console.log(baseSettings, 'baseSettings')
+
+        //condition
+        // console.log(conditions, 'conditions')
+        let conditions_after = conditions.filter(item => {
+            let uid = item.condition.slice(6,-1)
+            return !deleteUids.includes(uid)
+        })
+        // console.log(baseNode, 'baseNode')
+        addNode.forEach(item => {
+            let obj = JSON.parse(JSON.stringify(item.uid == "e1807a04-e588-4443-bfcb-b72967c4cf31" ? baseCondition1 : baseCondition2))
+            obj.condition = `uid==\"${item.uid}\"`
+            for(let i in obj) {
+                if(i != 'condition') {
+                    obj[i] = obj[i].replaceAll(item.uid == "e1807a04-e588-4443-bfcb-b72967c4cf31" ? "H1_" : "H2_", item.node + "_")
+                }
+            }
+            conditions_after.push(obj)
+        })
+
+        // console.log(conditions_after)
+
+        //settings
+        console.log(deleteNodes)
+        // for(let i in settings) {
+        //     // let node = i.split("_")[0]
+        //     // if(deleteNodes.includes(node)) {
+        //     //     delete settings[i]
+        //     // }
+        //     deleteNodes.forEach(item => {
+        //         if(i.startsWith(item)) {
+        //             delete settings[i]
+        //         }
+        //     })
+        // }
+        // console.log(settings)
+
+        addNode.forEach(item => {
+            let baseNode = item.uid == "e1807a04-e588-4443-bfcb-b72967c4cf31" ? "H1_" : "H2_"
+            let baseSettings = getSettings(settings, baseNode)
+            for(let i in baseSettings) {
+                let newKey = i.replace(baseNode, item.node + "_")
+                settings[newKey] = baseSettings[i]
+                // settings[newKey] = null
+            }
+        })
+
+
+        baseJson.conditions = conditions_after
+        baseJson.settings = settings
+
+        // console.log(baseJson, 'baseJson')
+        document.getElementById("out").value = JSON.stringify(baseJson)
+    }
+
+    function getSettings(settings, baseNode) {
+        let baseSettings = {}
+        for(let i in settings) {
+            if(i.includes(baseNode)) {
+                baseSettings[i] = settings[i]
+            }
+        }
+
+        return baseSettings
+    }
+</script>
+</html>

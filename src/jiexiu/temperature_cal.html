@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let obj = {}
+    let obj1 = {}
+    let arr = []
+
+    let obj2 = {}
+    let arr2 = []
+
+    let arr3 = []
+
+    for (let i = 1; i < 13; i++) {
+        obj[`b1_1_temperature${i}_cal_enable`] = 1
+        obj[`b1_2_temperature${i}_cal_enable`] = 1
+
+        obj1[`temperature${i}_cal_enable`] = `b1_2_temperature${i}_cal_enable`
+
+        // "temperature1_use_enable": "temperature1 > indoorTempMin && temperature1 < indoorTempMax && temperature1_cal_enable == 1 && isNull(temperature1) == 0"
+        obj2[`temperature${i}_use_enable`] = `temperature${i} > indoorTempMin && temperature${i} < indoorTempMax && temperature${i}_cal_enable == 1 && isNull(temperature${i}) == 0`
+
+        arr2.push({
+            "name": `temperature${i}_use_enable`,
+            "label": `temperature${i}温度校验`,
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+        })
+
+
+        arr.push({
+            "name": `temperature${i}_cal_enable`,
+            "type": "DOUBLE"
+        })
+
+        arr3.push({
+            "name":"temperature" + i,
+            "dataType": "DOUBLE"
+        })
+    }
+
+    // document.write(JSON.stringify(obj))
+    document.write(JSON.stringify(arr3))
+    // document.write(JSON.stringify(arr))
+</script>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let uids = [
+        "70f1ff21040d000",
+        "70f1ff21040d001",
+        "70f1ff21040d002",
+        "70f1ff21040d003",
+        "70f1ff21040d004",
+        "70f1ff21040d005",
+        "70f1ff21040d006",
+        "70f1ff21040d007",
+        "70f1ff21040d008",
+        "70f1ff21040d009",
+        "70f1ff21040d00a",
+        "70f1ff21040d00b",
+        "70f1ff21040d00c",
+        "70f1ff21040d00d",
+        "70f1ff21040d00e",
+        "70f1ff21040d00f",
+        "70f1ff21040d010",
+        "70f1ff21040d011",
+        "70f1ff21040d012",
+        "70f1ff21040d013",
+        "70f1ff21040d014",
+        "70f1ff21040d015",
+        "70f1ff21040d016",
+        "70f1ff21040d017",
+        "70f1ff21040d018",
+        "70f1ff21040d019",
+        "70f1ff21040d01a",
+        "70f1ff21040d01b",
+        "70f1ff21040d01c",
+        "70f1ff21040d01d",
+        "70f1ff21040d01e",
+        "70f1ff21040d01f",
+        "70f1ff21040d020",
+        "70f1ff21040d021",
+        "70f1ff21040d022",
+        "70f1ff21040d023",
+        "70f1ff21040d024",
+        "70f1ff21040d025",
+        "70f1ff21040d026",
+        "70f1ff21040d027",
+        "70f1ff21040d028",
+        "70f1ff21040d029",
+        "70f1ff21040d02a",
+        "70f1ff21040d02b",
+        "70f1ff21040d02c",
+        "70f1ff21040d02d",
+        "70f1ff21040d02e",
+        "70f1ff21040d02f",
+        "70f1ff21040d030",
+        "70f1ff21040d031"
+    ]
+
+    let data =  {
+        "nodeId": "9bec262b49b99d93",
+        "name": "单个天气预测",
+        "moduleId": "ProcessFlow:Module",
+        "description": "",
+        "parameters": {
+            "refId": "70f1c4f5040b000",
+            "param": {
+                "temperature": "temperature_future_1_high",
+                "target": "temperature_future_1_high_scoring",
+                "targetLabel": "未来1天高温热量预测值",
+                "revise": "temperature_future_1_high_scoring_revise"
+            }
+        },
+        "uiParameters": {
+            "componentId": "Module",
+            "editorData": null
+        }
+    }
+
+    let res = []
+    let name = ['高', '均', '低']
+    let index = 0
+    for (let i = 1; i <= 7; i++) {
+        ['high', 'avg', 'low'].map((end, j) => {
+            res.push({
+                "nodeId": uids[index],
+                "name": `未来${i}天${name[j]}温热量预测值`,
+                "moduleId": "ProcessFlow:Module",
+                "description": "",
+                "parameters": {
+                    "refId": "70f1c4f5040b000",
+                    "param": {
+                        "temperature": `temperature_future_${i}_${end}`,
+                        "target": `temperature_future_${i}_${end}_scoring`,
+                        "targetLabel": `未来${i}天${name[j]}温热量预测值`,
+                        "revise": `temperature_future_${i}_${end}_scoring_revise`
+                    }
+                },
+                "uiParameters": {
+                    "componentId": "Module",
+                    "editorData": null
+                }
+            })
+        })
+    }
+
+    console.log(JSON.stringify(res))
+</script>
+</html>

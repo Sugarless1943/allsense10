@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button icon>aaa</button>
+<button>bbb</button>
+</body>
+<script>
+    function Parent() {}
+    // Parent.prototype.show = function() {
+    //     console.log('par show')
+    // }
+    // function Chi() {
+    //
+    // }
+    // let c = new Chi()
+    //
+    // // Chi.prototype = Object.create(Parent.prototype)
+    // 定义 constructor  设定constructor不可被遍历
+    // Chi.prototype.__proto__ = Parent.prototype
+    //
+    // Parent.prototype.roll = function() {
+    //     console.log('par roll')
+    // }
+    //
+    //
+    //
+    // console.log(c)
+    // c.show()
+    // c.roll()
+    // let p = new Parent()
+    // console.log(p)
+
+    // let p = Parent.prototype.constructor
+    let p = new Parent()
+    let c = p.__proto__.constructor
+
+    console.log(c)
+</script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body, html {
+            padding: 0;
+            margin: 0;
+        }
+
+        #block {
+            width: 50px;
+            height: 50px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="block"></div>
+</body>
+<script>
+    class Animation {
+        constructor(el) {
+            this.dom = document.querySelector(el)
+            this.dom.style.position = 'relative'
+            this.dom.style.left = '0px'
+            this.dom.style.top = '0px'
+        }
+
+        right() {
+            return new Promise((resolve, reject) => {
+                let timer = setInterval(() => {
+                    let left = parseInt(this.dom.style.left)
+                    this.dom.style.left = (left + 10) + 'px'
+                    if (left == 200) {
+                        resolve(this)
+                        clearInterval(timer)
+                    }
+                }, 10)
+            })
+        }
+
+        left() {
+            return new Promise((resolve, reject) => {
+                let timer = setInterval(() => {
+                    let left = parseInt(this.dom.style.left)
+                    this.dom.style.left = (left - 10) + 'px'
+                    if (left == 0) {
+                        resolve(this)
+                        clearInterval(timer)
+                    }
+                }, 10)
+            })
+        }
+
+        down() {
+            return new Promise((resolve, reject) => {
+                let timer = setInterval(() => {
+                    let top = parseInt(this.dom.style.top)
+                    this.dom.style.top = (top + 10) + 'px'
+                    if (top == 200) {
+                        console.log(this)
+                        resolve(this)
+                        clearInterval(timer)
+                    }
+                }, 10)
+            })
+        }
+
+        up() {
+            return new Promise((resolve, reject) => {
+                let timer = setInterval(() => {
+                    let top = parseInt(this.dom.style.top)
+                    this.dom.style.top = (top - 10) + 'px'
+                    if (top == 0) {
+                        resolve(this)
+                        clearInterval(timer)
+                    }
+                }, 10)
+            })
+        }
+
+        repeat(num) {
+            let n = 0
+            this.circle(() => {
+                n += 1
+                return n == num
+            })
+        }
+
+        circle(callback) {
+            return new Promise(resolve => {
+                this.right().then(self => {
+                    return self.down()
+                }).then(self => {
+                    return self.left()
+                }).then(self => {
+                    return self.up()
+                }).then(() => {
+                    if (!callback()) {
+                        return this.circle(callback)
+                    }
+                })
+            })
+        }
+    }
+
+    let a = new Animation('#block')
+    a.repeat(2)
+</script>
+</html>

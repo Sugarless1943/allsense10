@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let res = []
+    let uids = [
+        "70f11f57a00d000",
+        "70f11f57a00d001",
+        "70f11f57a00d002",
+        "70f11f57a00d003",
+        "70f11f57a00d004",
+        "70f11f57a00d005",
+        "70f11f57a00d006",
+        "70f11f57a00d007",
+        "70f11f57a00d008",
+        "70f11f57a00d009",
+        "70f11f57a00d00a",
+        "70f11f57a00d00b",
+        "70f11f57a00d00c",
+        "70f11f57a00d00d",
+        "70f11f57a00d00e",
+        "70f11f57a00d00f",
+        "70f11f57a00d010",
+        "70f11f57a00d011",
+        "70f11f57a00d012",
+        "70f11f57a00d013",
+        "70f11f57a00d014",
+        "70f11f57a00d015",
+        "70f11f57a00d016",
+        "70f11f57a00d017",
+        "70f11f57a00d018",
+        "70f11f57a00d019",
+        "70f11f57a00d01a",
+        "70f11f57a00d01b",
+        "70f11f57a00d01c",
+        "70f11f57a00d01d",
+        "70f11f57a00d01e",
+        "70f11f57a00d01f",
+        "70f11f57a00d020",
+        "70f11f57a00d021",
+        "70f11f57a00d022",
+        "70f11f57a00d023",
+        "70f11f57a00d024",
+        "70f11f57a00d025",
+        "70f11f57a00d026",
+        "70f11f57a00d027",
+        "70f11f57a00d028",
+        "70f11f57a00d029",
+        "70f11f57a00d02a",
+        "70f11f57a00d02b",
+        "70f11f57a00d02c",
+        "70f11f57a00d02d",
+        "70f11f57a00d02e",
+        "70f11f57a00d02f",
+        "70f11f57a00d030",
+        "70f11f57a00d031"
+    ]
+    let index = 1
+    let name = ['高', '均', '低']
+    for (let i = 1; i <= 7; i++) {
+        ['high', 'avg', 'low'].map((end,j) => {
+            res.push({
+                "nodeType": "PROCESS_PARAM",
+                "nodeId": uids[index],
+                "moduleId": "Toolkit:MinerScoring",
+                "name": `未来${i}天${name[j]}温天气预测`,
+                "description": "",
+                "parameters": {
+                    "url": "http://miner-service:9002/predict",
+                    "instanceIdField": "instanceId",
+                    "version": "1.0",
+                    "switchOnField": "scoring_cal_enable",
+                    "inputMappings": [
+                        {
+                            "source": `temperature_future_${i}_${end}`,
+                            "target": "outdoor_temperature"
+                        }
+                    ],
+                    "inputExtraFields": {},
+                    "outputMappings": [
+                        {
+                            "source": "instantaneous_heat",
+                            "target": `temperature_future_${i}_${end}_scoring`,
+                            "label": `未来${i}天${name[j]}温热量预测值`,
+                            "description": "",
+                            "defaultValue": null
+                        }
+                    ]
+                }
+            })
+            index++
+        })
+    }
+
+    console.log(JSON.stringify(res))
+</script>
+</html>

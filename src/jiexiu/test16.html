@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let data = [
+        {
+            "timeSeries": "DayWeather:8c50bc5c-cdcc-3493-a652-8fd500d910d1:highTemperature",
+            "label": "temperature_future_1_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_1_high"
+        },
+        {
+            "timeSeries": "DayWeather:1743990f-c523-36b3-8590-ab3c1ed6dff6:highTemperature",
+            "label": "temperature_future_2_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_2_high"
+        },
+        {
+            "timeSeries": "DayWeather:7f1410f7-0dc5-3244-a220-bc3cbdfe8a90:highTemperature",
+            "label": "temperature_future_3_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_3_high"
+        },
+        {
+            "timeSeries": "DayWeather:9c3fee67-8c58-352f-92ea-e91f95cc6fcc:highTemperature",
+            "label": "temperature_future_4_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_4_high"
+        },
+        {
+            "timeSeries": "DayWeather:ffc7da51-289d-34c9-bd48-732fa6794413:highTemperature",
+            "label": "temperature_future_5_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_5_high"
+        },
+        {
+            "timeSeries": "DayWeather:93fe46ae-2f13-3454-9776-2f0d999bb78b:highTemperature",
+            "label": "temperature_future_6_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_6_high"
+        },
+        {
+            "timeSeries": "DayWeather:968f1152-7efc-3ce5-8760-84e333e7fdc2:highTemperature",
+            "label": "temperature_future_7_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_7_high"
+        }
+    ]
+
+    let res = []
+    data.map((item,index) => {
+        let arr = item.timeSeries.split(":")
+        arr[2] = "windSpeed"
+        res.push({
+            "timeSeries": arr.join(":"),
+            "label": `temperature_future_${index+1}_windSpeed`,
+            "type": "DOUBLE",
+            "desp": `temperature_future_${index+1}_windSpeed`
+        })
+    })
+
+    console.log(JSON.stringify(res))
+
+
+
+</script>
+</html>

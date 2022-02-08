@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    const protect = Symbol()
+    class User {
+        [protect] = {}
+        constructor(param) {
+            this[protect] = param
+        }
+
+        get name() {
+            return this[protect].name
+        }
+
+        get age() {
+            return this[protect].age
+        }
+
+        get address() {
+            return this[protect].address
+        }
+    }
+    class Admin extends User {
+        constructor(param) {
+            super(param);
+        }
+    }
+
+    let b = new Admin({name: 'a', age: 1, address: 'bbb'})
+    console.log(b.name)
+    let c = new Admin({name: 'c', age: 2, address: 'ddd'})
+    console.log(c.name)
+</script>
+</html>

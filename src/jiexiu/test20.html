@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let a = [
+        {"uid":"e1807a04-e588-4443-bfcb-b72967c4cf31","node":"H118"},
+        {"uid":"b6c16f47-a72f-4380-b317-6123ada01bb8","node":"H119_L"},
+        {"uid":"781c1a47-d6b5-434f-8a38-32e2e8f372e2","node":"H119_H"},
+        {"uid":"d989c75c-271c-4f67-8d6f-e36290ab79d0","node":"H120_L"},
+        {"uid":"08817f59-01b8-4560-99f3-716b93fdce9a","node":"H120_H"},
+        {"uid":"260fcff0-09b5-43c8-9c99-9399a6fba3ce","node":"H121"}
+    ]
+
+    let res = []
+    let map = {}
+   a.map(item => {
+       // res.push({
+       //     "condition": `uid==\"${item.uid}\"`,
+       //     "control_uid": `\"${item.uid}\"`,
+       //     "instanceId": null,
+       //     "control_enable": `${item.node}_enable`,
+       //     "assessment": 100,
+       //     "source": "\"S1\"",
+       //     "level": 2,
+       //     "source_num": 1
+       // })
+
+       // map[item.node+"_enable"] = 0
+        res.push({
+            "name": `${item.node}_enable`,
+            "type": "DOUBLE",
+            "expression": `${item.node}_enable`,
+            "desp": "换热站开关"
+        })
+   })
+
+    console.log(JSON.stringify(res))
+</script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        section {
+            width: 100px;
+        }
+
+        header {
+            height: 30px;
+            background: #409eff;
+        }
+
+        main {
+            height: 120px;
+            background: #004E74;
+        }
+
+    </style>
+</head>
+<body>
+<div id="aaa">
+    <section>
+        <header></header>
+        <main></main>
+    </section>
+    <section>
+        <header></header>
+        <main></main>
+    </section>
+    <section>
+        <header></header>
+        <main></main>
+    </section>
+</div>
+
+</body>
+<script>
+    class A {
+        arr = []
+        constructor(el) {
+            this.el = document.querySelector(el)
+            this.blocks = this.el.querySelectorAll('section')
+            this.blocks.forEach((item,index) => {
+                this.arr.push(new Block(item,index))
+            })
+
+            this.headerClick()
+        }
+
+        headerClick() {
+            this.arr.forEach((item,index,arr) => {
+                item.header.addEventListener('click', e => {
+                    arr.forEach(jtem => {
+                        if(index == jtem.index) {
+                            jtem.show = true
+                        } else {
+                            jtem.show = false
+                        }
+                    })
+
+                    console.log(this.arr)
+                })
+            })
+
+        }
+    }
+
+    class Block{
+        constructor(el, index) {
+            this.header = el.querySelector('header')
+            this.main = el.querySelector('main')
+            this.index = index
+            this.show = false
+        }
+
+        set show(show) {
+            if(show) {
+                this.main.style.height = '120px'
+            }else {
+                this.main.style.height = '0px'
+            }
+        }
+    }
+
+    let a = new A('#aaa');
+</script>
+</html>

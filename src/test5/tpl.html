@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    p>label {
+      display: inline-block;
+      width: 70px;
+    }
+    input {
+      width: 305px;
+    }
+  </style>
+</head>
+<body>
+
+  <textarea id="content" rows="5" cols="50"></textarea>
+  <p>
+    <label>uid：</label><input id="uid"/>
+  </p>
+  <p>
+    <label>code：</label><input id="code"/>
+  </p>
+  <p>
+    <button onclick="go()">转换</button>
+  </p>
+  <textarea id="res" rows="5" cols="50"></textarea>
+
+</body>
+<script>
+  function go() {
+    let content = JSON.parse(document.getElementById("content").value)
+    let uid = document.getElementById("uid").value
+    let code = document.getElementById("code").value
+
+    // console.log(code)
+
+    let data = [
+      {
+        "layout": {
+          "x": 335.5,
+          "y": 166.63,
+          "width": 80,
+          "height": 80,
+          "scaleX": 1.188,
+          "scaleY": 1.3,
+          "offsetX": 40,
+          "offsetY": 40,
+          "rotation": 0
+        },
+        "bid": "",
+        "eventMsg": "",
+        "type": "ScadaImage",
+        "options": {
+          "param": {
+            "imgUrl": "/direct/api/repository/file/download/16f862cc-4b64-43f6-86f0-777ed37cc12b"
+          },
+          "style": {}
+        },
+        "binding": {
+          "val": {
+            "type": "smart_data",
+            uid,
+            "field": "("+code+"_enable = 1) AND (all_enable = 1) AS "+code+"_CONTROL_1"
+          }
+        },
+        "bindingValue": {
+          "val": null,
+          "alarm": 0
+        },
+        "locked": false
+      },
+      {
+        "layout": {
+          "x": 335.35,
+          "y": 167.94,
+          "width": 80,
+          "height": 80,
+          "scaleX": 1.188,
+          "scaleY": 1.3,
+          "offsetX": 40,
+          "offsetY": 40,
+          "rotation": 0
+        },
+        "bid": "",
+        "eventMsg": "",
+        "type": "ScadaImage",
+        "options": {
+          "param": {
+            "imgUrl": "/direct/api/repository/file/download/3db95c1a-0d32-44b5-9b58-3c5b939bc896"
+          },
+          "style": {}
+        },
+        "binding": {
+          "val": {
+            "type": "smart_data",
+            uid,
+            "field": "("+code+"_enable = 0) OR (all_enable = 0) AS "+code+"_CONTROL_2"
+          }
+        },
+        "bindingValue": {
+          "val": null,
+          "alarm": 0
+        },
+        "locked": false
+      },
+      {
+        "layout": {
+          "x": 353.61,
+          "y": 168.74,
+          "width": 80,
+          "height": 80,
+          "scaleX": 0.75,
+          "scaleY": 0.75,
+          "offsetX": 40,
+          "offsetY": 40,
+          "rotation": 0
+        },
+        "bid": "",
+        "eventMsg": "",
+        "type": "ScadaImage",
+        "options": {
+          "param": {
+            "imgUrl": "/direct/api/repository/file/download/88d0c2ff-5f55-424f-9e3c-908626b0d621"
+          },
+          "style": {}
+        },
+        "binding": {
+          "val": {
+            "type": "smart_data",
+            uid,
+            "field": code+"_enable = 2"
+          }
+        },
+        "bindingValue": {
+          "val": null,
+          "alarm": 0
+        },
+        "locked": false
+      },
+      {
+        "layout": {
+          "x": 362.29,
+          "y": 250.35,
+          "width": 80,
+          "height": 80,
+          "scaleX": 0.588,
+          "scaleY": 0.188,
+          "offsetX": 40,
+          "offsetY": 40,
+          "rotation": 0
+        },
+        "bid": "",
+        "eventMsg": "下钻",
+        "type": "ScadaImage",
+        "options": {
+          "param": {
+            "imgUrl": "/direct/api/repository/file/download/7dcffd3b-c8d8-4094-9a59-d8295bb8c0ae"
+          },
+          "style": {}
+        },
+        "binding": {
+          "val": {
+            "type": "smart_data",
+            uid
+          }
+        },
+        "bindingValue": {
+          "val": null,
+          "alarm": 0
+        },
+        "locked": false
+      },
+      {
+        "layout": {
+          "x": 190.93,
+          "y": 156.04,
+          "width": 80,
+          "height": 80,
+          "scaleX": 1.759,
+          "scaleY": 1.915,
+          "offsetX": 40,
+          "offsetY": 40,
+          "rotation": 0
+        },
+        "bid": "",
+        "eventMsg": "",
+        "type": "ScadaImage",
+        "options": {
+          "param": {
+            "imgUrl": "/direct/api/repository/file/download/633e3b1c-7202-4d6d-92ae-f821b13d3242"
+          },
+          "style": {}
+        },
+        "binding": {
+          "val": {
+            "type": "smart_data",
+            uid,
+            "field": "all_enable = 0 OR workMode = 0 AS "+code+"_CONTROL_3"
+          }
+        },
+        "bindingValue": {
+          "val": null,
+          "alarm": 0
+        },
+        "locked": false
+      }
+    ]
+
+    content.comps = content.comps.concat(data)
+
+    let res = document.getElementById("res")
+
+    res.innerText = JSON.stringify(content)
+  }
+
+
+
+
+</script>
+</html>

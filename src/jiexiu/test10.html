@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+   let data =  {"timestamp":"时间","uid":"uid","all_enable":"总开关","weather_0":"室外天气","control_enable":"开关","QRi":"供热不平衡率","heat_user_current_heat_load_state":"工况","instantaneousFlow_enable":"流量异常","temperature_indoor_enable":"温度异常","adjust_enable":"是否要调","indoor_temp_state":"室温状态","temperature1_isNull":"温度1非空","temperature1_use_enable":"温度1可用","temperature2_isNull":"温度2非空","temperature2_use_enable":"温度2可用","temperature3_isNull":"温度3非空","temperature3_use_enable":"温度3可用","temperature4_isNull":"温度4非空","temperature4_use_enable":"温度4可用","temperature5_isNull":"温度5非空","temperature5_use_enable":"温度5可用","temperature6_isNull":"温度6非空","temperature6_use_enable":"温度6可用","temperature7_isNull":"温度7非空","temperature7_use_enable":"温度7可用","temperature8_isNull":"温度8非空","temperature8_use_enable":"温度8可用","temperature9_isNull":"温度9非空","temperature9_use_enable":"温度9可用","temperature10_isNull":"温度10非空","temperature10_use_enable":"温度10可用","temperature11_isNull":"温度11非空","temperature11_use_enable":"温度11可用","temperature12_isNull":"温度12非空","temperature12_use_enable":"温度12可用","temperature13_isNull":"温度13非空","temperature13_use_enable":"温度13可用","temperature14_isNull":"温度14非空","temperature14_use_enable":"温度14可用"}
+
+   let res = []
+
+   for(let i in data) {
+       res.push(i)
+   }
+
+   console.log(JSON.stringify(res))
+</script>
+</html>

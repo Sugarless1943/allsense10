@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /**
+     * 1.查询uid
+     * https://www.allsmartcloud.com/api/service-type/graph
+     * {"query":"query ($sample:Object) {itemInfo{findItems(OBJECT:$sample)}}","arguments":{"sample":{"type":"smart_data_HeatUser_hbj","pageIndex":1,"pageCount":999,"isRecursion":false}}}
+     */
+    let hbjreq = [
+        {
+            "uid": "hbj_b2d6330c-3ecc-45ee-bb64-5ad569f69924",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区10楼",
+            "createTime": 1636455220756,
+            "location": "环保局_介坊小区_东区10楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_5679d2de-1da1-4edb-a09d-52b09439140c",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区12楼",
+            "createTime": 1636512750606,
+            "location": "环保局_介坊小区_东区12楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_922f44c5-6bbf-4c10-9eb9-164084d7a8ce",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区13楼",
+            "createTime": 1636512750618,
+            "location": "环保局_介坊小区_东区13楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_99c7eeee-c794-4505-855f-8764da43bbb8",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区16楼",
+            "createTime": 1636512750630,
+            "location": "环保局_介坊小区_东区16楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_d93462be-a5b7-4648-99ea-acd12b55666b",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区17楼",
+            "createTime": 1636512750643,
+            "location": "环保局_介坊小区_东区17楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_df4b883f-e7b6-4aee-84b0-d08aa45d37e8",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区18楼",
+            "createTime": 1636512750654,
+            "location": "环保局_介坊小区_东区18楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_acfa0e01-c41b-4098-9273-5d1c05eea2ee",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区19楼",
+            "createTime": 1636512750665,
+            "location": "环保局_介坊小区_东区19楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_579626f8-8ca8-44b7-a9b1-ad34a1e428a9",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区1楼",
+            "createTime": 1636512750677,
+            "location": "环保局_介坊小区_东区1楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_f586a9c1-bf30-47dc-9c35-abcdb0c31bdb",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区20楼",
+            "createTime": 1636512750689,
+            "location": "环保局_介坊小区_东区20楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_e1d7f046-7f66-45f6-b686-a2905d66371d",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区21楼",
+            "createTime": 1636512750709,
+            "location": "环保局_介坊小区_东区21楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_a6daa36a-9f92-4ed8-b54f-e65a55881e98",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区22楼",
+            "createTime": 1636512750720,
+            "location": "环保局_介坊小区_东区22楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_37cbefda-fbf0-49b8-8f5d-2fd5e78b98d8",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区2楼",
+            "createTime": 1636512750732,
+            "location": "环保局_介坊小区_东区2楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_9145f5fa-1edd-41b3-a621-c574ae532a5e",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区3楼",
+            "createTime": 1636512750745,
+            "location": "环保局_介坊小区_东区3楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_edcdcdb3-752a-493c-83cf-74f3a1ba0992",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区4楼",
+            "createTime": 1636512750759,
+            "location": "环保局_介坊小区_东区4楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_eb215c41-06f9-41fb-8d76-377b605252f5",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区5楼",
+            "createTime": 1636512750771,
+            "location": "环保局_介坊小区_东区5楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_0d051908-4c76-4e32-906d-2258fe23f35d",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区6楼",
+            "createTime": 1636512750782,
+            "location": "环保局_介坊小区_东区6楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_f2bf68e5-6efc-4fa6-8930-1028cc8b83d5",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区7楼",
+            "createTime": 1636512750793,
+            "location": "环保局_介坊小区_东区7楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_55b8e532-2a7b-41ef-b1d6-5a106bef8b9f",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区8楼",
+            "createTime": 1636512750805,
+            "location": "环保局_介坊小区_东区8楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_27743b6b-db55-421c-8579-8c76d4cf0d21",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区9楼",
+            "createTime": 1636512750816,
+            "location": "环保局_介坊小区_东区9楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_dee3ab7a-9a8d-4996-bef4-56658ad79c3b",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-1999-3楼",
+            "createTime": 1636512750828,
+            "location": "环保局_介坊小区_1999-3楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_4b00ec62-ce58-46aa-94ae-52bc0895b9d6",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-1999-4楼",
+            "createTime": 1636512750839,
+            "location": "环保局_介坊小区_1999-4楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_98254c74-b8bc-48fe-b98d-bb89f24df1e8",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-1999-5楼",
+            "createTime": 1636512750850,
+            "location": "环保局_介坊小区_1999-5楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_5a8abd7a-5a3c-43ca-a8e1-f3869f81d871",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-1999-6楼",
+            "createTime": 1636512750866,
+            "location": "环保局_介坊小区_1999-6楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_c6ed8986-b82a-4196-a23a-3403ad55c076",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-1999-7楼",
+            "createTime": 1636512750877,
+            "location": "环保局_介坊小区_1999-7楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_9d7066de-bb6c-42b0-9322-50e8d0a7918b",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-2000-1楼",
+            "createTime": 1636512750888,
+            "location": "环保局_介坊小区_2000-1楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_cd507880-b959-4066-8b27-917bb231aa50",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-2000-2楼",
+            "createTime": 1636512750899,
+            "location": "环保局_介坊小区_2000-2楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_593b161c-8690-4662-8322-0cdc4f00c085",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-2000-3楼",
+            "createTime": 1636512750910,
+            "location": "环保局_介坊小区_2000-3楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_25323e4b-8996-4cca-b3b1-51227877bad8",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-2000-4楼",
+            "createTime": 1636512750931,
+            "location": "环保局_介坊小区_2000-4楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_8a2974c0-0af7-4df4-80c8-f0fab92136a8",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-2000-5楼",
+            "createTime": 1636512750943,
+            "location": "环保局_介坊小区_2000-5楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_c3ed9e44-87aa-4fc0-a7d8-bb7c891555e5",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-2000-6楼",
+            "createTime": 1636512750956,
+            "location": "环保局_介坊小区_2000-6楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_620902b1-9423-49c6-94f5-d2ad6d1f87d6",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-2000-7楼",
+            "createTime": 1636512750969,
+            "location": "环保局_介坊小区_2000-7楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_60a3f4e2-fd6d-497e-8dd7-b98b00d86591",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-北区1楼",
+            "createTime": 1636512750981,
+            "location": "环保局_介坊小区_北区1楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_13cd8236-c38a-4646-8346-304d7480d332",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-北区2楼",
+            "createTime": 1636512750993,
+            "location": "环保局_介坊小区_北区2楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_484f475c-3b3d-40f8-af95-484279a2c85b",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-北区3楼",
+            "createTime": 1636512751005,
+            "location": "环保局_介坊小区_北区3楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_0230b8eb-7ebd-4cf9-9d9c-19ac0150c030",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-北区5楼",
+            "createTime": 1636512751017,
+            "location": "环保局_介坊小区_北区5楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_e470dccd-a0b0-45b1-bae0-755bfbbcf3a9",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-北区6楼",
+            "createTime": 1636512751029,
+            "location": "环保局_介坊小区_北区6楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_c185c754-3d8a-4bd3-8a30-f8d4742d3c2d",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-2005-3楼",
+            "createTime": 1636512751040,
+            "location": "环保局_介坊小区_2005-3楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_6a77c90b-d1c4-4e81-99ff-eeb604b2a6fe",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-2005-4楼",
+            "createTime": 1636512751052,
+            "location": "环保局_介坊小区_2005-4楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_35a1e31a-cf5f-42c7-b1c4-e52f4651d328",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-2007-4楼",
+            "createTime": 1636512751063,
+            "location": "环保局_介坊小区_2007-4楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_cc117ec7-77ee-4028-9606-a236ce22752e",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-2007-5楼",
+            "createTime": 1636512751074,
+            "location": "环保局_介坊小区_2007-5楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_d1a3c197-55c7-458d-85b1-aedb4b2ba591",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-1996-1楼",
+            "createTime": 1636512751086,
+            "location": "环保局_介坊小区_1996-1楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_4c68f1f1-f2c2-4032-84b3-28b9bc019fd0",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-1996-3东楼",
+            "createTime": 1636512751097,
+            "location": "环保局_介坊小区_1996-3东楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_0a398855-ed0d-4d0a-b6f3-d57f40a50e25",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-1999-1北楼",
+            "createTime": 1636512751108,
+            "location": "环保局_介坊小区_1999-1北楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_3b1518d4-d32d-4727-a56b-9570ea694f2c",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-1999-1南楼",
+            "createTime": 1636512751119,
+            "location": "环保局_介坊小区_1999-1南楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_6b6f2f81-4ec2-410e-9c3c-907bc0814718",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-1999-2北楼",
+            "createTime": 1636512751132,
+            "location": "环保局_介坊小区_1999-2北楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_d6eeb94d-d6e7-4309-88aa-d2c6727869e1",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-1999-2南楼",
+            "createTime": 1636512751143,
+            "location": "环保局_介坊小区_1999-2南楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_39996844-fff2-4cfa-9b9f-14f24c750015",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-1996-3西楼",
+            "createTime": 1636512751155,
+            "location": "环保局_介坊小区_1996-3西楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_a8b03d69-c456-4fc4-a2fc-9f5af9d42dd0",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "工行宿舍",
+            "createTime": 1636512751168,
+            "location": "工行宿舍",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_34c89999-e8be-40bc-96b8-3ea742f1d39e",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "四中",
+            "createTime": 1636512751179,
+            "location": "四中",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_0b6631d5-3968-48fc-8d51-d2bba29c3c1b",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "市建",
+            "createTime": 1636512751190,
+            "location": "市建",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_e0928309-af68-4ff4-8c0b-d85589957ca5",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "小二层商铺",
+            "createTime": 1636512751205,
+            "location": "小二层商铺",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_c17a19e6-8496-4c81-a118-7eab144c11fe",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-2007-3楼",
+            "createTime": 1636512751217,
+            "location": "环保局_介坊小区_2007-3楼",
+            "gatewayId": null,
+            "state": 1
+        },
+        {
+            "uid": "hbj_99fe192f-2c4a-41e6-97ec-277e01ae4d2f",
+            "type": "smart_data_HeatUser_hbj",
+            "label": "介坊小区-东区11楼",
+            "createTime": 1636455158210,
+            "location": "环保局_介坊小区_东区11楼",
+            "gatewayId": null,
+            "state": 1
+        }
+    ].map(item => {
+        return item.uid
+    }).map(item => {
+        return {
+            "query": `select uid,weather_0,supplyWaterTemperature,returnWaterTemperature,temperature_indoor_avg,downsample(600000) from smart_data_HeatUser_hbj where uid = '${item}'`,
+            "arguments": {
+                "engine": "tsdb",
+                "startTime": 1636560000000,
+                "endTime": 1641866400000,
+                "converter": "STD_JSON"
+            }
+        }
+    })
+
+    //输出批量查询sql
+    console.log(JSON.stringify(hbjreq))
+
+
+</script>
+</html>

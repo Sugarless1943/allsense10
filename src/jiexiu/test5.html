@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let data =  [
+        {
+            "name": "instantaneousFlow_pre",
+            "expression": "x=vlatest(timestamp, t*2, instantaneousFlow);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "accumulatedFlow_pre",
+            "expression": "x=vlatest(timestamp, t*2, accumulatedFlow);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "accumulatedHeat_pre",
+            "expression": "x=vlatest(timestamp, t*2, accumulatedHeat);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "instantaneousHeat_pre",
+            "expression": "x=vlatest(timestamp, t*2, instantaneousHeat);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "supplyWaterTemperature_pre",
+            "expression": "x=vlatest(timestamp, t*2, supplyWaterTemperature);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "returnWaterTemperature_pre",
+            "expression": "x=vlatest(timestamp, t*2, returnWaterTemperature);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature1_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature1);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature2_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature2);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature3_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature3);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature4_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature4);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature5_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature5);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature6_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature6);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature7_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature7);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature8_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature8);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature9_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature9);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature10_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature10);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature11_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature11);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature12_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature12);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature13_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature13);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        },
+        {
+            "name": "temperature14_pre",
+            "expression": "x=vlatest(timestamp, t*2, temperature14);if(IsNull(x[1]),if(IsNull(x[2]),x[3],x[2]),x[1])"
+        }
+    ]
+
+    let res = {}
+    let res2 = []
+    let res3 = []
+    data.forEach(item => {
+            // res.push({
+                res[item.name.split("_pre")[0]] = item.name
+            // })
+
+        res2.push( {
+            "name": item.name.split("_pre")[0],
+            "label": "",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+        })
+
+        res3.push(item.name)
+    })
+
+    // console.log(JSON.stringify(res))
+    console.log(JSON.stringify(res3))
+</script>
+</html>

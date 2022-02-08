@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let labels = [1, 2, 3, 4]
+    let obj = {
+        opt1: "a",
+        opt2: "b",
+        opt3: "c",
+        opt4: "d"
+    }
+
+    let res = labels.map((item, index) => {
+        return {
+            label: item,
+            value: obj[`opt${index + 1}`]
+        }
+    })
+
+    console.log(res)
+</script>
+</html>

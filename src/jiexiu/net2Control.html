@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // let stationConfig = [
+    //     {
+    //         "source": "a8b03d69-c456-4fc4-a2fc-9f5af9d42dd0",
+    //         "target": "b49"
+    //     },
+    //     {
+    //         "source": "922f44c5-6bbf-4c10-9eb9-164084d7a8ce",
+    //         "target": "b4"
+    //     },
+    //     {
+    //         "source": "0b6631d5-3968-48fc-8d51-d2bba29c3c1b",
+    //         "target": "b51"
+    //     },
+    //     {
+    //         "source": "579626f8-8ca8-44b7-a9b1-ad34a1e428a9",
+    //         "target": "b9"
+    //     },
+    //     {
+    //         "source": "37cbefda-fbf0-49b8-8f5d-2fd5e78b98d8",
+    //         "target": "b13"
+    //     },
+    //     {
+    //         "source": "99fe192f-2c4a-41e6-97ec-277e01ae4d2f",
+    //         "target": "b2"
+    //     },
+    //     {
+    //         "source": "27743b6b-db55-421c-8579-8c76d4cf0d21",
+    //         "target": "b20"
+    //     },
+    //     {
+    //         "source": "b2d6330c-3ecc-45ee-bb64-5ad569f69924",
+    //         "target": "b1"
+    //     },
+    //     {
+    //         "source": "55b8e532-2a7b-41ef-b1d6-5a106bef8b9f",
+    //         "target": "b19"
+    //     },
+    //     {
+    //         "source": "f2bf68e5-6efc-4fa6-8930-1028cc8b83d5",
+    //         "target": "b18"
+    //     },
+    //     {
+    //         "source": "34c89999-e8be-40bc-96b8-3ea742f1d39e",
+    //         "target": "b50"
+    //     },
+    //     {
+    //         "source": "cc117ec7-77ee-4028-9606-a236ce22752e",
+    //         "target": "b41"
+    //     },
+    //     {
+    //         "source": "6a77c90b-d1c4-4e81-99ff-eeb604b2a6fe",
+    //         "target": "b39"
+    //     },
+    //     {
+    //         "source": "35a1e31a-cf5f-42c7-b1c4-e52f4651d328",
+    //         "target": "b40"
+    //     },
+    //     {
+    //         "source": "c185c754-3d8a-4bd3-8a30-f8d4742d3c2d",
+    //         "target": "b38"
+    //     },
+    //     {
+    //         "source": "c17a19e6-8496-4c81-a118-7eab144c11fe",
+    //         "target": "b53"
+    //     },
+    //     {
+    //         "source": "99c7eeee-c794-4505-855f-8764da43bbb8",
+    //         "target": "b5"
+    //     },
+    //     {
+    //         "source": "d93462be-a5b7-4648-99ea-acd12b55666b",
+    //         "target": "b6"
+    //     },
+    //     {
+    //         "source": "df4b883f-e7b6-4aee-84b0-d08aa45d37e8",
+    //         "target": "b7"
+    //     },
+    //     {
+    //         "source": "39996844-fff2-4cfa-9b9f-14f24c750015",
+    //         "target": "b48"
+    //     },
+    //     {
+    //         "source": "4c68f1f1-f2c2-4032-84b3-28b9bc019fd0",
+    //         "target": "b43"
+    //     },
+    //     {
+    //         "source": "13cd8236-c38a-4646-8346-304d7480d332",
+    //         "target": "b34"
+    //     },
+    //     {
+    //         "source": "484f475c-3b3d-40f8-af95-484279a2c85b",
+    //         "target": "b35"
+    //     },
+    //     {
+    //         "source": "acfa0e01-c41b-4098-9273-5d1c05eea2ee",
+    //         "target": "b8"
+    //     },
+    //     {
+    //         "source": "f586a9c1-bf30-47dc-9c35-abcdb0c31bdb",
+    //         "target": "b10"
+    //     },
+    //     {
+    //         "source": "5679d2de-1da1-4edb-a09d-52b09439140c",
+    //         "target": "b3"
+    //     },
+    //     {
+    //         "source": "9145f5fa-1edd-41b3-a621-c574ae532a5e",
+    //         "target": "b14"
+    //     },
+    //     {
+    //         "source": "d1a3c197-55c7-458d-85b1-aedb4b2ba591",
+    //         "target": "b42"
+    //     },
+    //     {
+    //         "source": "e1d7f046-7f66-45f6-b686-a2905d66371d",
+    //         "target": "b11"
+    //     },
+    //     {
+    //         "source": "a6daa36a-9f92-4ed8-b54f-e65a55881e98",
+    //         "target": "b12"
+    //     },
+    //     {
+    //         "source": "0d051908-4c76-4e32-906d-2258fe23f35d",
+    //         "target": "b17"
+    //     },
+    //     {
+    //         "source": "eb215c41-06f9-41fb-8d76-377b605252f5",
+    //         "target": "b16"
+    //     },
+    //     {
+    //         "source": "edcdcdb3-752a-493c-83cf-74f3a1ba0992",
+    //         "target": "b15"
+    //     },
+    //     {
+    //         "source": "9d7066de-bb6c-42b0-9322-50e8d0a7918b",
+    //         "target": "b26"
+    //     },
+    //     {
+    //         "source": "cd507880-b959-4066-8b27-917bb231aa50",
+    //         "target": "b27"
+    //     },
+    //     {
+    //         "source": "593b161c-8690-4662-8322-0cdc4f00c085",
+    //         "target": "b28"
+    //     },
+    //     {
+    //         "source": "25323e4b-8996-4cca-b3b1-51227877bad8",
+    //         "target": "b29"
+    //     },
+    //     {
+    //         "source": "8a2974c0-0af7-4df4-80c8-f0fab92136a8",
+    //         "target": "b30"
+    //     },
+    //     {
+    //         "source": "c3ed9e44-87aa-4fc0-a7d8-bb7c891555e5",
+    //         "target": "b31"
+    //     },
+    //     {
+    //         "source": "620902b1-9423-49c6-94f5-d2ad6d1f87d6",
+    //         "target": "b32"
+    //     },
+    //     {
+    //         "source": "dee3ab7a-9a8d-4996-bef4-56658ad79c3b",
+    //         "target": "b21"
+    //     },
+    //     {
+    //         "source": "4b00ec62-ce58-46aa-94ae-52bc0895b9d6",
+    //         "target": "b22"
+    //     },
+    //     {
+    //         "source": "98254c74-b8bc-48fe-b98d-bb89f24df1e8",
+    //         "target": "b23"
+    //     },
+    //     {
+    //         "source": "5a8abd7a-5a3c-43ca-a8e1-f3869f81d871",
+    //         "target": "b24"
+    //     },
+    //     {
+    //         "source": "c6ed8986-b82a-4196-a23a-3403ad55c076",
+    //         "target": "b25"
+    //     },
+    //     {
+    //         "source": "3b1518d4-d32d-4727-a56b-9570ea694f2c",
+    //         "target": "b45"
+    //     },
+    //     {
+    //         "source": "0a398855-ed0d-4d0a-b6f3-d57f40a50e25",
+    //         "target": "b44"
+    //     },
+    //     {
+    //         "source": "d6eeb94d-d6e7-4309-88aa-d2c6727869e1",
+    //         "target": "b47"
+    //     },
+    //     {
+    //         "source": "6b6f2f81-4ec2-410e-9c3c-907bc0814718",
+    //         "target": "b46"
+    //     },
+    //     {
+    //         "source": "e470dccd-a0b0-45b1-bae0-755bfbbcf3a9",
+    //         "target": "b37"
+    //     },
+    //     {
+    //         "source": "0230b8eb-7ebd-4cf9-9d9c-19ac0150c030",
+    //         "target": "b36"
+    //     },
+    //     {
+    //         "source": "e0928309-af68-4ff4-8c0b-d85589957ca5",
+    //         "target": "b52"
+    //     },
+    //     {
+    //         "source": "60a3f4e2-fd6d-497e-8dd7-b98b00d86591",
+    //         "target": "b33"
+    //     }
+    // ]
+    let stationConfig = [
+        {
+            "source": "542e514e-b924-49da-9eee-f1ed214d02fc",
+            "target": "b_1"
+        },
+        {
+            "source": "92b83aaf-6d73-49cd-a162-050198b9990a",
+            "target": "b_2"
+        },
+        {
+            "source": "b7e9fd82-3cfa-400c-96db-ac42716ce0bb",
+            "target": "b_3"
+        },
+        {
+            "source": "573a6e15-1a33-4bf2-a36c-f6a3c035d693",
+            "target": "b_4"
+        },
+        {
+            "source": "197a7512-98bc-452d-a82a-11bba67703e5",
+            "target": "b_5"
+        },
+        {
+            "source": "9b2a2298-4c0f-408f-82d0-b3dfdb691a2a",
+            "target": "b_6"
+        },
+        {
+            "source": "841a4f11-0f35-418c-ae70-a814647e5de9",
+            "target": "b_7"
+        },
+        {
+            "source": "17c77169-2ea2-4ab9-824d-9d46278518f9",
+            "target": "b_8"
+        },
+        {
+            "source": "e96a6358-fed1-4ebe-b93f-e72b71a763e1",
+            "target": "b_9"
+        },
+        {
+            "source": "f04c093a-0f87-4155-bf5f-133a0479f928",
+            "target": "b_10"
+        },
+        {
+            "source": "74521f30-d28c-4415-af5f-6a60cd57884b",
+            "target": "b_11"
+        },
+        {
+            "source": "d2e8149f-333f-428a-becf-b2185b0d030e",
+            "target": "b_12"
+        },
+        {
+            "source": "e31e5949-89ed-4490-88a5-cce1a9f3f71a",
+            "target": "b_13"
+        },
+        {
+            "source": "0f6edbaf-cc1b-4f07-a406-8ed7f191cb22",
+            "target": "b_14"
+        },
+        {
+            "source": "98314ef5-369f-4a0a-9845-7dae9332d792",
+            "target": "b_15"
+        },
+        {
+            "source": "e510a806-a3a5-41b2-b58e-ddfc009ac8b7",
+            "target": "b_16"
+        },
+        {
+            "source": "b14e0145-409f-4912-bf6f-ae10c456add4",
+            "target": "b_17"
+        },
+        {
+            "source": "85e5ce53-ca94-415a-87fd-f1532665572a",
+            "target": "b_18"
+        },
+        {
+            "source": "4d4d63d1-23c8-4c5d-98db-3bd92b80f441",
+            "target": "b_19"
+        },
+        {
+            "source": "c597650b-b49b-4c39-9f04-922c0c502126",
+            "target": "b_20"
+        },
+        {
+            "source": "b2ae883d-e106-4bf6-8812-94ba6d11b6a8",
+            "target": "b_21"
+        },
+        {
+            "source": "044c37c2-2c72-4c4b-9a59-e6d579aeb089",
+            "target": "b_22"
+        },
+        {
+            "source": "02956a57-4ceb-4bf3-a701-0bdd42ce1ab4",
+            "target": "b_23"
+        },
+        {
+            "source": "41c102e4-f2eb-4f53-8975-af8a49f99b90",
+            "target": "b_24"
+        },
+        {
+            "source": "0ff221c5-9b2b-4b98-bb10-f4a2bd05c9c5",
+            "target": "b_25"
+        },
+        {
+            "source": "dd01c5bc-a996-4190-90b1-ea8d6afc061d",
+            "target": "b_26"
+        },
+        {
+            "source": "9033862f-8614-48c8-a65d-16294d947df6",
+            "target": "b_27"
+        },
+        {
+            "source": "324c85a6-4062-4130-9c71-ec4748f39311",
+            "target": "b_28"
+        },
+        {
+            "source": "7f773e2b-2e09-4e95-8213-63c57ea43815",
+            "target": "b_29"
+        },
+        {
+            "source": "67835297-060d-42e5-b08f-ea7b041dc7b2",
+            "target": "b_30"
+        },
+        {
+            "source": "8798916d-f987-452e-b1df-3475654e283a",
+            "target": "b_31"
+        },
+        {
+            "source": "f1951eac-4b49-43a5-b2ad-9404d415b243",
+            "target": "b_32"
+        },
+        {
+            "source": "52a8fd74-819f-49aa-84f0-c3b4551cd11f",
+            "target": "b_33"
+        },
+        {
+            "source": "d0c488f4-7d6d-4b6f-9748-09c798710141",
+            "target": "b_34"
+        },
+        {
+            "source": "c5e63d0e-5679-4e4c-bfbc-1d4f7fc07050",
+            "target": "b_35"
+        },
+        {
+            "source": "0a011398-923d-4e7a-8680-da4d7f06e249",
+            "target": "b_36"
+        },
+        {
+            "source": "1e3dc7df-0b31-4bb6-a885-6fc04d3d8e62",
+            "target": "b_37"
+        },
+        {
+            "source": "686f8333-f6ea-4e2f-bdc3-6be9898ef612",
+            "target": "b_38"
+        },
+        {
+            "source": "bb4964fe-97c6-49c0-867e-f5a999b31b17",
+            "target": "b_39"
+        },
+        {
+            "source": "e176823b-3c4e-42b1-88db-5b2ba505f625",
+            "target": "b_40"
+        },
+        {
+            "source": "7a05e7f0-4982-4649-83c0-1961e887cf64",
+            "target": "b_41"
+        },
+        {
+            "source": "504a0774-602a-4d21-969b-eb2353651b76",
+            "target": "b_42"
+        },
+        {
+            "source": "d1487b90-ad4e-4f01-ac90-b4c66db686a3",
+            "target": "b_43"
+        },
+        {
+            "source": "62b7d8ab-1547-47dd-bfdb-b963a834c4a2",
+            "target": "b_44"
+        },
+        {
+            "source": "2b7d72fd-2f88-40c3-acc1-583bc0ae7365",
+            "target": "b_45"
+        },
+        {
+            "source": "a9d80b4d-17d3-4288-8dd8-7724ff3c72ca",
+            "target": "b_46"
+        },
+        {
+            "source": "ed74e484-1cb5-4a56-96bb-553cc894795e",
+            "target": "b_47"
+        },
+        {
+            "source": "239baa5f-95fa-466f-9a58-cbe30f1efd32",
+            "target": "b_48"
+        },
+        {
+            "source": "cefeeab3-da44-4ce5-a20e-7de0a6e74a4d",
+            "target": "b_49"
+        },
+        {
+            "source": "2d4fd833-78d0-4f76-a770-65c26bcaa78a",
+            "target": "b_50"
+        },
+        {
+            "source": "ec8ace51-ce8a-41ac-97e3-49a10d7594a5",
+            "target": "b_51"
+        },
+        {
+            "source": "110e4ace-99e3-4afb-9e38-713c51a77126",
+            "target": "b_52"
+        },
+        {
+            "source": "ed3ace5d-4746-4673-bf84-4ba8984715a4",
+            "target": "b_53"
+        },
+        {
+            "source": "d46213d4-a9e5-4cae-ba9e-64734ecae8da",
+            "target": "b_54"
+        },
+        {
+            "source": "1a4e0437-c656-47ae-ae9b-00976ed45e35",
+            "target": "b_55"
+        },
+        {
+            "source": "d3426234-d9d1-486f-93a3-99e4770b1cd9",
+            "target": "b_56"
+        },
+        {
+            "source": "abbe23a8-cb99-4141-ac01-f6d7ff150d5e",
+            "target": "b_57"
+        },
+        {
+            "source": "3749a05b-352f-4f30-bacf-7a0ee0924266",
+            "target": "b_58"
+        },
+        {
+            "source": "23a8ea1a-fde3-4478-b0bc-1ef2f35222db",
+            "target": "b_59"
+        },
+        {
+            "source": "62458993-49e5-4973-81b7-eae210a032dd",
+            "target": "b_60"
+        },
+        {
+            "source": "f805c8ca-6751-40d2-bac4-4b340c8fecdd",
+            "target": "b_61"
+        },
+        {
+            "source": "89ccd493-b6c5-4d0b-aaa6-0da436c205cb",
+            "target": "b_62"
+        },
+        {
+            "source": "36def827-d988-4dac-876d-90e5b4e1f143",
+            "target": "b_63"
+        },
+        {
+            "source": "090a12b6-d3e2-41c1-95aa-a9ae8ed72ffb",
+            "target": "b_64"
+        },
+        {
+            "source": "258eb83c-e360-4a7b-90ed-e7d74354d600",
+            "target": "b_65"
+        },
+        {
+            "source": "0ab612a6-f12c-4913-8049-98bc4fe7876e",
+            "target": "b_66"
+        },
+        {
+            "source": "348302f7-2bfe-427e-828d-844d02391e21",
+            "target": "b_67"
+        },
+        {
+            "source": "92bf0f5e-f27b-4062-8fff-110bbbdb8965",
+            "target": "b_68"
+        },
+        {
+            "source": "09f019f4-b133-4932-ba60-8b9caac690d3",
+            "target": "b_69"
+        },
+        {
+            "source": "e6c510ee-3b80-4d48-bb7e-aecf0a1d6ba5",
+            "target": "b_70"
+        },
+        {
+            "source": "24b3214c-1b15-4650-b542-51eb97f769ae",
+            "target": "b_71"
+        },
+        {
+            "source": "336feb1a-2f4a-4d53-bb91-6317b1c547cd",
+            "target": "b_72"
+        },
+        {
+            "source": "decbc54b-e773-4622-811a-30afa504bb35",
+            "target": "b_73"
+        },
+        {
+            "source": "7c795bfe-6967-40da-a1ea-6b5d5c2b6938",
+            "target": "b_74"
+        },
+        {
+            "source": "17db26ee-2713-40d5-aa2a-1cd65a9206f4",
+            "target": "b_75"
+        },
+        {
+            "source": "5fe6eef1-9363-4e2b-aee2-6a16cb945da6",
+            "target": "b_76"
+        },
+        {
+            "source": "8c1ffbb6-a365-442a-bcb2-f737c09dbd41",
+            "target": "b_77"
+        },
+        {
+            "source": "cf8c4f3c-8c5f-428e-b5f4-0766daa50229",
+            "target": "b_78"
+        },
+        {
+            "source": "29dc8da6-ae25-4b19-b5ad-b72844734ef3",
+            "target": "b_79"
+        },
+        {
+            "source": "4a58fd95-be6e-4174-9eec-bf246ce02409",
+            "target": "b_80"
+        },
+        {
+            "source": "330d0202-e9a2-445b-be3e-403da081faee",
+            "target": "b_81"
+        },
+        {
+            "source": "ba317bae-13ab-4d08-ac2b-0a9043cf5eba",
+            "target": "b_82"
+        },
+        {
+            "source": "bf306db7-809b-4e76-b826-e8b5d13c23a0",
+            "target": "b_83"
+        },
+        {
+            "source": "0164fe3d-cf18-4779-82e6-31d94a38bacb",
+            "target": "b_84"
+        },
+        {
+            "source": "d8826343-1d9f-4840-8f86-0eac0dc89a7c",
+            "target": "b_85"
+        },
+        {
+            "source": "c1c516f6-694c-41b8-83eb-db9919337c53",
+            "target": "b_86"
+        },
+        {
+            "source": "ec780fe5-2231-4465-8012-60158e69549d",
+            "target": "b_87"
+        },
+        {
+            "source": "927b081c-c919-4ee9-a018-44cc2d08b61d",
+            "target": "b_88"
+        },
+        {
+            "source": "1e96e5e9-ace4-427b-8f52-4944ea780193",
+            "target": "b_89"
+        },
+        {
+            "source": "06410935-3d73-4efd-a400-30d26f22506d",
+            "target": "b_90"
+        },
+        {
+            "source": "4dd4b79c-125f-4162-9b76-a06f27a2c3fb",
+            "target": "b_91"
+        },
+        {
+            "source": "460bf3ec-9c07-4107-ba93-da991414f9da",
+            "target": "b_92"
+        },
+        {
+            "source": "ba8b2326-42ed-4669-83d7-91e0f7ee3b45",
+            "target": "b_93"
+        },
+        {
+            "source": "7e7e57f2-04a8-49ee-a841-892ce05ab606",
+            "target": "b_94"
+        },
+        {
+            "source": "fb38450f-6b67-430e-9c1f-3479af668722",
+            "target": "b_95"
+        },
+        {
+            "source": "18f4127e-3df4-49d0-be7d-83f0fd497938",
+            "target": "b_96"
+        },
+        {
+            "source": "06fdcd07-2a5f-4dfa-846f-7ea5ecc81986",
+            "target": "b_97"
+        },
+        {
+            "source": "89f68f8f-6129-40ed-b740-b3dd4af885f6",
+            "target": "b_98"
+        },
+        {
+            "source": "f27a54e3-e27b-4751-b350-7ca7dba2520c",
+            "target": "b_99"
+        },
+        {
+            "source": "1be07da2-dd33-4fbb-b2f5-838770aeb873",
+            "target": "b_100"
+        },
+        {
+            "source": "ea431f23-540b-44ca-8077-cecee927c390",
+            "target": "b_101"
+        },
+        {
+            "source": "088b3253-a916-4e7a-9a8a-bba55b852afa",
+            "target": "b_102"
+        },
+        {
+            "source": "3cbffe22-cfd1-4b56-8958-92df718a963a",
+            "target": "b_103"
+        },
+        {
+            "source": "938307ce-9252-4c4f-b493-15583c6719dd",
+            "target": "b_104"
+        },
+        {
+            "source": "29233eac-b89e-48a4-9b82-fb8a0ef54fa3",
+            "target": "b_105"
+        },
+        {
+            "source": "223e76a3-0bff-4b77-b2e5-6eb6d90d34df",
+            "target": "b_106"
+        },
+        {
+            "source": "f17109b8-ff1c-4848-8905-c8b4ff562e74",
+            "target": "b_107"
+        },
+        {
+            "source": "18d952ca-d7d0-4245-b54d-6927935443ff",
+            "target": "b_108"
+        },
+        {
+            "source": "0b28c675-89a0-4e5a-b5bc-b79028097160",
+            "target": "b_109"
+        },
+        {
+            "source": "0d9dc960-959e-43a3-ba2a-495ab70666bf",
+            "target": "b_110"
+        },
+        {
+            "source": "53087de8-f183-4c3b-8b02-1e60c3432022",
+            "target": "b_111"
+        },
+        {
+            "source": "bbb7944f-bd78-4b90-ad3e-c829b2bda68c",
+            "target": "b_112"
+        },
+        {
+            "source": "85a37483-49f4-4103-b099-9a5749e7c6a4",
+            "target": "b_113"
+        },
+        {
+            "source": "4f488958-64e5-4b22-aecb-2427e11e2efe",
+            "target": "b_114"
+        },
+        {
+            "source": "14bc152d-6fbf-48be-9d88-140560321a6a",
+            "target": "b_115"
+        },
+        {
+            "source": "247fbddf-175a-4ea3-8804-1b49b3a477fc",
+            "target": "b_116"
+        },
+        {
+            "source": "245942c8-ad07-4784-9591-250e9b7d45ff",
+            "target": "b_117"
+        },
+        {
+            "source": "6ea4165a-2019-4cff-a74e-1ad87d6047a8",
+            "target": "b_118"
+        },
+        {
+            "source": "f280a42b-289a-41f0-96c7-d31119676374",
+            "target": "b_119"
+        },
+        {
+            "source": "93e177f8-6856-4282-8d20-5eec8e6b8162",
+            "target": "b_120"
+        },
+        {
+            "source": "d07c4919-2a57-4759-9670-615e11127b30",
+            "target": "b_121"
+        },
+        {
+            "source": "aa8b9c36-487b-4183-b369-f9f60bede6dc",
+            "target": "b_122"
+        },
+        {
+            "source": "87a10639-f3a1-4fc0-a288-6e2b186d1ee4",
+            "target": "b_123"
+        },
+        {
+            "source": "be69ac4e-0b73-4685-8b1b-18abfce2a316",
+            "target": "b_124"
+        },
+        {
+            "source": "4a31c2b7-ecf7-4de0-a574-4acf2f221133",
+            "target": "b_125"
+        },
+        {
+            "source": "a46c4af8-04e9-46af-8dc2-0341bdc0682f",
+            "target": "b_126"
+        },
+        {
+            "source": "b537f141-724b-461e-bec0-29ff5ff3156e",
+            "target": "b_127"
+        },
+        {
+            "source": "f009a8ac-9674-4096-afe0-33e746bab95c",
+            "target": "b_128"
+        },
+        {
+            "source": "7ec5cd2d-5883-4718-a791-e24eb702d952",
+            "target": "b_129"
+        },
+        {
+            "source": "67feecb4-96fb-4ddc-adee-a7b42734d043",
+            "target": "b_130"
+        },
+        {
+            "source": "305cb769-5a19-447d-bfa0-545567c1d374",
+            "target": "b_131"
+        },
+        {
+            "source": "dfd39e71-cdad-48ff-8692-445f160fa61b",
+            "target": "b_132"
+        },
+        {
+            "source": "d71d30d5-754c-4842-bfec-53d2fa868e61",
+            "target": "b_133"
+        },
+        {
+            "source": "b9a3bcef-c5ff-4ef8-975c-4c5db11c824f",
+            "target": "b_134"
+        },
+        {
+            "source": "c50146e0-c1cc-41e2-8b8a-be2e26c6ae24",
+            "target": "b_135"
+        },
+        {
+            "source": "1705883a-e69d-4966-9c15-697a5e3947d9",
+            "target": "b_136"
+        },
+        {
+            "source": "de794bba-5e16-4b32-87f3-a2f5930b1210",
+            "target": "b_137"
+        },
+        {
+            "source": "0cac16e8-636e-4f8a-ba69-2fed096df5f5",
+            "target": "b_138"
+        },
+        {
+            "source": "fa0315d8-3bf0-4d08-a37f-20822d53b9e1",
+            "target": "b_139"
+        },
+        {
+            "source": "18d85bff-ff2a-4038-8c22-ea62730d6add",
+            "target": "b_140"
+        },
+        {
+            "source": "7ca2238e-ca38-4ead-b45d-9ad2e2689ae8",
+            "target": "b_141"
+        },
+        {
+            "source": "2e00aeca-f39e-41f8-bf55-461449aac31b",
+            "target": "b_142"
+        },
+        {
+            "source": "e6bdc1f6-9c42-4776-adb1-f99d40a93896",
+            "target": "b_143"
+        },
+        {
+            "source": "3933953b-9332-4c78-ad55-d17a26609c98",
+            "target": "b_144"
+        },
+        {
+            "source": "ea8007ba-3cf0-4685-876c-80173b79cee0",
+            "target": "b_145"
+        },
+        {
+            "source": "da3fc1b4-dd6b-4349-8202-9a3db89cf450",
+            "target": "b_146"
+        },
+        {
+            "source": "aac2001a-94c0-432c-8388-144ae571aff4",
+            "target": "b_147"
+        },
+        {
+            "source": "ecffdda2-e456-4217-bca8-73c9691bd944",
+            "target": "b_148"
+        },
+        {
+            "source": "50893ff0-f6ec-466d-91b2-ee65c28c3d12",
+            "target": "b_149"
+        },
+        {
+            "source": "fc16f852-7bea-40a0-9061-16555d0dc339",
+            "target": "b_150"
+        },
+        {
+            "source": "f948d931-1c0a-4364-970b-267d848ace12",
+            "target": "b_151"
+        },
+        {
+            "source": "dac2202c-2052-4bf3-89be-83a432c3c2d4",
+            "target": "b_152"
+        },
+        {
+            "source": "df9f68b4-dfce-48ef-990f-18fbd76a5b11",
+            "target": "b_153"
+        },
+        {
+            "source": "1979424d-8a73-4af6-a2c3-322b994777b8",
+            "target": "b_154"
+        },
+        {
+            "source": "5168c051-66ae-457f-a3c6-32a97adb5ad0",
+            "target": "b_155"
+        },
+        {
+            "source": "16916307-5413-4533-8e39-3fd9618cba65",
+            "target": "b_156"
+        },
+        {
+            "source": "1a55cc55-97db-4cb8-91cf-cb40cddaa90f",
+            "target": "b_157"
+        },
+        {
+            "source": "0759cb07-5fe3-45c1-b6bd-73072616a11e",
+            "target": "b_158"
+        },
+        {
+            "source": "3dcbdff1-0805-42d3-8e30-dd6b482aa3c0",
+            "target": "b_159"
+        },
+        {
+            "source": "cf20e60b-954e-434c-8e39-a6630da165f4",
+            "target": "b_160"
+        },
+        {
+            "source": "270b5a25-3952-4201-81c3-6225cf7f199a",
+            "target": "b_161"
+        },
+        {
+            "source": "f340726a-7b39-4e5e-82a9-b9b305a7d961",
+            "target": "b_162"
+        },
+        {
+            "source": "7efbc7fc-ade7-47a5-9d51-d757fb668a79",
+            "target": "b_163"
+        },
+        {
+            "source": "3afc9d95-0073-49f9-9b16-f1575545ebc7",
+            "target": "b_164"
+        },
+        {
+            "source": "326fda01-47da-4116-a280-706374702ed9",
+            "target": "b_165"
+        },
+        {
+            "source": "50e80882-a42b-4eca-9279-0b4784997ee2",
+            "target": "b_166"
+        },
+        {
+            "source": "b1afb986-8580-4146-a444-386afcc99b8d",
+            "target": "b_167"
+        },
+        {
+            "source": "5ba90b87-9329-4ee2-96b5-34f10ce670dd",
+            "target": "b_168"
+        },
+        {
+            "source": "6535d708-3c41-4e60-a42d-30c7d3e1ee14",
+            "target": "b_169"
+        },
+        {
+            "source": "02636bb1-a201-4e00-9a6e-8378c9fd39fc",
+            "target": "b_170"
+        },
+        {
+            "source": "55a2d226-eb71-4969-9c8b-a77c40f99ff6",
+            "target": "b_171"
+        },
+        {
+            "source": "1dc75362-0692-4035-b2c5-30d93ffc7e21",
+            "target": "b_172"
+        },
+        {
+            "source": "622019cb-3459-48bd-ae33-b0ea14846962",
+            "target": "b_173"
+        },
+        {
+            "source": "88f75d92-da21-4cb9-904d-cccd5955097d",
+            "target": "b_174"
+        },
+        {
+            "source": "edcc1ddc-a6e1-4046-af1a-851eb5e5ac4c",
+            "target": "b_175"
+        },
+        {
+            "source": "fc5722fb-c4e9-4fa9-b4f9-bfbbe32aceda",
+            "target": "b_176"
+        },
+        {
+            "source": "395f7d42-7ad2-495d-a340-303db47fecff",
+            "target": "b_177"
+        },
+        {
+            "source": "045e8c33-be88-4d24-b472-2093ca338759",
+            "target": "b_178"
+        },
+        {
+            "source": "244c1958-b778-44e4-be16-7f750bba82e9",
+            "target": "b_179"
+        },
+        {
+            "source": "4004e4fa-d995-426b-a2d4-866b90feb9f0",
+            "target": "b_180"
+        },
+        {
+            "source": "bfd870d3-11b2-4912-b045-49234bfd2485",
+            "target": "b_181"
+        },
+        {
+            "source": "a37d3fa2-0574-4147-94e2-5209a039e905",
+            "target": "b_182"
+        },
+        {
+            "source": "fc689aef-2085-4ce2-8b64-c5a20d395874",
+            "target": "b_183"
+        },
+        {
+            "source": "2f4eabb1-3643-4102-b4c4-05f68792516e",
+            "target": "b_184"
+        },
+        {
+            "source": "1eca5142-aa4a-44ed-bade-87ba885c9bad",
+            "target": "b_185"
+        },
+        {
+            "source": "13e4fcf9-5505-4612-8063-c514469c76ac",
+            "target": "b_186"
+        },
+        {
+            "source": "940cfc86-3158-4ae9-ab00-133f3df8250c",
+            "target": "b_187"
+        },
+        {
+            "source": "b9069ba4-1c4f-46fc-b70e-c843f383a1a3",
+            "target": "b_188"
+        },
+        {
+            "source": "55940a5d-2196-42e8-be51-0b4169715065",
+            "target": "b_189"
+        },
+        {
+            "source": "47ae55dd-a756-437d-97a8-c4a0baa72cea",
+            "target": "b_190"
+        },
+        {
+            "source": "8cc1b41b-4c07-40f7-9c64-2a0a9c513226",
+            "target": "b_191"
+        },
+        {
+            "source": "04a1b288-0d66-4aa9-8ece-5987c2f2c911",
+            "target": "b_192"
+        },
+        {
+            "source": "80882ee7-1ec1-46c4-b69c-9705d1ee5a6a",
+            "target": "b_193"
+        },
+        {
+            "source": "070b4613-8291-4054-a1df-759e9a3fb5d6",
+            "target": "b_194"
+        },
+        {
+            "source": "35d4d886-aa16-4ca8-acce-748d5df585e4",
+            "target": "b_195"
+        },
+        {
+            "source": "d396f8fa-52f4-4449-92fe-d4adb5fbb4b7",
+            "target": "b_196"
+        },
+        {
+            "source": "89cf9b97-b39e-48fb-ae94-bd2cf3b8fd4d",
+            "target": "b_197"
+        },
+        {
+            "source": "abbafc85-f8fc-4c18-8ce1-f046860a9893",
+            "target": "b_198"
+        },
+        {
+            "source": "09787f9e-76e3-44ae-a2d8-3eb8faa8d63e",
+            "target": "b_199"
+        },
+        {
+            "source": "15b64781-8374-43b7-8ec7-78251fedbe4b",
+            "target": "b_200"
+        },
+        {
+            "source": "5b0209d5-cc05-4698-b21c-215419b9653a",
+            "target": "b_201"
+        },
+        {
+            "source": "564bb6f8-4395-4ae7-816c-b5fd51f052ee",
+            "target": "b_202"
+        },
+        {
+            "source": "2b4d454f-704b-4958-800c-2993482b3f0f",
+            "target": "b_203"
+        },
+        {
+            "source": "42ed0901-6f15-4372-a51d-3632ab8fd96c",
+            "target": "b_204"
+        },
+        {
+            "source": "a6c06d26-8b0a-4d0d-9de1-0384542a97f9",
+            "target": "b_205"
+        },
+        {
+            "source": "07842ae6-8181-4815-8dd2-c00ef10928c6",
+            "target": "b_206"
+        },
+        {
+            "source": "81e5da4d-729d-4171-937f-d1290d7501d6",
+            "target": "b_207"
+        },
+        {
+            "source": "49a282f4-9d04-4f54-85c3-4bc3d0e72a9b",
+            "target": "b_208"
+        },
+        {
+            "source": "aa73566b-15d0-49c4-8aef-0af6d8a32c2d",
+            "target": "b_209"
+        },
+        {
+            "source": "f27ffe8b-86a0-4f52-9011-faee1fd1d75d",
+            "target": "b_210"
+        },
+        {
+            "source": "b0e856d2-00fe-4307-8f92-9f32e03187f5",
+            "target": "b_211"
+        },
+        {
+            "source": "6b25b00b-8d11-41fb-810d-94e4b276d08c",
+            "target": "b_212"
+        },
+        {
+            "source": "63e30925-8c82-4949-96d2-08779cb40395",
+            "target": "b_213"
+        },
+        {
+            "source": "e961b6ce-eaa3-4ad6-b7a1-8b28baac69ea",
+            "target": "b_214"
+        },
+        {
+            "source": "74c03f8a-ecc7-4358-8890-2e295dcc92ee",
+            "target": "b_215"
+        },
+        {
+            "source": "5a6c65d8-0945-4b10-a1b0-a847b2254937",
+            "target": "b_216"
+        },
+        {
+            "source": "995a66a4-931f-425a-ba26-5fb4b6224e72",
+            "target": "b_217"
+        },
+        {
+            "source": "94bfdedf-ffc0-49e2-8204-25a24f32a557",
+            "target": "b_218"
+        },
+        {
+            "source": "263f8a4f-e95b-411e-8eb1-63eb3fa8dca4",
+            "target": "b_219"
+        },
+        {
+            "source": "4d6f2c57-fe85-43e4-b3e9-8e62571612d2",
+            "target": "b_220"
+        },
+        {
+            "source": "1869005b-96ec-4b52-8938-c39d002e94eb",
+            "target": "b_221"
+        },
+        {
+            "source": "1739369c-1ad3-4c2c-9302-308bf1adb543",
+            "target": "b_222"
+        },
+        {
+            "source": "be9f671c-f9d8-4a15-abfe-5655fa4f5bf2",
+            "target": "b_223"
+        },
+        {
+            "source": "98a6bc43-944d-4083-a6ca-51bba25dcbb2",
+            "target": "b_224"
+        },
+        {
+            "source": "0a0b1865-16f1-4b80-a98f-f6b11e7d770d",
+            "target": "b_225"
+        },
+        {
+            "source": "5a155960-75d6-4673-a6e1-29bfd77ff93d",
+            "target": "b_226"
+        },
+        {
+            "source": "883d24ef-d420-4783-96d0-eb556ce62f96",
+            "target": "b_227"
+        },
+        {
+            "source": "6f29a563-b7be-455f-827e-0b3b816c2a5b",
+            "target": "b_228"
+        },
+        {
+            "source": "64d70f14-4992-4a88-90ae-76bc6adb8dfe",
+            "target": "b_229"
+        },
+        {
+            "source": "7bfbd944-8b01-4279-8a47-5e3d79ad9236",
+            "target": "b_230"
+        },
+        {
+            "source": "789bc804-2472-4e4f-bb87-20fb5b2e4888",
+            "target": "b_231"
+        },
+        {
+            "source": "b835c54d-3277-4b33-933a-4aa852498e89",
+            "target": "b_232"
+        },
+        {
+            "source": "0240552d-0763-4e97-a28f-cc93babfcc16",
+            "target": "b_233"
+        },
+        {
+            "source": "94fc3710-b435-469a-ae77-cf52a53c72b4",
+            "target": "b_234"
+        },
+        {
+            "source": "bf38ca78-a2e1-4440-94e7-1b8baf36db80",
+            "target": "b_235"
+        },
+        {
+            "source": "cc736f5e-3005-4dd6-aa18-5ff4f07831ab",
+            "target": "b_236"
+        },
+        {
+            "source": "ea4c5384-a9a5-49a9-92b5-0b88b7974cf9",
+            "target": "b_237"
+        },
+        {
+            "source": "30c43c70-134e-4412-b1b4-8d45528ce562",
+            "target": "b_238"
+        },
+        {
+            "source": "5b70b923-ccba-449f-a3e2-6dc58286db70",
+            "target": "b_239"
+        },
+        {
+            "source": "fb85d5d8-af81-4d65-b97d-3068890c2d59",
+            "target": "b_240"
+        },
+        {
+            "source": "227bb357-62d6-4147-b92c-005b2ec26f4d",
+            "target": "b_241"
+        },
+        {
+            "source": "ad3a3127-2b95-49a8-bf12-76fe8f7cbab0",
+            "target": "b_242"
+        },
+        {
+            "source": "1ec29571-b72c-4a5b-b010-6b2567e89873",
+            "target": "b_243"
+        },
+        {
+            "source": "74146772-4577-4a6a-87d7-c033456e8c6e",
+            "target": "b_244"
+        },
+        {
+            "source": "498c929b-432e-49fc-84c1-841e0d71cf63",
+            "target": "b_245"
+        },
+        {
+            "source": "99f68ee3-3ccb-464d-ab4f-1414df9bfaa2",
+            "target": "b_246"
+        },
+        {
+            "source": "1b57bc9c-8bdc-403d-bff9-dfc48ee9ddf5",
+            "target": "b_247"
+        },
+        {
+            "source": "8aa303e6-7846-4fe5-9a93-014a0c92a355",
+            "target": "b_248"
+        },
+        {
+            "source": "3cb11dcb-cc05-491b-94c3-1d13c4d129cf",
+            "target": "b_249"
+        },
+        {
+            "source": "8437e8c4-5567-4a15-97e1-fb749e5d07d1",
+            "target": "b_250"
+        },
+        {
+            "source": "68a8414a-dbf3-4627-90db-c67c5d118def",
+            "target": "b_251"
+        },
+        {
+            "source": "b772ff1e-8b67-4771-8d3c-1fbef00598fb",
+            "target": "b_252"
+        },
+        {
+            "source": "213c2f64-961d-41f2-8d85-55f907fe9fde",
+            "target": "b_253"
+        },
+        {
+            "source": "2e87f7be-28a7-4c12-b306-6361c8c317a3",
+            "target": "b_254"
+        },
+        {
+            "source": "89f028f5-1183-468b-8f60-adf877db7cbb",
+            "target": "b_255"
+        },
+        {
+            "source": "411d483e-a1d3-4fe6-a7d6-85724307f930",
+            "target": "b_256"
+        },
+        {
+            "source": "19b941e5-9d60-4734-aeb5-dfac095a7453",
+            "target": "b_257"
+        },
+        {
+            "source": "2eee2928-9c20-463a-bec1-563c48c38342",
+            "target": "b_258"
+        },
+        {
+            "source": "1e8afd24-4eeb-45c2-8e5f-62bbb3757073",
+            "target": "b_259"
+        },
+        {
+            "source": "ce1d2f56-6b7a-418b-a7f8-b4e1e91ae9cb",
+            "target": "b_260"
+        },
+        {
+            "source": "b0cd56b1-db36-473c-b1a0-ec4e8afee601",
+            "target": "b_261"
+        },
+        {
+            "source": "25899975-3ee9-46a8-be10-deeda19e31af",
+            "target": "b_262"
+        },
+        {
+            "source": "68774eee-18a2-43bb-bf6c-c3f513dacf50",
+            "target": "b_263"
+        },
+        {
+            "source": "56172487-f7b2-45bc-abe4-ca3511ad2823",
+            "target": "b_264"
+        },
+        {
+            "source": "698793e3-5320-4ba3-af93-81ff96857935",
+            "target": "b_265"
+        },
+        {
+            "source": "f12b5dce-d763-40d2-b142-82679473adc2",
+            "target": "b_266"
+        },
+        {
+            "source": "04655b08-c5b5-4b82-a7d9-90034de78306",
+            "target": "b_267"
+        },
+        {
+            "source": "99956ea4-091c-419b-9812-5a4249bd797b",
+            "target": "b_268"
+        },
+        {
+            "source": "da607a61-5aac-47bb-8e2b-86f97fce49a9",
+            "target": "b_269"
+        },
+        {
+            "source": "e4d27d41-ddd4-4228-94c3-3ba747d04385",
+            "target": "b_270"
+        },
+        {
+            "source": "4789be78-de43-43a6-bbda-69385ebe4e57",
+            "target": "b_271"
+        },
+        {
+            "source": "4a38b112-3740-4ece-9a39-ef9b69d9452f",
+            "target": "b_272"
+        },
+        {
+            "source": "3bac7c46-ea95-4bcd-9ba1-2b7ccb30dd6e",
+            "target": "b_273"
+        },
+        {
+            "source": "9493d1fd-9ea0-48b6-8c4b-8b2d10bf9f5d",
+            "target": "b_274"
+        },
+        {
+            "source": "d7ed97e0-a3e7-49ba-9575-ad1093271b22",
+            "target": "b_275"
+        },
+        {
+            "source": "6221183b-12c3-47f0-a81d-d670644ec8a3",
+            "target": "b_276"
+        },
+        {
+            "source": "3fa3bcc3-4ab9-4c5c-a14f-75dc2d33aec7",
+            "target": "b_277"
+        },
+        {
+            "source": "371f7ede-db29-4fff-8806-a24760120ded",
+            "target": "b_278"
+        },
+        {
+            "source": "9b74db73-32e1-4501-a8b3-6ef4a316a9ec",
+            "target": "b_279"
+        },
+        {
+            "source": "8d7c5c48-5172-4747-bd6a-4fa651a44cf7",
+            "target": "b_280"
+        }
+    ]
+    let uid =[
+        "75f142e0e00a000",
+        "75f142e0e00a001",
+        "75f142e0e00a002",
+        "75f142e0e00a003",
+        "75f142e0e00a004",
+        "75f142e0e00a005",
+        "75f142e0e00a006",
+        "75f142e0e00a007",
+        "75f142e0e00a008",
+        "75f142e0e00a009",
+        "75f142e0e00a00a",
+        "75f142e0e00a00b",
+        "75f142e0e00a00c",
+        "75f142e0e00a00d",
+        "75f142e0e00a00e",
+        "75f142e0e00a00f",
+        "75f142e0e00a010",
+        "75f142e0e00a011",
+        "75f142e0e00a012",
+        "75f142e0e00a013",
+        "75f142e0e00a014",
+        "75f142e0e00a015",
+        "75f142e0e00a016",
+        "75f142e0e00a017",
+        "75f142e0e00a018",
+        "75f142e0e00a019",
+        "75f142e0e00a01a",
+        "75f142e0e00a01b",
+        "75f142e0e00a01c",
+        "75f142e0e00a01d",
+        "75f142e0e00a01e",
+        "75f142e0e00a01f",
+        "75f142e0e00a020",
+        "75f142e0e00a021",
+        "75f142e0e00a022",
+        "75f142e0e00a023",
+        "75f142e0e00a024",
+        "75f142e0e00a025",
+        "75f142e0e00a026",
+        "75f142e0e00a027",
+        "75f142e0e00a028",
+        "75f142e0e00a029",
+        "75f142e0e00a02a",
+        "75f142e0e00a02b",
+        "75f142e0e00a02c",
+        "75f142e0e00a02d",
+        "75f142e0e00a02e",
+        "75f142e0e00a02f",
+        "75f142e0e00a030",
+        "75f142e0e00a031",
+        "75f142e0e00a032",
+        "75f142e0e00a033",
+        "75f142e0e00a034",
+        "75f142e0e00a035",
+        "75f142e0e00a036",
+        "75f142e0e00a037",
+        "75f142e0e00a038",
+        "75f142e0e00a039",
+        "75f142e0e00a03a",
+        "75f142e0e00a03b",
+        "75f142e0e00a03c",
+        "75f142e0e00a03d",
+        "75f142e0e00a03e",
+        "75f142e0e00a03f",
+        "75f142e0e00a040",
+        "75f142e0e00a041",
+        "75f142e0e00a042",
+        "75f142e0e00a043",
+        "75f142e0e00a044",
+        "75f142e0e00a045",
+        "75f142e0e00a046",
+        "75f142e0e00a047",
+        "75f142e0e00a048",
+        "75f142e0e00a049",
+        "75f142e0e00a04a",
+        "75f142e0e00a04b",
+        "75f142e0e00a04c",
+        "75f142e0e00a04d",
+        "75f142e0e00a04e",
+        "75f142e0e00a04f",
+        "75f142e0e00a050",
+        "75f142e0e00a051",
+        "75f142e0e00a052",
+        "75f142e0e00a053",
+        "75f142e0e00a054",
+        "75f142e0e00a055",
+        "75f142e0e00a056",
+        "75f142e0e00a057",
+        "75f142e0e00a058",
+        "75f142e0e00a059",
+        "75f142e0e00a05a",
+        "75f142e0e00a05b",
+        "75f142e0e00a05c",
+        "75f142e0e00a05d",
+        "75f142e0e00a05e",
+        "75f142e0e00a05f",
+        "75f142e0e00a060",
+        "75f142e0e00a061",
+        "75f142e0e00a062",
+        "75f142e0e00a063",
+        "75f142e0e00a064",
+        "75f142e0e00a065",
+        "75f142e0e00a066",
+        "75f142e0e00a067",
+        "75f142e0e00a068",
+        "75f142e0e00a069",
+        "75f142e0e00a06a",
+        "75f142e0e00a06b",
+        "75f142e0e00a06c",
+        "75f142e0e00a06d",
+        "75f142e0e00a06e",
+        "75f142e0e00a06f",
+        "75f142e0e00a070",
+        "75f142e0e00a071",
+        "75f142e0e00a072",
+        "75f142e0e00a073",
+        "75f142e0e00a074",
+        "75f142e0e00a075",
+        "75f142e0e00a076",
+        "75f142e0e00a077",
+        "75f142e0e00a078",
+        "75f142e0e00a079",
+        "75f142e0e00a07a",
+        "75f142e0e00a07b",
+        "75f142e0e00a07c",
+        "75f142e0e00a07d",
+        "75f142e0e00a07e",
+        "75f142e0e00a07f",
+        "75f142e0e00a080",
+        "75f142e0e00a081",
+        "75f142e0e00a082",
+        "75f142e0e00a083",
+        "75f142e0e00a084",
+        "75f142e0e00a085",
+        "75f142e0e00a086",
+        "75f142e0e00a087",
+        "75f142e0e00a088",
+        "75f142e0e00a089",
+        "75f142e0e00a08a",
+        "75f142e0e00a08b",
+        "75f142e0e00a08c",
+        "75f142e0e00a08d",
+        "75f142e0e00a08e",
+        "75f142e0e00a08f",
+        "75f142e0e00a090",
+        "75f142e0e00a091",
+        "75f142e0e00a092",
+        "75f142e0e00a093",
+        "75f142e0e00a094",
+        "75f142e0e00a095",
+        "75f142e0e00a096",
+        "75f142e0e00a097",
+        "75f142e0e00a098",
+        "75f142e0e00a099",
+        "75f142e0e00a09a",
+        "75f142e0e00a09b",
+        "75f142e0e00a09c",
+        "75f142e0e00a09d",
+        "75f142e0e00a09e",
+        "75f142e0e00a09f",
+        "75f142e0e00a0a0",
+        "75f142e0e00a0a1",
+        "75f142e0e00a0a2",
+        "75f142e0e00a0a3",
+        "75f142e0e00a0a4",
+        "75f142e0e00a0a5",
+        "75f142e0e00a0a6",
+        "75f142e0e00a0a7",
+        "75f142e0e00a0a8",
+        "75f142e0e00a0a9",
+        "75f142e0e00a0aa",
+        "75f142e0e00a0ab",
+        "75f142e0e00a0ac",
+        "75f142e0e00a0ad",
+        "75f142e0e00a0ae",
+        "75f142e0e00a0af",
+        "75f142e0e00a0b0",
+        "75f142e0e00a0b1",
+        "75f142e0e00a0b2",
+        "75f142e0e00a0b3",
+        "75f142e0e00a0b4",
+        "75f142e0e00a0b5",
+        "75f142e0e00a0b6",
+        "75f142e0e00a0b7",
+        "75f142e0e00a0b8",
+        "75f142e0e00a0b9",
+        "75f142e0e00a0ba",
+        "75f142e0e00a0bb",
+        "75f142e0e00a0bc",
+        "75f142e0e00a0bd",
+        "75f142e0e00a0be",
+        "75f142e0e00a0bf",
+        "75f142e0e00a0c0",
+        "75f142e0e00a0c1",
+        "75f142e0e00a0c2",
+        "75f142e0e00a0c3",
+        "75f142e0e00a0c4",
+        "75f142e0e00a0c5",
+        "75f142e0e00a0c6",
+        "75f142e0e00a0c7",
+        "75f142e0e00a0c8",
+        "75f142e0e00a0c9",
+        "75f142e0e00a0ca",
+        "75f142e0e00a0cb",
+        "75f142e0e00a0cc",
+        "75f142e0e00a0cd",
+        "75f142e0e00a0ce",
+        "75f142e0e00a0cf",
+        "75f142e0e00a0d0",
+        "75f142e0e00a0d1",
+        "75f142e0e00a0d2",
+        "75f142e0e00a0d3",
+        "75f142e0e00a0d4",
+        "75f142e0e00a0d5",
+        "75f142e0e00a0d6",
+        "75f142e0e00a0d7",
+        "75f142e0e00a0d8",
+        "75f142e0e00a0d9",
+        "75f142e0e00a0da",
+        "75f142e0e00a0db",
+        "75f142e0e00a0dc",
+        "75f142e0e00a0dd",
+        "75f142e0e00a0de",
+        "75f142e0e00a0df",
+        "75f142e0e00a0e0",
+        "75f142e0e00a0e1",
+        "75f142e0e00a0e2",
+        "75f142e0e00a0e3",
+        "75f142e0e00a0e4",
+        "75f142e0e00a0e5",
+        "75f142e0e00a0e6",
+        "75f142e0e00a0e7",
+        "75f142e0e00a0e8",
+        "75f142e0e00a0e9",
+        "75f142e0e00a0ea",
+        "75f142e0e00a0eb",
+        "75f142e0e00a0ec",
+        "75f142e0e00a0ed",
+        "75f142e0e00a0ee",
+        "75f142e0e00a0ef",
+        "75f142e0e00a0f0",
+        "75f142e0e00a0f1",
+        "75f142e0e00a0f2",
+        "75f142e0e00a0f3",
+        "75f142e0e00a0f4",
+        "75f142e0e00a0f5",
+        "75f142e0e00a0f6",
+        "75f142e0e00a0f7",
+        "75f142e0e00a0f8",
+        "75f142e0e00a0f9",
+        "75f142e0e00a0fa",
+        "75f142e0e00a0fb",
+        "75f142e0e00a0fc",
+        "75f142e0e00a0fd",
+        "75f142e0e00a0fe",
+        "75f142e0e00a0ff",
+        "75f142e0e00a100",
+        "75f142e0e00a101",
+        "75f142e0e00a102",
+        "75f142e0e00a103",
+        "75f142e0e00a104",
+        "75f142e0e00a105",
+        "75f142e0e00a106",
+        "75f142e0e00a107",
+        "75f142e0e00a108",
+        "75f142e0e00a109",
+        "75f142e0e00a10a",
+        "75f142e0e00a10b",
+        "75f142e0e00a10c",
+        "75f142e0e00a10d",
+        "75f142e0e00a10e",
+        "75f142e0e00a10f",
+        "75f142e0e00a110",
+        "75f142e0e00a111",
+        "75f142e0e00a112",
+        "75f142e0e00a113",
+        "75f142e0e00a114",
+        "75f142e0e00a115",
+        "75f142e0e00a116",
+        "75f142e0e00a117",
+        "75f142e0e00a118",
+        "75f142e0e00a119",
+        "75f142e0e00a11a",
+        "75f142e0e00a11b",
+        "75f142e0e00a11c",
+        "75f142e0e00a11d",
+        "75f142e0e00a11e",
+        "75f142e0e00a11f",
+        "75f142e0e00a120",
+        "75f142e0e00a121",
+        "75f142e0e00a122",
+        "75f142e0e00a123",
+        "75f142e0e00a124",
+        "75f142e0e00a125",
+        "75f142e0e00a126",
+        "75f142e0e00a127",
+        "75f142e0e00a128",
+        "75f142e0e00a129",
+        "75f142e0e00a12a",
+        "75f142e0e00a12b"
+    ]
+    // let nameMap = {"b1":"介坊小区_东区10楼","b2":"介坊小区_东区11楼","b3":"介坊小区_东区12楼","b4":"介坊小区_东区13楼","b5":"介坊小区_东区16楼","b6":"介坊小区_东区17楼","b7":"介坊小区_东区18楼","b8":"介坊小区_东区19楼","b9":"介坊小区_东区1楼","b10":"介坊小区_东区20楼","b11":"介坊小区_东区21楼","b12":"介坊小区_东区22楼","b13":"介坊小区_东区2楼","b14":"介坊小区_东区3楼","b15":"介坊小区_东区4楼","b16":"介坊小区_东区5楼","b17":"介坊小区_东区6楼","b18":"介坊小区_东区7楼","b19":"介坊小区_东区8楼","b20":"介坊小区_东区9楼","b21":"介坊小区_1999-3楼","b22":"介坊小区_1999-4楼","b23":"介坊小区_1999-5楼","b24":"介坊小区_1999-6楼","b25":"介坊小区_1999-7楼","b26":"介坊小区_2000-1楼","b27":"介坊小区_2000-2楼","b28":"介坊小区_2000-3楼","b29":"介坊小区_2000-4楼","b30":"介坊小区_2000-5楼","b31":"介坊小区_2000-6楼","b32":"介坊小区_2000-7楼","b33":"介坊小区_北区1楼","b34":"介坊小区_北区2楼","b35":"介坊小区_北区3楼","b36":"介坊小区_北区5楼","b37":"介坊小区_北区6楼","b38":"介坊小区_2005-3楼","b39":"介坊小区_2005-4楼","b40":"介坊小区_2007-4楼","b41":"介坊小区_2007-5楼","b42":"介坊小区_1996-1楼","b43":"介坊小区_1996-3东楼","b44":"介坊小区_1999-1北楼","b45":"介坊小区_1999-1南楼","b46":"介坊小区_1999-2北楼","b47":"介坊小区_1999-2南楼","b48":"介坊小区_1996-3西楼","b49":"工行宿舍","b50":"四中","b51":"市建","b52":"小二层商铺","b53":"介坊小区_2007-3楼"}
+    // let nameMap = {"b1":"体委_介坊小区_2005-1楼","b2":"体委_介坊小区_2005-2楼","b3":"体委_介坊小区_东区23楼","b4":"体委_介坊小区_2007-2楼","b5":"体委_介坊小区_2002-3楼","b6":"体委_介坊小区_2001-4东楼","b7":"体委_介坊小区_2001-4西楼","b8":"体委_介坊小区_2004-4东楼","b9":"体委_介坊小区_2004-4西楼","b10":"体委_介坊小区_2004-5东楼","b11":"体委_介坊小区_2004-5西楼","b12":"体委_介坊小区_2004-5中楼","b13":"体委_介坊小区_2007-1东楼","b14":"体委_介坊小区_2007-1西楼","b15":"体委_介坊小区_1996-2楼","b16":"体委_介坊小区_1998-1楼","b17":"体委_介坊小区_1998-2楼","b18":"体委_介坊小区_1998-3楼","b19":"体委_介坊小区_1998-4楼","b20":"体委_介坊小区_2004-1楼","b21":"体委_介坊小区_2004-2楼","b22":"体委_介坊小区_2004-3楼","b23":"体委_介坊小区_2001-1楼","b24":"体委_介坊小区_2001-2楼","b25":"体委_介坊小区_2001-3楼","b26":"体委_介坊小区_2002-1楼","b27":"体委_介坊小区_2002-4楼","b28":"体委_介坊小区_南区1楼","b29":"体委_介坊小区_南区2楼","b30":"体委_介坊小区_南区3楼","b31":"体委_介坊小区_南区4楼","b32":"体委_介坊小区_东区24楼","b33":"体委_介坊小区_2002-2楼","b34":"体委_介坊小区_2002-3南","b35":"体委_介坊小区_2004-6楼","b36":"体委_介坊小区_2004-4中","b37":"幼儿园","b38":"老干部活动中心","b39":"甲班楼","b40":"南区排房","b41":"社区医院","b42":"市委老干部宿舍"}
+    // let nameMap = {"b1":"一中-行政楼-101","b2":"一中-行政楼-110","b3":"一中-行政楼-112","b4":"一中-行政楼-114","b5":"一中-行政楼-1层过道","b6":"一中-行政楼-201","b7":"一中-行政楼-212","b8":"一中-行政楼-214","b9":"一中-行政楼-216","b10":"一中-行政楼-2层过道","b11":"一中-行政楼-301","b12":"一中-行政楼-313","b13":"一中-行政楼-314","b14":"一中-行政楼-316","b15":"一中-行政楼-3层过道","b16":"一中-行政楼-401","b17":"一中-行政楼-409","b18":"一中-行政楼-410","b19":"一中-行政楼-412","b20":"一中-行政楼-4层过道","b21":"一中-综合楼2-101","b22":"一中-综合楼2-104","b23":"一中-综合楼2-107","b24":"一中-综合楼2-114","b25":"一中-综合楼2-127","b26":"一中-综合楼2-137","b27":"一中-综合楼2-138","b28":"一中-综合楼2-208","b29":"一中-综合楼2-214","b30":"一中-综合楼2-216","b31":"一中-综合楼2-233","b32":"一中-综合楼2-239","b33":"一中-综合楼2-244","b34":"一中-综合楼2-307","b35":"一中-综合楼2-314","b36":"一中-综合楼2-316","b37":"一中-综合楼2-327","b38":"一中-综合楼2-334","b39":"一中-综合楼2-339","b40":"一中-综合楼2-343","b41":"一中-综合楼2-408","b42":"一中-综合楼2-414","b43":"一中-综合楼2-416","b44":"一中-综合楼2-433","b45":"一中-综合楼2-439","b46":"一中-综合楼2-444","b47":"一中-综合楼2-448","b48":"一中-综合楼2-501","b49":"一中-综合楼2-505","b50":"一中-综合楼2-506","b51":"一中-综合楼2-510","b52":"一中-综合楼2-517","b53":"一中-综合楼2-1层水房","b54":"一中-综合楼2-1层东走廊","b55":"一中-综合楼2-2层水房","b56":"一中-综合楼2-2层东走廊","b57":"一中-综合楼2-3层水房","b58":"一中-综合楼2-3层东走廊","b59":"一中-综合楼2-4层水房","b60":"一中-综合楼2-4层东走廊","b61":"一中-实验楼-102","b62":"一中-实验楼-103","b63":"一中-实验楼-105","b64":"一中-实验楼-107","b65":"一中-实验楼-110","b66":"一中-实验楼-111","b67":"一中-实验楼-115","b68":"一中-实验楼-118","b69":"一中-实验楼-119","b70":"一中-实验楼-203","b71":"一中-实验楼-204","b72":"一中-实验楼-205","b73":"一中-实验楼-210","b74":"一中-实验楼-211","b75":"一中-实验楼-212","b76":"一中-实验楼-215","b77":"一中-实验楼-219","b78":"一中-实验楼-220","b79":"一中-实验楼-303","b80":"一中-实验楼-304","b81":"一中-实验楼-305","b82":"一中-实验楼-310","b83":"一中-实验楼-311","b84":"一中-实验楼-312","b85":"一中-实验楼-315","b86":"一中-实验楼-319","b87":"一中-实验楼-403","b88":"一中-实验楼-404","b89":"一中-实验楼-405","b90":"一中-实验楼-410","b91":"一中-实验楼-411","b92":"一中-实验楼-412","b93":"一中-实验楼-419","b94":"一中-实验楼-420","b95":"一中-实验楼-503","b96":"一中-实验楼-504","b97":"一中-实验楼-505","b98":"一中-实验楼-510","b99":"一中-实验楼-511","b100":"一中-实验楼-1-女卫2","b101":"一中-实验楼-1-女卫1","b102":"一中-实验楼-2-女卫1","b103":"一中-实验楼-2-女卫2","b104":"一中-实验楼-3-女卫1","b105":"一中-实验楼-3-女卫2","b106":"一中-实验楼-4-女卫1","b107":"一中-实验楼-4-女卫2","b108":"一中-实验楼-5-女卫1","b109":"一中-介子楼-103","b110":"一中-介子楼-104","b111":"一中-介子楼-107","b112":"一中-介子楼-108","b113":"一中-介子楼-203","b114":"一中-介子楼-204","b115":"一中-介子楼-207","b116":"一中-介子楼-208","b117":"一中-介子楼-303","b118":"一中-介子楼-304","b119":"一中-介子楼-307","b120":"一中-介子楼-308","b121":"一中-介子楼-403","b122":"一中-介子楼-404","b123":"一中-介子楼-407","b124":"一中-介子楼-408","b125":"一中-介子楼-503","b126":"一中-介子楼-504","b127":"一中-介子楼-507","b128":"一中-介子楼-508","b129":"一中-介子楼-1层办公室","b130":"一中-介子楼-2层办公室","b131":"一中-介子楼-3层办公室","b132":"一中-介子楼-4层办公室","b133":"一中-介子楼-5层办公室","b134":"一中-介子楼-台阶教室-南3","b135":"一中-介子楼-台阶教室-南2","b136":"一中-介子楼-台阶教室-南1","b137":"一中-介子楼-台阶教室-北1","b138":"一中-介子楼-台阶教室-北2","b139":"一中-介子楼-台阶教室-北3","b140":"一中-林宗楼-103","b141":"一中-林宗楼-104","b142":"一中-林宗楼-107","b143":"一中-林宗楼-108","b144":"一中-林宗楼-203","b145":"一中-林宗楼-204","b146":"一中-林宗楼-207","b147":"一中-林宗楼-208","b148":"一中-林宗楼-303","b149":"一中-林宗楼-304","b150":"一中-林宗楼-307","b151":"一中-林宗楼-308","b152":"一中-林宗楼-403","b153":"一中-林宗楼-404","b154":"一中-林宗楼-407","b155":"一中-林宗楼-408","b156":"一中-林宗楼-503","b157":"一中-林宗楼-504","b158":"一中-林宗楼-507","b159":"一中-林宗楼-508","b160":"一中-林宗楼-1层办公室","b161":"一中-林宗楼-2层办公室","b162":"一中-林宗楼-3层办公室","b163":"一中-林宗楼-4层办公室","b164":"一中-林宗楼-5层办公室","b165":"一中-林宗楼-台阶教室-南3","b166":"一中-林宗楼-台阶教室-南2","b167":"一中-林宗楼-台阶教室-南1","b168":"一中-林宗楼-台阶教室-北1","b169":"一中-林宗楼-台阶教室-北2","b170":"一中-林宗楼-台阶教室-北3","b171":"一中-彦博楼-103","b172":"一中-彦博楼-104","b173":"一中-彦博楼-107","b174":"一中-彦博楼-108","b175":"一中-彦博楼-203","b176":"一中-彦博楼-204","b177":"一中-彦博楼-207","b178":"一中-彦博楼-208","b179":"一中-彦博楼-303","b180":"一中-彦博楼-304","b181":"一中-彦博楼-307","b182":"一中-彦博楼-308","b183":"一中-彦博楼-403","b184":"一中-彦博楼-404","b185":"一中-彦博楼-407","b186":"一中-彦博楼-408","b187":"一中-彦博楼-503","b188":"一中-彦博楼-504","b189":"一中-彦博楼-507","b190":"一中-彦博楼-508","b191":"一中-彦博楼-1层办公室","b192":"一中-彦博楼-2层办公室","b193":"一中-彦博楼-3层办公室","b194":"一中-彦博楼-4层办公室","b195":"一中-彦博楼-5层办公室","b196":"一中-彦博楼-台阶教室-南3","b197":"一中-彦博楼-台阶教室-南2","b198":"一中-彦博楼-台阶教室-南1","b199":"一中-彦博楼-台阶教室-北1","b200":"一中-彦博楼-台阶教室-北2","b201":"一中-彦博楼-台阶教室-北3","b202":"一中-男生公寓1-103","b203":"一中-男生公寓1-108","b204":"一中-男生公寓1-112","b205":"一中-男生公寓1-113","b206":"一中-男生公寓1-115","b207":"一中-男生公寓1-116","b208":"一中-男生公寓1-118","b209":"一中-男生公寓1-大厅1","b210":"一中-男生公寓1-大厅2","b211":"一中-男生公寓1-203","b212":"一中-男生公寓1-208","b213":"一中-男生公寓1-217","b214":"一中-男生公寓1-218","b215":"一中-男生公寓1-219","b216":"一中-男生公寓1-220","b217":"一中-男生公寓1-222","b218":"一中-男生公寓1-223","b219":"一中-男生公寓1-225","b220":"一中-男生公寓1-303","b221":"一中-男生公寓1-308","b222":"一中-男生公寓1-317","b223":"一中-男生公寓1-318","b224":"一中-男生公寓1-319","b225":"一中-男生公寓1-320","b226":"一中-男生公寓1-322","b227":"一中-男生公寓1-323","b228":"一中-男生公寓1-325","b229":"一中-男生公寓1-403","b230":"一中-男生公寓1-408","b231":"一中-男生公寓1-417","b232":"一中-男生公寓1-418","b233":"一中-男生公寓1-419","b234":"一中-男生公寓1-420","b235":"一中-男生公寓1-422","b236":"一中-男生公寓1-423","b237":"一中-男生公寓1-425","b238":"一中-男生公寓1-503","b239":"一中-男生公寓1-508","b240":"一中-男生公寓1-517","b241":"一中-男生公寓1-518","b242":"一中-男生公寓1-519","b243":"一中-男生公寓1-520","b244":"一中-男生公寓1-522","b245":"一中-男生公寓1-523","b246":"一中-男生公寓1-525","b247":"一中-男生公寓1-603","b248":"一中-男生公寓1-608","b249":"一中-男生公寓1-617","b250":"一中-男生公寓1-618","b251":"一中-男生公寓1-619","b252":"一中-男生公寓1-620","b253":"一中-男生公寓1-622","b254":"一中-男生公寓1-623","b255":"一中-男生公寓1-625","b256":"一中-男生公寓2-116","b257":"一中-男生公寓2-117","b258":"一中-男生公寓2-119","b259":"一中-男生公寓2-120","b260":"一中-男生公寓2-122","b261":"一中-男生公寓2-124","b262":"一中-男生公寓2-卫生间1-1","b263":"一中-男生公寓2-卫生间1-2","b264":"一中-男生公寓2-卫生间1-3","b265":"一中-男生公寓2-216","b266":"一中-男生公寓2-217","b267":"一中-男生公寓2-220","b268":"一中-男生公寓2-221","b269":"一中-男生公寓2-223","b270":"一中-男生公寓2-225","b271":"一中-男生公寓2-卫生间2-1","b272":"一中-男生公寓2-卫生间2-2","b273":"一中-男生公寓2-卫生间2-3","b274":"一中-男生公寓2-316","b275":"一中-男生公寓2-317","b276":"一中-男生公寓2-320","b277":"一中-男生公寓2-321","b278":"一中-男生公寓2-323","b279":"一中-男生公寓2-325","b280":"一中-男生公寓2-卫生间3-1","b281":"一中-男生公寓2-卫生间3-2","b282":"一中-男生公寓2-卫生间3-3","b283":"一中-男生公寓2-416","b284":"一中-男生公寓2-417","b285":"一中-男生公寓2-420","b286":"一中-男生公寓2-421","b287":"一中-男生公寓2-423","b288":"一中-男生公寓2-425","b289":"一中-男生公寓2-卫生间4-1","b290":"一中-男生公寓2-卫生间4-2","b291":"一中-男生公寓2-卫生间4-3","b292":"一中-男生公寓2-516","b293":"一中-男生公寓2-517","b294":"一中-男生公寓2-520","b295":"一中-男生公寓2-521","b296":"一中-男生公寓2-523","b297":"一中-男生公寓2-525","b298":"一中-男生公寓2-卫生间5-1","b299":"一中-男生公寓2-卫生间5-2","b300":"一中-男生公寓2-卫生间5-3","b301":"一中-男生公寓2-616","b302":"一中-男生公寓2-617","b303":"一中-男生公寓2-620","b304":"一中-男生公寓2-621","b305":"一中-男生公寓2-623","b306":"一中-男生公寓2-625","b307":"一中-男生公寓2-卫生间6-1","b308":"一中-男生公寓2-卫生间6-2","b309":"一中-男生公寓2-卫生间6-3","b310":"一中-女生公寓1-103","b311":"一中-女生公寓1-105","b312":"一中-女生公寓1-120","b313":"一中-女生公寓1-123","b314":"一中-女生公寓1-西过道","b315":"一中-女生公寓1-中过道","b316":"一中-女生公寓1-203","b317":"一中-女生公寓1-204","b318":"一中-女生公寓1-217","b319":"一中-女生公寓1-218","b320":"一中-女生公寓1-221","b322":"一中-女生公寓1-303","b323":"一中-女生公寓1-304","b324":"一中-女生公寓1-317","b325":"一中-女生公寓1-318","b326":"一中-女生公寓1-321","b327":"一中-女生公寓1-322","b328":"一中-女生公寓1-403","b329":"一中-女生公寓1-404","b330":"一中-女生公寓1-417","b331":"一中-女生公寓1-418","b332":"一中-女生公寓1-421","b333":"一中-女生公寓1-422","b334":"一中-女生公寓1-503","b335":"一中-女生公寓1-504","b336":"一中-女生公寓1-517","b337":"一中-女生公寓1-518","b338":"一中-女生公寓1-521","b339":"一中-女生公寓1-522","b340":"一中-女生公寓1-603","b341":"一中-女生公寓1-604","b342":"一中-女生公寓1-617","b343":"一中-女生公寓1-618","b344":"一中-女生公寓1-621","b345":"一中-女生公寓1-622","b346":"一中-女生公寓2-117","b347":"一中-女生公寓2-118","b348":"一中-女生公寓2-121","b349":"一中-女生公寓2-122","b350":"一中-女生公寓2-125","b351":"一中-女生公寓2-126","b352":"一中-女生公寓2-217","b353":"一中-女生公寓2-218","b354":"一中-女生公寓2-221","b356":"一中-女生公寓2-225","b357":"一中-女生公寓2-226","b358":"一中-女生公寓2-317","b359":"一中-女生公寓2-318","b360":"一中-女生公寓2-321","b361":"一中-女生公寓2-322","b362":"一中-女生公寓2-325","b363":"一中-女生公寓2-326","b364":"一中-女生公寓2-417","b365":"一中-女生公寓2-418","b366":"一中-女生公寓2-421","b367":"一中-女生公寓2-422","b368":"一中-女生公寓2-425","b369":"一中-女生公寓2-426","b370":"一中-女生公寓2-517","b371":"一中-女生公寓2-518","b372":"一中-女生公寓2-521","b373":"一中-女生公寓2-522","b374":"一中-女生公寓2-525","b375":"一中-女生公寓2-526","b376":"一中-女生公寓2-617","b377":"一中-女生公寓2-618","b378":"一中-女生公寓2-621","b379":"一中-女生公寓2-622","b380":"一中-女生公寓2-625","b381":"一中-女生公寓2-626","b382":"一中-综合楼1-103","b383":"一中-综合楼1-104","b384":"一中-综合楼1-107","b385":"一中-综合楼1-108A","b386":"一中-综合楼1-108B","b388":"一中-综合楼1-203","b389":"一中-综合楼1-204","b390":"一中-综合楼1-207","b391":"一中-综合楼1-208A","b392":"一中-综合楼1-208B","b393":"一中-综合楼1-209","b394":"一中-综合楼1-303","b395":"一中-综合楼1-304","b396":"一中-综合楼1-307","b397":"一中-综合楼1-308A","b398":"一中-综合楼1-308B","b399":"一中-综合楼1-309","b400":"一中-综合楼1-403","b401":"一中-综合楼1-404","b402":"一中-综合楼1-407","b404":"一中-综合楼1-408B","b405":"一中-综合楼1-409","b406":"一中-综合楼1-503","b407":"一中-综合楼1-504","b409":"一中-综合楼1-508A","b410":"一中-综合楼1-508B","b411":"一中-综合楼1-509","b412":"一中-图书馆-超市","b413":"一中-图书馆-文印室","b414":"一中-图书馆-图书室1","b415":"一中-图书馆-图书室2","b416":"一中-图书馆-图书室3","b417":"一中-图书馆-工具书库","b418":"一中-图书馆-教师阅览室","b419":"一中-图书馆-二层3","b420":"一中-图书馆-二层4","b421":"一中-图书馆-二层5","b422":"一中-图书馆-三层1","b423":"一中-图书馆-三层2","b424":"一中-图书馆-三层3","b425":"一中-图书馆-三层4","b426":"一中-图书馆-三层5","b427":"一中-图书馆-四层1","b428":"一中-图书馆-四层2","b429":"一中-图书馆-四层3","b430":"一中-图书馆-四层4","b431":"一中-图书馆-四层5","b432":"一中-图书馆-五层1","b433":"一中-图书馆-五层2","b434":"一中-图书馆-五层3","b435":"一中-图书馆-五层4","b436":"一中-图书馆-五层5","b437":"一中-图书馆-1层楼道","b438":"一中-图书馆-2层楼道","b439":"一中-图书馆-3层楼道","b440":"一中-图书馆-4层楼道","b441":"一中-图书馆-5层楼道","b442":"一中-图书馆-6层楼道","b443":"一中-孔子楼-东卫","b444":"一中-孔子楼-东1","b445":"一中-孔子楼-东2","b446":"一中-孔子楼-东3","b447":"一中-孔子楼-东旋转楼梯1","b448":"一中-孔子楼-东旋转楼梯2","b449":"一中-孔子楼-东旋转楼梯3","b450":"一中-孔子楼-东旋转楼梯4","b451":"一中-孔子楼-一层廊1","b452":"一中-孔子楼-二层廊1","b453":"一中-孔子楼-三层廊1","b454":"一中-孔子楼-西卫","b455":"一中-孔子楼-西1","b456":"一中-孔子楼-西2","b457":"一中-孔子楼-西3","b458":"一中-孔子楼-西旋转楼梯1","b459":"一中-孔子楼-西旋转楼梯2","b460":"一中-孔子楼-西旋转楼梯3","b461":"一中-孔子楼-西旋转楼梯4","b462":"一中-孔子楼-一层廊2","b463":"一中-孔子楼-二层廊2","b464":"一中-孔子楼-三层廊2","b465":"一中-教师公寓浴室-男生浴室1","b466":"一中-教师公寓浴室-男生浴室2","b467":"一中-教师公寓浴室-男生浴室3","b468":"一中-教师公寓浴室-男生浴室4","b469":"一中-教师公寓浴室-男生浴室5","b470":"一中-教师公寓浴室-一层过道左","b471":"一中-教师公寓浴室-一层过道右","b472":"一中-教师公寓浴室-男一中-教师1","b473":"一中-教师公寓浴室-男一中-教师2","b474":"一中-教师公寓浴室-女生浴室1","b475":"一中-教师公寓浴室-女生浴室2","b476":"一中-教师公寓浴室-女生浴室3","b477":"一中-教师公寓浴室-女生浴室4","b478":"一中-教师公寓浴室-女生浴室5","b479":"一中-教师公寓浴室-二层过道左","b480":"一中-教师公寓浴室-二层过道右","b481":"一中-教师公寓浴室-女一中-教师1","b482":"一中-教师公寓浴室-女一中-教师2","b483":"一中-教师公寓浴室-310","b484":"一中-教师公寓浴室-311","b485":"一中-教师公寓浴室-314","b486":"一中-教师公寓浴室-307","b487":"一中-教师公寓浴室-308","b488":"一中-教师公寓浴室-楼梯1","b489":"一中-教师公寓浴室-楼梯2","b490":"一中-教师公寓浴室-楼梯3","b491":"一中-食堂-饭厅1-7","b492":"一中-食堂-饭厅1-2","b493":"一中-食堂-饭厅1-1","b494":"一中-食堂-饭厅1-3","b495":"一中-食堂-厨房1-2","b496":"一中-食堂-饭厅1-6","b497":"一中-食堂-饭厅1-4","b498":"一中-食堂-厨房1-1","b499":"一中-食堂-饭厅1-5","b500":"一中-食堂-饭厅2-1","b501":"一中-食堂-饭厅2-2","b502":"一中-食堂-饭厅2-3","b503":"一中-食堂-厨房2-1","b504":"一中-食堂-厨房2-2","b505":"一中-食堂-饭厅2-6","b506":"一中-食堂-饭厅2-4","b507":"一中-食堂-饭厅2-5","b508":"一中-食堂-饭厅3-4","b509":"一中-食堂-饭厅3-1","b510":"一中-食堂-饭厅3-6","b511":"一中-食堂-饭厅3-3","b512":"一中-食堂-饭厅3-2","b513":"一中-食堂-厨房3-1","b514":"一中-食堂-厨房3-2","b515":"一中-食堂-饭厅3-5","b516":"职中-躬行楼-西","b517":"职中-躬行楼-北1","b518":"职中-躬行楼-北2","b519":"职中-躬行楼-北3","b520":"职中-躬行楼-北4","b521":"职中-躬行楼-东","b522":"职中-躬行楼-南1","b523":"职中-躬行楼-南2","b524":"职中-躬行楼-南3","b525":"职中-躬行楼-南4","b526":"职中-知行楼-北1","b527":"职中-知行楼-北2","b528":"职中-知行楼-北3","b529":"职中-知行楼-北4","b530":"职中-知行楼-北5","b531":"职中-知行楼-南1","b532":"职中-知行楼-南2","b533":"职中-知行楼-南3","b534":"职中-知行楼-南4","b535":"职中-知行楼-南5","b536":"职中-笃行楼-北1","b537":"职中-笃行楼-北2","b538":"职中-笃行楼-北3","b539":"职中-笃行楼-北4","b540":"职中-笃行楼-北5","b541":"职中-笃行楼-南1","b542":"职中-笃行楼-南2","b543":"职中-笃行楼-南3","b544":"职中-笃行楼-南4","b545":"职中-笃行楼-南5","b546":"职中-笃行楼-南6","b547":"职中-笃行楼-西1","b548":"职中-笃行楼-西2","b549":"职中-笃行楼-东1","b550":"职中-笃行楼-东2","b552":"职中-学生公寓-北2","b553":"职中-学生公寓-北3","b554":"职中-学生公寓-北4","b555":"职中-学生公寓-南1","b556":"职中-学生公寓-南2","b557":"职中-学生公寓-南3","b558":"职中-学生公寓-南4","b559":"职中-教育局-北1","b560":"职中-教育局-北2","b561":"职中-教育局-北3","b562":"职中-教育局-北4","b563":"职中-教育局-南1","b564":"职中-教育局-南2","b565":"职中-教育局-南3","b566":"职中-教育局-南4","b567":"职中-食堂-北1","b568":"职中-食堂-北2","b569":"职中-食堂-北3","b570":"职中-食堂-北4","b571":"职中-食堂-北5","b572":"职中-食堂-南1","b573":"职中-食堂-南2","b574":"职中-食堂-南3","b575":"职中-食堂-南4","b576":"职中-食堂-南5","b577":"职中-食堂-南6","b578":"职中-食堂-东1","b579":"职中-食堂-东2","b580":"职中-食堂-东3","b581":"双语-高中部-西门北","b582":"双语-高中部-西门南","b583":"双语-高中部-监控室","b584":"双语-高中部-男厕","b585":"双语-高中部-仓库","b586":"双语-高中部-团委","b587":"双语-高中部-文印室","b588":"双语-高中部-美术器材室","b589":"双语-高中部-财务部","b590":"双语-高中部-东门北","b591":"双语-高中部-书库","b592":"双语-初中部-教师办公室1","b593":"双语-初中部-教师办公室2","b594":"双语-初中部-东门北","b595":"双语-初中部-仓库","b596":"双语-初中部-西门南","b597":"双语-初中部-初中34班","b598":"双语-初中部-初中33班","b599":"双语-初中部-兴趣班","b600":"双语-初中部-体检室","b601":"双语-初中部-图书室1","b602":"双语-男生公寓-120","b603":"双语-男生公寓-117","b604":"双语-男生公寓-西门","b605":"双语-男生公寓-洗漱间","b606":"双语-男生公寓-东门","b607":"双语-女生公寓-120","b608":"双语-女生公寓-116","b609":"双语-女生公寓-114","b610":"双语-女生公寓-洗漱间","b611":"双语-女生公寓-教师值班室","b612":"双语-餐厅-北1","b613":"双语-餐厅-北2","b614":"双语-餐厅-南1","b615":"双语-餐厅-南2","b616":"双语-餐厅-南3","b617":"双语-餐厅-更衣室","b618":"双语-餐厅-消洗间","b619":"双语-报告厅-报告厅东侧","b620":"双语-报告厅-报告厅中侧","b621":"双语-报告厅-报告厅西侧","b622":"武装部-主楼-主楼高区","b623":"武装部-主楼-主楼地库","b624":"武装部-主楼-主楼低区","b625":"武装部-副楼-副楼"}
+    let nameMap = {"b1":"1#箱_284+1","b2":"1#箱_282+1","b3":"1#箱_291","b4":"1#箱_290","b5":"1#箱_288","b6":"1#箱_286","b7":"1#箱_285","b8":"1#箱_284","b9":"1#箱_283","b10":"1#箱_282","b11":"1#箱_281","b12":"1#箱_280","b13":"2#箱_304","b14":"2#箱_303","b15":"2#箱_302","b16":"2#箱_301","b17":"2#箱_299","b18":"2#箱_298","b19":"2#箱_297","b20":"2#箱_296","b21":"2#箱_295","b22":"2#箱_293","b23":"2#箱_292","b24":"3#箱_316","b25":"3#箱_315","b26":"3#箱_314","b27":"3#箱_313","b28":"3#箱_312","b29":"3#箱_311","b30":"3#箱_310","b31":"3#箱_309","b32":"3#箱_307","b33":"3#箱_306","b34":"3#箱_305","b35":"4#箱_村委会","b36":"4#箱_333","b37":"4#箱_332","b38":"4#箱_331","b39":"4#箱_330","b40":"4#箱_329","b41":"4#箱_328","b42":"4#箱_327","b43":"4#箱_326","b44":"4#箱_325","b45":"4#箱_324","b46":"4#箱_323","b47":"4#箱_321","b48":"4#箱_320","b49":"4#箱_319","b50":"4#箱_318","b51":"4#箱_317","b52":"5#箱_164+1","b53":"5#箱_172","b54":"5#箱_171","b55":"5#箱_170","b56":"5#箱_169","b57":"5#箱_168","b58":"5#箱_167","b59":"5#箱_166","b60":"5#箱_165","b61":"5#箱_163","b62":"5#箱_162","b63":"5#箱_161","b64":"5#箱_160","b65":"5#箱_158","b66":"5#箱_157","b67":"5#箱_156","b68":"5#箱_155","b69":"6#箱_200","b70":"6#箱_199","b71":"6#箱_197","b72":"6#箱_196","b73":"6#箱_195","b74":"6#箱_194","b75":"6#箱_193","b76":"6#箱_192","b77":"6#箱_191","b78":"6#箱_190","b79":"6#箱_189","b80":"6#箱_186","b81":"6#箱_185","b82":"6#箱_184","b83":"6#箱_183","b84":"6#箱_182","b85":"6#箱_181","b86":"6#箱_180","b87":"6#箱_179","b88":"6#箱_178","b89":"6#箱_177","b90":"6#箱_176","b91":"6#箱_175","b92":"6#箱_174","b93":"6#箱_173","b94":"7#箱_240","b95":"7#箱_238","b96":"7#箱_237","b97":"7#箱_236","b98":"7#箱_235","b99":"7#箱_234","b100":"7#箱_233","b101":"7#箱_231","b102":"7#箱_230","b103":"7#箱_226","b104":"7#箱_225","b105":"7#箱_223","b106":"7#箱_220","b107":"7#箱_219","b108":"7#箱_221+1","b109":"8#箱_259","b110":"8#箱_258","b111":"8#箱_257","b112":"8#箱_256","b113":"8#箱_255","b114":"8#箱_252","b115":"8#箱_251","b116":"8#箱_249","b117":"8#箱_247","b118":"8#箱_246","b119":"8#箱_243","b120":"8#箱_242","b121":"8#箱_241","b122":"9#箱_279","b123":"9#箱_278","b124":"9#箱_277","b125":"9#箱_276","b126":"9#箱_275","b127":"9#箱_274","b128":"9#箱_272","b129":"9#箱_271","b130":"9#箱_270","b131":"9#箱_269","b132":"9#箱_268","b133":"9#箱_267","b134":"9#箱_266","b135":"9#箱_265","b136":"9#箱_264","b137":"9#箱_262","b138":"9#箱_261","b139":"9#箱_260","b140":"10#箱_337","b141":"10#箱_336","b142":"10#箱_217","b143":"10#箱_215","b144":"10#箱_214","b145":"10#箱_213","b146":"10#箱_211","b147":"10#箱_210","b148":"10#箱_209","b149":"10#箱_208","b150":"10#箱_207","b151":"10#箱_206","b152":"10#箱_205","b153":"10#箱_204","b154":"10#箱_203","b155":"11#箱_141+1","b156":"11#箱_154","b157":"11#箱_153","b158":"11#箱_151","b159":"11#箱_150","b160":"11#箱_149","b161":"11#箱_148","b162":"11#箱_147","b163":"11#箱_146","b164":"11#箱_145","b165":"11#箱_144","b166":"11#箱_142","b167":"11#箱_141","b168":"11#箱_140","b169":"11#箱_139","b170":"11#箱_138","b171":"11#箱_137","b172":"11#箱_136","b173":"11#箱_135","b174":"12#箱_109","b175":"12#箱_108","b176":"12#箱_107","b177":"12#箱_106","b178":"12#箱_105","b179":"12#箱_103","b180":"12#箱_102","b181":"12#箱_101","b182":"12#箱_100","b183":"12#箱_99","b184":"12#箱_98","b185":"12#箱_97","b186":"13#箱_80+1","b187":"13#箱_85","b188":"13#箱_84","b189":"13#箱_83","b190":"13#箱_82","b191":"13#箱_81","b192":"13#箱_80","b193":"13#箱_79","b194":"13#箱_78","b195":"13#箱_77","b196":"13#箱_76","b197":"13#箱_75","b198":"13#箱_71","b199":"13#箱_58","b200":"13#箱_57","b201":"13#箱_37","b202":"14#箱_133","b203":"14#箱_132","b204":"14#箱_131","b205":"14#箱_130","b206":"14#箱_129","b207":"14#箱_127","b208":"14#箱_126","b209":"14#箱_125","b210":"14#箱_124","b211":"14#箱_123","b212":"14#箱_122","b213":"14#箱_120","b214":"14#箱_119","b215":"14#箱_118","b216":"14#箱_116","b217":"15#箱_115","b218":"15#箱_114","b219":"15#箱_112","b220":"15#箱_111","b221":"15#箱_110","b222":"15#箱_95","b223":"15#箱_93","b224":"15#箱_92","b225":"15#箱_91","b226":"15#箱_90","b227":"16#箱_83+1","b228":"16#箱_198+2","b229":"16#箱_72","b230":"16#箱_63","b231":"16#箱_56","b232":"16#箱_54","b233":"16#箱_53","b234":"16#箱_52","b235":"16#箱_41","b236":"16#箱_40","b237":"16#箱_39","b238":"16#箱_38","b239":"16#箱_34","b240":"17#箱_15+1","b241":"17#箱_36","b242":"17#箱_21","b243":"17#箱_19","b244":"17#箱_18","b245":"17#箱_17","b246":"17#箱_16","b247":"17#箱_13","b248":"17#箱_12","b249":"17#箱_10","b250":"17#箱_7","b251":"17#箱_4","b252":"18#箱_3+1","b253":"18#箱_28+1","b254":"18#箱_27+1","b255":"18#箱_32","b256":"18#箱_31","b257":"18#箱_28","b258":"18#箱_26","b259":"18#箱_24","b260":"18#箱_23","b261":"18#箱_22","b262":"18#箱_20","b263":"18#箱_2","b264":"19#箱_67+1","b265":"19#箱_43+1","b266":"19#箱_69","b267":"19#箱_68","b268":"19#箱_66","b269":"19#箱_65","b270":"19#箱_64","b271":"19#箱_51","b272":"19#箱_50","b273":"19#箱_49","b274":"19#箱_48","b275":"19#箱_46","b276":"19#箱_45","b277":"19#箱_43","b278":"19#箱_42","b279":"19#箱_30","b280":"19#箱_29"}
+
+    let res = []
+    let time = new Date().getTime()
+    let map = {}
+    stationConfig.map((item,index) => {
+        item.target = item.target.split("_").join("")
+        // if(["H13_N", "H105_H", "H94_N","H105_L","H29_N","H24_L","H24_H","H3_L","H3_M","H3_H","H87_L","H85_N"].includes(item.target)) {
+        res.push(
+            // `INSERT INTO viz_resource_ds_3403c1dd180a000.regulate_config (id, label, description, config, user, modify_time, group_id) VALUES (\'${uid[index]}\', \'${item.target}_enable_switch\', \'\', \'{"title":"","isAuto":false,"width":360,"viewInfo":{"title":"","fields":[]},"controlInfo":{"target":null,"scope":"smart-edge","fields":[{"type":"composite","property":"smart_operation_tw:5d8eafd0c923b124-fadd7d8813f8d8cf:Toolkit:Derive:${item.target}_enable","label":"智能AI","note":null,"stepStyle":"Symbol","wayOfGetProperty":"smart","catalog":{"0":"关闭","1":"开启"}}]},"abnormalValidators":[]}\', \'田苗苗\', ${time++}, \'73af2d0bb809000\');`
+            // `INSERT INTO viz_resource_ds_3403c1dd180a000.regulate_config (id, label, description, config, user, modify_time, group_id) VALUES (\'${uid[index]}\', \'${item.target}_enable_switch\', '', '{\"title\":\"\",\"isAuto\":false,\"width\":360,\"viewInfo\":{\"title\":\"\",\"fields\":[{\"type\":\"format\",\"property\":\"control_enable\",\"label\":\"${nameMap[item.target]}\",\"wayOfGetProperty\":\"scada\",\"catalog\":{\"0\":\"关闭\",\"1\":\"开启\"}}]},\"controlInfo\":{\"target\":null,\"scope\":\"smart-edge\",\"fields\":[{\"type\":\"composite\",\"property\":\"smart_operation_tw:5d8eafd0c923b124-buildingConfig3:Toolkit:ConditionDerive:${item.target}_control_enable\",\"label\":\"智能AI\",\"note\":null,\"stepStyle\":\"Symbol\",\"wayOfGetProperty\":\"smart\",\"catalog\":{\"0\":\"关闭\",\"1\":\"开启\"}}]},\"abnormalValidators\":[],\"height\":295}', '田苗苗',  ${time++}, '73af2d0bb809000')`
+            //`INSERT INTO viz_resource_ds_3403c1dd180a000.regulate_config (id, label, description, config, user, modify_time, group_id) VALUES (\'${uid[index]}\', \'${item.target}_enable_switch\', '', '{\"title\":\"\",\"isAuto\":false,\"width\":360,\"viewInfo\":{\"title\":\"\",\"fields\":[{\"type\":\"format\",\"property\":\"control_enable\",\"label\":\"${nameMap[item.target]}\",\"wayOfGetProperty\":\"scada\",\"catalog\":{\"0\":\"关闭\",\"1\":\"开启\"}}]},\"controlInfo\":{\"target\":null,\"scope\":\"smart-edge\",\"fields\":[{\"type\":\"composite\",\"property\":\"smart_operation_yz:277926f26d80982e-buildingConfig3:Hci:Config:${item.target}_control_enable\",\"label\":\"智能AI\",\"note\":null,\"stepStyle\":\"Symbol\",\"wayOfGetProperty\":\"smart\",\"catalog\":{\"0\":\"关闭\",\"1\":\"开启\"}}]},\"abnormalValidators\":[],\"height\":296}', '田苗苗', ${time++}, '74f4ee00cc0a000')`
+            `INSERT INTO viz_resource_ds_3403c1dd180a000.regulate_config (id, label, description, config, user, modify_time, group_id) VALUES (\'${uid[index]}\', \'${item.target}_enable_switch\', '', '{\"title\":\"\",\"isAuto\":false,\"width\":360,\"viewInfo\":{\"title\":\"\",\"fields\":[{\"type\":\"format\",\"property\":\"control_enable\",\"label\":\"${nameMap[item.target]}\",\"wayOfGetProperty\":\"scada\",\"catalog\":{\"0\":\"关闭\",\"1\":\"开启\"}}]},\"controlInfo\":{\"target\":null,\"scope\":\"smart-edge\",\"fields\":[{\"type\":\"composite\",\"property\":\"smart_operation_xzq:277926f26d80982e-buildingConfig3:Hci:Config:${item.target}_control_enable\",\"label\":\"智能AI\",\"note\":null,\"stepStyle\":\"Symbol\",\"wayOfGetProperty\":\"smart\",\"catalog\":{\"0\":\"关闭\",\"1\":\"开启\"}}]},\"abnormalValidators\":[],\"height\":296}', '田苗苗', ${time++}, '75f089f4b80a000');`
+            //`INSERT INTO viz_resource_ds_3403c1dd180a000.regulate_config (id, label, description, config, user, modify_time, group_id) VALUES ('${uid[index]}', '${nameMap[item.target]}回温调整', '', '{\"title\":\"${nameMap[item.target]}回温调整\",\"isAuto\":false,\"width\":360,\"viewInfo\":{\"title\":\"\",\"fields\":[]},\"controlInfo\":{\"target\":null,\"scope\":\"smart-edge\",\"fields\":[{\"type\":\"stepNumeric\",\"property\":\"jiexiu_smart_valve:6431d47f3d9d732a-4167f32408ed05f4:Toolkit:ConditionDerive:${item.target}_ret_tem_offset\",\"label\":\"${nameMap[item.target]}回温调整幅度\",\"unit\":\"\",\"prefix\":\"\",\"max\":5,\"min\":0.1,\"steps\":[0.5],\"decimal\":\"\",\"note\":null,\"stepStyle\":\"Symbol\",\"wayOfGetProperty\":\"smart\",\"singleAbsolute\":10}]},\"abnormalValidators\":[]}', '薛荣飞', ${time++}, '7223c5c1d40a000');`
+            //`INSERT INTO viz_resource_ds_3403c1dd180a000.regulate_config (id, label, description, config, user, modify_time, group_id) VALUES ('${uid[index]}', '${nameMap[item.target]}回温调整', '', '{\"title\":\"${nameMap[item.target]}回温调整\",\"isAuto\":false,\"width\":360,\"viewInfo\":{\"title\":\"\",\"fields\":[]},\"controlInfo\":{\"target\":null,\"scope\":\"smart-edge\",\"fields\":[{\"type\":\"numeric\",\"property\":\"jiexiu_smart_valve:6431d47f3d9d732a-4167f32408ed05f4:Toolkit:ConditionDerive:${item.target}_ret_tem_offset\",\"label\":\"${nameMap[item.target]}回温调整幅度\",\"unit\":\"\",\"prefix\":\"\",\"max\":20,\"min\":0.1,\"steps\":[0.5],\"decimal\":\"\",\"note\":null,\"stepStyle\":\"SymbolAndNumber\",\"wayOfGetProperty\":\"smart\"}]},\"abnormalValidators\":[]}', '薛荣飞', ${time++}, '7223c5c1d40a000');`
+        )
+        // }
+
+
+        map[item.target] = uid[index]
+    })
+
+    // document.write(JSON.stringify(map))
+    console.log(JSON.stringify(res.join(";")))
+
+
+
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+    <article id="stations">
+
+    </article>
+</body>
+<script>
+    // const pro = Symbol()
+    class Station {
+        static count = 0
+        path = null;
+        // [pro] = {}
+        constructor({uid, name, level, address}) {
+            // this[pro] = {
+            //     uid,name,level,address
+            // }
+            this.uid = uid;
+            this.name = name;
+            this.level = level;
+            this.address = address;
+            Station.count++;
+        }
+
+        getName() {
+            return this.name
+        }
+
+        static batchStations(data) {
+            return data.map(item => new this(item))
+        }
+    }
+
+    // class Stations {
+    //     stationMap = new Map()
+    //     constructor(el) {
+    //         this.el = el;
+    //     }
+    //
+    //     run() {
+    //
+    //     }
+    // }
+
+    // let s = new Station('八中', 1, [111,23, 22])
+    // let s1 = new Station('八中2', 1, [111,23, 22])
+    // let stations = new Map();
+    // stations.set('aaa', s)
+    // console.log(stations, stations.has('aaa'))
+    // stations.delete('aaa')
+    // console.log(stations)
+    // console.log(Station.count)
+    let stations = Station.batchStations([
+        {uid: '1', name: 'a', level: 1, address:[111,23, 22]},
+        {uid: '2', name: 'b', level: 1, address:[111,23, 23]}
+    ])
+    console.log(stations)
+
+</script>
+</html>

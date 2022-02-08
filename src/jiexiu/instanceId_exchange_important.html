@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let data = [
+        {
+            "condition": "uid==\"sm_a0223d12-469c-42e5-91ff-c2308469c0e7\"",
+            "control_uid": "\"a0223d12-469c-42e5-91ff-c2308469c0e7\"",
+            "instanceId": "\"5ca68719-8bab-43ab-a50f-8f0f05c61dc3\"",
+            "control_enable": "HS1_enable",
+            "assessment": 3,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"b42529ad-1e38-44ba-a970-2dffaac0e989\"",
+            "control_uid": "\"b42529ad-1e38-44ba-a970-2dffaac0e989\"",
+            "instanceId": "\"5f4af044-736d-488e-b4a7-5deea35b1769\"",
+            "control_enable": "H1_enable",
+            "assessment": 225,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"266cf4b6-4028-4b75-9d48-251aa1ed811f\"",
+            "control_uid": "\"266cf4b6-4028-4b75-9d48-251aa1ed811f\"",
+            "instanceId": "\"9fdb3895-b95b-4d11-b291-18813964d195\"",
+            "control_enable": "H2_enable",
+            "assessment": 179,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"f30b9873-3cc4-4de2-afd7-20938b2e05fd\"",
+            "control_uid": "\"f30b9873-3cc4-4de2-afd7-20938b2e05fd\"",
+            "instanceId": "\"992ed33d-776d-4004-823f-708da1c3704a\"",
+            "control_enable": "H4_enable",
+            "assessment": 139,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"4ae724d3-c0cb-46b3-9c50-9ac9c08b3a1d\"",
+            "control_uid": "\"4ae724d3-c0cb-46b3-9c50-9ac9c08b3a1d\"",
+            "instanceId": "\"c06e06c3-78c1-4713-888f-b6a3fb0774a3\"",
+            "control_enable": "H5_enable",
+            "assessment": 143,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"ce01bdbc-5e43-44b7-b6fc-2576732455d2\"",
+            "control_uid": "\"ce01bdbc-5e43-44b7-b6fc-2576732455d2\"",
+            "instanceId": "\"c481c812-99ee-4bf5-add0-8ccc83d3b92c\"",
+            "control_enable": "H6_enable",
+            "assessment": 123,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"73b46daf-d42d-48c3-9488-2cee279fec41\"",
+            "control_uid": "\"73b46daf-d42d-48c3-9488-2cee279fec41\"",
+            "instanceId": "\"a0357e38-3c5a-49b0-acaa-331bf3bba085\"",
+            "control_enable": "H7_enable",
+            "assessment": 115,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"46104474-a8e5-4b32-b69f-f8758774b784\"",
+            "control_uid": "\"46104474-a8e5-4b32-b69f-f8758774b784\"",
+            "instanceId": "\"2623563d-e4f4-46c8-bcaa-b41581fedca8\"",
+            "control_enable": "H8_enable",
+            "assessment": 115,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"409e2b31-8d6d-4733-8004-6089a5dda855\"",
+            "control_uid": "\"409e2b31-8d6d-4733-8004-6089a5dda855\"",
+            "instanceId": "\"393db699-e06b-437b-952b-60245e045896\"",
+            "control_enable": "H9_enable",
+            "assessment": 107,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"4d94f835-7c59-4ad0-a39d-2a90f1f80d79\"",
+            "control_uid": "\"4d94f835-7c59-4ad0-a39d-2a90f1f80d79\"",
+            "instanceId": "\"64afafee-18ec-4a9a-9ae8-ba98c2402a95\"",
+            "control_enable": "H10_enable",
+            "assessment": 91,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"ac0d9010-bba2-4d53-91b3-029ae5207345\"",
+            "control_uid": "\"ac0d9010-bba2-4d53-91b3-029ae5207345\"",
+            "instanceId": "\"4ab63396-d20f-499a-8427-74583f194fad\"",
+            "control_enable": "H11_enable",
+            "assessment": 71,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"ab7885ae-099d-4b00-a3ae-19897462f77a\"",
+            "control_uid": "\"ab7885ae-099d-4b00-a3ae-19897462f77a\"",
+            "instanceId": "\"172c6648-dc37-4ee0-8068-8349430389a6\"",
+            "control_enable": "H12_enable",
+            "assessment": 103,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"e1f35436-a1ae-41d0-bd29-b893afd318f2\"",
+            "control_uid": "\"e1f35436-a1ae-41d0-bd29-b893afd318f2\"",
+            "instanceId": "\"7c8932bb-17a4-47b5-87c3-e55d73dad595\"",
+            "control_enable": "H13_enable",
+            "assessment": 117,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"096715ab-702c-44b1-8989-0317178c48f1\"",
+            "control_uid": "\"096715ab-702c-44b1-8989-0317178c48f1\"",
+            "instanceId": "\"7bec0ebc-6493-4628-865a-a2f7ef6efb66\"",
+            "control_enable": "H15_enable",
+            "assessment": 220,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"747ed9de-4caa-494e-aa1d-8008d501f8e0\"",
+            "control_uid": "\"747ed9de-4caa-494e-aa1d-8008d501f8e0\"",
+            "instanceId": "\"62321368-577f-4f59-b1c5-24085448d865\"",
+            "control_enable": "H16_enable",
+            "assessment": 220,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"ef1757e3-06cd-43b1-8cc3-d088b50065e7\"",
+            "control_uid": "\"ef1757e3-06cd-43b1-8cc3-d088b50065e7\"",
+            "instanceId": "\"b4bed258-d94c-4ace-bc3f-a7064e582fa3\"",
+            "control_enable": "H17_enable",
+            "assessment": 63,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"0a3e11a5-dca8-461f-b168-7ca7c2aa3122\"",
+            "control_uid": "\"0a3e11a5-dca8-461f-b168-7ca7c2aa3122\"",
+            "instanceId": "\"43ac8f53-6af2-4c71-8e95-eaab928cfba2\"",
+            "control_enable": "H18_enable",
+            "assessment": 65,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"441aabd9-43a9-4395-b596-f94ee371c9a5\"",
+            "control_uid": "\"441aabd9-43a9-4395-b596-f94ee371c9a5\"",
+            "instanceId": "\"9ccfdc4c-e115-4c83-88e1-46964476b6bd\"",
+            "control_enable": "H19_enable",
+            "assessment": 75,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"a58ad4ff-7488-44de-aeda-7056c6bb667a\"",
+            "control_uid": "\"a58ad4ff-7488-44de-aeda-7056c6bb667a\"",
+            "instanceId": "\"aa2934e1-4d10-407f-96f1-96872d2511e9\"",
+            "control_enable": "H20_enable",
+            "assessment": 81,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"c5b9bb35-6deb-4066-b638-df1920064a40\"",
+            "control_uid": "\"c5b9bb35-6deb-4066-b638-df1920064a40\"",
+            "instanceId": "\"cf3949ac-4cb0-46f6-b81f-4d60d145651d\"",
+            "control_enable": "H21_enable",
+            "assessment": 69,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"0946f809-6e40-4d0f-bd98-032ce57b105d\"",
+            "control_uid": "\"0946f809-6e40-4d0f-bd98-032ce57b105d\"",
+            "instanceId": "\"456b7d7a-570d-47ed-b4a6-1f9ba68fe26b\"",
+            "control_enable": "H22_enable",
+            "assessment": 95,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"cc36c170-a62b-4d58-a53d-df4e8b628809\"",
+            "control_uid": "\"cc36c170-a62b-4d58-a53d-df4e8b628809\"",
+            "instanceId": "\"1f0bbcc3-52ba-4b79-a267-6edde2643cb5\"",
+            "control_enable": "H23_enable",
+            "assessment": 323,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"fe5e3396-9059-417c-88d7-4aa6448c641e\"",
+            "control_uid": "\"fe5e3396-9059-417c-88d7-4aa6448c641e\"",
+            "instanceId": "\"aa1c02f4-c993-4f12-abdc-d1d2d1de004e\"",
+            "control_enable": "H25_enable",
+            "assessment": 333,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"ee8daff2-5a52-443d-bfb3-6b9786b91894\"",
+            "control_uid": "\"ee8daff2-5a52-443d-bfb3-6b9786b91894\"",
+            "instanceId": "\"2692637a-b064-4960-b11f-a3f9beb9689d\"",
+            "control_enable": "H26_enable",
+            "assessment": 55,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"e2c4cf74-1dc8-4b34-8822-48fe1cb4cb1c\"",
+            "control_uid": "\"e2c4cf74-1dc8-4b34-8822-48fe1cb4cb1c\"",
+            "instanceId": "\"626f7169-55c3-4a4d-ae77-7e8915ff0b3c\"",
+            "control_enable": "H27_enable",
+            "assessment": 55,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"b15bb406-e07f-41ef-9994-9d94acbad115\"",
+            "control_uid": "\"b15bb406-e07f-41ef-9994-9d94acbad115\"",
+            "instanceId": "\"ab265d4d-2667-4677-b72d-9fd74f68bc30\"",
+            "control_enable": "H28_H_enable",
+            "assessment": 52,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"7a7fe618-214c-477d-bcae-1fd003fd47a0\"",
+            "control_uid": "\"7a7fe618-214c-477d-bcae-1fd003fd47a0\"",
+            "instanceId": "\"4d4d9bb8-7733-41fb-894a-c59a4e0b0949\"",
+            "control_enable": "H28_M_enable",
+            "assessment": 52,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"18fe049d-76ee-40f9-b0a9-00a47f2e1fd3\"",
+            "control_uid": "\"18fe049d-76ee-40f9-b0a9-00a47f2e1fd3\"",
+            "instanceId": "\"03f73d9c-4993-4391-8f30-8e680806542e\"",
+            "control_enable": "H28_L_enable",
+            "assessment": 52,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"4f1e3458-8f71-4544-ad28-368a35bf55d2\"",
+            "control_uid": "\"4f1e3458-8f71-4544-ad28-368a35bf55d2\"",
+            "instanceId": "\"875af80d-cde6-4dc0-ba2e-92ab99112279\"",
+            "control_enable": "H29_enable",
+            "assessment": 31,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"151f37ea-b0cf-4d33-8c23-8ecf8a4950dd\"",
+            "control_uid": "\"151f37ea-b0cf-4d33-8c23-8ecf8a4950dd\"",
+            "instanceId": "\"2830e274-44e0-4613-a547-94a68ed633f6\"",
+            "control_enable": "H31_enable",
+            "assessment": 38,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"b479cee0-f702-462c-afcc-dde60e1dae26\"",
+            "control_uid": "\"b479cee0-f702-462c-afcc-dde60e1dae26\"",
+            "instanceId": "\"34c80334-d641-4cb5-99bf-c42eacf44c89\"",
+            "control_enable": "H33_enable",
+            "assessment": 21,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"38d25e5f-37c9-472d-9a91-ddb7ae0229ee\"",
+            "control_uid": "\"38d25e5f-37c9-472d-9a91-ddb7ae0229ee\"",
+            "instanceId": "\"cfcf5ca0-bccd-431b-a53c-6409860d68ef\"",
+            "control_enable": "H34_enable",
+            "assessment": 13,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"7a6c83a1-6668-45a8-994c-98ccc523fc85\"",
+            "control_uid": "\"7a6c83a1-6668-45a8-994c-98ccc523fc85\"",
+            "instanceId": "\"d515826b-8493-45d0-a39e-1df673d04e85\"",
+            "control_enable": "H35_enable",
+            "assessment": 19,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"94768ab2-55bd-44e7-a66f-3bad8e7ca0cd\"",
+            "control_uid": "\"94768ab2-55bd-44e7-a66f-3bad8e7ca0cd\"",
+            "instanceId": "\"1cdb4455-2b0b-48ce-9d1d-54a7529fed10\"",
+            "control_enable": "H36_enable",
+            "assessment": 321,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"c1ff3cdb-4b8a-4061-9c61-b9a863f9c92a\"",
+            "control_uid": "\"c1ff3cdb-4b8a-4061-9c61-b9a863f9c92a\"",
+            "instanceId": "\"ce8bca5b-52ca-4311-9e44-c8df73101a31\"",
+            "control_enable": "H37_enable",
+            "assessment": 307,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"a274d704-5bbd-498d-8c3b-f34d0c94a312\"",
+            "control_uid": "\"a274d704-5bbd-498d-8c3b-f34d0c94a312\"",
+            "instanceId": "\"1a8adb6e-0fc2-4123-82cd-aac21e7b6389\"",
+            "control_enable": "H38_enable",
+            "assessment": 297,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"5780ca0f-8314-4ccc-adc5-6aae77a96678\"",
+            "control_uid": "\"5780ca0f-8314-4ccc-adc5-6aae77a96678\"",
+            "instanceId": "\"71b17dda-51a2-4bab-9953-c256fc370e20\"",
+            "control_enable": "H39_enable",
+            "assessment": 289,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"2d69300e-c87b-41c9-af27-9db83c13124a\"",
+            "control_uid": "\"2d69300e-c87b-41c9-af27-9db83c13124a\"",
+            "instanceId": "\"1463004c-199d-4271-88c6-88a988ee476c\"",
+            "control_enable": "H40_enable",
+            "assessment": 247,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"be18e6c9-f444-45df-afb0-f97ba60d8021\"",
+            "control_uid": "\"be18e6c9-f444-45df-afb0-f97ba60d8021\"",
+            "instanceId": "\"39dd7c80-7d20-45ef-a526-435e410e3e8b\"",
+            "control_enable": "H41_enable",
+            "assessment": 253,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"75ba66df-ed3f-41ae-9a8f-67986595172c\"",
+            "control_uid": "\"75ba66df-ed3f-41ae-9a8f-67986595172c\"",
+            "instanceId": "\"3c0ac6fd-7ab8-4926-a424-d2f119f68061\"",
+            "control_enable": "H42_enable",
+            "assessment": 183,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"500deff6-cd87-44fb-86e6-c1fc418afb30\"",
+            "control_uid": "\"500deff6-cd87-44fb-86e6-c1fc418afb30\"",
+            "instanceId": "\"c80e8689-acfe-42fb-ab0b-bb04a280598d\"",
+            "control_enable": "H43_enable",
+            "assessment": 167,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"dfaa38e4-b56e-408f-8eeb-cf62044ad4e5\"",
+            "control_uid": "\"dfaa38e4-b56e-408f-8eeb-cf62044ad4e5\"",
+            "instanceId": "\"0e9d1b17-95ea-425b-8924-ac9915791418\"",
+            "control_enable": "H44_enable",
+            "assessment": 70,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"b6f29c99-45ab-45f6-a96d-35043e596ebf\"",
+            "control_uid": "\"b6f29c99-45ab-45f6-a96d-35043e596ebf\"",
+            "instanceId": "\"d75adc72-da73-4bdf-a597-c7988de6a1ef\"",
+            "control_enable": "H45_enable",
+            "assessment": 73,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"f4f44852-3895-4138-a860-fadf602486b7\"",
+            "control_uid": "\"f4f44852-3895-4138-a860-fadf602486b7\"",
+            "instanceId": "\"bf9ca2b2-b050-4e2b-ad77-22c1a30a0347\"",
+            "control_enable": "H46_enable",
+            "assessment": 61,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"6e704d46-8f69-4a08-a2e9-54878ac543e9\"",
+            "control_uid": "\"6e704d46-8f69-4a08-a2e9-54878ac543e9\"",
+            "instanceId": "\"216f8c46-8984-491c-99bc-8cd116840099\"",
+            "control_enable": "H47_enable",
+            "assessment": 110,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"f0468692-ae50-44a0-a0c5-3f6aec9d7f27\"",
+            "control_uid": "\"f0468692-ae50-44a0-a0c5-3f6aec9d7f27\"",
+            "instanceId": "\"cad43114-856a-4026-b5c6-d7eb5725fed3\"",
+            "control_enable": "H48_enable",
+            "assessment": 13,
+            "source": "\"S1\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"324f589d-f646-446b-98c2-c2aca2ee97fc\"",
+            "control_uid": "\"324f589d-f646-446b-98c2-c2aca2ee97fc\"",
+            "instanceId": "\"53ba52cc-3c3c-4529-8524-4ff7c3c41002\"",
+            "control_enable": "H49_enable",
+            "assessment": 49,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"32ee3f1b-8bdb-4ee5-87c0-a8c8c081e31b\"",
+            "control_uid": "\"32ee3f1b-8bdb-4ee5-87c0-a8c8c081e31b\"",
+            "instanceId": "\"0ec92c60-d980-488a-bf25-45798ab8dad7\"",
+            "control_enable": "H50_enable",
+            "assessment": 33,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"9dee2c27-b1c6-4950-ba24-d9408fa50366\"",
+            "control_uid": "\"9dee2c27-b1c6-4950-ba24-d9408fa50366\"",
+            "instanceId": "\"762acde9-5601-470f-b83c-ae646df80c20\"",
+            "control_enable": "H51_enable",
+            "assessment": 115,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"f7cd7edf-3513-445e-b072-6688f22889f0\"",
+            "control_uid": "\"f7cd7edf-3513-445e-b072-6688f22889f0\"",
+            "instanceId": "\"fd4cb80e-3415-490b-8375-505ae1393ae1\"",
+            "control_enable": "H52_enable",
+            "assessment": 45,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"ec327a73-703f-4b7d-a4db-b9dc7d7a007c\"",
+            "control_uid": "\"ec327a73-703f-4b7d-a4db-b9dc7d7a007c\"",
+            "instanceId": "\"27327f63-fafd-43b2-a7ec-6b898e7800bb\"",
+            "control_enable": "H53_H_enable",
+            "assessment": 47,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"7c991498-0bbe-44ea-8462-86ad11cccd61\"",
+            "control_uid": "\"7c991498-0bbe-44ea-8462-86ad11cccd61\"",
+            "instanceId": "\"da535825-dc75-43e5-bdb2-39bed04197a2\"",
+            "control_enable": "H53_L_enable",
+            "assessment": 47,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"88a89d45-0831-4c06-81ae-9033440f9e0d\"",
+            "control_uid": "\"88a89d45-0831-4c06-81ae-9033440f9e0d\"",
+            "instanceId": "\"90a7f4d0-70fb-49f1-9639-9c7e9a405730\"",
+            "control_enable": "H54_enable",
+            "assessment": 53,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"4ffcdaed-d332-498d-8309-e0a26341ca46\"",
+            "control_uid": "\"4ffcdaed-d332-498d-8309-e0a26341ca46\"",
+            "instanceId": "\"5ad57486-04db-4f8e-ad66-e4adb11fc5da\"",
+            "control_enable": "H55_enable",
+            "assessment": 53,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"4fdfa4cf-3d74-47a7-a327-d90976e19af9\"",
+            "control_uid": "\"4fdfa4cf-3d74-47a7-a327-d90976e19af9\"",
+            "instanceId": "\"b1371302-6dfa-403d-8bf8-e4dac726b253\"",
+            "control_enable": "H56_enable",
+            "assessment": 67,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"dc3f2349-6bbc-4161-ac54-89de73ba2999\"",
+            "control_uid": "\"dc3f2349-6bbc-4161-ac54-89de73ba2999\"",
+            "instanceId": "\"71591108-1f2a-4fb7-b96a-367f4dab5c9a\"",
+            "control_enable": "H57_enable",
+            "assessment": 67,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"9f34e840-dd46-4ba8-83c2-22f0a9df2205\"",
+            "control_uid": "\"9f34e840-dd46-4ba8-83c2-22f0a9df2205\"",
+            "instanceId": "\"9d89c056-7f6e-4a46-a2bc-36e103fe81df\"",
+            "control_enable": "H58_enable",
+            "assessment": 77,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"80c1ed83-8d91-42e9-bfa7-97ab229587c3\"",
+            "control_uid": "\"80c1ed83-8d91-42e9-bfa7-97ab229587c3\"",
+            "instanceId": "\"efa1cc71-2e2e-4c54-9db0-7130e4b314ea\"",
+            "control_enable": "H59_enable",
+            "assessment": 85,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"0054fd1f-7df7-4c0f-b788-40bae223920c\"",
+            "control_uid": "\"0054fd1f-7df7-4c0f-b788-40bae223920c\"",
+            "instanceId": "\"26cdeb70-13c0-488c-85a3-7ca3049dac6f\"",
+            "control_enable": "H60_enable",
+            "assessment": 91,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"19ed6586-2e9b-47c6-bb36-76c1fa54d4e3\"",
+            "control_uid": "\"19ed6586-2e9b-47c6-bb36-76c1fa54d4e3\"",
+            "instanceId": "\"0128c80b-80c7-43fb-88b5-0aca0b56da4c\"",
+            "control_enable": "H61_enable",
+            "assessment": 21,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"8f8ba1df-0fc1-42ac-aa10-f874f9d168eb\"",
+            "control_uid": "\"8f8ba1df-0fc1-42ac-aa10-f874f9d168eb\"",
+            "instanceId": "\"2773caf5-b5f4-400d-86db-f212d1db6e27\"",
+            "control_enable": "H62_enable",
+            "assessment": 31,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"08f2ed60-4b7e-4a3d-acb4-e4ea62c4c2d2\"",
+            "control_uid": "\"08f2ed60-4b7e-4a3d-acb4-e4ea62c4c2d2\"",
+            "instanceId": "\"fa55d5e0-725f-48b1-b32f-a9b3d3b1f790\"",
+            "control_enable": "H63_enable",
+            "assessment": 45,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"fb8877c7-ec5c-46d2-91af-dde97eb81ef2\"",
+            "control_uid": "\"fb8877c7-ec5c-46d2-91af-dde97eb81ef2\"",
+            "instanceId": "\"23079abb-b881-4076-9a52-e0e35d32dea4\"",
+            "control_enable": "H64_enable",
+            "assessment": 35,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"246fa455-8dcc-4cbe-8286-26439feb7d7a\"",
+            "control_uid": "\"246fa455-8dcc-4cbe-8286-26439feb7d7a\"",
+            "instanceId": "\"15907b3c-9865-4764-a268-3cf223637cc9\"",
+            "control_enable": "H65_enable",
+            "assessment": 35,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"13565321-edf0-4c73-a6fd-b96db89be16f\"",
+            "control_uid": "\"13565321-edf0-4c73-a6fd-b96db89be16f\"",
+            "instanceId": "\"6a7e32ac-3580-4a79-bcec-368ad0c55517\"",
+            "control_enable": "H66_enable",
+            "assessment": 61,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"92d56709-b24e-4bcd-87a8-d21224221cf7\"",
+            "control_uid": "\"92d56709-b24e-4bcd-87a8-d21224221cf7\"",
+            "instanceId": "\"7fe1075e-9fa8-481e-9571-9d596dd7860f\"",
+            "control_enable": "H67_enable",
+            "assessment": 47,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"3b4ec881-6dfa-496c-80c0-d614d40fb4c7\"",
+            "control_uid": "\"3b4ec881-6dfa-496c-80c0-d614d40fb4c7\"",
+            "instanceId": "\"cc181069-0c57-4dc0-af8a-ef133334a611\"",
+            "control_enable": "H68_enable",
+            "assessment": 87,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"2929b3ad-9170-45be-bc14-77ad3f0d656b\"",
+            "control_uid": "\"2929b3ad-9170-45be-bc14-77ad3f0d656b\"",
+            "instanceId": "\"81dada6c-b11f-4732-934e-017b5757a73a\"",
+            "control_enable": "H69_enable",
+            "assessment": 83,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"05a5d05e-fc3d-4557-afba-dceffc0bb5f1\"",
+            "control_uid": "\"05a5d05e-fc3d-4557-afba-dceffc0bb5f1\"",
+            "instanceId": "\"8d1241e4-09b6-43d5-b507-e204861358da\"",
+            "control_enable": "H70_enable",
+            "assessment": 51,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"bdaa7ce8-d145-470e-a3ac-d9f7f1cf1033\"",
+            "control_uid": "\"bdaa7ce8-d145-470e-a3ac-d9f7f1cf1033\"",
+            "instanceId": "\"09dac24e-b773-440f-bb53-ef5f31b1bbda\"",
+            "control_enable": "H71_enable",
+            "assessment": 63,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"33bbc8b8-e2d3-4e42-807d-ea8513621642\"",
+            "control_uid": "\"33bbc8b8-e2d3-4e42-807d-ea8513621642\"",
+            "instanceId": "\"def362dd-f4e1-497e-b3c6-139877f3acc9\"",
+            "control_enable": "H72_enable",
+            "assessment": 65,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"e8c17621-8906-451c-b196-26e4cfe5fe0f\"",
+            "control_uid": "\"e8c17621-8906-451c-b196-26e4cfe5fe0f\"",
+            "instanceId": "\"2d6536b7-e705-466f-9a51-57c9f01c6582\"",
+            "control_enable": "H73_enable",
+            "assessment": 18,
+            "source": "\"S1\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"b986e515-d4d5-48f4-b67b-a39fea6fd9f2\"",
+            "control_uid": "\"b986e515-d4d5-48f4-b67b-a39fea6fd9f2\"",
+            "instanceId": "\"de208552-7d43-4d1e-85d1-82bdbcb23c96\"",
+            "control_enable": "H74_enable",
+            "assessment": 35,
+            "source": "\"S1\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"939e2f11-92b3-4a3a-81aa-39b8078500fd\"",
+            "control_uid": "\"939e2f11-92b3-4a3a-81aa-39b8078500fd\"",
+            "instanceId": "\"d4d207f7-fbe5-493b-bc0f-2ce19d628206\"",
+            "control_enable": "H75_enable",
+            "assessment": 53,
+            "source": "\"S1\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"6b2a0c3a-30db-4886-a8da-65c0753aa30a\"",
+            "control_uid": "\"6b2a0c3a-30db-4886-a8da-65c0753aa30a\"",
+            "instanceId": "\"ccbf0c0b-f9fa-4b4b-a1e0-f3b4a2d0c8ee\"",
+            "control_enable": "H76_enable",
+            "assessment": 43,
+            "source": "\"S1\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"52cecd73-bf64-4efd-95bf-e1f22362fc3b\"",
+            "control_uid": "\"52cecd73-bf64-4efd-95bf-e1f22362fc3b\"",
+            "instanceId": "\"c0500b35-46f5-4e66-a09f-55cb95292f9f\"",
+            "control_enable": "H77_enable",
+            "assessment": 49,
+            "source": "\"S1\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"b113143c-8e53-459e-a533-06dcb55df3fc\"",
+            "control_uid": "\"b113143c-8e53-459e-a533-06dcb55df3fc\"",
+            "instanceId": "\"78a3d343-482b-4e46-9a51-c001a14ff079\"",
+            "control_enable": "H78_enable",
+            "assessment": 59,
+            "source": "\"S1\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"addf3e51-f873-41cf-b6db-7e7122f4b3b9\"",
+            "control_uid": "\"addf3e51-f873-41cf-b6db-7e7122f4b3b9\"",
+            "instanceId": "\"3d95e537-01cc-4065-bfd9-ca381caea847\"",
+            "control_enable": "H79_enable",
+            "assessment": 85,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"d11c3995-9c4e-4723-8056-9c66bc0faeb0\"",
+            "control_uid": "\"d11c3995-9c4e-4723-8056-9c66bc0faeb0\"",
+            "instanceId": "\"22b9d6eb-3828-4e94-8db0-1c05b17669de\"",
+            "control_enable": "H80_enable",
+            "assessment": 81,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"8f6e3431-e8e1-44c3-945e-da4915cefe73\"",
+            "control_uid": "\"8f6e3431-e8e1-44c3-945e-da4915cefe73\"",
+            "instanceId": "\"01975435-a51c-483b-bb2c-762149d6ce9c\"",
+            "control_enable": "H81_enable",
+            "assessment": 109,
+            "source": "\"S1\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"7cb048be-f7c5-4555-8718-5b23b02b0333\"",
+            "control_uid": "\"7cb048be-f7c5-4555-8718-5b23b02b0333\"",
+            "instanceId": "\"618892cf-068d-48a1-8db5-d2bb958538d4\"",
+            "control_enable": "H82_enable",
+            "assessment": 120,
+            "source": "\"S1\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"296bd631-fb9d-49ec-a8e8-e93139f0c713\"",
+            "control_uid": "\"296bd631-fb9d-49ec-a8e8-e93139f0c713\"",
+            "instanceId": "\"c1838a0a-3d3d-4ac0-bd79-97c987f06727\"",
+            "control_enable": "H83_enable",
+            "assessment": 141,
+            "source": "\"S1\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"73826f02-776d-4267-83ef-0fa34464b19d\"",
+            "control_uid": "\"73826f02-776d-4267-83ef-0fa34464b19d\"",
+            "instanceId": "\"46f5b841-af8c-40db-9907-63ee226ccb6b\"",
+            "control_enable": "H84_enable",
+            "assessment": 147,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"3249afaf-82a1-459c-919b-dbc4a995cb4b\"",
+            "control_uid": "\"3249afaf-82a1-459c-919b-dbc4a995cb4b\"",
+            "instanceId": "\"b186cc29-7272-4ce8-bf1b-759a86c8c4f8\"",
+            "control_enable": "H85_H_enable",
+            "assessment": 149,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"f28b5a31-2e15-4d36-a7e2-6d5aaf3a0159\"",
+            "control_uid": "\"f28b5a31-2e15-4d36-a7e2-6d5aaf3a0159\"",
+            "instanceId": "\"f72a30d6-2cf9-4635-ac39-1bdabbaf60f9\"",
+            "control_enable": "H85_L_enable",
+            "assessment": 149,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"74324b6a-cabe-4b37-886b-59e1874fb764\"",
+            "control_uid": "\"74324b6a-cabe-4b37-886b-59e1874fb764\"",
+            "instanceId": "\"b1931b00-13ac-4f7f-835f-5baf5577ef97\"",
+            "control_enable": "H86_enable",
+            "assessment": 201,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"408e509b-e95f-4f60-9f81-b18cb421f58d\"",
+            "control_uid": "\"408e509b-e95f-4f60-9f81-b18cb421f58d\"",
+            "instanceId": "\"0f1df4c7-9d8e-4bd6-9588-5041ad825201\"",
+            "control_enable": "H87_H_enable",
+            "assessment": 255,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"424f2b3c-3602-4907-ac6a-5718f600e61d\"",
+            "control_uid": "\"424f2b3c-3602-4907-ac6a-5718f600e61d\"",
+            "instanceId": "\"86d434a3-1f49-4dc6-8689-ff7a1da9fc40\"",
+            "control_enable": "H88_enable",
+            "assessment": 255,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"3301c33a-5fb6-48a1-bb18-5a2421aaacea\"",
+            "control_uid": "\"3301c33a-5fb6-48a1-bb18-5a2421aaacea\"",
+            "instanceId": "\"bf50595f-2340-462b-bc05-6585ea88f080\"",
+            "control_enable": "H90_enable",
+            "assessment": 255,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"a66fe5ad-7556-46b9-84c9-f2283977379a\"",
+            "control_uid": "\"a66fe5ad-7556-46b9-84c9-f2283977379a\"",
+            "instanceId": "\"ed447749-cb46-4969-8b61-0422ebe8a14b\"",
+            "control_enable": "H91_enable",
+            "assessment": 255,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"f6830324-db08-4d18-87b6-17142a9ba261\"",
+            "control_uid": "\"f6830324-db08-4d18-87b6-17142a9ba261\"",
+            "instanceId": "\"c83f3b3d-2998-4147-b233-afe516325ccf\"",
+            "control_enable": "H92_enable",
+            "assessment": 245,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"d215d902-db94-4e6b-b1d2-76924f8585d1\"",
+            "control_uid": "\"d215d902-db94-4e6b-b1d2-76924f8585d1\"",
+            "instanceId": "\"75c0f389-9eeb-47dd-8f1f-d57441b85029\"",
+            "control_enable": "H93_enable",
+            "assessment": 245,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"6b82ff48-f998-4df8-96e9-04f4a04593d2\"",
+            "control_uid": "\"6b82ff48-f998-4df8-96e9-04f4a04593d2\"",
+            "instanceId": "\"080ca752-9452-4110-9e4a-d73ea5dc520e\"",
+            "control_enable": "H94_enable",
+            "assessment": 245,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"207d8659-160e-471f-b8bc-5068863873ec\"",
+            "control_uid": "\"207d8659-160e-471f-b8bc-5068863873ec\"",
+            "instanceId": "\"41f6ff7e-7e76-419e-a99b-1c50d88791b3\"",
+            "control_enable": "H95_enable",
+            "assessment": 251,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"3f6370d5-66c0-40f0-b054-96833ad57867\"",
+            "control_uid": "\"3f6370d5-66c0-40f0-b054-96833ad57867\"",
+            "instanceId": "\"21c7a577-bed4-4948-b6e5-87fcd4c649d6\"",
+            "control_enable": "H96_enable",
+            "assessment": 221,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"bce82b14-4ba0-4dfd-9c3a-42e8d841b047\"",
+            "control_uid": "\"bce82b14-4ba0-4dfd-9c3a-42e8d841b047\"",
+            "instanceId": "\"f9dbc3fc-0fb7-4846-aaa5-f32e9af52c00\"",
+            "control_enable": "H97_enable",
+            "assessment": 299,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"b2bbbdd5-90d3-46c6-8574-623c5c528929\"",
+            "control_uid": "\"b2bbbdd5-90d3-46c6-8574-623c5c528929\"",
+            "instanceId": "\"ab0a7bb5-65c6-4332-bce2-296b23f52455\"",
+            "control_enable": "H98_enable",
+            "assessment": 83,
+            "source": "\"S1\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"3e46a853-928f-49ac-9d0a-171ef1646384\"",
+            "control_uid": "\"3e46a853-928f-49ac-9d0a-171ef1646384\"",
+            "instanceId": "\"4adedefd-7bad-4a87-bc82-e538c17af056\"",
+            "control_enable": "H100_enable",
+            "assessment": 350,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"d898574b-ca0f-48ff-8404-2a17171787d4\"",
+            "control_uid": "\"d898574b-ca0f-48ff-8404-2a17171787d4\"",
+            "instanceId": "\"e0169720-6380-4585-8854-f9bb6e6f6505\"",
+            "control_enable": "H101_enable",
+            "assessment": 350,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"8e4278f8-5626-4f47-b428-8ae4fe4181cf\"",
+            "control_uid": "\"8e4278f8-5626-4f47-b428-8ae4fe4181cf\"",
+            "instanceId": "\"5458d0b1-f482-4f92-bc45-b408aaa9b6fa\"",
+            "control_enable": "H102_enable",
+            "assessment": 350,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"145df8f3-0fe9-43d0-9fec-0ee6e71e8e6d\"",
+            "control_uid": "\"145df8f3-0fe9-43d0-9fec-0ee6e71e8e6d\"",
+            "instanceId": "\"e3d05475-d34a-4881-af53-b2da796630b6\"",
+            "control_enable": "H103_enable",
+            "assessment": 350,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"7a234a72-758d-480e-aa00-aa4b09a22977\"",
+            "control_uid": "\"7a234a72-758d-480e-aa00-aa4b09a22977\"",
+            "instanceId": "\"ce7a24f0-69bf-49bb-bcc2-39e4564d8c7b\"",
+            "control_enable": "H104_enable",
+            "assessment": 350,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"27ed4d57-bd91-4a14-bf09-d2ac328730f4\"",
+            "control_uid": "\"27ed4d57-bd91-4a14-bf09-d2ac328730f4\"",
+            "instanceId": "\"e2594119-bb04-482b-b906-e123f0f7ea3c\"",
+            "control_enable": "H106_enable",
+            "assessment": 220,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"fc32a6bf-4147-4555-b0b3-d9ade7814645\"",
+            "control_uid": "\"fc32a6bf-4147-4555-b0b3-d9ade7814645\"",
+            "instanceId": "\"b9c36b43-a931-4b5f-8ffe-56e79b6c81ea\"",
+            "control_enable": "H107_enable",
+            "assessment": 321,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"2744cee8-9b13-4c7b-947f-e72b2e54547f\"",
+            "control_uid": "\"2744cee8-9b13-4c7b-947f-e72b2e54547f\"",
+            "instanceId": "\"39a3ab10-4e30-4195-a4d8-63cc4d5ac86d\"",
+            "control_enable": "H108_enable",
+            "assessment": 45,
+            "source": "\"S1\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"3a319a8b-754f-4449-b17e-1d92c0c9b2b7\"",
+            "control_uid": "\"3a319a8b-754f-4449-b17e-1d92c0c9b2b7\"",
+            "instanceId": "\"4cf8079e-dabc-4b3a-8bfd-cce0b6a2156d\"",
+            "control_enable": "H109_enable",
+            "assessment": 321,
+            "source": "\"S2\"",
+            "level": 3
+        },
+        {
+            "condition": "uid==\"2f1bbd81-7cd2-48f3-880a-22a1ef480c1e\"",
+            "control_uid": "\"2f1bbd81-7cd2-48f3-880a-22a1ef480c1e\"",
+            "instanceId": "\"ee22635f-49a7-43b0-ab64-5d7cde679493\"",
+            "control_enable": "H13_N_enable",
+            "assessment": 100,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"9fa0b4ed-89bc-4691-81b7-b1e091e5467b\"",
+            "control_uid": "\"9fa0b4ed-89bc-4691-81b7-b1e091e5467b\"",
+            "instanceId": "\"570be70b-4b4e-4225-b5c5-1b7d41b7b849\"",
+            "control_enable": "H105_H_enable",
+            "assessment": 100,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"b759cccd-b61a-4f4b-ac3c-2e548d09d65a\"",
+            "control_uid": "\"b759cccd-b61a-4f4b-ac3c-2e548d09d65a\"",
+            "instanceId": "\"c1b46204-1508-4c47-b617-bf2b1f868791\"",
+            "control_enable": "H94_N_enable",
+            "assessment": 100,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"cf430d2b-9f6a-4f5e-89d4-9d5abbc9536b\"",
+            "control_uid": "\"cf430d2b-9f6a-4f5e-89d4-9d5abbc9536b\"",
+            "instanceId": "\"63eef801-b668-4625-81ec-e2636b850905\"",
+            "control_enable": "H105_L_enable",
+            "assessment": 100,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"780ba33d-6a54-47b5-a1e8-9f3fcfcb3f1e\"",
+            "control_uid": "\"780ba33d-6a54-47b5-a1e8-9f3fcfcb3f1e\"",
+            "instanceId": "\"a733d57f-a39f-4247-9606-c92b65841932\"",
+            "control_enable": "H29_N_enable",
+            "assessment": 100,
+            "source": "\"S2\"",
+            "level": 1
+        },
+        {
+            "condition": "uid==\"4a370fe9-f18b-4b7f-bc4b-88aa688ad5e1\"",
+            "control_uid": "\"4a370fe9-f18b-4b7f-bc4b-88aa688ad5e1\"",
+            "instanceId": "\"131f9de9-a016-431e-a511-46b47b8c0924\"",
+            "control_enable": "H24_L_enable",
+            "assessment": 100,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"f1394e8f-7eb7-45b7-88a5-ca3a2260b981\"",
+            "control_uid": "\"f1394e8f-7eb7-45b7-88a5-ca3a2260b981\"",
+            "instanceId": "\"64024271-31fa-474d-87bb-30fb7c7fa62a\"",
+            "control_enable": "H24_H_enable",
+            "assessment": 100,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"8fe92686-2afe-44a5-8f0e-76ffb5b591d0\"",
+            "control_uid": "\"8fe92686-2afe-44a5-8f0e-76ffb5b591d0\"",
+            "instanceId": "\"5c44b989-6668-4ee6-a7e8-a8949cb5a31d\"",
+            "control_enable": "H3_L_enable",
+            "assessment": 100,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"52531b1d-663b-46de-a816-6a5148208fce\"",
+            "control_uid": "\"52531b1d-663b-46de-a816-6a5148208fce\"",
+            "instanceId": "\"8eb88fd1-f2c1-481d-bdd8-6f14b1d160c9\"",
+            "control_enable": "H3_M_enable",
+            "assessment": 100,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"910a43fd-d055-4a16-b161-6f3854658138\"",
+            "control_uid": "\"910a43fd-d055-4a16-b161-6f3854658138\"",
+            "instanceId": "\"c4fa9b46-4fbb-45e6-9410-485d24443fd4\"",
+            "control_enable": "H3_H_enable",
+            "assessment": 100,
+            "source": "\"S2\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"afd78e0d-9684-4ca8-810c-9af8d9b9dd09\"",
+            "control_uid": "\"afd78e0d-9684-4ca8-810c-9af8d9b9dd09\"",
+            "instanceId": "\"82fb4ce0-f714-4695-aa87-f1b3c9968e95\"",
+            "control_enable": "H87_L_enable",
+            "assessment": 100,
+            "source": "\"S1\"",
+            "level": 2
+        },
+        {
+            "condition": "uid==\"ef8c97e1-d3d6-4d5c-ace1-26c67e7e67ea\"",
+            "control_uid": "\"ef8c97e1-d3d6-4d5c-ace1-26c67e7e67ea\"",
+            "instanceId": "\"68eceef7-5686-4a38-a231-8f2097a2d85f\"",
+            "control_enable": "H85_N_enable",
+            "assessment": 100,
+            "source": "\"S1\"",
+            "level": 2
+        }
+    ]
+
+    let data2 = [{"name":"永康换热站_热负荷模型预测服务发布","instanceId":"f60625ee-b2ff-4085-841c-aeb241239b8a","node":"H48"},{"name":"迎翠街换热站_热负荷模型预测服务发布","instanceId":"b98727ac-3e6a-4b31-90a5-e7dd5e77f28d","node":"H42"},{"name":"棚户区换热站_热负荷模型预测服务发布","instanceId":"9d38f13d-93fe-433a-ae5e-ca6edeb7307a","node":"H5"},{"name":"绵山墅低区_热负荷模型预测服务发布","instanceId":"4954780c-6ad1-412b-ba04-3f65cf852521","node":"H87_L"},{"name":"中医院换热站_热负荷模型预测服务发布","instanceId":"b77e3a7d-208f-4f2d-bf5f-cdc21b15bc5e","node":"H57"},{"name":"嘉欣园中区换热站_热负荷模型预测服务发布","instanceId":"02e22ecb-9836-4d9f-bee3-93020d9d120d","node":"H28_M"},{"name":"沉陷区换热站_热负荷模型预测服务发布","instanceId":"7266451e-5714-48ed-829b-05a52a51ea83","node":"H6"},{"name":"绵山一中换热站_热负荷模型预测服务发布","instanceId":"b5693c91-4419-4321-aedd-75d625ae596a","node":"H36"},{"name":"富康苑_热负荷模型预测服务发布","instanceId":"eb7420e6-3d04-4a5b-a7fb-5c8a9f4170a7","node":"H72"},{"name":"顺康换热站_热负荷模型预测服务发布","instanceId":"545f59bc-3740-4cb3-b874-9415dcdfa96b"},{"name":"介休六中换热站_热负荷模型预测服务发布","instanceId":"558ddaa8-1166-411b-88dd-e93e39cc9682","node":"H1"},{"name":"嘉欣园高区换热站_热负荷模型预测服务发布","instanceId":"2666d94a-ab5a-47ff-a1da-cb9159d93de9","node":"H28_H"},{"name":"御珑湾_低区换热站_热负荷模型预测服务发布","instanceId":"f852f5f2-8a1c-47b4-b57a-f65865651a9b","node":"H3_L"},{"name":"安居苑换热站_热负荷模型预测服务发布","instanceId":"912decac-94ff-4d5c-b458-3345cf627d02","node":"H20"},{"name":"党校换热站_热负荷模型预测服务发布","instanceId":"08178750-8cc4-428b-a13b-8ff0b5dce746","node":"H76"},{"name":"御珑湾_高区换热站_热负荷模型预测服务发布","instanceId":"67fd3caf-8682-463f-9d29-645b14ec6457","node":"H3_H"},{"name":"安泰换热站_热负荷模型预测服务发布","instanceId":"c14373e0-a37a-4075-9192-7380c4bc4fcf","node":"H21"},{"name":"南大街换热站_热负荷模型预测服务发布","instanceId":"d9ff828f-ea0c-42d0-a5e7-2b2d2e6bcf4e","node":"H75"},{"name":"南张家庄_低区换热站_热负荷模型预测服务发布","instanceId":"c53f87be-6611-4aa3-b99d-6c6106d556ae","node":"H105_L"},{"name":"邮政局换热站_热负荷模型预测服务发布","instanceId":"abe9e98d-f754-449f-94b2-892749c06814","node":"H55"},{"name":"宋古村东换热站_热负荷模型预测服务发布","instanceId":"97e17be5-3587-4a47-9778-125c30c9474e","node":"H33"},{"name":"顺城关换热站_热负荷模型预测服务发布","instanceId":"292737b7-a46f-4e41-990c-b91385e2a601","node":"H49"},{"name":"顺康_低区换热站_热负荷模型预测服务发布","instanceId":"9b1e178c-b173-4ac3-ae12-6197866afa7f","node":"H24_L"},{"name":"马女村换热站_热负荷模型预测服务发布","instanceId":"82a60c51-8c17-4c73-824c-e60f7ff9d96b","node":"H35"},{"name":"李家堡村换热站(纬三路)_热负荷模型预测服务发布","instanceId":"7213efb5-3da4-4282-814c-9ca3483b1a42","node":"H13"},{"name":"梁吉村换热站_热负荷模型预测服务发布","instanceId":"18350ae6-2326-4406-8982-ac22735fca69","node":"H8"},{"name":"文体中心_换热站_热负荷模型预测服务发布","instanceId":"3f6fb94a-b1a8-402b-8b98-9ffd10afae69","node":"H29_N"},{"name":"电杆厂换热站_热负荷模型预测服务发布","instanceId":"1f99175e-da0a-41ae-a9c7-397a6277f1e5","node":"H46"},{"name":"消防队换热站_热负荷模型预测服务发布","instanceId":"f9706beb-5b7a-471b-bb46-6edf220202de","node":"H86"},{"name":"西内封换热站_热负荷模型预测服务发布","instanceId":"ca47729d-63a4-46e2-998f-fd303d4790b5","node":"H96"},{"name":"泓达换热站_热负荷模型预测服务发布","instanceId":"d4b2497f-99c9-4864-9f81-4b797053f72c","node":"H52"},{"name":"经济适用房_热负荷模型预测服务发布","instanceId":"2c22e6c6-4da2-4384-89fd-3d6da72920f3","node":"H11"},{"name":"北村西换热站_热负荷模型预测服务发布","instanceId":"0d89bed8-90c7-4c52-bc53-61bbd15b2765","node":"H91"},{"name":"嘉和园换热站_热负荷模型预测服务发布","instanceId":"edf8485b-1e62-4857-a232-3e4db8b5b6f4","node":"H19"},{"name":"顺康_高区换热站_热负荷模型预测服务发布","instanceId":"57486397-f344-40fe-9215-28a48878290f","node":"H24_L"},{"name":"残联_换热站_热负荷模型预测服务发布","instanceId":"2b719aee-a489-4425-a1ae-e13d937b67bd","node":"H13_N"},{"name":"西段屯换热站_热负荷模型预测服务发布","instanceId":"cad06a7f-7e78-4963-a1bb-afc413e9222b","node":"H104"},{"name":"中行换热站_热负荷模型预测服务发布","instanceId":"f6700c67-7f73-4d84-a377-6574e515fbbe","node":"H78"},{"name":"馨园小区换热站_热负荷模型预测服务发布","instanceId":"928fc8fc-1897-46b1-b80f-da9c2b7c59fb","node":"H54"},{"name":"祥和嘉园换热站_热负荷模型预测服务发布","instanceId":"6d347446-4be9-4ff7-add1-dd7771d20622","node":"H108"},{"name":"交警队换热站_热负荷模型预测服务发布","instanceId":"46b623b9-677d-456d-a9c7-41b9e13fa2d5","node":"H38"},{"name":"会计事务所换热站_热负荷模型预测服务发布","instanceId":"9059fda8-3504-4122-9dd3-ca38deb89c2e","node":"H18"},{"name":"总库换热站_热负荷模型预测服务发布","instanceId":"0452575d-82b3-4ef8-aacb-862e734a1d74","node":"H67"},{"name":"韩屯村南换热站_热负荷模型预测服务发布","instanceId":"603f9bda-99b9-4ec9-a9dc-10c67fb3d370","node":"H15"},{"name":"二中C区换热站_热负荷模型预测服务发布","instanceId":"5a2a91cc-3b0b-457b-b6d8-d90edf51f4c5","node":"H53_L"},{"name":"御珑湾换热站_热负荷模型预测服务发布","instanceId":"db7ac856-8386-48e8-b9e3-0b15acc2062a"},{"name":"药材公司换热站_热负荷模型预测服务发布","instanceId":"2219bc34-7baa-450a-8c34-8f7a9bf408e8","node":"H61"},{"name":"安康嘉园换热站_热负荷模型预测服务发布","instanceId":"41499cae-14d7-485b-b0d6-7032e05001a1","node":"H22"},{"name":"御珑湾_中区换热站_热负荷模型预测服务发布","instanceId":"1bca1cc3-8353-45ee-8009-4165aa56fa26","node":"H3_M"},{"name":"城关一院换热站_热负荷模型预测服务发布","instanceId":"a47f7a97-b300-4b57-a6dd-8c89c7a1be91","node":"H62"},{"name":"石油公司换热站_热负荷模型预测服务发布","instanceId":"4c731a11-c7ac-457f-81fa-119acfd0a529","node":"H43"},{"name":"棚户区二期高区换热站_热负荷模型预测服务发布","instanceId":"bcc5607b-41cb-44d8-88dd-25458e041e5b","node":"H85_H"},{"name":"成功换热站_热负荷模型预测服务发布","instanceId":"90e30156-de5b-4d8b-8555-b34875d3a920","node":"H65"},{"name":"岳家湾换热站_热负荷模型预测服务发布","instanceId":"5d80972f-c77a-410b-aa14-0c3835394247","node":"H107"},{"name":"和谐苑换热站_热负荷模型预测服务发布","instanceId":"329e6f36-9c3d-47f5-b98f-b6e9a867b91e","node":"H69"},{"name":"宋古换热站_热负荷模型预测服务发布","instanceId":"4d18da01-7a0d-446c-a03e-fd9ea8a2b233","node":"H31"},{"name":"康和小区_高区换热站_热负荷模型预测服务发布","instanceId":"23dae804-ba82-4741-a46e-71e3c910eae2","node":"H105_H"},{"name":"朝阳路换热站_热负荷模型预测服务发布","instanceId":"157284b9-45eb-47ae-8db5-475246a0754d","node":"H47"},{"name":"二中换热站_热负荷模型预测服务发布","instanceId":"0247ef67-af97-4e6b-9929-75e37d2d3bd3","node":"H53_H"},{"name":"环保局换热站_热负荷模型预测服务发布","instanceId":"1b853a26-b9ec-4606-a3d1-b535e1c42a0c","node":"H58"},{"name":"矿医院换热站_热负荷模型预测服务发布","instanceId":"2eea6d24-db08-4555-8454-eeace60e7ae3","node":"H71"},{"name":"宋安换热站_热负荷模型预测服务发布","instanceId":"4e90c53f-26cf-4533-ade3-bd82a591a63c","node":"H102"},{"name":"物资局换热站_热负荷模型预测服务发布","instanceId":"bc60af77-ee1b-49ab-bcb8-d64db916751c","node":"H64"},{"name":"东南办事处换热站_热负荷模型预测服务发布","instanceId":"67233663-a894-44ce-a564-fe87e00fe073","node":"H41"},{"name":"韩屯村东换热站_热负荷模型预测服务发布","instanceId":"c619bcb2-5c09-45fb-8512-ee1bdd872cb6","node":"H106"},{"name":"汾矿机关换热站_热负荷模型预测服务发布","instanceId":"162936e4-39ec-4667-b4e5-a39901e5f20d","node":"H79"},{"name":"韩屯村北换热站_热负荷模型预测服务发布","instanceId":"333e58f4-ef17-4576-b521-81aa87a8ab54","node":"H16"},{"name":"石河村换热站_热负荷模型预测服务发布","instanceId":"fd152092-59ce-4cd9-9c7e-c0e40368f98c","node":"H45"},{"name":"亚泰小区换热站_热负荷模型预测服务发布","instanceId":"6a1a3aa5-c3f0-48ea-a26c-825dc7f8df44","node":"H17"},{"name":"信合苑换热站_热负荷模型预测服务发布","instanceId":"cbf8fd0f-ae04-493f-aef7-345579ea794c","node":"H29"},{"name":"安益换热站_热负荷模型预测服务发布","instanceId":"5e0c6bab-128e-498d-be49-d7623139d43e","node":"H7"},{"name":"城隍庙换热站_热负荷模型预测服务发布","instanceId":"bd94a144-eb0f-4519-a49d-212e40440cb4","node":"H74"},{"name":"农发行换热站_热负荷模型预测服务发布","instanceId":"d2df5222-006b-43f6-b2c3-50b52e6b0667","node":"H81"},{"name":"滨河小区换热站_热负荷模型预测服务发布","instanceId":"2d85e5da-9940-44b8-b41f-b7c39bf51b68","node":"H94"},{"name":"上站村换热站_热负荷模型预测服务发布","instanceId":"2f512c1f-e628-4b1a-841b-2e64b4f55abc","node":"H23"},{"name":"驾校换热站_热负荷模型预测服务发布","instanceId":"f29a360d-d812-4019-82b5-9154a58e636b","node":"H34"},{"name":"金华苑换热站_热负荷模型预测服务发布","instanceId":"b6b54fa2-67fa-45c5-8071-cbf7a077e1c5","node":"H2"},{"name":"钦屯小区换热站_热负荷模型预测服务发布","instanceId":"5bbdf14d-71ef-42f5-b548-948c12d06a23","node":"H93"},{"name":"绵山墅高区换热站_热负荷模型预测服务发布","instanceId":"9fc8bc54-bb9f-4a08-802c-29704b4b66e7","node":"H87_H"},{"name":"景泰嘉园换热站_热负荷模型预测服务发布","instanceId":"45eeba1e-4a55-4f12-9d01-cdf263fc6ff3","node":"H82"},{"name":"东段屯换热站_热负荷模型预测服务发布","instanceId":"fc73781b-3e8b-4eef-9742-0b6c1611122d","node":"H101"},{"name":"后党峪小区换热站_热负荷模型预测服务发布","instanceId":"fa247948-857f-48e3-a809-9e76e4b87cef","node":"H39"},{"name":"棚户区三期_热负荷模型预测服务发布","instanceId":"9f4f8051-ed03-44ce-8637-2f5bb010e7a6","node":"H85_N"},{"name":"技校换热站_热负荷模型预测服务发布","instanceId":"4b30341e-caa8-46ac-884a-ea8ff1ed4cf8","node":"H80"},{"name":"种羊场换热站_热负荷模型预测服务发布","instanceId":"976e3aac-d53f-4b86-93ff-031111798e57","node":"H100"},{"name":"罗王庄村_换热站_热负荷模型预测服务发布","instanceId":"a7304241-64ba-4051-93ec-e0135a977e2d","node":"H94_N"},{"name":"小宋曲村换热站_热负荷模型预测服务发布","instanceId":"e0879aa4-3301-417b-911f-27129b4a498c","node":"H92"},{"name":"机修厂换热站_热负荷模型预测服务发布","instanceId":"e127afa5-c2f8-49c7-95ce-232ac028685b","node":"H98"},{"name":"赵家堡村换热站_热负荷模型预测服务发布","instanceId":"0b30ac56-1449-482f-b9c0-73f8d2ea2657","node":"H12"},{"name":"一品天下换热站_热负荷模型预测服务发布","instanceId":"e5f3e053-74b3-48cf-89ef-c15f1e43b851","node":"H66"},{"name":"绿都换热站_热负荷模型预测服务发布","instanceId":"9cce20c5-2f0d-4d10-9ce9-160d65e70f55","node":"H9"},{"name":"北坛小学换热站_热负荷模型预测服务发布","instanceId":"e63e2550-f306-4a5f-b351-aba7fceed54f","node":"H60"},{"name":"梁吉村东换热站_热负荷模型预测服务发布","instanceId":"e1c387ee-3a6f-46f3-8741-1ad30f535202","node":"H10"},{"name":"纸厂暂时不用-请勿【更新，下发，注册，删除】操作_管网数据_热负荷模型预测服务发布","instanceId":"a0e90e93-2a8c-4da0-b52b-24e1c9f3da30","node":"H88"},{"name":"洪善换热站_热负荷模型预测服务发布","instanceId":"7b4a9801-a4a0-4539-a1eb-4e60d782caad","node":"H103"},{"name":"首站换热站(合并)_热负荷模型预测服务发布","instanceId":"ce8add6d-552e-48ff-8bdb-cb91aded7e7d","node":"HS1"},{"name":"北村东换热站_热负荷模型预测服务发布","instanceId":"1d7db859-332a-4bda-8843-af29d72a3fbc","node":"H90"},{"name":"棚户二期低区换热站_热负荷模型预测服务发布","instanceId":"4c1e9040-c5da-4d6e-ac8a-4de6b58974e9","node":"H85_L"},{"name":"彦泰小区换热站_热负荷模型预测服务发布","instanceId":"5a364de3-314e-4598-8283-a893d43945cd","node":"H50"},{"name":"西靳屯换热站_热负荷模型预测服务发布","instanceId":"976aeace-d6d4-4498-a127-9ea6faa4b3db","node":"H109"},{"name":"上城南村换热站_热负荷模型预测服务发布","instanceId":"ce9071c6-4f3c-4423-b44b-6b0cf83db36b","node":"H97"},{"name":"电碳厂（一区）换热站_热负荷模型预测服务发布","instanceId":"9b158d00-5416-43e5-9c39-6dcb8efcd538","node":"H44"},{"name":"电碳厂换热站_热负荷模型预测服务发布","instanceId":"e22a3fd9-6922-4f91-a10d-9bcf867a7105","node":"H73"},{"name":"南靳屯换热站_热负荷模型预测服务发布","instanceId":"2b714ee8-d3c3-4d3e-b4fd-f1865dff12a0","node":"H37"},{"name":"铁南换热站_热负荷模型预测服务发布","instanceId":"0352ad0e-5801-4ca2-98f6-280ffe83fa9a","node":"H68"},{"name":"盛华丽园换热站_热负荷模型预测服务发布","instanceId":"35b00484-f988-4c5a-8091-d9cdd5409824","node":"H56"},{"name":"直属库换热站_热负荷模型预测服务发布","instanceId":"1a3acfca-522d-43c0-be1c-0d88d8ad8940","node":"H40"},{"name":"公安局换热站_热负荷模型预测服务发布","instanceId":"8f26b998-681f-4503-a1ce-5848124bf034","node":"H25"},{"name":"城建局换热站_热负荷模型预测服务发布","instanceId":"12722d12-b4e1-4351-8cfc-c78a2b504d86","node":"H59"},{"name":"嘉欣园低区换热站_热负荷模型预测服务发布","instanceId":"866c8e49-5a85-4668-a9ab-00f8379c1954","node":"H28_L"},{"name":"体委换热站_热负荷模型预测服务发布","instanceId":"0599fb6d-8a30-4925-ad45-03e329afe8bf","node":"H77"},{"name":"秀南怡园换热站_热负荷模型预测服务发布","instanceId":"0546340c-1b7e-4bbb-8a74-e83260eb8732","node":"H63"},{"name":"气象站换热站_热负荷模型预测服务发布","instanceId":"aa8c4f84-f126-49fb-a5be-6fe317e70aa5","node":"H27"},{"name":"水泵厂换热站_热负荷模型预测服务发布","instanceId":"f573d99e-843e-4b7d-89df-45db3ee0361a","node":"H83"},{"name":"一中换热站_热负荷模型预测服务发布","instanceId":"7eb4fd16-785b-46c2-9822-52ca355716ae","node":"H51"},{"name":"闫冀堡村换热站_热负荷模型预测服务发布","instanceId":"2795a8dd-bc95-41b9-925c-0b9f8096c92e","node":"H4"},{"name":"蓉和苑换热站_热负荷模型预测服务发布","instanceId":"b2c565e5-31f7-4366-8c29-9374972c56bf","node":"H26"},{"name":"二运换热站_热负荷模型预测服务发布","instanceId":"64d15c71-fc8f-4b70-b68f-d8df0303a274","node":"H70"},{"name":"东内封换热站_热负荷模型预测服务发布","instanceId":"3cac108d-e482-47c1-a46f-1d9b4f916fc6","node":"H95"},{"name":"西关民居区换热站_热负荷模型预测服务发布","instanceId":"42f77c1d-709d-4b03-8b25-bd5125f452b4","node":"H84"}]
+
+
+    let map = {}
+    data2.map(item => {
+        map[item.node] = item.instanceId
+    })
+
+    // console.log(map)
+
+
+
+    data.forEach(item => {
+        let node = item.control_enable.split("_enable")[0]
+        // console.log(node)
+
+        item.instanceId = `\"${map[node]}\"`
+    })
+
+    console.log(JSON.stringify(data), 'data')
+
+
+    function test(arr) {
+        let a = arr.map(item =>{
+            return item.instanceId
+        })
+
+        for(let i=0;i<a.length;i++) {
+            let sum = 0
+            for(let j=0;j<a.length;j++) {
+                if(a[i] == a[j]) {
+                    sum++
+                }
+            }
+
+            if(sum > 1) console.log(a[i])
+        }
+    }
+
+    test(data2)
+</script>
+</html>

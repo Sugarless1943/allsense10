@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let treeStructure = [
+        {
+            "name": "HA",
+            "children": [
+                "H21",
+                "H22",
+                "H23",
+                "H24_L",
+                "H24_H",
+                "H25"
+            ]
+        },
+        {
+            "name": "HB",
+            "children": [
+                "H18",
+                "H19",
+                "H20"
+            ]
+        },
+        {
+            "name": "HC",
+            "children": [
+                "H12",
+                "H13",
+                "H13_N",
+                "H15",
+                "H16",
+                "H106"
+            ]
+        },
+        {
+            "name": "HD",
+            "children": [
+                "H1",
+                "H2",
+                "H3_L",
+                "H3_M",
+                "H3_H",
+                "H4",
+                "H119_L",
+                "H119_H"
+            ]
+        },
+        {
+            "name": "HD-1",
+            "children": [
+                "H90",
+                "H91",
+                "H92",
+                "H93",
+                "H94",
+                "H94_N"
+            ]
+        },
+        {
+            "name": "HE",
+            "children": [
+                "H84",
+                "H85_H",
+                "H85_L",
+                "H85_N",
+                "H86",
+                "H87_H",
+                "H87_L",
+                "H88",
+                "H95",
+                "H96"
+            ]
+        },
+        {
+            "name": "HF",
+            "children": [
+                "H79",
+                "H80"
+            ]
+        },
+        {
+            "name": "HG",
+            "children": [
+                "H61",
+                "H62",
+                "H63",
+                "H64",
+                "H65",
+                "H66",
+                "HG-2"
+            ]
+        },
+        {
+            "name": "HG-1",
+            "children": [
+                "H67",
+                "H68",
+                "H69"
+            ]
+        },
+        {
+            "name": "HG-2",
+            "children": [
+                "H70",
+                "H71",
+                "H72"
+            ]
+        },
+        {
+            "name": "HH",
+            "children": [
+                "H49",
+                "H50",
+                "H57",
+                "H55",
+                "H54",
+                "H53_H",
+                "H53_L"
+            ]
+        },
+        {
+            "name": "HHH",
+            "children": [
+                "HH-1",
+                "HH-2"
+            ]
+        },
+        {
+            "name": "HH-1",
+            "children": [
+                "H51",
+                "H52",
+                "H108"
+            ]
+        },
+        {
+            "name": "HH-2",
+            "children": [
+                "H56",
+                "H58",
+                "H59",
+                "H60"
+            ]
+        },
+        {
+            "name": "HI",
+            "children": [
+                "HI-1",
+                "HI-2",
+                "HI-3"
+            ]
+        },
+        {
+            "name": "HI-1",
+            "children": [
+                "H46",
+                "H47"
+            ]
+        },
+        {
+            "name": "HI-2",
+            "children": [
+                "H44",
+                "H45"
+            ]
+        },
+        {
+            "name": "HI-3",
+            "children": [
+                "H36",
+                "H37",
+                "H38",
+                "H39",
+                "H40",
+                "H41",
+                "H42",
+                "H43",
+                "H97",
+                "H107",
+                "H109"
+            ]
+        },
+        {
+            "name": "HJ",
+            "children": [
+                "H33",
+                "H105_L",
+                "H105_H"
+            ]
+        },
+        {
+            "name": "HK",
+            "children": [
+                "HK-1",
+                "HK-2"
+            ]
+        },
+        {
+            "name": "HK-1",
+            "children": [
+                "H102",
+                "H103",
+                "H104",
+                "H120_L",
+                "H120_H"
+            ]
+        },
+        {
+            "name": "HK-2",
+            "children": [
+                "H100",
+                "H101",
+                "H118"
+            ]
+        },
+        {
+            "name": "S1",
+            "children": [
+                "H48",
+                "H73",
+                "H74",
+                "H75",
+                "H76",
+                "H77",
+                "H78",
+                "H81",
+                "H82",
+                "HF",
+                "HG",
+                "HH",
+                "HS1"
+            ]
+        },
+        {
+            "name": "S2",
+            "children": [
+                "H5",
+                "H6",
+                "H7",
+                "H8",
+                "H9",
+                "H10",
+                "H11",
+                "H17",
+                "H26",
+                "H27",
+                "H28_H",
+                "H28_M",
+                "H28_L",
+                "H29",
+                "H29_N",
+                "H31",
+                "H34",
+                "H35",
+                "H121",
+                "HA",
+                "HB",
+                "HC",
+                "HD",
+                "HD-1",
+                "HI",
+                "HJ",
+                "HK",
+                "HHH",
+                "H98",
+                "H83",
+                "HE",
+                "HG-1"
+            ]
+        },
+        {
+            "name": "S",
+            "children": [
+                "S1",
+                "S2"
+            ]
+        }
+    ]
+    let nameUid = {}
+    let treeNodeMappings= [
+        {
+            "source": "sm_a0223d12-469c-42e5-91ff-c2308469c0e7",
+            "target": "HS1"
+        },
+        {
+            "source": "b42529ad-1e38-44ba-a970-2dffaac0e989",
+            "target": "H1"
+        },
+        {
+            "source": "266cf4b6-4028-4b75-9d48-251aa1ed811f",
+            "target": "H2"
+        },
+        {
+            "source": "8fe92686-2afe-44a5-8f0e-76ffb5b591d0",
+            "target": "H3_L"
+        },
+        {
+            "source": "52531b1d-663b-46de-a816-6a5148208fce",
+            "target": "H3_M"
+        },
+        {
+            "source": "910a43fd-d055-4a16-b161-6f3854658138",
+            "target": "H3_H"
+        },
+        {
+            "source": "f30b9873-3cc4-4de2-afd7-20938b2e05fd",
+            "target": "H4"
+        },
+        {
+            "source": "4ae724d3-c0cb-46b3-9c50-9ac9c08b3a1d",
+            "target": "H5"
+        },
+        {
+            "source": "ce01bdbc-5e43-44b7-b6fc-2576732455d2",
+            "target": "H6"
+        },
+        {
+            "source": "73b46daf-d42d-48c3-9488-2cee279fec41",
+            "target": "H7"
+        },
+        {
+            "source": "46104474-a8e5-4b32-b69f-f8758774b784",
+            "target": "H8"
+        },
+        {
+            "source": "409e2b31-8d6d-4733-8004-6089a5dda855",
+            "target": "H9"
+        },
+        {
+            "source": "4d94f835-7c59-4ad0-a39d-2a90f1f80d79",
+            "target": "H10"
+        },
+        {
+            "source": "ac0d9010-bba2-4d53-91b3-029ae5207345",
+            "target": "H11"
+        },
+        {
+            "source": "ab7885ae-099d-4b00-a3ae-19897462f77a",
+            "target": "H12"
+        },
+        {
+            "source": "e1f35436-a1ae-41d0-bd29-b893afd318f2",
+            "target": "H13"
+        },
+        {
+            "source": "2f1bbd81-7cd2-48f3-880a-22a1ef480c1e",
+            "target": "H13_N"
+        },
+        {
+            "source": "096715ab-702c-44b1-8989-0317178c48f1",
+            "target": "H15"
+        },
+        {
+            "source": "747ed9de-4caa-494e-aa1d-8008d501f8e0",
+            "target": "H16"
+        },
+        {
+            "source": "ef1757e3-06cd-43b1-8cc3-d088b50065e7",
+            "target": "H17"
+        },
+        {
+            "source": "0a3e11a5-dca8-461f-b168-7ca7c2aa3122",
+            "target": "H18"
+        },
+        {
+            "source": "441aabd9-43a9-4395-b596-f94ee371c9a5",
+            "target": "H19"
+        },
+        {
+            "source": "a58ad4ff-7488-44de-aeda-7056c6bb667a",
+            "target": "H20"
+        },
+        {
+            "source": "c5b9bb35-6deb-4066-b638-df1920064a40",
+            "target": "H21"
+        },
+        {
+            "source": "0946f809-6e40-4d0f-bd98-032ce57b105d",
+            "target": "H22"
+        },
+        {
+            "source": "cc36c170-a62b-4d58-a53d-df4e8b628809",
+            "target": "H23"
+        },
+        {
+            "source": "4a370fe9-f18b-4b7f-bc4b-88aa688ad5e1",
+            "target": "H24_L"
+        },
+        {
+            "source": "f1394e8f-7eb7-45b7-88a5-ca3a2260b981",
+            "target": "H24_H"
+        },
+        {
+            "source": "fe5e3396-9059-417c-88d7-4aa6448c641e",
+            "target": "H25"
+        },
+        {
+            "source": "ee8daff2-5a52-443d-bfb3-6b9786b91894",
+            "target": "H26"
+        },
+        {
+            "source": "e2c4cf74-1dc8-4b34-8822-48fe1cb4cb1c",
+            "target": "H27"
+        },
+        {
+            "source": "b15bb406-e07f-41ef-9994-9d94acbad115",
+            "target": "H28_H"
+        },
+        {
+            "source": "7a7fe618-214c-477d-bcae-1fd003fd47a0",
+            "target": "H28_M"
+        },
+        {
+            "source": "18fe049d-76ee-40f9-b0a9-00a47f2e1fd3",
+            "target": "H28_L"
+        },
+        {
+            "source": "4f1e3458-8f71-4544-ad28-368a35bf55d2",
+            "target": "H29"
+        },
+        {
+            "source": "780ba33d-6a54-47b5-a1e8-9f3fcfcb3f1e",
+            "target": "H29_N"
+        },
+        {
+            "source": "151f37ea-b0cf-4d33-8c23-8ecf8a4950dd",
+            "target": "H31"
+        },
+        {
+            "source": "b479cee0-f702-462c-afcc-dde60e1dae26",
+            "target": "H33"
+        },
+        {
+            "source": "38d25e5f-37c9-472d-9a91-ddb7ae0229ee",
+            "target": "H34"
+        },
+        {
+            "source": "7a6c83a1-6668-45a8-994c-98ccc523fc85",
+            "target": "H35"
+        },
+        {
+            "source": "94768ab2-55bd-44e7-a66f-3bad8e7ca0cd",
+            "target": "H36"
+        },
+        {
+            "source": "c1ff3cdb-4b8a-4061-9c61-b9a863f9c92a",
+            "target": "H37"
+        },
+        {
+            "source": "a274d704-5bbd-498d-8c3b-f34d0c94a312",
+            "target": "H38"
+        },
+        {
+            "source": "5780ca0f-8314-4ccc-adc5-6aae77a96678",
+            "target": "H39"
+        },
+        {
+            "source": "2d69300e-c87b-41c9-af27-9db83c13124a",
+            "target": "H40"
+        },
+        {
+            "source": "be18e6c9-f444-45df-afb0-f97ba60d8021",
+            "target": "H41"
+        },
+        {
+            "source": "75ba66df-ed3f-41ae-9a8f-67986595172c",
+            "target": "H42"
+        },
+        {
+            "source": "500deff6-cd87-44fb-86e6-c1fc418afb30",
+            "target": "H43"
+        },
+        {
+            "source": "dfaa38e4-b56e-408f-8eeb-cf62044ad4e5",
+            "target": "H44"
+        },
+        {
+            "source": "b6f29c99-45ab-45f6-a96d-35043e596ebf",
+            "target": "H45"
+        },
+        {
+            "source": "f4f44852-3895-4138-a860-fadf602486b7",
+            "target": "H46"
+        },
+        {
+            "source": "6e704d46-8f69-4a08-a2e9-54878ac543e9",
+            "target": "H47"
+        },
+        {
+            "source": "f0468692-ae50-44a0-a0c5-3f6aec9d7f27",
+            "target": "H48"
+        },
+        {
+            "source": "324f589d-f646-446b-98c2-c2aca2ee97fc",
+            "target": "H49"
+        },
+        {
+            "source": "32ee3f1b-8bdb-4ee5-87c0-a8c8c081e31b",
+            "target": "H50"
+        },
+        {
+            "source": "9dee2c27-b1c6-4950-ba24-d9408fa50366",
+            "target": "H51"
+        },
+        {
+            "source": "f7cd7edf-3513-445e-b072-6688f22889f0",
+            "target": "H52"
+        },
+        {
+            "source": "ec327a73-703f-4b7d-a4db-b9dc7d7a007c",
+            "target": "H53_H"
+        },
+        {
+            "source": "7c991498-0bbe-44ea-8462-86ad11cccd61",
+            "target": "H53_L"
+        },
+        {
+            "source": "88a89d45-0831-4c06-81ae-9033440f9e0d",
+            "target": "H54"
+        },
+        {
+            "source": "4ffcdaed-d332-498d-8309-e0a26341ca46",
+            "target": "H55"
+        },
+        {
+            "source": "4fdfa4cf-3d74-47a7-a327-d90976e19af9",
+            "target": "H56"
+        },
+        {
+            "source": "dc3f2349-6bbc-4161-ac54-89de73ba2999",
+            "target": "H57"
+        },
+        {
+            "source": "9f34e840-dd46-4ba8-83c2-22f0a9df2205",
+            "target": "H58"
+        },
+        {
+            "source": "80c1ed83-8d91-42e9-bfa7-97ab229587c3",
+            "target": "H59"
+        },
+        {
+            "source": "0054fd1f-7df7-4c0f-b788-40bae223920c",
+            "target": "H60"
+        },
+        {
+            "source": "19ed6586-2e9b-47c6-bb36-76c1fa54d4e3",
+            "target": "H61"
+        },
+        {
+            "source": "8f8ba1df-0fc1-42ac-aa10-f874f9d168eb",
+            "target": "H62"
+        },
+        {
+            "source": "08f2ed60-4b7e-4a3d-acb4-e4ea62c4c2d2",
+            "target": "H63"
+        },
+        {
+            "source": "fb8877c7-ec5c-46d2-91af-dde97eb81ef2",
+            "target": "H64"
+        },
+        {
+            "source": "246fa455-8dcc-4cbe-8286-26439feb7d7a",
+            "target": "H65"
+        },
+        {
+            "source": "13565321-edf0-4c73-a6fd-b96db89be16f",
+            "target": "H66"
+        },
+        {
+            "source": "92d56709-b24e-4bcd-87a8-d21224221cf7",
+            "target": "H67"
+        },
+        {
+            "source": "3b4ec881-6dfa-496c-80c0-d614d40fb4c7",
+            "target": "H68"
+        },
+        {
+            "source": "2929b3ad-9170-45be-bc14-77ad3f0d656b",
+            "target": "H69"
+        },
+        {
+            "source": "05a5d05e-fc3d-4557-afba-dceffc0bb5f1",
+            "target": "H70"
+        },
+        {
+            "source": "bdaa7ce8-d145-470e-a3ac-d9f7f1cf1033",
+            "target": "H71"
+        },
+        {
+            "source": "33bbc8b8-e2d3-4e42-807d-ea8513621642",
+            "target": "H72"
+        },
+        {
+            "source": "e8c17621-8906-451c-b196-26e4cfe5fe0f",
+            "target": "H73"
+        },
+        {
+            "source": "b986e515-d4d5-48f4-b67b-a39fea6fd9f2",
+            "target": "H74"
+        },
+        {
+            "source": "939e2f11-92b3-4a3a-81aa-39b8078500fd",
+            "target": "H75"
+        },
+        {
+            "source": "6b2a0c3a-30db-4886-a8da-65c0753aa30a",
+            "target": "H76"
+        },
+        {
+            "source": "52cecd73-bf64-4efd-95bf-e1f22362fc3b",
+            "target": "H77"
+        },
+        {
+            "source": "b113143c-8e53-459e-a533-06dcb55df3fc",
+            "target": "H78"
+        },
+        {
+            "source": "addf3e51-f873-41cf-b6db-7e7122f4b3b9",
+            "target": "H79"
+        },
+        {
+            "source": "d11c3995-9c4e-4723-8056-9c66bc0faeb0",
+            "target": "H80"
+        },
+        {
+            "source": "8f6e3431-e8e1-44c3-945e-da4915cefe73",
+            "target": "H81"
+        },
+        {
+            "source": "7cb048be-f7c5-4555-8718-5b23b02b0333",
+            "target": "H82"
+        },
+        {
+            "source": "296bd631-fb9d-49ec-a8e8-e93139f0c713",
+            "target": "H83"
+        },
+        {
+            "source": "73826f02-776d-4267-83ef-0fa34464b19d",
+            "target": "H84"
+        },
+        {
+            "source": "3249afaf-82a1-459c-919b-dbc4a995cb4b",
+            "target": "H85_H"
+        },
+        {
+            "source": "f28b5a31-2e15-4d36-a7e2-6d5aaf3a0159",
+            "target": "H85_L"
+        },
+        {
+            "source": "ef8c97e1-d3d6-4d5c-ace1-26c67e7e67ea",
+            "target": "H85_N"
+        },
+        {
+            "source": "74324b6a-cabe-4b37-886b-59e1874fb764",
+            "target": "H86"
+        },
+        {
+            "source": "408e509b-e95f-4f60-9f81-b18cb421f58d",
+            "target": "H87_H"
+        },
+        {
+            "source": "afd78e0d-9684-4ca8-810c-9af8d9b9dd09",
+            "target": "H87_L"
+        },
+        {
+            "source": "424f2b3c-3602-4907-ac6a-5718f600e61d",
+            "target": "H88"
+        },
+        {
+            "source": "3301c33a-5fb6-48a1-bb18-5a2421aaacea",
+            "target": "H90"
+        },
+        {
+            "source": "a66fe5ad-7556-46b9-84c9-f2283977379a",
+            "target": "H91"
+        },
+        {
+            "source": "f6830324-db08-4d18-87b6-17142a9ba261",
+            "target": "H92"
+        },
+        {
+            "source": "d215d902-db94-4e6b-b1d2-76924f8585d1",
+            "target": "H93"
+        },
+        {
+            "source": "6b82ff48-f998-4df8-96e9-04f4a04593d2",
+            "target": "H94"
+        },
+        {
+            "source": "b759cccd-b61a-4f4b-ac3c-2e548d09d65a",
+            "target": "H94_N"
+        },
+        {
+            "source": "207d8659-160e-471f-b8bc-5068863873ec",
+            "target": "H95"
+        },
+        {
+            "source": "3f6370d5-66c0-40f0-b054-96833ad57867",
+            "target": "H96"
+        },
+        {
+            "source": "bce82b14-4ba0-4dfd-9c3a-42e8d841b047",
+            "target": "H97"
+        },
+        {
+            "source": "b2bbbdd5-90d3-46c6-8574-623c5c528929",
+            "target": "H98"
+        },
+        {
+            "source": "3e46a853-928f-49ac-9d0a-171ef1646384",
+            "target": "H100"
+        },
+        {
+            "source": "d898574b-ca0f-48ff-8404-2a17171787d4",
+            "target": "H101"
+        },
+        {
+            "source": "8e4278f8-5626-4f47-b428-8ae4fe4181cf",
+            "target": "H102"
+        },
+        {
+            "source": "145df8f3-0fe9-43d0-9fec-0ee6e71e8e6d",
+            "target": "H103"
+        },
+        {
+            "source": "7a234a72-758d-480e-aa00-aa4b09a22977",
+            "target": "H104"
+        },
+        {
+            "source": "cf430d2b-9f6a-4f5e-89d4-9d5abbc9536b",
+            "target": "H105_L"
+        },
+        {
+            "source": "9fa0b4ed-89bc-4691-81b7-b1e091e5467b",
+            "target": "H105_H"
+        },
+        {
+            "source": "27ed4d57-bd91-4a14-bf09-d2ac328730f4",
+            "target": "H106"
+        },
+        {
+            "source": "fc32a6bf-4147-4555-b0b3-d9ade7814645",
+            "target": "H107"
+        },
+        {
+            "source": "2744cee8-9b13-4c7b-947f-e72b2e54547f",
+            "target": "H108"
+        },
+        {
+            "source": "3a319a8b-754f-4449-b17e-1d92c0c9b2b7",
+            "target": "H109"
+        },
+        {
+            "source": "e1807a04-e588-4443-bfcb-b72967c4cf31",
+            "target": "H118"
+        },
+        {
+            "source": "d989c75c-271c-4f67-8d6f-e36290ab79d0",
+            "target": "H120_L"
+        },
+        {
+            "source": "08817f59-01b8-4560-99f3-716b93fdce9a",
+            "target": "H120_H"
+        },
+        {
+            "source": "260fcff0-09b5-43c8-9c99-9399a6fba3ce",
+            "target": "H121"
+        },
+        {
+            "source": "b6c16f47-a72f-4380-b317-6123ada01bb8",
+            "target": "H119_L"
+        },
+        {
+            "source": "781c1a47-d6b5-434f-8a38-32e2e8f372e2",
+            "target": "H119_H"
+        }
+    ]
+    treeNodeMappings.map(item => {
+        nameUid[item.target] = item.source
+    })
+
+    let res = {}
+    treeStructure.map(item => {
+        let parName = item.name
+        res[item.name] = item.children.map(item => {
+            return {
+                name: item,
+                parents: [parName]
+            }
+        })
+    })
+
+    // console.log(res)
+
+    for(let i in res) {
+        if(res[i].length > 0) {
+           setItem(res[i])
+        }
+    }
+
+    function setItem(arr) {
+        arr.map((item,index) => {
+            let parents = item.parents
+            if(res[item.name]) {
+                setFat(res[item.name], parents)
+                arr[index] = res[item.name]
+                setItem(res[item.name])
+                delete res[item.name]
+            }
+        })
+    }
+
+
+    function setFat(arr, pars) {
+        arr.forEach(chd => {
+            if(Array.isArray(chd)) {
+                setFat(chd, pars)
+            }else {
+                chd.parents = [...chd.parents, ...pars]
+            }
+        })
+    }
+
+    // console.log(res)
+
+    let stations = []
+    function getStations(arr) {
+        arr.map(item => {
+            if(Array.isArray(item)) {
+                getStations(item)
+            }else {
+                stations.push(item)
+            }
+        })
+    }
+    getStations(res["S"])
+
+
+    // console.log(stations)
+
+    let a = [
+        "sm_a0223d12-469c-42e5-91ff-c2308469c0e7",
+        "f0468692-ae50-44a0-a0c5-3f6aec9d7f27",
+        "324f589d-f646-446b-98c2-c2aca2ee97fc",
+        "32ee3f1b-8bdb-4ee5-87c0-a8c8c081e31b",
+        "19ed6586-2e9b-47c6-bb36-76c1fa54d4e3",
+        "8f8ba1df-0fc1-42ac-aa10-f874f9d168eb",
+        "08f2ed60-4b7e-4a3d-acb4-e4ea62c4c2d2",
+        "fb8877c7-ec5c-46d2-91af-dde97eb81ef2",
+        "246fa455-8dcc-4cbe-8286-26439feb7d7a",
+        "13565321-edf0-4c73-a6fd-b96db89be16f",
+        "92d56709-b24e-4bcd-87a8-d21224221cf7",
+        "2929b3ad-9170-45be-bc14-77ad3f0d656b",
+        "05a5d05e-fc3d-4557-afba-dceffc0bb5f1",
+        "bdaa7ce8-d145-470e-a3ac-d9f7f1cf1033",
+        "33bbc8b8-e2d3-4e42-807d-ea8513621642",
+        "e8c17621-8906-451c-b196-26e4cfe5fe0f",
+        "b986e515-d4d5-48f4-b67b-a39fea6fd9f2",
+        "939e2f11-92b3-4a3a-81aa-39b8078500fd",
+        "6b2a0c3a-30db-4886-a8da-65c0753aa30a",
+        "52cecd73-bf64-4efd-95bf-e1f22362fc3b",
+        "b113143c-8e53-459e-a533-06dcb55df3fc",
+        "addf3e51-f873-41cf-b6db-7e7122f4b3b9",
+        "d11c3995-9c4e-4723-8056-9c66bc0faeb0",
+        "8f6e3431-e8e1-44c3-945e-da4915cefe73",
+        "7cb048be-f7c5-4555-8718-5b23b02b0333"
+    ]
+
+    let num = 0
+    let finalMap = {}
+    let final = stations.map(item => {
+        let obj = {
+            node: item.name,
+            uid: nameUid[item.name],
+            level: item.parents.length - 1
+        }
+        if(item.parents.includes("S1")) {
+            obj.source = 1
+            num++
+        }
+        if(item.parents.includes("S2")) {
+            obj.source = 2
+        }
+        return obj
+    })
+
+    console.log(JSON.stringify(final), num)
+
+
+    // final.map(item => {
+    //     if(item.source == 1 && !a.includes(item.uid)) {
+    //         console.log(item)
+    //     }
+    // })
+
+
+    // let online = [{"uid":"sm_a0223d12-469c-42e5-91ff-c2308469c0e7","source":1,"level":1},{"uid":"b42529ad-1e38-44ba-a970-2dffaac0e989","source":2,"level":2},{"uid":"266cf4b6-4028-4b75-9d48-251aa1ed811f","source":2,"level":2},{"uid":"f30b9873-3cc4-4de2-afd7-20938b2e05fd","source":2,"level":2},{"uid":"4ae724d3-c0cb-46b3-9c50-9ac9c08b3a1d","source":2,"level":1},{"uid":"ce01bdbc-5e43-44b7-b6fc-2576732455d2","source":2,"level":1},{"uid":"73b46daf-d42d-48c3-9488-2cee279fec41","source":2,"level":1},{"uid":"46104474-a8e5-4b32-b69f-f8758774b784","source":2,"level":1},{"uid":"409e2b31-8d6d-4733-8004-6089a5dda855","source":2,"level":1},{"uid":"4d94f835-7c59-4ad0-a39d-2a90f1f80d79","source":2,"level":1},{"uid":"ac0d9010-bba2-4d53-91b3-029ae5207345","source":2,"level":1},{"uid":"ab7885ae-099d-4b00-a3ae-19897462f77a","source":2,"level":2},{"uid":"e1f35436-a1ae-41d0-bd29-b893afd318f2","source":2,"level":2},{"uid":"096715ab-702c-44b1-8989-0317178c48f1","source":2,"level":2},{"uid":"747ed9de-4caa-494e-aa1d-8008d501f8e0","source":2,"level":2},{"uid":"ef1757e3-06cd-43b1-8cc3-d088b50065e7","source":2,"level":1},{"uid":"0a3e11a5-dca8-461f-b168-7ca7c2aa3122","source":2,"level":2},{"uid":"441aabd9-43a9-4395-b596-f94ee371c9a5","source":2,"level":2},{"uid":"a58ad4ff-7488-44de-aeda-7056c6bb667a","source":2,"level":2},{"uid":"c5b9bb35-6deb-4066-b638-df1920064a40","source":2,"level":2},{"uid":"0946f809-6e40-4d0f-bd98-032ce57b105d","source":2,"level":2},{"uid":"cc36c170-a62b-4d58-a53d-df4e8b628809","source":2,"level":2},{"uid":"fe5e3396-9059-417c-88d7-4aa6448c641e","source":2,"level":2},{"uid":"ee8daff2-5a52-443d-bfb3-6b9786b91894","source":2,"level":1},{"uid":"e2c4cf74-1dc8-4b34-8822-48fe1cb4cb1c","source":2,"level":1},{"uid":"b15bb406-e07f-41ef-9994-9d94acbad115","source":2,"level":1},{"uid":"7a7fe618-214c-477d-bcae-1fd003fd47a0","source":2,"level":1},{"uid":"18fe049d-76ee-40f9-b0a9-00a47f2e1fd3","source":2,"level":1},{"uid":"4f1e3458-8f71-4544-ad28-368a35bf55d2","source":2,"level":1},{"uid":"151f37ea-b0cf-4d33-8c23-8ecf8a4950dd","source":2,"level":1},{"uid":"b479cee0-f702-462c-afcc-dde60e1dae26","source":2,"level":2},{"uid":"38d25e5f-37c9-472d-9a91-ddb7ae0229ee","source":2,"level":1},{"uid":"7a6c83a1-6668-45a8-994c-98ccc523fc85","source":2,"level":1},{"uid":"94768ab2-55bd-44e7-a66f-3bad8e7ca0cd","source":2,"level":3},{"uid":"c1ff3cdb-4b8a-4061-9c61-b9a863f9c92a","source":2,"level":3},{"uid":"a274d704-5bbd-498d-8c3b-f34d0c94a312","source":2,"level":3},{"uid":"5780ca0f-8314-4ccc-adc5-6aae77a96678","source":2,"level":3},{"uid":"2d69300e-c87b-41c9-af27-9db83c13124a","source":2,"level":3},{"uid":"be18e6c9-f444-45df-afb0-f97ba60d8021","source":2,"level":3},{"uid":"75ba66df-ed3f-41ae-9a8f-67986595172c","source":2,"level":3},{"uid":"500deff6-cd87-44fb-86e6-c1fc418afb30","source":2,"level":3},{"uid":"dfaa38e4-b56e-408f-8eeb-cf62044ad4e5","source":2,"level":3},{"uid":"b6f29c99-45ab-45f6-a96d-35043e596ebf","source":2,"level":3},{"uid":"f4f44852-3895-4138-a860-fadf602486b7","source":2,"level":3},{"uid":"6e704d46-8f69-4a08-a2e9-54878ac543e9","source":2,"level":3},{"uid":"f0468692-ae50-44a0-a0c5-3f6aec9d7f27","source":1,"level":1},{"uid":"324f589d-f646-446b-98c2-c2aca2ee97fc","source":1,"level":2},{"uid":"32ee3f1b-8bdb-4ee5-87c0-a8c8c081e31b","source":1,"level":2},{"uid":"9dee2c27-b1c6-4950-ba24-d9408fa50366","source":2,"level":3},{"uid":"f7cd7edf-3513-445e-b072-6688f22889f0","source":2,"level":3},{"uid":"ec327a73-703f-4b7d-a4db-b9dc7d7a007c","source":2,"level":3},{"uid":"7c991498-0bbe-44ea-8462-86ad11cccd61","source":2,"level":3},{"uid":"88a89d45-0831-4c06-81ae-9033440f9e0d","source":2,"level":3},{"uid":"4ffcdaed-d332-498d-8309-e0a26341ca46","source":2,"level":3},{"uid":"4fdfa4cf-3d74-47a7-a327-d90976e19af9","source":2,"level":3},{"uid":"dc3f2349-6bbc-4161-ac54-89de73ba2999","source":2,"level":3},{"uid":"9f34e840-dd46-4ba8-83c2-22f0a9df2205","source":2,"level":3},{"uid":"80c1ed83-8d91-42e9-bfa7-97ab229587c3","source":2,"level":3},{"uid":"0054fd1f-7df7-4c0f-b788-40bae223920c","source":2,"level":3},{"uid":"19ed6586-2e9b-47c6-bb36-76c1fa54d4e3","source":1,"level":2},{"uid":"8f8ba1df-0fc1-42ac-aa10-f874f9d168eb","source":1,"level":2},{"uid":"08f2ed60-4b7e-4a3d-acb4-e4ea62c4c2d2","source":1,"level":2},{"uid":"fb8877c7-ec5c-46d2-91af-dde97eb81ef2","source":1,"level":2},{"uid":"246fa455-8dcc-4cbe-8286-26439feb7d7a","source":1,"level":2},{"uid":"13565321-edf0-4c73-a6fd-b96db89be16f","source":1,"level":2},{"uid":"92d56709-b24e-4bcd-87a8-d21224221cf7","source":1,"level":2},{"uid":"3b4ec881-6dfa-496c-80c0-d614d40fb4c7","source":2,"level":3},{"uid":"2929b3ad-9170-45be-bc14-77ad3f0d656b","source":1,"level":3},{"uid":"05a5d05e-fc3d-4557-afba-dceffc0bb5f1","source":1,"level":3},{"uid":"bdaa7ce8-d145-470e-a3ac-d9f7f1cf1033","source":1,"level":3},{"uid":"33bbc8b8-e2d3-4e42-807d-ea8513621642","source":1,"level":3},{"uid":"e8c17621-8906-451c-b196-26e4cfe5fe0f","source":1,"level":1},{"uid":"b986e515-d4d5-48f4-b67b-a39fea6fd9f2","source":1,"level":1},{"uid":"939e2f11-92b3-4a3a-81aa-39b8078500fd","source":1,"level":1},{"uid":"6b2a0c3a-30db-4886-a8da-65c0753aa30a","source":1,"level":1},{"uid":"52cecd73-bf64-4efd-95bf-e1f22362fc3b","source":1,"level":1},{"uid":"b113143c-8e53-459e-a533-06dcb55df3fc","source":1,"level":1},{"uid":"addf3e51-f873-41cf-b6db-7e7122f4b3b9","source":1,"level":2},{"uid":"d11c3995-9c4e-4723-8056-9c66bc0faeb0","source":1,"level":2},{"uid":"8f6e3431-e8e1-44c3-945e-da4915cefe73","source":1,"level":1},{"uid":"7cb048be-f7c5-4555-8718-5b23b02b0333","source":1,"level":1},{"uid":"296bd631-fb9d-49ec-a8e8-e93139f0c713","source":2,"level":1},{"uid":"73826f02-776d-4267-83ef-0fa34464b19d","source":2,"level":2},{"uid":"3249afaf-82a1-459c-919b-dbc4a995cb4b","source":2,"level":2},{"uid":"f28b5a31-2e15-4d36-a7e2-6d5aaf3a0159","source":2,"level":2},{"uid":"74324b6a-cabe-4b37-886b-59e1874fb764","source":2,"level":2},{"uid":"408e509b-e95f-4f60-9f81-b18cb421f58d","source":2,"level":2},{"uid":"424f2b3c-3602-4907-ac6a-5718f600e61d","source":2,"level":2},{"uid":"3301c33a-5fb6-48a1-bb18-5a2421aaacea","source":2,"level":2},{"uid":"a66fe5ad-7556-46b9-84c9-f2283977379a","source":2,"level":2},{"uid":"f6830324-db08-4d18-87b6-17142a9ba261","source":2,"level":2},{"uid":"d215d902-db94-4e6b-b1d2-76924f8585d1","source":2,"level":2},{"uid":"6b82ff48-f998-4df8-96e9-04f4a04593d2","source":2,"level":2},{"uid":"207d8659-160e-471f-b8bc-5068863873ec","source":2,"level":2},{"uid":"3f6370d5-66c0-40f0-b054-96833ad57867","source":2,"level":2},{"uid":"bce82b14-4ba0-4dfd-9c3a-42e8d841b047","source":2,"level":3},{"uid":"b2bbbdd5-90d3-46c6-8574-623c5c528929","source":2,"level":1},{"uid":"3e46a853-928f-49ac-9d0a-171ef1646384","source":2,"level":2},{"uid":"d898574b-ca0f-48ff-8404-2a17171787d4","source":2,"level":2},{"uid":"8e4278f8-5626-4f47-b428-8ae4fe4181cf","source":2,"level":2},{"uid":"145df8f3-0fe9-43d0-9fec-0ee6e71e8e6d","source":2,"level":2},{"uid":"7a234a72-758d-480e-aa00-aa4b09a22977","source":2,"level":2},{"uid":"27ed4d57-bd91-4a14-bf09-d2ac328730f4","source":2,"level":2},{"uid":"fc32a6bf-4147-4555-b0b3-d9ade7814645","source":2,"level":3},{"uid":"2744cee8-9b13-4c7b-947f-e72b2e54547f","source":2,"level":3},{"uid":"3a319a8b-754f-4449-b17e-1d92c0c9b2b7","source":2,"level":3},{"uid":"2f1bbd81-7cd2-48f3-880a-22a1ef480c1e","source":2,"level":2},{"uid":"9fa0b4ed-89bc-4691-81b7-b1e091e5467b","source":2,"level":2},{"uid":"b759cccd-b61a-4f4b-ac3c-2e548d09d65a","source":2,"level":2},{"uid":"cf430d2b-9f6a-4f5e-89d4-9d5abbc9536b","source":2,"level":2},{"uid":"780ba33d-6a54-47b5-a1e8-9f3fcfcb3f1e","source":2,"level":1},{"uid":"4a370fe9-f18b-4b7f-bc4b-88aa688ad5e1","source":2,"level":2},{"uid":"f1394e8f-7eb7-45b7-88a5-ca3a2260b981","source":2,"level":2},{"uid":"8fe92686-2afe-44a5-8f0e-76ffb5b591d0","source":2,"level":2},{"uid":"52531b1d-663b-46de-a816-6a5148208fce","source":2,"level":2},{"uid":"910a43fd-d055-4a16-b161-6f3854658138","source":2,"level":2},{"uid":"afd78e0d-9684-4ca8-810c-9af8d9b9dd09","source":2,"level":2},{"uid":"ef8c97e1-d3d6-4d5c-ace1-26c67e7e67ea","source":2,"level":2},{"uid":"e1807a04-e588-4443-bfcb-b72967c4cf31","source":2,"level":2},{"uid":"b6c16f47-a72f-4380-b317-6123ada01bb8","source":2,"level":2},{"uid":"781c1a47-d6b5-434f-8a38-32e2e8f372e2","source":2,"level":2},{"uid":"d989c75c-271c-4f67-8d6f-e36290ab79d0","source":2,"level":2},{"uid":"08817f59-01b8-4560-99f3-716b93fdce9a","source":2,"level":2},{"uid":"260fcff0-09b5-43c8-9c99-9399a6fba3ce","source":2,"level":1}]
+
+
+
+    final.map(item => {
+        finalMap[item.uid] = {
+            source: item.source,
+            level: item.level
+        }
+    })
+
+    console.log(JSON.stringify(finalMap))
+</script>
+</html>

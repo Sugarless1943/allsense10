@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let data = [
+        {
+            "timeSeries": "smart_data_HeatStation:9f34e840-dd46-4ba8-83c2-22f0a9df2205:runOpening",
+            "name": "H1_interval"
+        },
+        {
+            "timeSeries": "smart_data_HeatStation:9f34e840-dd46-4ba8-83c2-22f0a9df2205:timestamp",
+            "name": "H1_timestamp"
+        }
+    ]
+
+    data.forEach(item => {
+        item.type = "DOUBLE"
+    })
+
+
+    console.log(JSON.stringify(data))
+
+
+</script>
+</html>

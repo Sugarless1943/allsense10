@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let a = [1,2,3,4,5]
+    function pro(arr) {
+        let promises = Promise.resolve()
+        arr.map(v => {
+            return promises = promises.then(_ => {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        console.log(v)
+                        resolve()
+                    }, 1000)
+                })
+            })
+        })
+    }
+
+    pro(a)
+</script>
+</html>

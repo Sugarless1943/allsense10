@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Sup (){}
+    function Sub (){
+        this.name = 'a'
+    }
+
+    Sub.prototype = Object.create(Sup.prototype)
+    console.dir(Sub)
+    Sub.prototype.show = function () {
+        console.log('show')
+    }
+    let s = new Sub()
+    console.log(s)
+</script>
+</html>

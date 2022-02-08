@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<textarea id="input" rows="20" cols="80"></textarea>
+<button onclick="exchange()">转换</button>
+<textarea id="output" rows="20" cols="80"></textarea>
+</body>
+<script>
+    function exchange() {
+        let input = document.getElementById("input").value
+        let in_map = JSON.parse(input)
+        console.log(in_map)
+
+        let res = {}
+        res["settings"] = in_map["settings"]
+        res["maxBufferSize"] = 1
+        let fields = []
+
+        let derivedFields = in_map["derivedFields"]
+
+        derivedFields.map(item => {
+            fields.push({
+                "name": item.name,
+                "label": item.name,
+                "type": "DOUBLE",
+                "expression": getExpression(item.name, in_map.conditions)
+            })
+        })
+
+        res.fields = fields
+
+        let output = document.getElementById("output")
+        output.value = JSON.stringify(res)
+    }
+
+    function getExpression(key, conditions) {
+        let arr = []
+        if(conditions.length > 0) {
+            conditions.map(item => {
+                if(item.condition) {
+                    console.log(item, key)
+                    let uid = item.condition.split("\"")[1]
+                    arr.push(`(uid == "${uid}") {\n    return ${item[key]};\n}`)
+                }
+            })
+        }
+
+        return `if ${arr.join(" elsif ")}`
+    }
+
+
+</script>
+</html>

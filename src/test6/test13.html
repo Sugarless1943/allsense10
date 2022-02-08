@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let module = (function(){
+        let moduleList = {}
+        let define = function(name, module, action) {
+            module.map((item, index) => {
+                module[index] = moduleList[item]
+            })
+            moduleList[name] = action.apply(null , module)
+        }
+
+        return {moduleList, define}
+    })()
+
+    module.define('a1', [], function() {
+        return {
+            a1: 1,
+            max() {}
+        }
+    })
+
+
+    module.define('a2', [], function() {
+        return {
+            a2: 2,
+            min() {}
+        }
+    })
+
+    module.define('c', ['a1', 'a2'], function (a1, a2) {
+        console.log(a1, a2)
+    })
+
+
+
+
+</script>
+</html>

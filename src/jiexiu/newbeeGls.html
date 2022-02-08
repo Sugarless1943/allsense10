@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function fn(num) {
+        if(num < 10) {
+            return `if(IsNull(x[${num}]),${fn(num + 1)},x[${num}])`
+        }else {
+            return 'x[10]'
+        }
+    }
+
+    console.log(fn(1))
+
+</script>
+</html>

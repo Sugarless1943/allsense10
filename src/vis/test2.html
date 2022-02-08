@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    <iframe width="320" height="85" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&a=getcode&id=6&py=chongqing&icon=1"></iframe>-->
+</body>
+<script>
+
+    let res = {}
+    let d = []
+    // "weather_1": "weather_1 - weather_compensate"
+    for(let i=1;i<24;i++) {
+        let key = `weather_${i}`
+        // res[key] = `${key} - weather_compensate`
+        res[key] = `${key}`
+
+        d.push({
+            "name": key,
+            "label": key,
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+        })
+    }
+
+    console.log(JSON.stringify(res))
+    console.log(JSON.stringify(d))
+</script>
+</html>

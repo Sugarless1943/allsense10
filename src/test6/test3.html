@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input v-model="title"/>
+<input v-model="title"/>
+<h1 v-bind="title"></h1>
+</body>
+<script>
+    "use strict"
+    let titles = document.querySelectorAll("[v-model='title']")
+    let hs = document.querySelectorAll("[v-bind='title']")
+    let data = {
+        title: ''
+    }
+    titles.forEach(item => {
+        item.addEventListener('input', e => {
+            data.title = e.target.value
+        })
+    })
+
+    Object.defineProperty(data, 'title', {
+        set(value) {
+            titles.forEach(item => {
+                item.value = value
+            })
+            hs.forEach(item => {
+                item.innerText = value
+            })
+        },
+
+        get() {
+            return data.title
+        }
+    })
+
+</script>
+</html>

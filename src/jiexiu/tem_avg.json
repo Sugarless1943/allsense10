@@ -1,0 +1,167 @@
+{
+  "globalConf": {
+    "engineName": "flink",
+    "name": "test_simple",
+    "flink.running.mode": "localui",
+    "flink.running.controller.enabled": true,
+    "globalParameters": {}
+  },
+  "nodes": [
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "7e203a55d75a3b3e-8c03ff16f02ca166",
+      "moduleId": "Toolkit:RT",
+      "name": "Rt读取天气数据",
+      "description": "",
+      "parameters": {
+        "timeInterval": 3600000,
+        "timeWindow": 7200000,
+        "url": "https://www.allsmartcloud.com/api/queryengine/batch_query",
+        "httpHeaders": {
+          "access_token": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwic3ViIjoiYWRtaW4iLCJleHAiOjI1MzM3MDczNjAwMCwidXQiOiJTWVNfQURNSU4iLCJkdCI6IlBDIn0.ChD-lFH8h1oPMC-FSzd9mfl5Ocdy40jDnt08SetQNbg",
+          "corpId": "3403c1dd180a000"
+        },
+        "virtualTable": [
+          {
+            "timeSeries": "DayWeather:8c50bc5c-cdcc-3493-a652-8fd500d910d1:highTemperature",
+            "label": "temperature_future_1_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_1_high"
+          },
+          {
+            "timeSeries": "DayWeather:8c50bc5c-cdcc-3493-a652-8fd500d910d1:lowTemperature",
+            "label": "temperature_future_1_low",
+            "type": "DOUBLE",
+            "desp": "temperature_future_1_low"
+          },
+          {
+            "timeSeries": "DayWeather:1743990f-c523-36b3-8590-ab3c1ed6dff6:highTemperature",
+            "label": "temperature_future_2_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_2_high"
+          },
+          {
+            "timeSeries": "DayWeather:1743990f-c523-36b3-8590-ab3c1ed6dff6:lowTemperature",
+            "label": "temperature_future_2_low",
+            "type": "DOUBLE",
+            "desp": "temperature_future_2_low"
+          },
+          {
+            "timeSeries": "DayWeather:7f1410f7-0dc5-3244-a220-bc3cbdfe8a90:highTemperature",
+            "label": "temperature_future_3_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_3_high"
+          },
+          {
+            "timeSeries": "DayWeather:7f1410f7-0dc5-3244-a220-bc3cbdfe8a90:lowTemperature",
+            "label": "temperature_future_3_low",
+            "type": "DOUBLE",
+            "desp": "temperature_future_3_low"
+          },
+          {
+            "timeSeries": "DayWeather:9c3fee67-8c58-352f-92ea-e91f95cc6fcc:highTemperature",
+            "label": "temperature_future_4_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_4_high"
+          },
+          {
+            "timeSeries": "DayWeather:9c3fee67-8c58-352f-92ea-e91f95cc6fcc:lowTemperature",
+            "label": "temperature_future_4_low",
+            "type": "DOUBLE",
+            "desp": "temperature_future_4_low"
+          },
+          {
+            "timeSeries": "DayWeather:ffc7da51-289d-34c9-bd48-732fa6794413:highTemperature",
+            "label": "temperature_future_5_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_5_high"
+          },
+          {
+            "timeSeries": "DayWeather:ffc7da51-289d-34c9-bd48-732fa6794413:lowTemperature",
+            "label": "temperature_future_5_low",
+            "type": "DOUBLE",
+            "desp": "temperature_future_5_low"
+          },
+          {
+            "timeSeries": "DayWeather:93fe46ae-2f13-3454-9776-2f0d999bb78b:highTemperature",
+            "label": "temperature_future_6_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_6_high"
+          },
+          {
+            "timeSeries": "DayWeather:93fe46ae-2f13-3454-9776-2f0d999bb78b:lowTemperature",
+            "label": "temperature_future_6_low",
+            "type": "DOUBLE",
+            "desp": "temperature_future_6_low"
+          },
+          {
+            "timeSeries": "DayWeather:968f1152-7efc-3ce5-8760-84e333e7fdc2:highTemperature",
+            "label": "temperature_future_7_high",
+            "type": "DOUBLE",
+            "desp": "temperature_future_7_high"
+          },
+          {
+            "timeSeries": "DayWeather:968f1152-7efc-3ce5-8760-84e333e7fdc2:lowTemperature",
+            "label": "temperature_future_7_low",
+            "type": "DOUBLE",
+            "desp": "temperature_future_7_low"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "d7234eda45f7b509",
+      "moduleId": "Toolkit:Derive",
+      "name": "平均温度计算",
+      "description": "",
+      "parameters": {
+        "rules": [
+          {
+            "name": "temperature_future_1_avg",
+            "type": "DOUBLE",
+            "expression": "avg(temperature_future_1_high, temperature_fututre_1_low)",
+            "label": "未来1天平均温度"
+          },
+          {
+            "name": "temperature_future_2_avg",
+            "type": "DOUBLE",
+            "expression": "avg(temperature_future_2_high, temperature_fututre_2_low)",
+            "label": "未来2天平均温度"
+          },
+          {
+            "name": "temperature_future_3_avg",
+            "type": "DOUBLE",
+            "expression": "avg(temperature_future_3_high, temperature_fututre_3_low)",
+            "label": "未来3天平均温度"
+          },
+          {
+            "name": "temperature_future_4_avg",
+            "type": "DOUBLE",
+            "expression": "avg(temperature_future_4_high, temperature_fututre_4_low)",
+            "label": "未来4天平均温度"
+          },
+          {
+            "name": "temperature_future_5_avg",
+            "type": "DOUBLE",
+            "expression": "avg(temperature_future_5_high, temperature_fututre_5_low)",
+            "label": "未来5天平均温度"
+          },
+          {
+            "name": "temperature_future_6_avg",
+            "type": "DOUBLE",
+            "expression": "avg(temperature_future_6_high, temperature_fututre_6_low)",
+            "label": "未来6天平均温度"
+          },
+          {
+            "name": "temperature_future_7_avg",
+            "type": "DOUBLE",
+            "expression": "avg(temperature_future_7_high, temperature_fututre_7_low)",
+            "label": "未来7天平均温度"
+          }
+        ]
+      }
+    }
+  ],
+  "connections": []
+}

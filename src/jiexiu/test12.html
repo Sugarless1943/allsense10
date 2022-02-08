@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str = "(indoorTempStand - indoorTempStand_offset <= temperature_indoor_avg && temperature_indoor_avg <= indoorTempStand + indoorTempStand_offset_max)"
+
+    let res = []
+    for (let i = 1; i < 15; i++) {
+        // let condition = `if(temperature${i}_isNull == 0,if((indoorTempStand - indoorTempStand_offset <= temperature${i}_cal_revise && temperature${i}_cal_revise <= indoorTempStand + indoorTempStand_offset_max),1,0),1)`
+        // let condition = `if(temperature${i}_isNull == 0,if((indoorTempStand - indoorTempStand_offset > temperature${i}_cal_revise),1,0),1)`
+        let condition = `if(temperature${i}_isNull == 0,if((temperature${i}_cal_revise > indoorTempStand + indoorTempStand_offset_max),1,0),1)`
+        res.push(condition)
+    }
+
+    console.log(res.join(" + "))
+
+
+</script>
+</html>

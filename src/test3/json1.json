@@ -1,0 +1,3995 @@
+{
+  "globalConf": {
+    "engineName": "flink",
+    "name": "jiexiu_smart_valve",
+    "flink.running.mode": "remote",
+    "flink.running.controller.enabled": false,
+    "globalParameters": {
+      "corp_id": "3403c1dd180a000",
+      "rabbit_host": "rabbitmq-production",
+      "rabbit_port": 5672
+    }
+  },
+  "nodes": [
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "SOURCE",
+      "moduleId": "Source:Amqp",
+      "name": "jiexiu_smart_valve",
+      "description": "",
+      "parameters": {
+        "name": "jiexiu_smart_valve",
+        "host": "#{rabbit_host}",
+        "port": "#{rabbit_port}",
+        "user": "iot",
+        "password": "allsmart@iot",
+        "vhost": "/iot",
+        "topic": ".data.iot.3403c1dd180a000.#"
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "T1",
+      "moduleId": "Toolkit:Type",
+      "name": "Type",
+      "description": "",
+      "parameters": {
+        "datasource": "smart_data_HeatStation",
+        "expandField": "data",
+        "datamodel": {
+          "fieldList": [
+            {
+              "name": "timestamp",
+              "dataType": "LONG"
+            },
+            {
+              "name": "uid",
+              "dataType": "STRING"
+            },
+            {
+              "name": "corpId",
+              "dataType": "STRING"
+            },
+            {
+              "name": "instantaneousFlowLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "instantaneousHeatLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "accumulatedHeatLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "accumulatedFlowLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "supplyWaterPressureLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "returnWaterPressureLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "supplyWaterPressureLine2",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "returnWaterPressureLine2",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "pressureDiff2",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "supplyWaterTemperatureLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "returnWaterTemperatureLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "supplyWaterTemperatureLine2",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "returnWaterTemperatureLine2",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "fixFreqRecyclePumpCurrent",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "varFreqRecyclePumpCurrent",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "controlValveOpenning",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "mixeWaterValveOpenning",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "mixeWaterTemperatureLine2",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "runState",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "runOpening",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "expectOpenning",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "workMode",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "expectTemperature",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "expectPressureDiff",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "powerState",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "signalState",
+              "dataType": "DOUBLE"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "53aab2256d48edab-5f77e9547023edb2",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "热量单位ConditionDerive",
+      "description": "",
+      "parameters": {
+        "settings": {
+          "KJ": 1000000,
+          "H": 3600
+        },
+        "conditions": [
+          {
+            "instantaneousHeatLine1": "instantaneousHeatLine1 * KJ / H ",
+            "accumulatedHeatLine1": "accumulatedHeatLine1 * KJ"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "instantaneousHeatLine1",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "一网瞬时热量KJ/s"
+          },
+          {
+            "name": "accumulatedHeatLine1",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "一网累计热量KJ"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "47d79474c57d60bd-65b7f4cb3490ed5a",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "一网供温(条件判断)[ConditionDerive]",
+      "description": "",
+      "parameters": {
+        "settings": {},
+        "conditions": [
+          {
+            "condition": "supplyWaterTemperatureLine1 < 0",
+            "SupTempLine1": 0
+          },
+          {
+            "condition": "isNull(supplyWaterTemperatureLine1)",
+            "SupTempLine1": 0
+          },
+          {
+            "SupTempLine1": "supplyWaterTemperatureLine1 "
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "SupTempLine1",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "一网供水温度"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "47d79474c57d60bd-4debe9ac75cf09a4",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "一网回温(条件判断)[ConditionDerive]",
+      "description": "",
+      "parameters": {
+        "settings": {},
+        "conditions": [
+          {
+            "condition": "returnWaterTemperatureLine1<0",
+            "RetTempLine1": 0
+          },
+          {
+            "condition": "isNull(returnWaterTemperatureLine1)",
+            "RetTempLine1": 0
+          },
+          {
+            "RetTempLine1": "returnWaterTemperatureLine1"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "RetTempLine1",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "一网回水温度"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "47d79474c57d60bd-2dc693206bb9c84b",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "一网供压(条件判断)[ConditionDerive]",
+      "description": "",
+      "parameters": {
+        "settings": {},
+        "conditions": [
+          {
+            "condition": "supplyWaterPressureLine1<0",
+            "SupPresLine1": 0
+          },
+          {
+            "condition": "isNull(supplyWaterPressureLine1)",
+            "SupPresLine1": 0
+          },
+          {
+            "SupPresLine1": "supplyWaterPressureLine1"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "SupPresLine1",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "一网供水压力"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "47d79474c57d60bd-b5217921957ea493",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "一网回压(条件判断)[ConditionDerive]",
+      "description": "",
+      "parameters": {
+        "settings": {},
+        "conditions": [
+          {
+            "condition": "returnWaterPressureLine1<0",
+            "RetPresLine1": 0
+          },
+          {
+            "condition": "isNull(returnWaterPressureLine1)",
+            "RetPresLine1": 0
+          },
+          {
+            "RetPresLine1": "returnWaterPressureLine1"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "RetPresLine1",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "一网回水压力"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "47d79474c57d60bd-1e13c0a5538016ae",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "一网瞬时流量(条件判断)[ConditionDerive]",
+      "description": "",
+      "parameters": {
+        "settings": {},
+        "conditions": [
+          {
+            "condition": "instantaneousFlowLine1<0",
+            "InsFlowLine1": 0
+          },
+          {
+            "condition": "isNull(instantaneousFlowLine1)",
+            "InsFlowLine1": 0
+          },
+          {
+            "InsFlowLine1": "instantaneousFlowLine1"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "InsFlowLine1",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "一网瞬时流量"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "47d79474c57d60bd-363340ed679273c2",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "一网瞬时热量(条件判断)[ConditionDerive]",
+      "description": "",
+      "parameters": {
+        "settings": {},
+        "conditions": [
+          {
+            "condition": "instantaneousHeatLine1<0",
+            "InsHeatLine1": 0
+          },
+          {
+            "condition": "isNull(instantaneousHeatLine1)",
+            "InsHeatLine1": 0
+          },
+          {
+            "InsHeatLine1": "instantaneousHeatLine1"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "InsHeatLine1",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "一网瞬时热量"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "47d79474c57d60bd-233d58700440b2cd",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "二网供温(条件判断)[ConditionDerive]",
+      "description": "",
+      "parameters": {
+        "settings": {},
+        "conditions": [
+          {
+            "condition": "supplyWaterTemperatureLine2<0",
+            "SupTempLine2": 0
+          },
+          {
+            "condition": "isNull(returnWaterTemperatureLine1)",
+            "SupTempLine2": 0
+          },
+          {
+            "condition": "supplyWaterTemperatureLine2>95",
+            "SupTempLine2": 95
+          },
+          {
+            "SupTempLine2": "supplyWaterTemperatureLine2"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "SupTempLine2",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "二网供水温度"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "47d79474c57d60bd-5329e908ed263adf",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "二网回温(条件判断)[ConditionDerive]",
+      "description": "",
+      "parameters": {
+        "settings": {},
+        "conditions": [
+          {
+            "condition": "returnWaterTemperatureLine2<0",
+            "RetTempLine2": 0
+          },
+          {
+            "condition": "isNull(returnWaterTemperatureLine2)",
+            "RetTempLine2": 0
+          },
+          {
+            "RetTempLine2": "returnWaterTemperatureLine2"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "RetTempLine2",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "二网回水温度"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "47d79474c57d60bd-b68679aacce25b64",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "二网供压(条件判断)[ConditionDerive]",
+      "description": "",
+      "parameters": {
+        "settings": {},
+        "conditions": [
+          {
+            "condition": "supplyWaterPressureLine2<0",
+            "SupPresLine2": 0
+          },
+          {
+            "condition": "isNull(supplyWaterPressureLine2)",
+            "SupPresLine2": 0
+          },
+          {
+            "SupPresLine2": "supplyWaterPressureLine2"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "SupPresLine2",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "二网供水压力"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "47d79474c57d60bd-9a78d75af280e694",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "二网回压(条件判断)[ConditionDerive]",
+      "description": "",
+      "parameters": {
+        "settings": {},
+        "conditions": [
+          {
+            "condition": "returnWaterPressureLine2<0",
+            "RetPresLine2": 0
+          },
+          {
+            "condition": "isNull(returnWaterPressureLine2)",
+            "RetPresLine2": 0
+          },
+          {
+            "RetPresLine2": "returnWaterPressureLine2"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "RetPresLine2",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "二网回水压力"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "47d79474c57d60bd-ca19f960dab94450",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "一网调节阀开度(条件判断)[ConditionDerive]",
+      "description": "",
+      "parameters": {
+        "settings": {},
+        "conditions": [
+          {
+            "condition": "runOpening<0",
+            "ValveOpenLine1": 0
+          },
+          {
+            "condition": "isNull(runOpening)",
+            "ValveOpenLine1": 0
+          },
+          {
+            "condition": "runOpening>100",
+            "ValveOpenLine1": 100
+          },
+          {
+            "ValveOpenLine1": "runOpening"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "ValveOpenLine1",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "一网调节阀开度"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "69868727ac37abba",
+      "moduleId": "Toolkit:Derive",
+      "name": "配置项",
+      "description": "",
+      "parameters": {
+        "constantValues": {
+          "all_enable": 0,
+          "topN": 20,
+          "KC_S1_level1": 0.8,
+          "KC_S1_level2": 0.8,
+          "KC_S1_level3": 0.8,
+          "KC_S2_level1": 0.8,
+          "KC_S2_level2": 0.8,
+          "KC_S2_level3": 0.8,
+          "Control_sum_min": 0.8,
+          "HS1_enable": 1,
+          "H1_enable": 1,
+          "H2_enable": 1,
+          "H3_enable": 1,
+          "H4_enable": 1,
+          "H5_enable": 1,
+          "H6_enable": 1,
+          "H7_enable": 1,
+          "H8_enable": 1,
+          "H9_enable": 1,
+          "H10_enable": 1,
+          "H11_enable": 1,
+          "H12_enable": 1,
+          "H13_enable": 1,
+          "H15_enable": 1,
+          "H17_enable": 1,
+          "H18_enable": 1,
+          "H19_enable": 1,
+          "H20_enable": 1,
+          "H21_enable": 1,
+          "H22_enable": 1,
+          "H23_enable": 1,
+          "H24_enable": 1,
+          "H25_enable": 1,
+          "H26_enable": 1,
+          "H29_enable": 1,
+          "H31_enable": 1,
+          "H32_enable": 1,
+          "H33_enable": 1,
+          "H34_enable": 1,
+          "H35_enable": 1,
+          "H36_enable": 1,
+          "H37_enable": 1,
+          "H38_enable": 1,
+          "H39_enable": 1,
+          "H40_enable": 1,
+          "H41_enable": 1,
+          "H42_enable": 1,
+          "H43_enable": 1,
+          "H44_enable": 1,
+          "H45_enable": 1,
+          "H46_enable": 1,
+          "H47_enable": 1,
+          "H48_enable": 1,
+          "H49_enable": 1,
+          "H50_enable": 1,
+          "H51_enable": 1,
+          "H52_enable": 1,
+          "H53_enable": 1,
+          "H54_enable": 1,
+          "H55_enable": 1,
+          "H56_enable": 1,
+          "H58_enable": 1,
+          "H59_enable": 1,
+          "H60_enable": 1,
+          "H61_enable": 1,
+          "H62_enable": 1,
+          "H63_enable": 1,
+          "H64_enable": 1,
+          "H65_enable": 1,
+          "H66_enable": 1,
+          "H67_enable": 1,
+          "H68_enable": 1,
+          "H69_enable": 1,
+          "H70_enable": 1,
+          "H71_enable": 1,
+          "H72_enable": 1,
+          "H73_enable": 1,
+          "H74_enable": 1,
+          "H75_enable": 1,
+          "H76_enable": 1,
+          "H77_enable": 1,
+          "H78_enable": 1,
+          "H79_enable": 1,
+          "H80_enable": 1,
+          "H81_enable": 1,
+          "H82_enable": 1,
+          "H83_enable": 1,
+          "H84_enable": 1,
+          "H86_enable": 1,
+          "H88_enable": 1
+        },
+        "rules": [
+          {
+            "name": "all_enable",
+            "type": "DOUBLE",
+            "expression": "all_enable",
+            "desp": "总开关"
+          },
+          {
+            "name": "topN",
+            "type": "DOUBLE",
+            "expression": "topN",
+            "desp": "topN"
+          },
+          {
+            "name": "KC_S1_level1",
+            "type": "DOUBLE",
+            "expression": "KC_S1_level1",
+            "desp": "热源1级别1"
+          },
+          {
+            "name": "KC_S1_level2",
+            "type": "DOUBLE",
+            "expression": "KC_S1_level2",
+            "desp": "热源1级别2"
+          },
+          {
+            "name": "KC_S1_level3",
+            "type": "DOUBLE",
+            "expression": "KC_S1_level3",
+            "desp": "热源1级别3"
+          },
+          {
+            "name": "KC_S2_level1",
+            "type": "DOUBLE",
+            "expression": "KC_S2_level1",
+            "desp": "热源2级别1"
+          },
+          {
+            "name": "KC_S2_level2",
+            "type": "DOUBLE",
+            "expression": "KC_S2_level2",
+            "desp": "热源2级别2"
+          },
+          {
+            "name": "KC_S2_level3",
+            "type": "DOUBLE",
+            "expression": "KC_S2_level3",
+            "desp": "热源2级别3"
+          },
+          {
+            "name": "Control_sum_min",
+            "type": "DOUBLE",
+            "expression": "Control_sum_min",
+            "desp": "换热站控制最小比例"
+          },
+          {
+            "name": "HS1_enable",
+            "type": "DOUBLE",
+            "expression": "HS1_enable",
+            "desp": "首站换执站1开关"
+          },
+          {
+            "name": "H1_enable",
+            "type": "DOUBLE",
+            "expression": "H1_enable",
+            "desp": "六中换热站开关"
+          },
+          {
+            "name": "H2_enable",
+            "type": "DOUBLE",
+            "expression": "H2_enable",
+            "desp": "金华苑换热站开关"
+          },
+          {
+            "name": "H3_enable",
+            "type": "DOUBLE",
+            "expression": "H3_enable",
+            "desp": "御龙湾换热站开关"
+          },
+          {
+            "name": "H4_enable",
+            "type": "DOUBLE",
+            "expression": "H4_enable",
+            "desp": "闫冀堡树换热站开关"
+          },
+          {
+            "name": "H5_enable",
+            "type": "DOUBLE",
+            "expression": "H5_enable",
+            "desp": "棚户区B区换热站开关"
+          },
+          {
+            "name": "H6_enable",
+            "type": "DOUBLE",
+            "expression": "H6_enable",
+            "desp": "棚户区一期换热站开关"
+          },
+          {
+            "name": "H7_enable",
+            "type": "DOUBLE",
+            "expression": "H7_enable",
+            "desp": "安逸村换热站开关"
+          },
+          {
+            "name": "H8_enable",
+            "type": "DOUBLE",
+            "expression": "H8_enable",
+            "desp": "梁吉村换热站开关"
+          },
+          {
+            "name": "H9_enable",
+            "type": "DOUBLE",
+            "expression": "H9_enable",
+            "desp": "绿都二期换热站开关"
+          },
+          {
+            "name": "H10_enable",
+            "type": "DOUBLE",
+            "expression": "H10_enable",
+            "desp": "梁吉村东换热站开关"
+          },
+          {
+            "name": "H11_enable",
+            "type": "DOUBLE",
+            "expression": "H11_enable",
+            "desp": "李加堡换热站(纬四路)开关"
+          },
+          {
+            "name": "H12_enable",
+            "type": "DOUBLE",
+            "expression": "H12_enable",
+            "desp": "赵家堡村换热站开关"
+          },
+          {
+            "name": "H13_enable",
+            "type": "DOUBLE",
+            "expression": "H13_enable",
+            "desp": "李家堡村换热站(纬三路)开关"
+          },
+          {
+            "name": "H15_enable",
+            "type": "DOUBLE",
+            "expression": "H15_enable",
+            "desp": "韩屯村南换热站开关"
+          },
+          {
+            "name": "H17_enable",
+            "type": "DOUBLE",
+            "expression": "H17_enable",
+            "desp": "亚泰苑换热站开关"
+          },
+          {
+            "name": "H18_enable",
+            "type": "DOUBLE",
+            "expression": "H18_enable",
+            "desp": "会计事务所换热站开关"
+          },
+          {
+            "name": "H19_enable",
+            "type": "DOUBLE",
+            "expression": "H19_enable",
+            "desp": "嘉禾园换热站开关"
+          },
+          {
+            "name": "H20_enable",
+            "type": "DOUBLE",
+            "expression": "H20_enable",
+            "desp": "安居苑换热站开关"
+          },
+          {
+            "name": "H21_enable",
+            "type": "DOUBLE",
+            "expression": "H21_enable",
+            "desp": "安泰换热站开关"
+          },
+          {
+            "name": "H22_enable",
+            "type": "DOUBLE",
+            "expression": "H22_enable",
+            "desp": "安康嘉园换热站开关"
+          },
+          {
+            "name": "H23_enable",
+            "type": "DOUBLE",
+            "expression": "H23_enable",
+            "desp": "上站村换热站开关"
+          },
+          {
+            "name": "H24_enable",
+            "type": "DOUBLE",
+            "expression": "H24_enable",
+            "desp": "顺康换热站开关"
+          },
+          {
+            "name": "H25_enable",
+            "type": "DOUBLE",
+            "expression": "H25_enable",
+            "desp": "公安局换热站开关"
+          },
+          {
+            "name": "H26_enable",
+            "type": "DOUBLE",
+            "expression": "H26_enable",
+            "desp": "蓉和菀换热站开关"
+          },
+          {
+            "name": "H29_enable",
+            "type": "DOUBLE",
+            "expression": "H29_enable",
+            "desp": "三道河换热站开关"
+          },
+          {
+            "name": "H31_enable",
+            "type": "DOUBLE",
+            "expression": "H31_enable",
+            "desp": "宋古换热站开关"
+          },
+          {
+            "name": "H32_enable",
+            "type": "DOUBLE",
+            "expression": "H32_enable",
+            "desp": "南张家庄换热站开关"
+          },
+          {
+            "name": "H33_enable",
+            "type": "DOUBLE",
+            "expression": "H33_enable",
+            "desp": "宋古村换热站开关"
+          },
+          {
+            "name": "H34_enable",
+            "type": "DOUBLE",
+            "expression": "H34_enable",
+            "desp": "宋古驾校换热站开关"
+          },
+          {
+            "name": "H35_enable",
+            "type": "DOUBLE",
+            "expression": "H35_enable",
+            "desp": "马女村换热站开关"
+          },
+          {
+            "name": "H36_enable",
+            "type": "DOUBLE",
+            "expression": "H36_enable",
+            "desp": "绵山一中换热站开关"
+          },
+          {
+            "name": "H37_enable",
+            "type": "DOUBLE",
+            "expression": "H37_enable",
+            "desp": "南靳屯村换热站开关"
+          },
+          {
+            "name": "H38_enable",
+            "type": "DOUBLE",
+            "expression": "H38_enable",
+            "desp": "交警队换热站开关"
+          },
+          {
+            "name": "H39_enable",
+            "type": "DOUBLE",
+            "expression": "H39_enable",
+            "desp": "后党峪小区换热站开关"
+          },
+          {
+            "name": "H40_enable",
+            "type": "DOUBLE",
+            "expression": "H40_enable",
+            "desp": "粮食局直属库换热站开关"
+          },
+          {
+            "name": "H41_enable",
+            "type": "DOUBLE",
+            "expression": "H41_enable",
+            "desp": "东南办事处换热站开关"
+          },
+          {
+            "name": "H42_enable",
+            "type": "DOUBLE",
+            "expression": "H42_enable",
+            "desp": "定阳路南换热站开关"
+          },
+          {
+            "name": "H43_enable",
+            "type": "DOUBLE",
+            "expression": "H43_enable",
+            "desp": "石油公司换热站开关"
+          },
+          {
+            "name": "H44_enable",
+            "type": "DOUBLE",
+            "expression": "H44_enable",
+            "desp": "电碳厂换热站开关"
+          },
+          {
+            "name": "H45_enable",
+            "type": "DOUBLE",
+            "expression": "H45_enable",
+            "desp": "石河村换热站开关"
+          },
+          {
+            "name": "H46_enable",
+            "type": "DOUBLE",
+            "expression": "H46_enable",
+            "desp": "电杆厂换热站开关"
+          },
+          {
+            "name": "H47_enable",
+            "type": "DOUBLE",
+            "expression": "H47_enable",
+            "desp": "朝阳路换热站开关"
+          },
+          {
+            "name": "H48_enable",
+            "type": "DOUBLE",
+            "expression": "H48_enable",
+            "desp": "永康换热站开关"
+          },
+          {
+            "name": "H49_enable",
+            "type": "DOUBLE",
+            "expression": "H49_enable",
+            "desp": "顺城关换热站开关"
+          },
+          {
+            "name": "H50_enable",
+            "type": "DOUBLE",
+            "expression": "H50_enable",
+            "desp": "彦泰换热站开关"
+          },
+          {
+            "name": "H51_enable",
+            "type": "DOUBLE",
+            "expression": "H51_enable",
+            "desp": "介休一中换热站开关"
+          },
+          {
+            "name": "H52_enable",
+            "type": "DOUBLE",
+            "expression": "H52_enable",
+            "desp": "泓达小区换热站开关"
+          },
+          {
+            "name": "H53_enable",
+            "type": "DOUBLE",
+            "expression": "H53_enable",
+            "desp": "二中换热站开关"
+          },
+          {
+            "name": "H54_enable",
+            "type": "DOUBLE",
+            "expression": "H54_enable",
+            "desp": "馨苑小区换热站开关"
+          },
+          {
+            "name": "H55_enable",
+            "type": "DOUBLE",
+            "expression": "H55_enable",
+            "desp": "邮政局换热站开关"
+          },
+          {
+            "name": "H56_enable",
+            "type": "DOUBLE",
+            "expression": "H56_enable",
+            "desp": "盛华丽苑换热站开关"
+          },
+          {
+            "name": "H58_enable",
+            "type": "DOUBLE",
+            "expression": "H58_enable",
+            "desp": "环保局换热站开关"
+          },
+          {
+            "name": "H59_enable",
+            "type": "DOUBLE",
+            "expression": "H59_enable",
+            "desp": "城健局换热站开关"
+          },
+          {
+            "name": "H60_enable",
+            "type": "DOUBLE",
+            "expression": "H60_enable",
+            "desp": "北坛小学换热站开关"
+          },
+          {
+            "name": "H61_enable",
+            "type": "DOUBLE",
+            "expression": "H61_enable",
+            "desp": "药材公司换热站开关"
+          },
+          {
+            "name": "H62_enable",
+            "type": "DOUBLE",
+            "expression": "H62_enable",
+            "desp": "城关一院换热站开关"
+          },
+          {
+            "name": "H63_enable",
+            "type": "DOUBLE",
+            "expression": "H63_enable",
+            "desp": "秀南怡苑换热站开关"
+          },
+          {
+            "name": "H64_enable",
+            "type": "DOUBLE",
+            "expression": "H64_enable",
+            "desp": "物资机关换热站开关"
+          },
+          {
+            "name": "H65_enable",
+            "type": "DOUBLE",
+            "expression": "H65_enable",
+            "desp": "中仁换热站开关"
+          },
+          {
+            "name": "H66_enable",
+            "type": "DOUBLE",
+            "expression": "H66_enable",
+            "desp": "一品天下换热站开关"
+          },
+          {
+            "name": "H67_enable",
+            "type": "DOUBLE",
+            "expression": "H67_enable",
+            "desp": "矿务局供应处换热站开关"
+          },
+          {
+            "name": "H68_enable",
+            "type": "DOUBLE",
+            "expression": "H68_enable",
+            "desp": "铁亮大厦换热站开关"
+          },
+          {
+            "name": "H69_enable",
+            "type": "DOUBLE",
+            "expression": "H69_enable",
+            "desp": "车站二区换热站开关"
+          },
+          {
+            "name": "H70_enable",
+            "type": "DOUBLE",
+            "expression": "H70_enable",
+            "desp": "二运换热站开关"
+          },
+          {
+            "name": "H71_enable",
+            "type": "DOUBLE",
+            "expression": "H71_enable",
+            "desp": "矿务局医院换热站开关"
+          },
+          {
+            "name": "H72_enable",
+            "type": "DOUBLE",
+            "expression": "H72_enable",
+            "desp": "富康苑换热站开关"
+          },
+          {
+            "name": "H73_enable",
+            "type": "DOUBLE",
+            "expression": "H73_enable",
+            "desp": "电碳厂换热站(宿舍)开关"
+          },
+          {
+            "name": "H74_enable",
+            "type": "DOUBLE",
+            "expression": "H74_enable",
+            "desp": "城隍庙换热站开关"
+          },
+          {
+            "name": "H75_enable",
+            "type": "DOUBLE",
+            "expression": "H75_enable",
+            "desp": "南大街换热站开关"
+          },
+          {
+            "name": "H76_enable",
+            "type": "DOUBLE",
+            "expression": "H76_enable",
+            "desp": "党校换热站开关"
+          },
+          {
+            "name": "H77_enable",
+            "type": "DOUBLE",
+            "expression": "H77_enable",
+            "desp": "体委换热站开关"
+          },
+          {
+            "name": "H78_enable",
+            "type": "DOUBLE",
+            "expression": "H78_enable",
+            "desp": "中行换热站开关"
+          },
+          {
+            "name": "H79_enable",
+            "type": "DOUBLE",
+            "expression": "H79_enable",
+            "desp": "矿务局机关换热站开关"
+          },
+          {
+            "name": "H80_enable",
+            "type": "DOUBLE",
+            "expression": "H80_enable",
+            "desp": "矿务局技校换热站开关"
+          },
+          {
+            "name": "H81_enable",
+            "type": "DOUBLE",
+            "expression": "H81_enable",
+            "desp": "农发行换热站开关"
+          },
+          {
+            "name": "H82_enable",
+            "type": "DOUBLE",
+            "expression": "H82_enable",
+            "desp": "景泰换热站开关"
+          },
+          {
+            "name": "H83_enable",
+            "type": "DOUBLE",
+            "expression": "H83_enable",
+            "desp": "水泵厂换热站开关"
+          },
+          {
+            "name": "H84_enable",
+            "type": "DOUBLE",
+            "expression": "H84_enable",
+            "desp": "无机盐厂换热站开关"
+          },
+          {
+            "name": "H86_enable",
+            "type": "DOUBLE",
+            "expression": "H86_enable",
+            "desp": "消防队换热站开关"
+          },
+          {
+            "name": "H88_enable",
+            "type": "DOUBLE",
+            "expression": "H88_enable",
+            "desp": "纸厂换热站开关"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "acf3315c1b0535cc-afdca2fd9d3a93f0",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "换热站信息",
+      "description": "",
+      "parameters": {
+        "conditions": [
+          {
+            "condition": "uid==\"a0223d12-469c-42e5-91ff-c2308469c0e7\"",
+            "instanceId": "\"a0c09dec-ba3a-45e5-9f01-1b582737ef09\"",
+            "control_enable": "HS1_enable",
+            "assessment": 3,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"b42529ad-1e38-44ba-a970-2dffaac0e989\"",
+            "instanceId": "\"8cd315a6-99f7-403f-89b1-f9445699b4e3\"",
+            "control_enable": "H1_enable",
+            "assessment": 225,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"266cf4b6-4028-4b75-9d48-251aa1ed811f\"",
+            "instanceId": "\"9d83d1d4-9418-4c37-ad2e-08a207a02e22\"",
+            "control_enable": "H2_enable",
+            "assessment": 179,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"a3a6ca91-913c-45ac-bd3e-71fbb3c6c402\"",
+            "instanceId": "\"b4fc00b1-b5fe-4591-9c09-8ae628f498db\"",
+            "control_enable": "H3_enable",
+            "assessment": 133,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"f30b9873-3cc4-4de2-afd7-20938b2e05fd\"",
+            "instanceId": "\"9ca5be09-492a-4faf-bc1a-4fc99973f078\"",
+            "control_enable": "H4_enable",
+            "assessment": 139,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"4ae724d3-c0cb-46b3-9c50-9ac9c08b3a1d\"",
+            "instanceId": "\"408fa812-f07b-4750-b3c4-4ca06d0a7411\"",
+            "control_enable": "H5_enable",
+            "assessment": 143,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"ce01bdbc-5e43-44b7-b6fc-2576732455d2\"",
+            "instanceId": "\"2080ba82-9908-45fd-b124-7d6f9dfa63a1\"",
+            "control_enable": "H6_enable",
+            "assessment": 123,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"73b46daf-d42d-48c3-9488-2cee279fec41\"",
+            "instanceId": "\"54906022-335a-4a68-97c3-2cdabd963cb5\"",
+            "control_enable": "H7_enable",
+            "assessment": 115,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"46104474-a8e5-4b32-b69f-f8758774b784\"",
+            "instanceId": "\"ee465bde-eed0-4ee6-91f6-6ac26df899aa\"",
+            "control_enable": "H8_enable",
+            "assessment": 115,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"409e2b31-8d6d-4733-8004-6089a5dda855\"",
+            "instanceId": "\"bb0815af-b34b-49e9-804f-91a426cf282f\"",
+            "control_enable": "H9_enable",
+            "assessment": 107,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"4d94f835-7c59-4ad0-a39d-2a90f1f80d79\"",
+            "instanceId": "\"e70a6e3e-cea7-4ae6-b870-64fc515cef79\"",
+            "control_enable": "H10_enable",
+            "assessment": 91,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"ac0d9010-bba2-4d53-91b3-029ae5207345\"",
+            "instanceId": "\"d364e53a-17d1-4031-b21c-c447b2f4cfd2\"",
+            "control_enable": "H11_enable",
+            "assessment": 71,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"ab7885ae-099d-4b00-a3ae-19897462f77a\"",
+            "instanceId": "\"8b32c1b7-cd7b-47fb-8163-987808f09ec2\"",
+            "control_enable": "H12_enable",
+            "assessment": 103,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"e1f35436-a1ae-41d0-bd29-b893afd318f2\"",
+            "instanceId": "\"d3fe784f-b166-4327-9dba-10eed4db183d\"",
+            "control_enable": "H13_enable",
+            "assessment": 117,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"096715ab-702c-44b1-8989-0317178c48f1\"",
+            "instanceId": "\"8e756e7c-aca7-4ac2-8d59-9353e5659903\"",
+            "control_enable": "H15_enable",
+            "assessment": 220,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"ef1757e3-06cd-43b1-8cc3-d088b50065e7\"",
+            "instanceId": "\"197d6c17-23bb-4a7d-b7d7-a4e50cdfa6c7\"",
+            "control_enable": "H17_enable",
+            "assessment": 63,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"0a3e11a5-dca8-461f-b168-7ca7c2aa3122\"",
+            "instanceId": "\"8a38d4f0-ad35-4b29-9a4c-88a7d55ff7b7\"",
+            "control_enable": "H18_enable",
+            "assessment": 65,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"441aabd9-43a9-4395-b596-f94ee371c9a5\"",
+            "instanceId": "\"0d3fce12-cbbd-408d-b5db-d14fe9b4df97\"",
+            "control_enable": "H19_enable",
+            "assessment": 75,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"a58ad4ff-7488-44de-aeda-7056c6bb667a\"",
+            "instanceId": "\"f5f0fc43-36ce-4e77-a7ec-0604a6e0eb19\"",
+            "control_enable": "H20_enable",
+            "assessment": 81,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"c5b9bb35-6deb-4066-b638-df1920064a40\"",
+            "instanceId": "\"4cfe7579-8ee4-4752-9464-bd79f3c2a4f8\"",
+            "control_enable": "H21_enable",
+            "assessment": 69,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"0946f809-6e40-4d0f-bd98-032ce57b105d\"",
+            "instanceId": "\"5409c6fd-dc45-4060-a9b6-bfccd8c04434\"",
+            "control_enable": "H22_enable",
+            "assessment": 95,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"cc36c170-a62b-4d58-a53d-df4e8b628809\"",
+            "instanceId": "\"ed2a1202-dbd5-43b3-8500-8ed53350e48a\"",
+            "control_enable": "H23_enable",
+            "assessment": 323,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"7117c79a-b3b9-450a-8b82-fbbf3af271da\"",
+            "instanceId": "\"73ac6278-1ffa-4abb-b535-7b5cb10a80ad\"",
+            "control_enable": "H24_enable",
+            "assessment": 313,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"fe5e3396-9059-417c-88d7-4aa6448c641e\"",
+            "instanceId": "\"d6da66e6-d48f-4f28-946b-676e62886877\"",
+            "control_enable": "H25_enable",
+            "assessment": 333,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"ee8daff2-5a52-443d-bfb3-6b9786b91894\"",
+            "instanceId": "\"ceff85c7-7665-4c07-aa4a-10b2df87cc1b\"",
+            "control_enable": "H26_enable",
+            "assessment": 55,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"4f1e3458-8f71-4544-ad28-368a35bf55d2\"",
+            "instanceId": "\"3bbf74c8-519d-4b3c-8f3d-84b8227fd38e\"",
+            "control_enable": "H29_enable",
+            "assessment": 31,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"b479cee0-f702-462c-afcc-dde60e1dae26\"",
+            "instanceId": "\"93014ae2-d66b-4fa0-987c-75af96175b23\"",
+            "control_enable": "H31_enable",
+            "assessment": 38,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"9fa0b4ed-89bc-4691-81b7-b1e091e5467b\"",
+            "instanceId": "\"da03ec2a-0e98-4b9c-b997-18a0e3fe109a\"",
+            "control_enable": "H32_enable",
+            "assessment": 81,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"151f37ea-b0cf-4d33-8c23-8ecf8a4950dd\"",
+            "instanceId": "\"c21941e6-6a83-4830-b1e7-9836437fc227\"",
+            "control_enable": "H33_enable",
+            "assessment": 21,
+            "source": "\"S2\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"38d25e5f-37c9-472d-9a91-ddb7ae0229ee\"",
+            "instanceId": "\"4066bb16-e4a4-40a1-8196-e2d7c502abda\"",
+            "control_enable": "H34_enable",
+            "assessment": 13,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"7a6c83a1-6668-45a8-994c-98ccc523fc85\"",
+            "instanceId": "\"cf6804f2-4836-43e6-a53a-6983d1de8efe\"",
+            "control_enable": "H35_enable",
+            "assessment": 19,
+            "source": "\"S2\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"94768ab2-55bd-44e7-a66f-3bad8e7ca0cd\"",
+            "instanceId": "\"eb49094f-e4c9-4b53-8537-e18c6ac538a2\"",
+            "control_enable": "H36_enable",
+            "assessment": 321,
+            "source": "\"S2\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"c1ff3cdb-4b8a-4061-9c61-b9a863f9c92a\"",
+            "instanceId": "\"934d1267-c536-49ce-9fdc-4c0085ddc29e\"",
+            "control_enable": "H37_enable",
+            "assessment": 307,
+            "source": "\"S2\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"a274d704-5bbd-498d-8c3b-f34d0c94a312\"",
+            "instanceId": "\"3212f5e4-6f34-4dad-8de2-b61e524ed0f5\"",
+            "control_enable": "H38_enable",
+            "assessment": 297,
+            "source": "\"S2\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"5780ca0f-8314-4ccc-adc5-6aae77a96678\"",
+            "instanceId": "\"99878ca2-3330-4bdd-bbbb-d14c428ac561\"",
+            "control_enable": "H39_enable",
+            "assessment": 289,
+            "source": "\"S2\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"2d69300e-c87b-41c9-af27-9db83c13124a\"",
+            "instanceId": "\"d2b540cd-5c25-44b3-b037-f45e67f95fcb\"",
+            "control_enable": "H40_enable",
+            "assessment": 247,
+            "source": "\"S2\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"be18e6c9-f444-45df-afb0-f97ba60d8021\"",
+            "instanceId": "\"b138c1f4-05df-42fc-9f20-24fe8a4171de\"",
+            "control_enable": "H41_enable",
+            "assessment": 253,
+            "source": "\"S2\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"75ba66df-ed3f-41ae-9a8f-67986595172c\"",
+            "instanceId": "\"a0a7767b-79c8-43a9-a0a3-fe65a16b5985\"",
+            "control_enable": "H42_enable",
+            "assessment": 183,
+            "source": "\"S2\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"500deff6-cd87-44fb-86e6-c1fc418afb30\"",
+            "instanceId": "\"78c2e4dd-f571-4d5d-afaa-6b7746469983\"",
+            "control_enable": "H43_enable",
+            "assessment": 167,
+            "source": "\"S2\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"dfaa38e4-b56e-408f-8eeb-cf62044ad4e5\"",
+            "instanceId": "\"ee008ac0-290b-4d2d-a73e-5bb88df8daa3\"",
+            "control_enable": "H44_enable",
+            "assessment": 70,
+            "source": "\"S2\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"b6f29c99-45ab-45f6-a96d-35043e596ebf\"",
+            "instanceId": "\"e4d65824-ce55-4fb8-a06c-4d3b7cc7f608\"",
+            "control_enable": "H45_enable",
+            "assessment": 73,
+            "source": "\"S2\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"f4f44852-3895-4138-a860-fadf602486b7\"",
+            "instanceId": "\"b3d1b575-6f10-47b6-ba98-853e04f8222e\"",
+            "control_enable": "H46_enable",
+            "assessment": 61,
+            "source": "\"S2\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"6e704d46-8f69-4a08-a2e9-54878ac543e9\"",
+            "instanceId": "\"e6f8b024-9b49-4423-bf55-768b32df874c\"",
+            "control_enable": "H47_enable",
+            "assessment": 110,
+            "source": "\"S2\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"f0468692-ae50-44a0-a0c5-3f6aec9d7f27\"",
+            "instanceId": "\"7d910ff9-3cf0-4e31-9f8e-ab1048ff2c3f\"",
+            "control_enable": "H48_enable",
+            "assessment": 13,
+            "source": "\"S1\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"324f589d-f646-446b-98c2-c2aca2ee97fc\"",
+            "instanceId": "\"98546edd-683f-4610-9673-1a092a3e0282\"",
+            "control_enable": "H49_enable",
+            "assessment": 49,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"32ee3f1b-8bdb-4ee5-87c0-a8c8c081e31b\"",
+            "instanceId": "\"a2e29159-74ee-4512-a248-19947fbeb4d9\"",
+            "control_enable": "H50_enable",
+            "assessment": 33,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"9dee2c27-b1c6-4950-ba24-d9408fa50366\"",
+            "instanceId": "\"2ce21243-2617-48fa-b419-7f17d8e22a99\"",
+            "control_enable": "H51_enable",
+            "assessment": 115,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"f7cd7edf-3513-445e-b072-6688f22889f0\"",
+            "instanceId": "\"32216ec2-ea5e-41b8-835c-73eeb9a091e4\"",
+            "control_enable": "H52_enable",
+            "assessment": 45,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"7c991498-0bbe-44ea-8462-86ad11cccd61\"",
+            "instanceId": "\"f8420fa3-c3dc-49c6-bb89-9b7df5fe6abb\"",
+            "control_enable": "H53_enable",
+            "assessment": 47,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"88a89d45-0831-4c06-81ae-9033440f9e0d\"",
+            "instanceId": "\"765cd0ce-fe13-48f0-8594-46e6f1b5ebdf\"",
+            "control_enable": "H54_enable",
+            "assessment": 53,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"4ffcdaed-d332-498d-8309-e0a26341ca46\"",
+            "instanceId": "\"80a92fbe-7726-493d-bb32-0caaacfd58b6\"",
+            "control_enable": "H55_enable",
+            "assessment": 53,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"4fdfa4cf-3d74-47a7-a327-d90976e19af9\"",
+            "instanceId": "\"02d8f43d-82e9-4f07-80d9-8bd04b9bef91\"",
+            "control_enable": "H56_enable",
+            "assessment": 67,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"9f34e840-dd46-4ba8-83c2-22f0a9df2205\"",
+            "instanceId": "\"46a4873d-b6bc-4775-b09e-bae28575c2e8\"",
+            "control_enable": "H58_enable",
+            "assessment": 77,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"80c1ed83-8d91-42e9-bfa7-97ab229587c3\"",
+            "instanceId": "\"d5917403-69e2-4f79-ba7a-a3758d96ac3d\"",
+            "control_enable": "H59_enable",
+            "assessment": 85,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"0054fd1f-7df7-4c0f-b788-40bae223920c\"",
+            "instanceId": "\"7ba47e5e-5f4e-4922-a3f2-2f23f7215dc6\"",
+            "control_enable": "H60_enable",
+            "assessment": 91,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"19ed6586-2e9b-47c6-bb36-76c1fa54d4e3\"",
+            "instanceId": "\"afb5345b-78fd-4ce6-bd34-8354e8115756\"",
+            "control_enable": "H61_enable",
+            "assessment": 21,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"8f8ba1df-0fc1-42ac-aa10-f874f9d168eb\"",
+            "instanceId": "\"3c5ee162-1c99-4ee1-a5d7-f33a995dc91f\"",
+            "control_enable": "H62_enable",
+            "assessment": 31,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"08f2ed60-4b7e-4a3d-acb4-e4ea62c4c2d2\"",
+            "instanceId": "\"8c7585f1-41b1-4d1e-8d4c-748853a19af8\"",
+            "control_enable": "H63_enable",
+            "assessment": 45,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"fb8877c7-ec5c-46d2-91af-dde97eb81ef2\"",
+            "instanceId": "\"926168a5-5d30-439b-b4c8-e25fecc637fa\"",
+            "control_enable": "H64_enable",
+            "assessment": 35,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"246fa455-8dcc-4cbe-8286-26439feb7d7a\"",
+            "instanceId": "\"f677d783-79ed-45f6-895e-a0d3b014400c\"",
+            "control_enable": "H65_enable",
+            "assessment": 35,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"13565321-edf0-4c73-a6fd-b96db89be16f\"",
+            "instanceId": "\"3123650f-1fe7-463e-810d-e101fc3cfabd\"",
+            "control_enable": "H66_enable",
+            "assessment": 61,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"92d56709-b24e-4bcd-87a8-d21224221cf7\"",
+            "instanceId": "\"37db5796-27ce-461a-9e5d-9f77767dc292\"",
+            "control_enable": "H67_enable",
+            "assessment": 47,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"3b4ec881-6dfa-496c-80c0-d614d40fb4c7\"",
+            "instanceId": "\"d5c40658-9324-4fd7-8a6d-598f75eeef07\"",
+            "control_enable": "H68_enable",
+            "assessment": 87,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"2929b3ad-9170-45be-bc14-77ad3f0d656b\"",
+            "instanceId": "\"76411264-545a-4d7d-9fe8-9082fd01ee15\"",
+            "control_enable": "H69_enable",
+            "assessment": 83,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"05a5d05e-fc3d-4557-afba-dceffc0bb5f1\"",
+            "instanceId": "\"14539613-5d36-41a8-838f-979022e07e43\"",
+            "control_enable": "H70_enable",
+            "assessment": 51,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"bdaa7ce8-d145-470e-a3ac-d9f7f1cf1033\"",
+            "instanceId": "\"b8bed7d5-6c65-42c3-8737-0bc60f875dc0\"",
+            "control_enable": "H71_enable",
+            "assessment": 63,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"33bbc8b8-e2d3-4e42-807d-ea8513621642\"",
+            "instanceId": "\"782f3770-8c6d-49ac-b18e-c3ae89319acd\"",
+            "control_enable": "H72_enable",
+            "assessment": 65,
+            "source": "\"S1\"",
+            "level": 3
+          },
+          {
+            "condition": "uid==\"e8c17621-8906-451c-b196-26e4cfe5fe0f\"",
+            "instanceId": "\"7afbd26e-6149-4d74-9baf-2dd165f1e46a\"",
+            "control_enable": "H73_enable",
+            "assessment": 18,
+            "source": "\"S1\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"b986e515-d4d5-48f4-b67b-a39fea6fd9f2\"",
+            "instanceId": "\"31425a61-35ea-46f3-b72e-feea9542b76e\"",
+            "control_enable": "H74_enable",
+            "assessment": 35,
+            "source": "\"S1\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"939e2f11-92b3-4a3a-81aa-39b8078500fd\"",
+            "instanceId": "\"84bc8c21-bdb3-4f1e-b73c-175153117be4\"",
+            "control_enable": "H75_enable",
+            "assessment": 53,
+            "source": "\"S1\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"6b2a0c3a-30db-4886-a8da-65c0753aa30a\"",
+            "instanceId": "\"e01266bd-1278-4fb3-bf1a-cfa836306c46\"",
+            "control_enable": "H76_enable",
+            "assessment": 43,
+            "source": "\"S1\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"52cecd73-bf64-4efd-95bf-e1f22362fc3b\"",
+            "instanceId": "\"263fd6dc-406a-4262-a531-40f6c4367205\"",
+            "control_enable": "H77_enable",
+            "assessment": 49,
+            "source": "\"S1\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"b113143c-8e53-459e-a533-06dcb55df3fc\"",
+            "instanceId": "\"ed8286c8-2547-40ae-92fc-54477da826a1\"",
+            "control_enable": "H78_enable",
+            "assessment": 59,
+            "source": "\"S1\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"addf3e51-f873-41cf-b6db-7e7122f4b3b9\"",
+            "instanceId": "\"c94cdd35-5faa-407b-8286-daf48d060cfe\"",
+            "control_enable": "H79_enable",
+            "assessment": 85,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"d11c3995-9c4e-4723-8056-9c66bc0faeb0\"",
+            "instanceId": "\"b9e9b8c0-4144-4ef0-afa0-511903244e13\"",
+            "control_enable": "H80_enable",
+            "assessment": 81,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"8f6e3431-e8e1-44c3-945e-da4915cefe73\"",
+            "instanceId": "\"b90cb0a4-d719-4c55-8496-59befbce9a85\"",
+            "control_enable": "H81_enable",
+            "assessment": 109,
+            "source": "\"S1\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"7cb048be-f7c5-4555-8718-5b23b02b0333\"",
+            "instanceId": "\"abcc7227-f50e-4d53-8dc1-24990b744371\"",
+            "control_enable": "H82_enable",
+            "assessment": 120,
+            "source": "\"S1\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"296bd631-fb9d-49ec-a8e8-e93139f0c713\"",
+            "instanceId": "\"f8b1b6a0-510e-4339-8fd7-46da9b3c20c3\"",
+            "control_enable": "H83_enable",
+            "assessment": 141,
+            "source": "\"S1\"",
+            "level": 1
+          },
+          {
+            "condition": "uid==\"73826f02-776d-4267-83ef-0fa34464b19d\"",
+            "instanceId": "\"844d2099-5f74-4e75-8c4a-b50c2ab84698\"",
+            "control_enable": "H84_enable",
+            "assessment": 147,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"74324b6a-cabe-4b37-886b-59e1874fb764\"",
+            "instanceId": "\"4d80ad6e-eb93-402c-801d-e7ae985ae4bf\"",
+            "control_enable": "H86_enable",
+            "assessment": 201,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "condition": "uid==\"d5fddb54-14d1-4924-971c-0afaec4f618f\"",
+            "instanceId": "\"7960e627-7041-4ddb-aa88-62fb064c21ba\"",
+            "control_enable": "H88_enable",
+            "assessment": 300,
+            "source": "\"S1\"",
+            "level": 2
+          },
+          {
+            "control_enable": 0,
+            "assessment": 0
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "instanceId",
+            "type": "STRING"
+          },
+          {
+            "name": "control_enable",
+            "type": "DOUBLE"
+          },
+          {
+            "name": "assessment",
+            "type": "DOUBLE"
+          },
+          {
+            "name": "source",
+            "type": "STRING"
+          },
+          {
+            "name": "level",
+            "type": "INT"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "acf3315c1b0535cc-8c03ff16f02ca166",
+      "moduleId": "Toolkit:RT",
+      "name": "Source：QE读取数据",
+      "description": "",
+      "parameters": {
+        "timeInterval": 900000,
+        "url": "https://www.allsmartcloud.com/api/queryengine/batch_query",
+        "httpHeaders": {
+          "access_token": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwic3ViIjoiYWRtaW4iLCJleHAiOjI1MzM3MDczNjAwMCwidXQiOiJTWVNfQURNSU4iLCJkdCI6IlBDIn0.ChD-lFH8h1oPMC-FSzd9mfl5Ocdy40jDnt08SetQNbg",
+          "corpId": "3403c1dd180a000"
+        },
+        "virtualTable": [
+          {
+            "timeSeries": "Weather:fd198350-6349-3d43-b6b9-fc7bd2d6e8f9:temperature",
+            "label": "weather_0",
+            "type": "DOUBLE",
+            "desp": "天气0"
+          },
+          {
+            "timeSeries": "Weather:12f16889-3ad6-3337-beda-c56c978add86:temperature",
+            "label": "weather_1",
+            "type": "DOUBLE",
+            "desp": "天气1"
+          },
+          {
+            "timeSeries": "Weather:25184ab9-3070-3663-b74c-5187e1b1809b:temperature",
+            "label": "weather_2",
+            "type": "DOUBLE",
+            "desp": "天气2"
+          },
+          {
+            "timeSeries": "Weather:a6ac062b-870e-346d-9ece-3ba5cc4049bd:temperature",
+            "label": "weather_3",
+            "type": "DOUBLE",
+            "desp": "天气3"
+          },
+          {
+            "timeSeries": "Weather:a56ce0a6-e266-33a3-92e9-d6f1f8bab1c4:temperature",
+            "label": "weather_4",
+            "type": "DOUBLE",
+            "desp": "天气4"
+          },
+          {
+            "timeSeries": "Weather:bca7c601-17f9-3b70-befe-9c4cdc3a9f69:temperature",
+            "label": "weather_5",
+            "type": "DOUBLE",
+            "desp": "天气5"
+          },
+          {
+            "timeSeries": "Weather:69a86c8f-3b48-3b93-963f-5e9904423508:temperature",
+            "label": "weather_6",
+            "type": "DOUBLE",
+            "desp": "天气6"
+          },
+          {
+            "timeSeries": "Weather:acfab876-cefb-3230-86c2-14726a849358:temperature",
+            "label": "weather_7",
+            "type": "DOUBLE",
+            "desp": "天气7"
+          },
+          {
+            "timeSeries": "Weather:99a789bc-bfe1-3940-b1ce-7789c3f75421:temperature",
+            "label": "weather_8",
+            "type": "DOUBLE",
+            "desp": "天气8"
+          },
+          {
+            "timeSeries": "Weather:ff542d95-8f84-3eb4-a2d5-6dc61ee284c1:temperature",
+            "label": "weather_9",
+            "type": "DOUBLE",
+            "desp": "天气9"
+          },
+          {
+            "timeSeries": "Weather:54b319ec-ea69-32da-b1a5-e293088cea9d:temperature",
+            "label": "weather_10",
+            "type": "DOUBLE",
+            "desp": "天气10"
+          },
+          {
+            "timeSeries": "Weather:5a2911a0-95e2-31ee-90c5-b273e26d28dc:temperature",
+            "label": "weather_11",
+            "type": "DOUBLE",
+            "desp": "天气11"
+          },
+          {
+            "timeSeries": "Weather:906965f3-62b7-3b1d-8167-a693f2d66f2d:temperature",
+            "label": "weather_12",
+            "type": "DOUBLE",
+            "desp": "天气12"
+          },
+          {
+            "timeSeries": "Weather:ae31bfd0-19b7-3203-b2ee-b1e9f45bad66:temperature",
+            "label": "weather_13",
+            "type": "DOUBLE",
+            "desp": "天气13"
+          },
+          {
+            "timeSeries": "Weather:7b201074-d851-3aef-8131-73e2b8c79958:temperature",
+            "label": "weather_14",
+            "type": "DOUBLE",
+            "desp": "天气14"
+          },
+          {
+            "timeSeries": "Weather:726cecca-22b7-332f-972d-33886b021991:temperature",
+            "label": "weather_15",
+            "type": "DOUBLE",
+            "desp": "天气15"
+          },
+          {
+            "timeSeries": "Weather:d4c1e9ed-de61-390d-ab87-39b9f07f0e0c:temperature",
+            "label": "weather_16",
+            "type": "DOUBLE",
+            "desp": "天气16"
+          },
+          {
+            "timeSeries": "Weather:cd7b5e64-777a-3afb-901c-2ab58da0398f:temperature",
+            "label": "weather_17",
+            "type": "DOUBLE",
+            "desp": "天气17"
+          },
+          {
+            "timeSeries": "Weather:1112de2f-e000-3b5b-a436-44c88a7bee3f:temperature",
+            "label": "weather_18",
+            "type": "DOUBLE",
+            "desp": "天气18"
+          },
+          {
+            "timeSeries": "Weather:1c448da6-d776-35c3-be63-37564e462419:temperature",
+            "label": "weather_19",
+            "type": "DOUBLE",
+            "desp": "天气19"
+          },
+          {
+            "timeSeries": "Weather:4af8b3fd-4e2f-33f4-809b-b3ef673a746d:temperature",
+            "label": "weather_20",
+            "type": "DOUBLE",
+            "desp": "天气20"
+          },
+          {
+            "timeSeries": "Weather:85766e21-2b7c-3d44-bfed-a483e81267ea:temperature",
+            "label": "weather_21",
+            "type": "DOUBLE",
+            "desp": "天气21"
+          },
+          {
+            "timeSeries": "Weather:17f7a527-eb8f-3e08-a4eb-0f385f9452ac:temperature",
+            "label": "weather_22",
+            "type": "DOUBLE",
+            "desp": "天气22"
+          },
+          {
+            "timeSeries": "Weather:30f61aef-1400-3d1e-883d-9cdb5610b46f:temperature",
+            "label": "weather_23",
+            "type": "DOUBLE",
+            "desp": "天气23"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "acf3315c1b0535cc-4a059d7ecabc5180",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "weather",
+      "description": "",
+      "parameters": {
+        "conditions": [
+          {
+            "condition": "assessment < 30",
+            "weather_use": "weather_0"
+          },
+          {
+            "condition": "assessment >= 30 && assessment < 90",
+            "weather_use": "weather_1"
+          },
+          {
+            "condition": "assessment >= 90 && assessment < 150",
+            "weather_use": "weather_2"
+          },
+          {
+            "condition": "assessment >= 150 && assessment < 210",
+            "weather_use": "weather_3"
+          },
+          {
+            "condition": "assessment >= 210 && assessment < 270",
+            "weather_use": "weather_4"
+          },
+          {
+            "condition": "assessment >= 270 && assessment < 330",
+            "weather_use": "weather_5"
+          },
+          {
+            "condition": "assessment >= 330 && assessment < 390",
+            "weather_use": "weather_6"
+          },
+          {
+            "condition": "assessment >= 390 && assessment < 450",
+            "weather_use": "weather_7"
+          },
+          {
+            "condition": "assessment >= 450 && assessment < 510",
+            "weather_use": "weather_8"
+          },
+          {
+            "condition": "assessment >= 510 && assessment < 570",
+            "weather_use": "weather_9"
+          },
+          {
+            "condition": "assessment >= 570 && assessment < 630",
+            "weather_use": "weather_10"
+          },
+          {
+            "condition": "assessment >= 630 && assessment < 690",
+            "weather_use": "weather_11"
+          },
+          {
+            "condition": "assessment >= 690 && assessment < 750",
+            "weather_use": "weather_12"
+          },
+          {
+            "condition": "assessment >= 750 && assessment < 810",
+            "weather_use": "weather_13"
+          },
+          {
+            "condition": "assessment >= 810 && assessment < 870",
+            "weather_use": "weather_14"
+          },
+          {
+            "condition": "assessment >= 870 && assessment < 930",
+            "weather_use": "weather_15"
+          },
+          {
+            "condition": "assessment >= 930 && assessment < 990",
+            "weather_use": "weather_16"
+          },
+          {
+            "condition": "assessment >= 990 && assessment < 1050",
+            "weather_use": "weather_17"
+          },
+          {
+            "condition": "assessment >= 1050 && assessment < 1110",
+            "weather_use": "weather_18"
+          },
+          {
+            "condition": "assessment >= 1110 && assessment < 1170",
+            "weather_use": "weather_19"
+          },
+          {
+            "condition": "assessment >= 1170 && assessment < 1230",
+            "weather_use": "weather_20"
+          },
+          {
+            "condition": "assessment >= 1230 && assessment < 1290",
+            "weather_use": "weather_21"
+          },
+          {
+            "condition": "assessment >= 1290 && assessment < 1350",
+            "weather_use": "weather_22"
+          },
+          {
+            "condition": "assessment >= 1350",
+            "weather_use": "weather_23"
+          },
+          {
+            "weather_use": "weather_0"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "weather_use",
+            "label": "使用天气",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "acf3315c1b0535cc-cd7707250aa1971e",
+      "moduleId": "Toolkit:MinerScoring",
+      "name": "MinerScoring",
+      "description": "",
+      "parameters": {
+        "url": "http://miner-service:9002/predict",
+        "instanceIdField": "instanceId",
+        "version": "1.0",
+        "inputMappings": [
+          {
+            "source": "weather_use",
+            "target": "outdoor_temperature"
+          }
+        ],
+        "inputExtraFields": {},
+        "outputMappings": [
+          {
+            "source": "instantaneous_heat",
+            "target": "instantaneous_heat",
+            "label": "换热站热量预测值",
+            "description": "",
+            "defaultValue": null
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "acf3315c1b0535cc-c5bb2a73cff64a2b",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "ConditionDerive",
+      "description": "",
+      "parameters": {
+        "conditions": [
+          {
+            "instantaneous_heat": "instantaneous_heat * 1000000 / 3600"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "instantaneous_heat",
+            "label": "换热站热量预测值",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "acf3315c1b0535cc-fc27d3ec9f668bea",
+      "moduleId": "Toolkit:Derive",
+      "name": "Derive",
+      "description": "",
+      "parameters": {
+        "rules": [
+          {
+            "name": "instantaneousHeatLine1_cal",
+            "type": "DOUBLE",
+            "expression": "if(isNull(instantaneous_heat), 0, instantaneousHeatLine1)",
+            "label": "instantaneousHeatLine1_cal"
+          },
+          {
+            "name": "instantaneous_heat_cal",
+            "type": "DOUBLE",
+            "expression": "if(isNull(instantaneousHeatLine1), 0, instantaneous_heat)",
+            "label": "instantaneous_heat_cal"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "bad6a7d8896b26f1-518b339a7a6ee770",
+      "moduleId": "Toolkit:RT",
+      "name": "Source：QE读取数据",
+      "description": "",
+      "parameters": {
+        "timeInterval": 60000,
+        "url": "https://www.allsmartcloud.com/api/queryengine/batch_query",
+        "httpHeaders": {
+          "access_token": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwic3ViIjoiYWRtaW4iLCJleHAiOjI1MzM3MDczNjAwMCwidXQiOiJTWVNfQURNSU4iLCJkdCI6IlBDIn0.ChD-lFH8h1oPMC-FSzd9mfl5Ocdy40jDnt08SetQNbg",
+          "corpId": "3403c1dd180a000"
+        },
+        "virtualTable": [
+          {
+            "timeSeries": "HeatSource:HeatSource_S1:Q_source_judge",
+            "label": "Q_source_judge_S1",
+            "type": "DOUBLE",
+            "desp": "S1热源结果"
+          },
+          {
+            "timeSeries": "HeatSource:HeatSource_S2:Q_source_judge",
+            "label": "Q_source_judge_S2",
+            "type": "DOUBLE",
+            "desp": "S2热源结果"
+          },
+          {
+            "timeSeries": "HeatSource:HeatSource_S1:instantaneous_heat_SUM",
+            "label": "instantaneous_heat_SUM_S1",
+            "type": "DOUBLE",
+            "desp": "S1热量预测总和"
+          },
+          {
+            "timeSeries": "HeatSource:HeatSource_S2:instantaneous_heat_SUM",
+            "label": "instantaneous_heat_SUM_S2",
+            "type": "DOUBLE",
+            "desp": "S2热量预测总和"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "bad6a7d8896b26f1-a0c5f5f79ad13131",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "Vi期望排序值计算",
+      "description": "",
+      "parameters": {
+        "settings": {
+          "Q_max": 100
+        },
+        "conditions": [
+          {
+            "condition": "source == \"S1\" && Q_source_judge_S1 == 0",
+            "Qi_tgt": "instantaneous_heat"
+          },
+          {
+            "condition": "source == \"S1\" && Q_source_judge_S1 == 1",
+            "Qi_tgt": "instantaneous_heat / instantaneous_heat_SUM_S1 * Q_max"
+          },
+          {
+            "condition": "source == \"S2\" && Q_source_judge_S2 == 0",
+            "Qi_tgt": "instantaneous_heat"
+          },
+          {
+            "condition": "source == \"S2\" && Q_source_judge_S2 == 1",
+            "Qi_tgt": "instantaneous_heat / instantaneous_heat_SUM_S2 * Q_max"
+          },
+          {
+            "Qi_tgt": "instantaneous_heat"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "Qi_tgt",
+            "label": "换热站目标供热量",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "ConditionDerive2",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "阀门是否在线",
+      "description": "",
+      "parameters": {
+        "conditions": [
+          {
+            "condition": "signalState == 0 || powerState == 0",
+            "valve_enable": 0
+          },
+          {
+            "valve_enable": 1
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "valve_enable",
+            "label": "阀门可用",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "ConditionDerive3",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "压力判断",
+      "description": "",
+      "parameters": {
+        "settings": {
+          "Pcgmax": 0.7,
+          "Pchmin": 0
+        },
+        "conditions": [
+          {
+            "condition": "SupPresLine1 > RetPresLine1 && RetPresLine1 > Pchmin && Pcgmax > SupPresLine1 && SupPresLine2 > RetPresLine2 && RetPresLine2 > Pchmin && Pcgmax > SupPresLine2",
+            "pressure_enable": 1
+          },
+          {
+            "pressure_enable": 0
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "pressure_enable",
+            "label": "压力可用",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "ConditionDerive4",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "温度判断",
+      "description": "",
+      "parameters": {
+        "settings": {
+          "Tcgmax": 105,
+          "Tchmin": 30
+        },
+        "conditions": [
+          {
+            "condition": "SupTempLine1 > RetTempLine1 && RetTempLine1 > Tchmin && Tcgmax > SupTempLine1 && SupTempLine2 > RetTempLine2 && RetTempLine2 > Tchmin && Tcgmax > SupTempLine2",
+            "temperature_enable": 1
+          },
+          {
+            "temperature_enable": 0
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "temperature_enable",
+            "label": "温度可用",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "ConditionDerive5",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "流量判断",
+      "description": "",
+      "parameters": {
+        "settings": {
+          "Gcmin": 1
+        },
+        "conditions": [
+          {
+            "condition": "instantaneousFlowLine1 > Gcmin",
+            "instantaneousFlow_enable": 1
+          },
+          {
+            "instantaneousFlow_enable": 0
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "instantaneousFlow_enable",
+            "label": "流量可用",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "Tree",
+      "moduleId": "Toolkit:TreeAggregate",
+      "name": "树组件",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "windowSize": 10,
+        "windowSlide": 10,
+        "treeStructure": [
+          {
+            "name": "S",
+            "children": [
+              "S1",
+              "S2"
+            ]
+          },
+          {
+            "name": "S2",
+            "children": [
+              "HS1",
+              "H5",
+              "H6",
+              "H7",
+              "H8",
+              "H9",
+              "H10",
+              "H11",
+              "H17",
+              "H26",
+              "H28",
+              "H29",
+              "H31",
+              "H34",
+              "H35",
+              "HA",
+              "HB",
+              "HC",
+              "HD",
+              "HI",
+              "HJ"
+            ]
+          },
+          {
+            "name": "HD",
+            "children": [
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ]
+          },
+          {
+            "name": "HC",
+            "children": [
+              "H12",
+              "H13",
+              "H15",
+              "H16"
+            ]
+          },
+          {
+            "name": "HB",
+            "children": [
+              "H18",
+              "H19",
+              "H20"
+            ]
+          },
+          {
+            "name": "HA",
+            "children": [
+              "H21",
+              "H22",
+              "H23",
+              "H24",
+              "H25"
+            ]
+          },
+          {
+            "name": "HJ",
+            "children": [
+              "H32",
+              "H33"
+            ]
+          },
+          {
+            "name": "HI-3",
+            "children": [
+              "H36",
+              "H37",
+              "H38",
+              "H39",
+              "H40",
+              "H41",
+              "H42",
+              "H43"
+            ]
+          },
+          {
+            "name": "HI-2",
+            "children": [
+              "H44",
+              "H45"
+            ]
+          },
+          {
+            "name": "HI-1",
+            "children": [
+              "H46",
+              "H47"
+            ]
+          },
+          {
+            "name": "S1",
+            "children": [
+              "H48",
+              "H73",
+              "H74",
+              "H75",
+              "H76",
+              "H77",
+              "H78",
+              "H81",
+              "H82",
+              "H83",
+              "HE",
+              "HF",
+              "HG",
+              "HH"
+            ]
+          },
+          {
+            "name": "HH",
+            "children": [
+              "H49",
+              "H50",
+              "HH-1",
+              "HH-2"
+            ]
+          },
+          {
+            "name": "HH-1",
+            "children": [
+              "H51",
+              "H52"
+            ]
+          },
+          {
+            "name": "HH-2",
+            "children": [
+              "H53",
+              "H54",
+              "H55",
+              "H56",
+              "H58",
+              "H59",
+              "H60"
+            ]
+          },
+          {
+            "name": "HG",
+            "children": [
+              "H61",
+              "H62",
+              "H63",
+              "H64",
+              "H65",
+              "H66",
+              "H67",
+              "HG-1",
+              "HG-2"
+            ]
+          },
+          {
+            "name": "HG-1",
+            "children": [
+              "H68",
+              "H69"
+            ]
+          },
+          {
+            "name": "HG-2",
+            "children": [
+              "H70",
+              "H71",
+              "H72"
+            ]
+          },
+          {
+            "name": "HF",
+            "children": [
+              "H79",
+              "H80"
+            ]
+          },
+          {
+            "name": "HE",
+            "children": [
+              "H84",
+              "H85",
+              "H86",
+              "H87",
+              "H88"
+            ]
+          },
+          {
+            "name": "HI",
+            "children": [
+              "HI-1",
+              "HI-2",
+              "HI-3"
+            ]
+          }
+        ],
+        "treeNodeMapTo": "uid",
+        "treeNodeMappings": [
+          {
+            "source": "a0223d12-469c-42e5-91ff-c2308469c0e7",
+            "target": "HS1"
+          },
+          {
+            "source": "b42529ad-1e38-44ba-a970-2dffaac0e989",
+            "target": "H1"
+          },
+          {
+            "source": "266cf4b6-4028-4b75-9d48-251aa1ed811f",
+            "target": "H2"
+          },
+          {
+            "source": "a3a6ca91-913c-45ac-bd3e-71fbb3c6c402",
+            "target": "H3"
+          },
+          {
+            "source": "f30b9873-3cc4-4de2-afd7-20938b2e05fd",
+            "target": "H4"
+          },
+          {
+            "source": "4ae724d3-c0cb-46b3-9c50-9ac9c08b3a1d",
+            "target": "H5"
+          },
+          {
+            "source": "ce01bdbc-5e43-44b7-b6fc-2576732455d2",
+            "target": "H6"
+          },
+          {
+            "source": "73b46daf-d42d-48c3-9488-2cee279fec41",
+            "target": "H7"
+          },
+          {
+            "source": "46104474-a8e5-4b32-b69f-f8758774b784",
+            "target": "H8"
+          },
+          {
+            "source": "409e2b31-8d6d-4733-8004-6089a5dda855",
+            "target": "H9"
+          },
+          {
+            "source": "4d94f835-7c59-4ad0-a39d-2a90f1f80d79",
+            "target": "H10"
+          },
+          {
+            "source": "ac0d9010-bba2-4d53-91b3-029ae5207345",
+            "target": "H11"
+          },
+          {
+            "source": "ab7885ae-099d-4b00-a3ae-19897462f77a",
+            "target": "H12"
+          },
+          {
+            "source": "e1f35436-a1ae-41d0-bd29-b893afd318f2",
+            "target": "H13"
+          },
+          {
+            "source": "096715ab-702c-44b1-8989-0317178c48f1",
+            "target": "H15"
+          },
+          {
+            "source": "747ed9de-4caa-494e-aa1d-8008d501f8e0",
+            "target": "H16"
+          },
+          {
+            "source": "ef1757e3-06cd-43b1-8cc3-d088b50065e7",
+            "target": "H17"
+          },
+          {
+            "source": "0a3e11a5-dca8-461f-b168-7ca7c2aa3122",
+            "target": "H18"
+          },
+          {
+            "source": "441aabd9-43a9-4395-b596-f94ee371c9a5",
+            "target": "H19"
+          },
+          {
+            "source": "a58ad4ff-7488-44de-aeda-7056c6bb667a",
+            "target": "H20"
+          },
+          {
+            "source": "c5b9bb35-6deb-4066-b638-df1920064a40",
+            "target": "H21"
+          },
+          {
+            "source": "0946f809-6e40-4d0f-bd98-032ce57b105d",
+            "target": "H22"
+          },
+          {
+            "source": "cc36c170-a62b-4d58-a53d-df4e8b628809",
+            "target": "H23"
+          },
+          {
+            "source": "7117c79a-b3b9-450a-8b82-fbbf3af271da",
+            "target": "H24"
+          },
+          {
+            "source": "fe5e3396-9059-417c-88d7-4aa6448c641e",
+            "target": "H25"
+          },
+          {
+            "source": "ee8daff2-5a52-443d-bfb3-6b9786b91894",
+            "target": "H26"
+          },
+          {
+            "source": "b15bb406-e07f-41ef-9994-9d94acbad115",
+            "target": "H28"
+          },
+          {
+            "source": "4f1e3458-8f71-4544-ad28-368a35bf55d2",
+            "target": "H29"
+          },
+          {
+            "source": "b479cee0-f702-462c-afcc-dde60e1dae26",
+            "target": "H31"
+          },
+          {
+            "source": "9fa0b4ed-89bc-4691-81b7-b1e091e5467b",
+            "target": "H32"
+          },
+          {
+            "source": "151f37ea-b0cf-4d33-8c23-8ecf8a4950dd",
+            "target": "H33"
+          },
+          {
+            "source": "38d25e5f-37c9-472d-9a91-ddb7ae0229ee",
+            "target": "H34"
+          },
+          {
+            "source": "7a6c83a1-6668-45a8-994c-98ccc523fc85",
+            "target": "H35"
+          },
+          {
+            "source": "94768ab2-55bd-44e7-a66f-3bad8e7ca0cd",
+            "target": "H36"
+          },
+          {
+            "source": "c1ff3cdb-4b8a-4061-9c61-b9a863f9c92a",
+            "target": "H37"
+          },
+          {
+            "source": "a274d704-5bbd-498d-8c3b-f34d0c94a312",
+            "target": "H38"
+          },
+          {
+            "source": "5780ca0f-8314-4ccc-adc5-6aae77a96678",
+            "target": "H39"
+          },
+          {
+            "source": "2d69300e-c87b-41c9-af27-9db83c13124a",
+            "target": "H40"
+          },
+          {
+            "source": "be18e6c9-f444-45df-afb0-f97ba60d8021",
+            "target": "H41"
+          },
+          {
+            "source": "75ba66df-ed3f-41ae-9a8f-67986595172c",
+            "target": "H42"
+          },
+          {
+            "source": "500deff6-cd87-44fb-86e6-c1fc418afb30",
+            "target": "H43"
+          },
+          {
+            "source": "dfaa38e4-b56e-408f-8eeb-cf62044ad4e5",
+            "target": "H44"
+          },
+          {
+            "source": "b6f29c99-45ab-45f6-a96d-35043e596ebf",
+            "target": "H45"
+          },
+          {
+            "source": "f4f44852-3895-4138-a860-fadf602486b7",
+            "target": "H46"
+          },
+          {
+            "source": "6e704d46-8f69-4a08-a2e9-54878ac543e9",
+            "target": "H47"
+          },
+          {
+            "source": "f0468692-ae50-44a0-a0c5-3f6aec9d7f27",
+            "target": "H48"
+          },
+          {
+            "source": "324f589d-f646-446b-98c2-c2aca2ee97fc",
+            "target": "H49"
+          },
+          {
+            "source": "32ee3f1b-8bdb-4ee5-87c0-a8c8c081e31b",
+            "target": "H50"
+          },
+          {
+            "source": "9dee2c27-b1c6-4950-ba24-d9408fa50366",
+            "target": "H51"
+          },
+          {
+            "source": "f7cd7edf-3513-445e-b072-6688f22889f0",
+            "target": "H52"
+          },
+          {
+            "source": "7c991498-0bbe-44ea-8462-86ad11cccd61",
+            "target": "H53"
+          },
+          {
+            "source": "88a89d45-0831-4c06-81ae-9033440f9e0d",
+            "target": "H54"
+          },
+          {
+            "source": "4ffcdaed-d332-498d-8309-e0a26341ca46",
+            "target": "H55"
+          },
+          {
+            "source": "4fdfa4cf-3d74-47a7-a327-d90976e19af9",
+            "target": "H56"
+          },
+          {
+            "source": "9f34e840-dd46-4ba8-83c2-22f0a9df2205",
+            "target": "H58"
+          },
+          {
+            "source": "80c1ed83-8d91-42e9-bfa7-97ab229587c3",
+            "target": "H59"
+          },
+          {
+            "source": "0054fd1f-7df7-4c0f-b788-40bae223920c",
+            "target": "H60"
+          },
+          {
+            "source": "19ed6586-2e9b-47c6-bb36-76c1fa54d4e3",
+            "target": "H61"
+          },
+          {
+            "source": "8f8ba1df-0fc1-42ac-aa10-f874f9d168eb",
+            "target": "H62"
+          },
+          {
+            "source": "08f2ed60-4b7e-4a3d-acb4-e4ea62c4c2d2",
+            "target": "H63"
+          },
+          {
+            "source": "fb8877c7-ec5c-46d2-91af-dde97eb81ef2",
+            "target": "H64"
+          },
+          {
+            "source": "246fa455-8dcc-4cbe-8286-26439feb7d7a",
+            "target": "H65"
+          },
+          {
+            "source": "13565321-edf0-4c73-a6fd-b96db89be16f",
+            "target": "H66"
+          },
+          {
+            "source": "92d56709-b24e-4bcd-87a8-d21224221cf7",
+            "target": "H67"
+          },
+          {
+            "source": "3b4ec881-6dfa-496c-80c0-d614d40fb4c7",
+            "target": "H68"
+          },
+          {
+            "source": "2929b3ad-9170-45be-bc14-77ad3f0d656b",
+            "target": "H69"
+          },
+          {
+            "source": "05a5d05e-fc3d-4557-afba-dceffc0bb5f1",
+            "target": "H70"
+          },
+          {
+            "source": "bdaa7ce8-d145-470e-a3ac-d9f7f1cf1033",
+            "target": "H71"
+          },
+          {
+            "source": "33bbc8b8-e2d3-4e42-807d-ea8513621642",
+            "target": "H72"
+          },
+          {
+            "source": "e8c17621-8906-451c-b196-26e4cfe5fe0f",
+            "target": "H73"
+          },
+          {
+            "source": "b986e515-d4d5-48f4-b67b-a39fea6fd9f2",
+            "target": "H74"
+          },
+          {
+            "source": "939e2f11-92b3-4a3a-81aa-39b8078500fd",
+            "target": "H75"
+          },
+          {
+            "source": "6b2a0c3a-30db-4886-a8da-65c0753aa30a",
+            "target": "H76"
+          },
+          {
+            "source": "52cecd73-bf64-4efd-95bf-e1f22362fc3b",
+            "target": "H77"
+          },
+          {
+            "source": "b113143c-8e53-459e-a533-06dcb55df3fc",
+            "target": "H78"
+          },
+          {
+            "source": "addf3e51-f873-41cf-b6db-7e7122f4b3b9",
+            "target": "H79"
+          },
+          {
+            "source": "d11c3995-9c4e-4723-8056-9c66bc0faeb0",
+            "target": "H80"
+          },
+          {
+            "source": "8f6e3431-e8e1-44c3-945e-da4915cefe73",
+            "target": "H81"
+          },
+          {
+            "source": "7cb048be-f7c5-4555-8718-5b23b02b0333",
+            "target": "H82"
+          },
+          {
+            "source": "296bd631-fb9d-49ec-a8e8-e93139f0c713",
+            "target": "H83"
+          },
+          {
+            "source": "73826f02-776d-4267-83ef-0fa34464b19d",
+            "target": "H84"
+          },
+          {
+            "source": "3249afaf-82a1-459c-919b-dbc4a995cb4b",
+            "target": "H85"
+          },
+          {
+            "source": "74324b6a-cabe-4b37-886b-59e1874fb764",
+            "target": "H86"
+          },
+          {
+            "source": "408e509b-e95f-4f60-9f81-b18cb421f58d",
+            "target": "H87"
+          },
+          {
+            "source": "d5fddb54-14d1-4924-971c-0afaec4f618f",
+            "target": "H88"
+          }
+        ],
+        "treeAggregateExpression": {
+          "name": "QRi",
+          "type": "DOUBLE",
+          "label": "期望变化率",
+          "description": "热量期望变化率QRi=自己的供热不平衡率+逐级父级的供热不平衡率",
+          "expression": "vsum(Ri)"
+        },
+        "treeNodeExpressions": [
+          {
+            "name": "Ri",
+            "type": "DOUBLE",
+            "label": "供热不平衡率",
+            "description": "Ri=(a-b)/a,其中：a为实际供热占比，b为预测供热占比",
+            "expression": "if(instantaneous_heat[1] != 0 && vsum(instantaneousHeatLine1) != 0, instantaneousHeatLine1[1] * vsum(instantaneous_heat) / vsum(instantaneousHeatLine1) / instantaneous_heat[1] - 1 , 0)"
+          }
+        ],
+        "includeSibling": true
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "5cca850df74b3945",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "实体站数量",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "Ri_Count": 1
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "Ri_Count",
+            "label": "实体站数量",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "9a0f2c82c9b52b3e",
+      "moduleId": "Toolkit:Aggregate",
+      "name": "实体站数量求和",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "methods": [
+          "SUM"
+        ],
+        "targets": [
+          "Ri_Count"
+        ],
+        "appendAggregateData": true
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "Agg1",
+      "moduleId": "Toolkit:Aggregate",
+      "name": "QRi",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "methods": [
+          "MAX",
+          "MIN"
+        ],
+        "targets": [
+          "QRi"
+        ],
+        "appendAggregateData": true
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "ConditionDerive6",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "Qri归一化计算",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "settings": {
+          "a": 0,
+          "b": 0.2
+        },
+        "conditions": [
+          {
+            "QRi_normalization": "if(a - b == 0 || QRi_MAX - QRi_MIN == 0, 0, (QRi - QRi_MAX) * (a - b) / (QRi_MAX - QRi_MIN) + a)"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "QRi_normalization",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS",
+            "label": "QRi归一化"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "Derive1",
+      "moduleId": "Toolkit:Derive",
+      "name": "Vi期望第一次计算",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "rules": [
+          {
+            "name": "Vi_expect_origin",
+            "type": "DOUBLE",
+            "expression": "(QRi_normalization + 1) * runOpening",
+            "label": "Vi期望"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "Agg2",
+      "moduleId": "Toolkit:Aggregate",
+      "name": "Vi期望max",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "methods": [
+          "MAX"
+        ],
+        "targets": [
+          "Vi_expect_origin"
+        ],
+        "appendAggregateData": true
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "ConditionDerive7",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "Vi期望最终结果",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "condition": "Vi_expect_origin_MAX > 100",
+            "Vi_expect": "Vi_expect_origin / Vi_expect_origin_MAX * 100"
+          },
+          {
+            "Vi_expect": "Vi_expect_origin"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "Vi_expect",
+            "label": "Vi期望结果",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "ConditionDerive8",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "Vi变化量计算",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "settings": {
+          "a": 30,
+          "b": 1
+        },
+        "conditions": [
+          {
+            "condition": "abs(Vi_expect - runOpening) >= a",
+            "Vi_change": "a"
+          },
+          {
+            "condition": "abs(Vi_expect - runOpening) <= b",
+            "Vi_change": "0"
+          },
+          {
+            "Vi_change": "abs(Vi_expect - runOpening)"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "Vi_change",
+            "label": "Vi变化量",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "ba193d9555a0162f",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "阀门开度结果计算",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "condition": "Vi_expect > runOpening",
+            "Vi_control_pre": "if(runOpening + Vi_change < 1 , 1 , runOpening + Vi_change)"
+          },
+          {
+            "condition": "Vi_expect < runOpening",
+            "Vi_control_pre": "if(runOpening - Vi_change < 1 , 1 , runOpening - Vi_change)"
+          },
+          {
+            "Vi_control_pre": "if(runOpening < 1 , 1 , runOpening)"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "Vi_control_pre",
+            "label": "Vi控制输出",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "8f7d89d6b0998f87",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "阀门开度阈值计算",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "settings": {
+          "v_min": 5,
+          "v_max": 100
+        },
+        "conditions": [
+          {
+            "condition": "Vi_control_pre < v_min",
+            "Vi_control": "v_min"
+          },
+          {
+            "condition": "Vi_control_pre > v_max",
+            "Vi_control": "v_max"
+          },
+          {
+            "Vi_control": "Vi_control_pre"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "Vi_control",
+            "label": "Vi控制输出",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "c7d8b3c19675cffd",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "时间戳归整",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "timestamp": "timestamp - timestamp % 10000"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "timestamp",
+            "label": "时间戳",
+            "type": "LONG",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "ConditionDerive9",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "更新时刻",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "settings": {
+          "second": 600000
+        },
+        "conditions": [
+          {
+            "timestamp_Change_enable": "timestamp % second == 0"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "timestamp_Change_enable",
+            "label": "时间更改",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "cd6881bd0a3fe7cf-6d182f171ed01017",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "Vi与Ri方向过滤",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "condition": "(Vi_expect - runOpening >= 0) && Ri <= 0",
+            "Ri_enable": 1
+          },
+          {
+            "condition": "(Vi_expect - runOpening <= 0) && Ri >= 0",
+            "Ri_enable": 1
+          },
+          {
+            "Ri_enable": 0
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "Ri_enable",
+            "label": "Vi是否与Ri同向",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "cd6881bd0a3fe7cf-9e759bd09402ebae",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "换热站6组条件最终结果",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "condition": "Ri_enable == 1 && control_enable == 1 && valve_enable == 1 && pressure_enable == 1 && temperature_enable == 1 && instantaneousFlow_enable == 1 && all_enable == 1",
+            "operation_enable": 1
+          },
+          {
+            "operation_enable": 0
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "operation_enable",
+            "label": "换热站是否可控",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "cd6881bd0a3fe7cf-7ed4befbad0feade",
+      "moduleId": "Toolkit:Aggregate",
+      "name": "可控站数量",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "methods": [
+          "SUM"
+        ],
+        "targets": [
+          "operation_enable"
+        ],
+        "appendAggregateData": true
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "cd6881bd0a3fe7cf-93b9e94c9d3afcfe",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "KC过滤",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "condition": "source == \"S1\" && level == 1",
+            "heatStation_enable": "(operation_enable_SUM / Ri_Count_SUM) >= KC_S1_level1 && operation_enable == 1"
+          },
+          {
+            "condition": "source == \"S1\" && level == 2",
+            "heatStation_enable": "(operation_enable_SUM / Ri_Count_SUM) >= KC_S1_level2 && operation_enable == 1"
+          },
+          {
+            "condition": "source == \"S1\" && level == 3",
+            "heatStation_enable": "(operation_enable_SUM / Ri_Count_SUM) >= KC_S1_level3 && operation_enable == 1"
+          },
+          {
+            "condition": "source == \"S2\" && level == 1",
+            "heatStation_enable": "(operation_enable_SUM / Ri_Count_SUM) >= KC_S2_level1 && operation_enable == 1"
+          },
+          {
+            "condition": "source == \"S2\" && level == 2",
+            "heatStation_enable": "(operation_enable_SUM / Ri_Count_SUM) >= KC_S2_level2 && operation_enable == 1"
+          },
+          {
+            "condition": "source == \"S3\" && level == 3",
+            "heatStation_enable": "(operation_enable_SUM / Ri_Count_SUM) >= KC_S2_level3 && operation_enable == 1"
+          },
+          {
+            "heatStation_enable": 0
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "heatStation_enable",
+            "label": "换热站是否可控",
+            "type": "INT",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "cd6881bd0a3fe7cf-0aa8c955c25d0f4a",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "Vi期望排序值计算",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "res_topN": "abs(Vi_expect - runOpening) / runOpening"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "res_topN",
+            "label": "|Vi期望 - Vi反馈|/Vi反馈",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "cd6881bd0a3fe7cf-2650b1b44271b923",
+      "moduleId": "Toolkit:Sort",
+      "name": "根据Vi期望排序值过滤",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "fields": [
+          "res_topN"
+        ],
+        "directions": [
+          "DESC"
+        ],
+        "sortFieldIndexDefinition": {
+          "name": "rank",
+          "label": "排名"
+        }
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "cd6881bd0a3fe7cf-5bb7cd582b38532f",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "是否可调",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "adjust_enable": "heatStation_enable == 1 && rank <= topN"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "adjust_enable",
+            "label": "是否可调",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "cd6881bd0a3fe7cf-084376337c815f7d",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "isOff",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "condition": "adjust_enable == 1 && timestamp_Change_enable == 1",
+            "isOff": "0"
+          },
+          {
+            "isOff": "1"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "isOff",
+            "label": "isOff",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "300244fd3c9b9a49-47d68b69b43a99df",
+      "moduleId": "Toolkit:Keep",
+      "name": "Keep",
+      "description": "",
+      "parameters": {
+        "keepFields": [
+          {
+            "turnOffBy": "timestamp_Change_enable",
+            "pointer": "timestamp"
+          },
+          {
+            "turnOffBy": "timestamp_Change_enable",
+            "pointer": "Vi_control"
+          },
+          {
+            "turnOffBy": "timestamp_Change_enable",
+            "pointer": "runOpening"
+          },
+          {
+            "turnOffBy": "timestamp_Change_enable",
+            "pointer": "QRi"
+          },
+          {
+            "turnOffBy": "timestamp_Change_enable",
+            "pointer": "instantaneousFlowLine1"
+          },
+          {
+            "turnOffBy": "timestamp_Change_enable",
+            "pointer": "supplyWaterTemperatureLine2"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "300244fd3c9b9a49-82c245e201a878dc",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "3个条件的判断条件",
+      "description": "",
+      "parameters": {
+        "settings": {
+          "percent3": 0.01,
+          "percent4": 0.05,
+          "percent10": 0.05
+        },
+        "conditions": [
+          {
+            "threeMin_condition": "if(timestamp_Change_enable == 1 || Vi_control_last - runOpening_last == 0, 0, (Vi_control_last - runOpening) / (Vi_control_last - runOpening_last) > percent3)",
+            "fourMin_condition": "if(timestamp_Change_enable == 1 || instantaneousFlowLine1_last == 0, 0, (instantaneousFlowLine1 - instantaneousFlowLine1_last) / instantaneousFlowLine1_last * QRi_last > percent4)",
+            "tenMin_condition": "if(timestamp_Change_enable == 1 || supplyWaterTemperatureLine2_last == 0, 0, (supplyWaterTemperatureLine2 - supplyWaterTemperatureLine2_last) / supplyWaterTemperatureLine2_last * QRi_last > percent10)"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "threeMin_condition",
+            "label": "换热站控制时间",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          },
+          {
+            "name": "fourMin_condition",
+            "label": "换热站控制时间",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          },
+          {
+            "name": "tenMin_condition",
+            "label": "换热站控制时间",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "300244fd3c9b9a49-115a4f4300d59e45",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "3个条件的改变时机",
+      "description": "",
+      "parameters": {
+        "settings": {
+          "threeMinutes": 180000,
+          "fourMinutes": 240000,
+          "tenMinutes": 600000
+        },
+        "conditions": [
+          {
+            "threeMin_enable": "if(timestamp_Change_enable == 1 || (timestamp - timestamp_last <= threeMinutes && threeMin_condition == 1), 1, 0)",
+            "fourMin_enable": "if(timestamp_Change_enable == 1 || (timestamp - timestamp_last <= fourMinutes && fourMin_condition == 1), 1, 0)",
+            "tenMin_enable": "if(timestamp_Change_enable == 1 || (timestamp - timestamp_last <= tenMinutes && tenMin_condition == 1), 1, 0)"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "threeMin_enable",
+            "label": "换热站控制时间",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          },
+          {
+            "name": "fourMin_enable",
+            "label": "换热站控制时间",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          },
+          {
+            "name": "tenMin_enable",
+            "label": "换热站控制时间",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "300244fd3c9b9a49-5db7954221f3e100",
+      "moduleId": "Toolkit:Keep",
+      "name": "Keep",
+      "description": "",
+      "parameters": {
+        "keepFields": [
+          {
+            "turnOffBy": "threeMin_enable",
+            "pointer": "threeMin_condition"
+          },
+          {
+            "turnOffBy": "fourMin_enable",
+            "pointer": "fourMin_condition"
+          },
+          {
+            "turnOffBy": "tenMin_enable",
+            "pointer": "tenMin_condition"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "300244fd3c9b9a49-71faf6cfcaf716bf",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "执行结果",
+      "description": "",
+      "parameters": {
+        "conditions": [
+          {
+            "isSuccess": "if(threeMin_condition_last == 1 && (fourMin_condition_last == 1 || tenMin_condition_last == 1), 1, 0)"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "isSuccess",
+            "label": "执行结果",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "81b5da936dc6626c",
+      "moduleId": "Toolkit:Derive",
+      "name": "类型注册",
+      "description": "",
+      "parameters": {
+        "rules": [
+          {
+            "name": "type",
+            "type": "STRING",
+            "expression": "\"smart_data\"",
+            "label": "类型"
+          },
+          {
+            "name": "uid",
+            "type": "STRING",
+            "expression": "\"sd_\" + uid",
+            "label": "UID"
+          },
+          {
+            "name": "corpId",
+            "type": "STRING",
+            "expression": "\"#{corp_id}\"",
+            "label": "corpId"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "5d268d617b91b004",
+      "moduleId": "Toolkit:DataModel",
+      "name": "DataModel",
+      "description": "",
+      "parameters": {
+        "apiAddress": "https://www.allsmartcloud.com/api/service-type/type/registerType?access_token=eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwic3ViIjoiYWRtaW4iLCJleHAiOjI1MzM3MDczNjAwMCwidXQiOiJTWVNfQURNSU4iLCJkdCI6IlBDIn0.ChD-lFH8h1oPMC-FSzd9mfl5Ocdy40jDnt08SetQNbg",
+        "datasource": "smart_data",
+        "datasourceLabel": "介休管网数据",
+        "corpId": "3403c1dd180a000",
+        "mode": "CLOUD"
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "8b31bb7e0445ecae",
+      "moduleId": "Output:Amqp",
+      "name": "Amqp",
+      "description": "",
+      "parameters": {
+        "host": "#{rabbit_host}",
+        "port": "#{rabbit_port}",
+        "user": "iot",
+        "password": "allsmart@iot",
+        "name": "介休数据标准化",
+        "vhost": "/iot",
+        "topic": ".data.smart.3403c1dd180a000.valve",
+        "converter": {
+          "converterType": "device",
+          "compressed": true
+        }
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "9ccdb3a2eae6aaf8-d54aaeaf46117cf1",
+      "moduleId": "Output:Rest",
+      "name": "Rest",
+      "description": "",
+      "parameters": {
+        "socketTimeout": 30000,
+        "settings": [
+          {
+            "apiAddress": "http://www.allsmartcloud.com/api/service-control/command/batch-control-command",
+            "converterType": "template",
+            "converter": {
+              "template": "{\"uid\":\"$uid_define\",\"metrics\":[{\"property\":\"expectOpenning\",\"originValue\":$math.round($originValue),\"currentValue\":$math.round($currentValue)}]}",
+              "turnOffBy": "isOff",
+              "headers": {
+                "corpId": "#{corp_id}",
+                "access_token": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzYTI3ZWExMzU0MDIwMDAiLCJzdWIiOiLmmbrog71BSSIsImV4cCI6MjIwNzk2MjQ5NSwidXQiOiJNRU1CRVIiLCJkdCI6IklNQVgifQ.Xu5fifx-tat69Pb5Y6Xps8fPbV7zZONkoqcBESCqvpk"
+              },
+              "settings": [
+                {
+                  "mappings": {
+                    "uid_define": "uid",
+                    "originValue": "runOpening",
+                    "currentValue": "Vi_control"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "SOURCE",
+      "to": "T1"
+    },
+    {
+      "from": "T1",
+      "to": "53aab2256d48edab-5f77e9547023edb2"
+    },
+    {
+      "from": "53aab2256d48edab-5f77e9547023edb2",
+      "to": "47d79474c57d60bd-65b7f4cb3490ed5a"
+    },
+    {
+      "from": "47d79474c57d60bd-65b7f4cb3490ed5a",
+      "to": "47d79474c57d60bd-4debe9ac75cf09a4"
+    },
+    {
+      "from": "47d79474c57d60bd-4debe9ac75cf09a4",
+      "to": "47d79474c57d60bd-2dc693206bb9c84b"
+    },
+    {
+      "from": "47d79474c57d60bd-2dc693206bb9c84b",
+      "to": "47d79474c57d60bd-b5217921957ea493"
+    },
+    {
+      "from": "47d79474c57d60bd-b5217921957ea493",
+      "to": "47d79474c57d60bd-1e13c0a5538016ae"
+    },
+    {
+      "from": "47d79474c57d60bd-1e13c0a5538016ae",
+      "to": "47d79474c57d60bd-363340ed679273c2"
+    },
+    {
+      "from": "47d79474c57d60bd-363340ed679273c2",
+      "to": "47d79474c57d60bd-233d58700440b2cd"
+    },
+    {
+      "from": "47d79474c57d60bd-233d58700440b2cd",
+      "to": "47d79474c57d60bd-5329e908ed263adf"
+    },
+    {
+      "from": "47d79474c57d60bd-5329e908ed263adf",
+      "to": "47d79474c57d60bd-b68679aacce25b64"
+    },
+    {
+      "from": "47d79474c57d60bd-b68679aacce25b64",
+      "to": "47d79474c57d60bd-9a78d75af280e694"
+    },
+    {
+      "from": "47d79474c57d60bd-9a78d75af280e694",
+      "to": "47d79474c57d60bd-ca19f960dab94450"
+    },
+    {
+      "from": "47d79474c57d60bd-ca19f960dab94450",
+      "to": "69868727ac37abba"
+    },
+    {
+      "from": "69868727ac37abba",
+      "to": "acf3315c1b0535cc-afdca2fd9d3a93f0"
+    },
+    {
+      "from": "acf3315c1b0535cc-afdca2fd9d3a93f0",
+      "to": "acf3315c1b0535cc-8c03ff16f02ca166"
+    },
+    {
+      "from": "acf3315c1b0535cc-8c03ff16f02ca166",
+      "to": "acf3315c1b0535cc-4a059d7ecabc5180"
+    },
+    {
+      "from": "acf3315c1b0535cc-4a059d7ecabc5180",
+      "to": "acf3315c1b0535cc-cd7707250aa1971e"
+    },
+    {
+      "from": "acf3315c1b0535cc-cd7707250aa1971e",
+      "to": "acf3315c1b0535cc-c5bb2a73cff64a2b"
+    },
+    {
+      "from": "acf3315c1b0535cc-c5bb2a73cff64a2b",
+      "to": "acf3315c1b0535cc-fc27d3ec9f668bea"
+    },
+    {
+      "from": "acf3315c1b0535cc-fc27d3ec9f668bea",
+      "to": "bad6a7d8896b26f1-518b339a7a6ee770"
+    },
+    {
+      "from": "bad6a7d8896b26f1-518b339a7a6ee770",
+      "to": "bad6a7d8896b26f1-a0c5f5f79ad13131"
+    },
+    {
+      "from": "bad6a7d8896b26f1-a0c5f5f79ad13131",
+      "to": "ConditionDerive2"
+    },
+    {
+      "from": "ConditionDerive2",
+      "to": "ConditionDerive3"
+    },
+    {
+      "from": "ConditionDerive3",
+      "to": "ConditionDerive4"
+    },
+    {
+      "from": "ConditionDerive4",
+      "to": "ConditionDerive5"
+    },
+    {
+      "from": "ConditionDerive5",
+      "to": "Tree"
+    },
+    {
+      "from": "Tree",
+      "to": "5cca850df74b3945"
+    },
+    {
+      "from": "5cca850df74b3945",
+      "to": "9a0f2c82c9b52b3e"
+    },
+    {
+      "from": "9a0f2c82c9b52b3e",
+      "to": "Agg1"
+    },
+    {
+      "from": "Agg1",
+      "to": "ConditionDerive6"
+    },
+    {
+      "from": "ConditionDerive6",
+      "to": "Derive1"
+    },
+    {
+      "from": "Derive1",
+      "to": "Agg2"
+    },
+    {
+      "from": "Agg2",
+      "to": "ConditionDerive7"
+    },
+    {
+      "from": "ConditionDerive7",
+      "to": "ConditionDerive8"
+    },
+    {
+      "from": "ConditionDerive8",
+      "to": "ba193d9555a0162f"
+    },
+    {
+      "from": "ba193d9555a0162f",
+      "to": "8f7d89d6b0998f87"
+    },
+    {
+      "from": "8f7d89d6b0998f87",
+      "to": "c7d8b3c19675cffd"
+    },
+    {
+      "from": "c7d8b3c19675cffd",
+      "to": "ConditionDerive9"
+    },
+    {
+      "from": "ConditionDerive9",
+      "to": "cd6881bd0a3fe7cf-6d182f171ed01017"
+    },
+    {
+      "from": "cd6881bd0a3fe7cf-6d182f171ed01017",
+      "to": "cd6881bd0a3fe7cf-9e759bd09402ebae"
+    },
+    {
+      "from": "cd6881bd0a3fe7cf-9e759bd09402ebae",
+      "to": "cd6881bd0a3fe7cf-7ed4befbad0feade"
+    },
+    {
+      "from": "cd6881bd0a3fe7cf-7ed4befbad0feade",
+      "to": "cd6881bd0a3fe7cf-93b9e94c9d3afcfe"
+    },
+    {
+      "from": "cd6881bd0a3fe7cf-93b9e94c9d3afcfe",
+      "to": "cd6881bd0a3fe7cf-0aa8c955c25d0f4a"
+    },
+    {
+      "from": "cd6881bd0a3fe7cf-0aa8c955c25d0f4a",
+      "to": "cd6881bd0a3fe7cf-2650b1b44271b923"
+    },
+    {
+      "from": "cd6881bd0a3fe7cf-2650b1b44271b923",
+      "to": "cd6881bd0a3fe7cf-5bb7cd582b38532f"
+    },
+    {
+      "from": "cd6881bd0a3fe7cf-5bb7cd582b38532f",
+      "to": "cd6881bd0a3fe7cf-084376337c815f7d"
+    },
+    {
+      "from": "cd6881bd0a3fe7cf-084376337c815f7d",
+      "to": "300244fd3c9b9a49-47d68b69b43a99df"
+    },
+    {
+      "from": "300244fd3c9b9a49-47d68b69b43a99df",
+      "to": "300244fd3c9b9a49-82c245e201a878dc"
+    },
+    {
+      "from": "300244fd3c9b9a49-82c245e201a878dc",
+      "to": "300244fd3c9b9a49-115a4f4300d59e45"
+    },
+    {
+      "from": "300244fd3c9b9a49-115a4f4300d59e45",
+      "to": "300244fd3c9b9a49-5db7954221f3e100"
+    },
+    {
+      "from": "300244fd3c9b9a49-5db7954221f3e100",
+      "to": "300244fd3c9b9a49-71faf6cfcaf716bf"
+    },
+    {
+      "from": "300244fd3c9b9a49-71faf6cfcaf716bf",
+      "to": "81b5da936dc6626c"
+    },
+    {
+      "from": "300244fd3c9b9a49-71faf6cfcaf716bf",
+      "to": "9ccdb3a2eae6aaf8-d54aaeaf46117cf1"
+    },
+    {
+      "from": "81b5da936dc6626c",
+      "to": "5d268d617b91b004"
+    },
+    {
+      "from": "5d268d617b91b004",
+      "to": "8b31bb7e0445ecae"
+    }
+  ]
+}

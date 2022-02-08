@@ -1,0 +1,9 @@
+[
+  {
+    "nodeId": "Config1",
+    "moduleId": "Hci:Config",
+    "parameters": {
+      "b1_a": 200
+    }
+  }
+]

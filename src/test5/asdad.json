@@ -1,0 +1,1946 @@
+{
+  "comps": [
+    {
+      "layout": {
+        "x": 112.03,
+        "y": 118.77,
+        "width": 622.387,
+        "height": 156.467,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 311,
+        "offsetY": 78,
+        "rotation": 180,
+        "points": [
+          0,
+          0,
+          158.3584222458452,
+          5.684341886080802e-14,
+          158.3584222458452,
+          156.46675086342705,
+          622.3866664437262,
+          156.46675086342714
+        ]
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaTube",
+      "options": {
+        "style": {
+          "tubeWidth": 6,
+          "flowLineWidth": 0,
+          "tubeColor": "rgba(255, 96, 96, 1)"
+        },
+        "param": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 800.889,
+        "y": 406.252,
+        "width": 787.947,
+        "height": 117.097,
+        "scaleX": 0.841,
+        "scaleY": 0.98,
+        "offsetX": 394,
+        "offsetY": 58.5,
+        "rotation": 0,
+        "points": [
+          0,
+          5.684341886080802e-14,
+          172.601413551453,
+          0,
+          172.60141355145288,
+          117.09731840064217,
+          221.20594494147656,
+          117.09731840064222,
+          787.9471452034894,
+          117.09731840064194
+        ]
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaTube",
+      "options": {
+        "style": {
+          "tubeWidth": 6,
+          "flowLineWidth": 0,
+          "tubeColor": "rgba(68, 172, 217, 1)"
+        },
+        "param": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 806.331,
+        "y": 119.649,
+        "width": 657.508,
+        "height": 156.042,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 329,
+        "offsetY": 78,
+        "rotation": 180,
+        "points": [
+          657.5077083282245,
+          0,
+          512.7121622284455,
+          0,
+          512.7121622284455,
+          156.04190237857864,
+          0,
+          156.04190237857858
+        ]
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaTube",
+      "options": {
+        "style": {
+          "tubeWidth": 6,
+          "flowLineWidth": 0,
+          "tubeColor": "rgba(255, 232, 97, 1)"
+        },
+        "param": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 114.14,
+        "y": 408.79,
+        "width": 634.901,
+        "height": 156.042,
+        "scaleX": 1,
+        "scaleY": 0.709,
+        "offsetX": 317.5,
+        "offsetY": 78,
+        "rotation": 0,
+        "points": [
+          634.9014671787163,
+          1.1368683772161603e-13,
+          465.4398668343281,
+          0,
+          465.4398668343281,
+          156.04190237857864,
+          0,
+          156.0419023785787
+        ]
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaTube",
+      "options": {
+        "style": {
+          "tubeWidth": 6,
+          "flowLineWidth": 0,
+          "tubeColor": "rgba(245, 166, 35, 1)"
+        },
+        "param": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 497.28,
+        "y": 468.81,
+        "width": 150,
+        "height": 168.5,
+        "scaleX": 0.426,
+        "scaleY": 0.378,
+        "offsetX": 75,
+        "offsetY": 84.25,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "下钻",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/0d01d11d-b83a-4ef5-af9f-3f55f4d84226"
+        },
+        "style": {}
+      },
+      "binding": {
+        "val": {
+          "type": "ControlValve",
+          "uid": "$uid_2"
+        }
+      },
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1271.674,
+        "y": 670.329,
+        "width": 61.621,
+        "height": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 31,
+        "offsetY": 0,
+        "rotation": 0,
+        "points": [
+          0,
+          0,
+          61.621477764662245,
+          0
+        ]
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaTube",
+      "options": {
+        "style": {
+          "tubeWidth": 6,
+          "flowLineWidth": 0,
+          "tubeColor": "rgba(124, 210, 109, 100)"
+        },
+        "param": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1092.51,
+        "y": 523.61,
+        "width": 91.959,
+        "height": 140.3,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 46,
+        "offsetY": 70,
+        "rotation": 0,
+        "points": [
+          0,
+          0,
+          0,
+          140.29975609756104,
+          91.95879165771817,
+          140.29975609756104
+        ]
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaTube",
+      "options": {
+        "style": {
+          "tubeWidth": 6,
+          "flowLineWidth": 0,
+          "tubeColor": "rgba(124, 210, 109, 100)"
+        },
+        "param": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 35.623,
+        "y": 104.637,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.61,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "default"
+        },
+        "param": {
+          "defaultText": "一网供水"
+        }
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 37.62,
+        "y": 504.31,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.61,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "default"
+        },
+        "param": {
+          "defaultText": "一网回水"
+        }
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1470.62,
+        "y": 507.8,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.61,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "default"
+        },
+        "param": {
+          "defaultText": "二网回水"
+        }
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1183.53,
+        "y": 701.84,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.61,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "default"
+        },
+        "param": {
+          "defaultText": "补水泵"
+        }
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 979.618,
+        "y": 579.467,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.61,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "default"
+        },
+        "param": {
+          "defaultText": "循环泵"
+        }
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1485.87,
+        "y": 106.13,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.61,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "default"
+        },
+        "param": {
+          "defaultText": "二网供水"
+        }
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 503.83,
+        "y": 440.34,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.402,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "lcdmono",
+          "textAlignH": "middle"
+        },
+        "param": {
+          "defaultText": "",
+          "suffixText": "%",
+          "formatter": "fixedPrecision"
+        }
+      },
+      "binding": {
+        "val": {
+          "type": "ControlValve",
+          "uid": "$uid_2",
+          "field": "runOpening"
+        },
+        "alarm": {
+          "type": "ControlValve__companion__",
+          "uid": "$uid_2",
+          "field": "runOpening",
+          "where": "runOpening != null"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1000.57,
+        "y": 501.94,
+        "width": 48.459,
+        "height": 109.459,
+        "scaleX": 0.973,
+        "scaleY": 0.777,
+        "offsetX": 24,
+        "offsetY": 54.5,
+        "rotation": 450,
+        "points": [
+          1.3849370203326998,
+          109.45879319495089,
+          48.45898142011629,
+          109.45879319495066,
+          48.45898142011629,
+          67.44879319495067,
+          48.4589814201164,
+          0,
+          0,
+          0
+        ]
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaTube",
+      "options": {
+        "style": {
+          "tubeWidth": 5,
+          "flowLineWidth": 0,
+          "tubeColor": "rgba(68, 172, 217, 1)"
+        },
+        "param": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1234.17,
+        "y": 657.83,
+        "width": 90.496,
+        "height": 42.01,
+        "scaleX": 0.498,
+        "scaleY": 0.741,
+        "offsetX": 45,
+        "offsetY": 21,
+        "rotation": 270,
+        "points": [
+          0,
+          2.2556029684599253,
+          0,
+          42.00999999999999,
+          90.49644933297998,
+          42.00999999999999,
+          90.49644933297998,
+          0
+        ]
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaTube",
+      "options": {
+        "style": {
+          "tubeWidth": 5,
+          "flowLineWidth": 0,
+          "tubeColor": "rgba(124, 210, 109, 100)"
+        },
+        "param": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1188.963,
+        "y": 640.103,
+        "width": 90.496,
+        "height": 42.01,
+        "scaleX": 0.493,
+        "scaleY": 1.107,
+        "offsetX": 45,
+        "offsetY": 21,
+        "rotation": 90,
+        "points": [
+          0,
+          2.2556029684599253,
+          0,
+          42.00999999999999,
+          90.49644933297998,
+          42.00999999999999,
+          90.49644933297998,
+          0
+        ]
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaTube",
+      "options": {
+        "style": {
+          "tubeWidth": 5,
+          "flowLineWidth": 0,
+          "tubeColor": "rgba(124, 210, 109, 100)"
+        },
+        "param": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1204.867,
+        "y": 667.523,
+        "width": 140,
+        "height": 84.5,
+        "scaleX": 0.305,
+        "scaleY": 0.473,
+        "offsetX": 70,
+        "offsetY": 42.25,
+        "rotation": 90
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/451976a9-150c-466b-b2b8-008caa307d54"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1204.867,
+        "y": 622.262,
+        "width": 140,
+        "height": 84.5,
+        "scaleX": 0.305,
+        "scaleY": 0.473,
+        "offsetX": 70,
+        "offsetY": 42.25,
+        "rotation": 90
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/451976a9-150c-466b-b2b8-008caa307d54"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1310.587,
+        "y": 593.752,
+        "width": 70,
+        "height": 88,
+        "scaleX": 1.327,
+        "scaleY": 1.592,
+        "offsetX": 35,
+        "offsetY": 44,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "https://cdn.allsenseww.com/scada/device_tpl/水箱.png"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1348.12,
+        "y": 670.27,
+        "width": 60,
+        "height": 15,
+        "scaleX": 1.333,
+        "scaleY": 0.533,
+        "offsetX": 30,
+        "offsetY": 7.5,
+        "rotation": -90
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaProgress",
+      "options": {
+        "style": {
+          "strokeWidth": 1
+        },
+        "param": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 33.3,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1468.77,
+        "y": 108.26,
+        "width": 70,
+        "height": 88,
+        "scaleX": 0.343,
+        "scaleY": 0.273,
+        "offsetX": 35,
+        "offsetY": 44,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/5eae74bd-38e5-4eee-ad3a-ccf2157f5c29"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 116.27,
+        "y": 104.93,
+        "width": 70,
+        "height": 88,
+        "scaleX": 0.343,
+        "scaleY": 0.273,
+        "offsetX": 35,
+        "offsetY": 44,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/5eae74bd-38e5-4eee-ad3a-ccf2157f5c29"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1452.6,
+        "y": 508.43,
+        "width": 70,
+        "height": 88,
+        "scaleX": 0.343,
+        "scaleY": 0.273,
+        "offsetX": 35,
+        "offsetY": 44,
+        "rotation": 180
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/5eae74bd-38e5-4eee-ad3a-ccf2157f5c29"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 118.43,
+        "y": 506.93,
+        "width": 70,
+        "height": 88,
+        "scaleX": 0.343,
+        "scaleY": 0.273,
+        "offsetX": 35,
+        "offsetY": 44,
+        "rotation": 180
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/5eae74bd-38e5-4eee-ad3a-ccf2157f5c29"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1007.85,
+        "y": 495.1,
+        "width": 150,
+        "height": 168.5,
+        "scaleX": 0.227,
+        "scaleY": 0.201,
+        "offsetX": 75,
+        "offsetY": 84.25,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/bb7b9589-dcf4-4eae-9916-c27c53b94d01"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1008.35,
+        "y": 542.851,
+        "width": 150,
+        "height": 168.5,
+        "scaleX": 0.227,
+        "scaleY": 0.201,
+        "offsetX": 75,
+        "offsetY": 84.25,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/bb7b9589-dcf4-4eae-9916-c27c53b94d01"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 286.64,
+        "y": 133.72,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.815,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "lcdmono",
+          "textAlignH": "middle"
+        },
+        "param": {
+          "suffixText": "℃",
+          "prefixText": "",
+          "decTrim": 2,
+          "formatter": "fixedPrecision"
+        }
+      },
+      "binding": {
+        "val": {
+          "type": "HeatExchangeStation",
+          "uid": "$uid_1",
+          "field": "supplyWaterTemperatureLine1",
+          "where": ""
+        },
+        "alarm": {
+          "type": "HeatExchangeStation__companion__",
+          "uid": "$uid_1",
+          "field": "supplyWaterTemperatureLine1",
+          "where": "supplyWaterTemperatureLine1 != null"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 319.19,
+        "y": 103.26,
+        "width": 49,
+        "height": 30,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 24.5,
+        "offsetY": 15,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "https://cdn.allsenseww.com/scada/device_tpl/温度计.png"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 197.11,
+        "y": 102.76,
+        "width": 49,
+        "height": 30,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 24.5,
+        "offsetY": 15,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "https://cdn.allsenseww.com/scada/device_tpl/压力表.png"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 164.45,
+        "y": 133.22,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.815,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "lcdmono",
+          "textAlignH": "middle"
+        },
+        "param": {
+          "suffixText": "MPa",
+          "prefixText": "",
+          "decTrim": 2,
+          "formatter": "fixedPrecision"
+        }
+      },
+      "binding": {
+        "val": {
+          "type": "HeatExchangeStation",
+          "uid": "$uid_1",
+          "field": "supplyWaterPressureLine1",
+          "where": ""
+        },
+        "alarm": {
+          "type": "HeatExchangeStation__companion__",
+          "uid": "$uid_1",
+          "field": "supplyWaterPressureLine1",
+          "where": "supplyWaterPressureLine1 != null"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1225.89,
+        "y": 134.47,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.815,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "lcdmono",
+          "textAlignH": "middle"
+        },
+        "param": {
+          "suffixText": "℃",
+          "prefixText": "",
+          "decTrim": 2,
+          "formatter": "fixedPrecision"
+        }
+      },
+      "binding": {
+        "val": {
+          "type": "HeatExchangeStation",
+          "uid": "$uid_1",
+          "field": "supplyWaterTemperatureLine2",
+          "where": ""
+        },
+        "alarm": {
+          "type": "HeatExchangeStation__companion__",
+          "uid": "$uid_1",
+          "field": "supplyWaterTemperatureLine2",
+          "where": "pressure != null"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1444.9,
+        "y": 51.63,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.815,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "lcdmono",
+          "textAlignH": "middle"
+        },
+        "param": {
+          "suffixText": "℃",
+          "prefixText": "室外温度",
+          "decTrim": 1,
+          "formatter": ""
+        }
+      },
+      "binding": {
+        "val": {
+          "type": "Thermometer",
+          "uid": "c058d249-29bd-447f-a46f-86ce949b79d5",
+          "field": "temperature",
+          "where": ""
+        },
+        "alarm": {
+          "type": "Thermometer__companion__",
+          "uid": "c058d249-29bd-447f-a46f-86ce949b79d5",
+          "field": "temperature",
+          "where": "temperature != null"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1258.44,
+        "y": 104.01,
+        "width": 49,
+        "height": 30,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 24.5,
+        "offsetY": 15,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "https://cdn.allsenseww.com/scada/device_tpl/温度计.png"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1136.36,
+        "y": 103.51,
+        "width": 49,
+        "height": 30,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 24.5,
+        "offsetY": 15,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "https://cdn.allsenseww.com/scada/device_tpl/压力表.png"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1103.7,
+        "y": 133.97,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.815,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "lcdmono",
+          "textAlignH": "middle"
+        },
+        "param": {
+          "suffixText": "MPa",
+          "prefixText": "",
+          "decTrim": 2,
+          "formatter": "fixedPrecision"
+        }
+      },
+      "binding": {
+        "val": {
+          "type": "HeatExchangeStation",
+          "uid": "$uid_1",
+          "field": "supplyWaterPressureLine2",
+          "where": ""
+        },
+        "alarm": {
+          "type": "HeatExchangeStation__companion__",
+          "uid": "$uid_1",
+          "field": "supplyWaterPressureLine2",
+          "where": "supplyWaterPressureLine2 != null"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 275.64,
+        "y": 534.72,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.815,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "lcdmono",
+          "textAlignH": "middle"
+        },
+        "param": {
+          "suffixText": "℃",
+          "prefixText": "",
+          "decTrim": 2,
+          "formatter": "fixedPrecision"
+        }
+      },
+      "binding": {
+        "val": {
+          "type": "HeatExchangeStation",
+          "uid": "$uid_1",
+          "field": "returnWaterTemperatureLine1",
+          "where": ""
+        },
+        "alarm": {
+          "type": "HeatExchangeStation__companion__",
+          "uid": "$uid_1",
+          "field": "returnWaterTemperatureLine1",
+          "where": "returnWaterTemperatureLine1 != null"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 400.04,
+        "y": 534.72,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.815,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "lcdmono",
+          "textAlignH": "middle"
+        },
+        "param": {
+          "suffixText": "m³/h",
+          "prefixText": "",
+          "decTrim": 2,
+          "formatter": "fixedPrecision"
+        }
+      },
+      "binding": {
+        "val": {
+          "type": "HeatExchangeStation",
+          "uid": "$uid_1",
+          "field": "instantaneousFlowLine1",
+          "where": ""
+        },
+        "alarm": {
+          "type": "HeatExchangeStation__companion__",
+          "uid": "$uid_1",
+          "field": "instantaneousFlowLine1",
+          "where": "instantaneousFlowLine1 != null"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 308.19,
+        "y": 504.26,
+        "width": 49,
+        "height": 30,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 24.5,
+        "offsetY": 15,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "https://cdn.allsenseww.com/scada/device_tpl/温度计.png"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 431.03,
+        "y": 504.59,
+        "width": 49,
+        "height": 30,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 24.5,
+        "offsetY": 15,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/8f253bc6-839a-4996-98bf-8084c443c772"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 196.11,
+        "y": 503.76,
+        "width": 49,
+        "height": 30,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 24.5,
+        "offsetY": 15,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "https://cdn.allsenseww.com/scada/device_tpl/压力表.png"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 163.45,
+        "y": 534.22,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.815,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "lcdmono",
+          "textAlignH": "middle"
+        },
+        "param": {
+          "suffixText": "MPa",
+          "prefixText": "",
+          "decTrim": 2,
+          "formatter": "fixedPrecision"
+        }
+      },
+      "binding": {
+        "val": {
+          "type": "HeatExchangeStation",
+          "uid": "$uid_1",
+          "field": "returnWaterPressureLine1",
+          "where": ""
+        },
+        "alarm": {
+          "type": "HeatExchangeStation__companion__",
+          "uid": "$uid_1",
+          "field": "returnWaterPressureLine1",
+          "where": "returnWaterPressureLine1 != null"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1225.89,
+        "y": 535.97,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.815,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "lcdmono",
+          "textAlignH": "middle"
+        },
+        "param": {
+          "suffixText": "℃",
+          "prefixText": "",
+          "decTrim": 2,
+          "formatter": "fixedPrecision"
+        }
+      },
+      "binding": {
+        "val": {
+          "type": "HeatExchangeStation",
+          "uid": "$uid_1",
+          "field": "returnWaterTemperatureLine2",
+          "where": ""
+        },
+        "alarm": {
+          "type": "HeatExchangeStation__companion__",
+          "uid": "$uid_1",
+          "field": "returnWaterTemperatureLine2",
+          "where": "returnWaterTemperatureLine2 != null"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1258.44,
+        "y": 505.51,
+        "width": 49,
+        "height": 30,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 24.5,
+        "offsetY": 15,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "https://cdn.allsenseww.com/scada/device_tpl/温度计.png"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1136.36,
+        "y": 505.01,
+        "width": 49,
+        "height": 30,
+        "scaleX": 1,
+        "scaleY": 1,
+        "offsetX": 24.5,
+        "offsetY": 15,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "https://cdn.allsenseww.com/scada/device_tpl/压力表.png"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1103.7,
+        "y": 535.47,
+        "width": 140,
+        "height": 28,
+        "scaleX": 0.815,
+        "scaleY": 1,
+        "offsetX": 70,
+        "offsetY": 14,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaLabel",
+      "options": {
+        "style": {
+          "fontSize": 14,
+          "fontFamily": "lcdmono",
+          "textAlignH": "middle"
+        },
+        "param": {
+          "suffixText": "MPa",
+          "prefixText": "",
+          "decTrim": 2,
+          "formatter": "fixedPrecision"
+        }
+      },
+      "binding": {
+        "val": {
+          "type": "HeatExchangeStation",
+          "uid": "$uid_1",
+          "field": "returnWaterPressureLine2",
+          "where": ""
+        },
+        "alarm": {
+          "type": "HeatExchangeStation__companion__",
+          "uid": "$uid_1",
+          "field": "returnWaterPressureLine2",
+          "where": "returnWaterPressureLine2 != null"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 693.2,
+        "y": 236.32,
+        "width": 80,
+        "height": 80,
+        "scaleX": 1.691,
+        "scaleY": 2.615,
+        "offsetX": 40,
+        "offsetY": 40,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/23850cbd-618c-4190-8643-c5a64d2f41c6"
+        },
+        "style": {}
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": 1,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1019.5,
+        "y": 515.5,
+        "width": 24,
+        "height": 24,
+        "scaleX": 0.458,
+        "scaleY": 0.458,
+        "offsetX": 12,
+        "offsetY": 12,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaStates",
+      "options": {
+        "style": {
+          "cornerRadius": 16,
+          "onStroke": "rgba(32, 64, 0, 0.97)",
+          "offStroke": "rgba(66, 0, 11, 1)"
+        },
+        "param": {}
+      },
+      "binding": {
+        "val": {
+          "type": "HeatExchangeStation",
+          "uid": "$uid_1",
+          "field": "ABS(varFreqRecyclePumpCurrent) > 1",
+          "where": ""
+        }
+      },
+      "bindingValue": {
+        "val": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 1019.5,
+        "y": 563.83,
+        "width": 24,
+        "height": 24,
+        "scaleX": 0.458,
+        "scaleY": 0.458,
+        "offsetX": 12,
+        "offsetY": 12,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaStates",
+      "options": {
+        "style": {
+          "cornerRadius": 16,
+          "onStroke": "rgba(32, 64, 0, 1)",
+          "offStroke": "rgba(66, 0, 11, 0.99)"
+        },
+        "param": {}
+      },
+      "binding": {
+        "val": {
+          "type": "HeatExchangeStation",
+          "uid": "$uid_1",
+          "field": "ABS(fixFreqRecyclePumpCurrent) > 1",
+          "where": ""
+        }
+      },
+      "bindingValue": {
+        "val": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 105.8,
+        "y": 186.73,
+        "width": 80,
+        "height": 80,
+        "scaleX": 1.188,
+        "scaleY": 1.3,
+        "offsetX": 40,
+        "offsetY": 40,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/ad1bebab-dcd6-4efa-8d71-b9db4b3040ef"
+        },
+        "style": {}
+      },
+      "binding": {
+        "val": {
+          "type": "smart_data",
+          "uid": "sd_0946f809-6e40-4d0f-bd98-032ce57b105d",
+          "field": "H22_enable = 1"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 105.94,
+        "y": 186.5,
+        "width": 80,
+        "height": 80,
+        "scaleX": 1.188,
+        "scaleY": 1.3,
+        "offsetX": 40,
+        "offsetY": 40,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/b341e503-93cb-4471-9527-e3e699a211d4"
+        },
+        "style": {}
+      },
+      "binding": {
+        "val": {
+          "type": "smart_data",
+          "uid": "sd_0946f809-6e40-4d0f-bd98-032ce57b105d",
+          "field": "H22_enable = 0"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 123.12,
+        "y": 185.75,
+        "width": 80,
+        "height": 80,
+        "scaleX": 0.775,
+        "scaleY": 0.775,
+        "offsetX": 40,
+        "offsetY": 40,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/e8017621-3588-4a42-916b-470d083ae767"
+        },
+        "style": {}
+      },
+      "binding": {
+        "val": {
+          "type": "smart_data",
+          "uid": "sd_0946f809-6e40-4d0f-bd98-032ce57b105d",
+          "field": "H22_enable = 2"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 89.65,
+        "y": 174.75,
+        "width": 120,
+        "height": 60,
+        "scaleX": 0.968,
+        "scaleY": 2.69,
+        "offsetX": 60,
+        "offsetY": 30,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaRect",
+      "options": {
+        "style": {
+          "fill": "rgba(0, 21, 68, 0)",
+          "stroke": null,
+          "strokeWidth": 0,
+          "cornerRadius": 4
+        },
+        "param": {
+          "decTrim": 2,
+          "emptyText": "― ―",
+          "valIntervalDef": "",
+          "colorIntervalDef": ""
+        }
+      },
+      "binding": {},
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 132.83,
+        "y": 267.64,
+        "width": 80,
+        "height": 80,
+        "scaleX": 0.588,
+        "scaleY": 0.188,
+        "offsetX": 40,
+        "offsetY": 40,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "下钻",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/9124b3eb-0bd8-4b66-b188-4b4369d254da"
+        },
+        "style": {}
+      },
+      "binding": {
+        "val": {
+          "type": "smart_data",
+          "uid": "sd_0946f809-6e40-4d0f-bd98-032ce57b105d"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    },
+    {
+      "layout": {
+        "x": 56.73,
+        "y": 181.56,
+        "width": 80,
+        "height": 80,
+        "scaleX": 2.099,
+        "scaleY": 2.22,
+        "offsetX": 40,
+        "offsetY": 40,
+        "rotation": 0
+      },
+      "bid": "",
+      "eventMsg": "",
+      "type": "ScadaImage",
+      "options": {
+        "param": {
+          "imgUrl": "/direct/api/repository/file/download/aa1419a2-968f-4dca-9442-7103665ef513"
+        },
+        "style": {}
+      },
+      "binding": {
+        "val": {
+          "type": "smart_data",
+          "uid": "sd_0946f809-6e40-4d0f-bd98-032ce57b105d",
+          "field": "workMode = 0"
+        }
+      },
+      "bindingValue": {
+        "val": null,
+        "alarm": 0
+      },
+      "locked": false
+    }
+  ],
+  "docSettings": {
+    "bgColor": "#030A3E",
+    "width": 1600,
+    "height": 800
+  },
+  "extraConfig": {
+    "variables": {
+      "uid_1": "ff7c89f4-b585-49a5-86ca-faadfc615e04",
+      "uid_2": "1a68a873-1d98-4644-88d8-117c7949e322"
+    }
+  }
+}

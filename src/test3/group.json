@@ -1,0 +1,1643 @@
+{
+  "globalConf": {
+    "engineName": "flink",
+    "name": "jiexiu_smart_valve",
+    "flink.running.mode": "remote",
+    "flink.running.controller.enabled": false,
+    "globalParameters": {
+      "corp_id": "358e6e54840c000",
+      "rabbit_host": "rabbitmq-iot",
+      "rabbit_port": 5672
+    }
+  },
+  "nodes": [
+    {
+      "nodeId": "SOURCE",
+      "moduleId": "Source:Amqp",
+      "name": "jiexiu_smart_valve",
+      "description": "",
+      "parameters": {
+        "name": "jiexiu_smart_valve",
+        "host": "#{rabbit_host}",
+        "port": "#{rabbit_port}",
+        "user": "iot",
+        "password": "allsmart@iot",
+        "vhost": "/iot",
+        "topic": ".data.iot.4"
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "T1",
+      "moduleId": "Toolkit:Type",
+      "name": "Type",
+      "description": "",
+      "parameters": {
+        "datasource": "smart_data_HeatStation",
+        "expandField": "data",
+        "datamodel": {
+          "fieldList": [
+            {
+              "name": "timestamp",
+              "dataType": "LONG"
+            },
+            {
+              "name": "uid",
+              "dataType": "STRING"
+            },
+            {
+              "name": "corpId",
+              "dataType": "STRING"
+            },
+            {
+              "name": "instantaneousFlowLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "instantaneousHeatLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "accumulatedHeatLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "accumulatedFlowLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "supplyWaterPressureLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "returnWaterPressureLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "supplyWaterPressureLine2",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "returnWaterPressureLine2",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "pressureDiff2",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "supplyWaterTemperatureLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "returnWaterTemperatureLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "supplyWaterTemperatureLine2",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "returnWaterTemperatureLine2",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "fixFreqRecyclePumpCurrent",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "varFreqRecyclePumpCurrent",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "controlValveOpenning",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "mixeWaterValveOpenning",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "mixeWaterTemperatureLine2",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "runState",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "runOpening",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "expectOpenning",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "workMode",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "expectTemperature",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "expectPressureDiff",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "powerState",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "signalState",
+              "dataType": "DOUBLE"
+            }
+          ]
+        }
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "53aab2256d48edab",
+      "moduleId": "ProcessFlow:Module",
+      "name": "单位转换",
+      "description": "",
+      "parameters": {
+        "refId": "537a9a21b407000",
+        "param": {
+          "模块参数名称": "参数映射字段:"
+        }
+      },
+      "uiParameters": {
+        "componentId": "Module",
+        "editorData": null
+      }
+    },
+    {
+      "nodeId": "47d79474c57d60bd",
+      "moduleId": "ProcessFlow:Module",
+      "name": "数据预处理",
+      "description": "",
+      "parameters": {
+        "refId": "51f9172ccc1e000",
+        "param": {
+          "模块参数名称": "参数映射字段:"
+        }
+      },
+      "uiParameters": {
+        "componentId": "Module",
+        "editorData": null
+      }
+    },
+    {
+      "nodeId": "73f8c3734cb34e73",
+      "moduleId": "ProcessFlow:Module",
+      "name": "全局配置",
+      "description": "",
+      "parameters": {
+        "refId": "53b752136820000",
+        "param": {
+          "模块参数名称": "参数映射字段:"
+        }
+      },
+      "uiParameters": {
+        "componentId": "Module",
+        "editorData": null
+      }
+    },
+    {
+      "nodeId": "acf3315c1b0535cc",
+      "moduleId": "ProcessFlow:Module",
+      "name": "时延/热负荷计算",
+      "description": "",
+      "parameters": {
+        "refId": "51caa0936c1e000",
+        "param": {
+          "模块参数名称": "参数映射字段:"
+        }
+      },
+      "uiParameters": {
+        "componentId": "Module",
+        "editorData": null
+      }
+    },
+    {
+      "nodeId": "bad6a7d8896b26f1",
+      "moduleId": "ProcessFlow:Module",
+      "name": "换热站目标供热量",
+      "description": "",
+      "parameters": {
+        "refId": "51f90c4a5c1e000",
+        "param": {
+          "模块参数名称": "参数映射字段:"
+        }
+      },
+      "uiParameters": {
+        "componentId": "Module",
+        "editorData": null
+      }
+    },
+    {
+      "nodeId": "ConditionDerive2",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "阀门是否在线",
+      "description": "",
+      "parameters": {
+        "conditions": [
+          {
+            "condition": "signalState == 0 || powerState == 0",
+            "valve_enable": 0
+          },
+          {
+            "valve_enable": 1
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "valve_enable",
+            "label": "阀门可用",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "ConditionDerive3",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "压力判断",
+      "description": "",
+      "parameters": {
+        "settings": {
+          "Pcgmax": 0.7,
+          "Pchmin": 0
+        },
+        "conditions": [
+          {
+            "condition": "SupPresLine1 > RetPresLine1 && RetPresLine1 > Pchmin && Pcgmax > SupPresLine1 && SupPresLine2 > RetPresLine2 && RetPresLine2 > Pchmin && Pcgmax > SupPresLine2",
+            "pressure_enable": 1
+          },
+          {
+            "pressure_enable": 0
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "pressure_enable",
+            "label": "压力可用",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "ConditionDerive4",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "温度判断",
+      "description": "",
+      "parameters": {
+        "settings": {
+          "Tcgmax": 105,
+          "Tchmin": 30
+        },
+        "conditions": [
+          {
+            "condition": "SupTempLine1 > RetTempLine1 && RetTempLine1 > Tchmin && Tcgmax > SupTempLine1 && SupTempLine2 > RetTempLine2 && RetTempLine2 > Tchmin && Tcgmax > SupTempLine2",
+            "temperature_enable": 1
+          },
+          {
+            "temperature_enable": 0
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "temperature_enable",
+            "label": "温度可用",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "ConditionDerive5",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "流量判断",
+      "description": "",
+      "parameters": {
+        "settings": {
+          "Gcmin": 1
+        },
+        "conditions": [
+          {
+            "condition": "instantaneousFlowLine1 > Gcmin",
+            "instantaneousFlow_enable": 1
+          },
+          {
+            "instantaneousFlow_enable": 0
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "instantaneousFlow_enable",
+            "label": "流量可用",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "Tree",
+      "moduleId": "Toolkit:TreeAggregate",
+      "name": "树组件",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "windowSize": 10,
+        "windowSlide": 10,
+        "treeStructure": [
+          {
+            "name": "S",
+            "children": [
+              "S1",
+              "S2"
+            ]
+          },
+          {
+            "name": "S2",
+            "children": [
+              "HS1",
+              "H5",
+              "H6",
+              "H7",
+              "H8",
+              "H9",
+              "H10",
+              "H11",
+              "H17",
+              "H26",
+              "H28",
+              "H29",
+              "H31",
+              "H34",
+              "H35",
+              "HA",
+              "HB",
+              "HC",
+              "HD",
+              "HI",
+              "HJ"
+            ]
+          },
+          {
+            "name": "HD",
+            "children": [
+              "H1",
+              "H2",
+              "H3",
+              "H4"
+            ]
+          },
+          {
+            "name": "HC",
+            "children": [
+              "H12",
+              "H13",
+              "H15",
+              "H16"
+            ]
+          },
+          {
+            "name": "HB",
+            "children": [
+              "H18",
+              "H19",
+              "H20"
+            ]
+          },
+          {
+            "name": "HA",
+            "children": [
+              "H21",
+              "H22",
+              "H23",
+              "H24",
+              "H25"
+            ]
+          },
+          {
+            "name": "HJ",
+            "children": [
+              "H32",
+              "H33"
+            ]
+          },
+          {
+            "name": "HI-3",
+            "children": [
+              "H36",
+              "H37",
+              "H38",
+              "H39",
+              "H40",
+              "H41",
+              "H42",
+              "H43"
+            ]
+          },
+          {
+            "name": "HI-2",
+            "children": [
+              "H44",
+              "H45"
+            ]
+          },
+          {
+            "name": "HI-1",
+            "children": [
+              "H46",
+              "H47"
+            ]
+          },
+          {
+            "name": "S1",
+            "children": [
+              "H48",
+              "H73",
+              "H74",
+              "H75",
+              "H76",
+              "H77",
+              "H78",
+              "H81",
+              "H82",
+              "H83",
+              "HE",
+              "HF",
+              "HG",
+              "HH"
+            ]
+          },
+          {
+            "name": "HH",
+            "children": [
+              "H49",
+              "H50",
+              "HH-1",
+              "HH-2"
+            ]
+          },
+          {
+            "name": "HH-1",
+            "children": [
+              "H51",
+              "H52"
+            ]
+          },
+          {
+            "name": "HH-2",
+            "children": [
+              "H53",
+              "H54",
+              "H55",
+              "H56",
+              "H58",
+              "H59",
+              "H60"
+            ]
+          },
+          {
+            "name": "HG",
+            "children": [
+              "H61",
+              "H62",
+              "H63",
+              "H64",
+              "H65",
+              "H66",
+              "H67",
+              "HG-1",
+              "HG-2"
+            ]
+          },
+          {
+            "name": "HG-1",
+            "children": [
+              "H68",
+              "H69"
+            ]
+          },
+          {
+            "name": "HG-2",
+            "children": [
+              "H70",
+              "H71",
+              "H72"
+            ]
+          },
+          {
+            "name": "HF",
+            "children": [
+              "H79",
+              "H80"
+            ]
+          },
+          {
+            "name": "HE",
+            "children": [
+              "H84",
+              "H85",
+              "H86",
+              "H87",
+              "H88"
+            ]
+          },
+          {
+            "name": "HI",
+            "children": [
+              "HI-1",
+              "HI-2",
+              "HI-3"
+            ]
+          }
+        ],
+        "treeNodeMapTo": "uid",
+        "treeNodeMappings": [
+          {
+            "source": "a0223d12-469c-42e5-91ff-c2308469c0e7",
+            "target": "HS1"
+          },
+          {
+            "source": "b42529ad-1e38-44ba-a970-2dffaac0e989",
+            "target": "H1"
+          },
+          {
+            "source": "266cf4b6-4028-4b75-9d48-251aa1ed811f",
+            "target": "H2"
+          },
+          {
+            "source": "a3a6ca91-913c-45ac-bd3e-71fbb3c6c402",
+            "target": "H3"
+          },
+          {
+            "source": "f30b9873-3cc4-4de2-afd7-20938b2e05fd",
+            "target": "H4"
+          },
+          {
+            "source": "4ae724d3-c0cb-46b3-9c50-9ac9c08b3a1d",
+            "target": "H5"
+          },
+          {
+            "source": "ce01bdbc-5e43-44b7-b6fc-2576732455d2",
+            "target": "H6"
+          },
+          {
+            "source": "73b46daf-d42d-48c3-9488-2cee279fec41",
+            "target": "H7"
+          },
+          {
+            "source": "46104474-a8e5-4b32-b69f-f8758774b784",
+            "target": "H8"
+          },
+          {
+            "source": "409e2b31-8d6d-4733-8004-6089a5dda855",
+            "target": "H9"
+          },
+          {
+            "source": "4d94f835-7c59-4ad0-a39d-2a90f1f80d79",
+            "target": "H10"
+          },
+          {
+            "source": "ac0d9010-bba2-4d53-91b3-029ae5207345",
+            "target": "H11"
+          },
+          {
+            "source": "ab7885ae-099d-4b00-a3ae-19897462f77a",
+            "target": "H12"
+          },
+          {
+            "source": "e1f35436-a1ae-41d0-bd29-b893afd318f2",
+            "target": "H13"
+          },
+          {
+            "source": "096715ab-702c-44b1-8989-0317178c48f1",
+            "target": "H15"
+          },
+          {
+            "source": "747ed9de-4caa-494e-aa1d-8008d501f8e0",
+            "target": "H16"
+          },
+          {
+            "source": "ef1757e3-06cd-43b1-8cc3-d088b50065e7",
+            "target": "H17"
+          },
+          {
+            "source": "0a3e11a5-dca8-461f-b168-7ca7c2aa3122",
+            "target": "H18"
+          },
+          {
+            "source": "441aabd9-43a9-4395-b596-f94ee371c9a5",
+            "target": "H19"
+          },
+          {
+            "source": "a58ad4ff-7488-44de-aeda-7056c6bb667a",
+            "target": "H20"
+          },
+          {
+            "source": "c5b9bb35-6deb-4066-b638-df1920064a40",
+            "target": "H21"
+          },
+          {
+            "source": "0946f809-6e40-4d0f-bd98-032ce57b105d",
+            "target": "H22"
+          },
+          {
+            "source": "cc36c170-a62b-4d58-a53d-df4e8b628809",
+            "target": "H23"
+          },
+          {
+            "source": "7117c79a-b3b9-450a-8b82-fbbf3af271da",
+            "target": "H24"
+          },
+          {
+            "source": "fe5e3396-9059-417c-88d7-4aa6448c641e",
+            "target": "H25"
+          },
+          {
+            "source": "ee8daff2-5a52-443d-bfb3-6b9786b91894",
+            "target": "H26"
+          },
+          {
+            "source": "b15bb406-e07f-41ef-9994-9d94acbad115",
+            "target": "H28"
+          },
+          {
+            "source": "4f1e3458-8f71-4544-ad28-368a35bf55d2",
+            "target": "H29"
+          },
+          {
+            "source": "b479cee0-f702-462c-afcc-dde60e1dae26",
+            "target": "H31"
+          },
+          {
+            "source": "9fa0b4ed-89bc-4691-81b7-b1e091e5467b",
+            "target": "H32"
+          },
+          {
+            "source": "151f37ea-b0cf-4d33-8c23-8ecf8a4950dd",
+            "target": "H33"
+          },
+          {
+            "source": "38d25e5f-37c9-472d-9a91-ddb7ae0229ee",
+            "target": "H34"
+          },
+          {
+            "source": "7a6c83a1-6668-45a8-994c-98ccc523fc85",
+            "target": "H35"
+          },
+          {
+            "source": "94768ab2-55bd-44e7-a66f-3bad8e7ca0cd",
+            "target": "H36"
+          },
+          {
+            "source": "c1ff3cdb-4b8a-4061-9c61-b9a863f9c92a",
+            "target": "H37"
+          },
+          {
+            "source": "a274d704-5bbd-498d-8c3b-f34d0c94a312",
+            "target": "H38"
+          },
+          {
+            "source": "5780ca0f-8314-4ccc-adc5-6aae77a96678",
+            "target": "H39"
+          },
+          {
+            "source": "2d69300e-c87b-41c9-af27-9db83c13124a",
+            "target": "H40"
+          },
+          {
+            "source": "be18e6c9-f444-45df-afb0-f97ba60d8021",
+            "target": "H41"
+          },
+          {
+            "source": "75ba66df-ed3f-41ae-9a8f-67986595172c",
+            "target": "H42"
+          },
+          {
+            "source": "500deff6-cd87-44fb-86e6-c1fc418afb30",
+            "target": "H43"
+          },
+          {
+            "source": "dfaa38e4-b56e-408f-8eeb-cf62044ad4e5",
+            "target": "H44"
+          },
+          {
+            "source": "b6f29c99-45ab-45f6-a96d-35043e596ebf",
+            "target": "H45"
+          },
+          {
+            "source": "f4f44852-3895-4138-a860-fadf602486b7",
+            "target": "H46"
+          },
+          {
+            "source": "6e704d46-8f69-4a08-a2e9-54878ac543e9",
+            "target": "H47"
+          },
+          {
+            "source": "f0468692-ae50-44a0-a0c5-3f6aec9d7f27",
+            "target": "H48"
+          },
+          {
+            "source": "324f589d-f646-446b-98c2-c2aca2ee97fc",
+            "target": "H49"
+          },
+          {
+            "source": "32ee3f1b-8bdb-4ee5-87c0-a8c8c081e31b",
+            "target": "H50"
+          },
+          {
+            "source": "9dee2c27-b1c6-4950-ba24-d9408fa50366",
+            "target": "H51"
+          },
+          {
+            "source": "f7cd7edf-3513-445e-b072-6688f22889f0",
+            "target": "H52"
+          },
+          {
+            "source": "7c991498-0bbe-44ea-8462-86ad11cccd61",
+            "target": "H53"
+          },
+          {
+            "source": "88a89d45-0831-4c06-81ae-9033440f9e0d",
+            "target": "H54"
+          },
+          {
+            "source": "4ffcdaed-d332-498d-8309-e0a26341ca46",
+            "target": "H55"
+          },
+          {
+            "source": "4fdfa4cf-3d74-47a7-a327-d90976e19af9",
+            "target": "H56"
+          },
+          {
+            "source": "9f34e840-dd46-4ba8-83c2-22f0a9df2205",
+            "target": "H58"
+          },
+          {
+            "source": "80c1ed83-8d91-42e9-bfa7-97ab229587c3",
+            "target": "H59"
+          },
+          {
+            "source": "0054fd1f-7df7-4c0f-b788-40bae223920c",
+            "target": "H60"
+          },
+          {
+            "source": "19ed6586-2e9b-47c6-bb36-76c1fa54d4e3",
+            "target": "H61"
+          },
+          {
+            "source": "8f8ba1df-0fc1-42ac-aa10-f874f9d168eb",
+            "target": "H62"
+          },
+          {
+            "source": "08f2ed60-4b7e-4a3d-acb4-e4ea62c4c2d2",
+            "target": "H63"
+          },
+          {
+            "source": "fb8877c7-ec5c-46d2-91af-dde97eb81ef2",
+            "target": "H64"
+          },
+          {
+            "source": "246fa455-8dcc-4cbe-8286-26439feb7d7a",
+            "target": "H65"
+          },
+          {
+            "source": "13565321-edf0-4c73-a6fd-b96db89be16f",
+            "target": "H66"
+          },
+          {
+            "source": "92d56709-b24e-4bcd-87a8-d21224221cf7",
+            "target": "H67"
+          },
+          {
+            "source": "3b4ec881-6dfa-496c-80c0-d614d40fb4c7",
+            "target": "H68"
+          },
+          {
+            "source": "2929b3ad-9170-45be-bc14-77ad3f0d656b",
+            "target": "H69"
+          },
+          {
+            "source": "05a5d05e-fc3d-4557-afba-dceffc0bb5f1",
+            "target": "H70"
+          },
+          {
+            "source": "bdaa7ce8-d145-470e-a3ac-d9f7f1cf1033",
+            "target": "H71"
+          },
+          {
+            "source": "33bbc8b8-e2d3-4e42-807d-ea8513621642",
+            "target": "H72"
+          },
+          {
+            "source": "e8c17621-8906-451c-b196-26e4cfe5fe0f",
+            "target": "H73"
+          },
+          {
+            "source": "b986e515-d4d5-48f4-b67b-a39fea6fd9f2",
+            "target": "H74"
+          },
+          {
+            "source": "939e2f11-92b3-4a3a-81aa-39b8078500fd",
+            "target": "H75"
+          },
+          {
+            "source": "6b2a0c3a-30db-4886-a8da-65c0753aa30a",
+            "target": "H76"
+          },
+          {
+            "source": "52cecd73-bf64-4efd-95bf-e1f22362fc3b",
+            "target": "H77"
+          },
+          {
+            "source": "b113143c-8e53-459e-a533-06dcb55df3fc",
+            "target": "H78"
+          },
+          {
+            "source": "addf3e51-f873-41cf-b6db-7e7122f4b3b9",
+            "target": "H79"
+          },
+          {
+            "source": "d11c3995-9c4e-4723-8056-9c66bc0faeb0",
+            "target": "H80"
+          },
+          {
+            "source": "8f6e3431-e8e1-44c3-945e-da4915cefe73",
+            "target": "H81"
+          },
+          {
+            "source": "7cb048be-f7c5-4555-8718-5b23b02b0333",
+            "target": "H82"
+          },
+          {
+            "source": "296bd631-fb9d-49ec-a8e8-e93139f0c713",
+            "target": "H83"
+          },
+          {
+            "source": "73826f02-776d-4267-83ef-0fa34464b19d",
+            "target": "H84"
+          },
+          {
+            "source": "3249afaf-82a1-459c-919b-dbc4a995cb4b",
+            "target": "H85"
+          },
+          {
+            "source": "74324b6a-cabe-4b37-886b-59e1874fb764",
+            "target": "H86"
+          },
+          {
+            "source": "408e509b-e95f-4f60-9f81-b18cb421f58d",
+            "target": "H87"
+          },
+          {
+            "source": "d5fddb54-14d1-4924-971c-0afaec4f618f",
+            "target": "H88"
+          }
+        ],
+        "treeAggregateExpression": {
+          "name": "QRi",
+          "type": "DOUBLE",
+          "label": "期望变化率",
+          "description": "热量期望变化率QRi=自己的供热不平衡率+逐级父级的供热不平衡率",
+          "expression": "vsum(Ri)"
+        },
+        "treeNodeExpression": {
+          "name": "Ri",
+          "type": "DOUBLE",
+          "label": "供热不平衡率",
+          "description": "Ri=(a-b)/a,其中：a为实际供热占比，b为预测供热占比",
+          "expression": "if(instantaneous_heat[1] != 0 && vsum(instantaneousHeatLine1) != 0, instantaneousHeatLine1[1] * vsum(instantaneous_heat) / vsum(instantaneousHeatLine1) / instantaneous_heat[1] - 1 , 0)"
+        },
+        "includeSibling": true
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "5cca850df74b3945",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "实体站数量",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "Ri_Count": 1
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "Ri_Count",
+            "label": "实体站数量",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "51d19f56fff4a7fb",
+      "moduleId": "Toolkit:Aggregate",
+      "name": "实体站数量总和",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "methods": [
+          "SUM"
+        ],
+        "targets": [
+          "Ri_Count"
+        ],
+        "appendAggregateData": true
+      },
+      "uiParameters": {
+        "componentId": "Aggregate",
+        "editorData": null
+      }
+    },
+    {
+      "nodeId": "4d0ec1b871269aed",
+      "moduleId": "Toolkit:GroupCondition",
+      "name": "实体站级数量之和/QRi最大最小值",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "rules": [
+          {
+            "name": "Ri_Count_level_SUM",
+            "type": "DOUBLE",
+            "label": "实体站数量之和",
+            "conditions": [
+              "source == \"S1\" && level == 1",
+              "source == \"S1\" && level == 2",
+              "source == \"S1\" && level == 3",
+              "source == \"S2\" && level == 1",
+              "source == \"S2\" && level == 2",
+              "source == \"S2\" && level == 3"
+            ],
+            "expression": "vsum(Ri_Count)"
+          },
+          {
+            "name": "QRi_MIN",
+            "type": "DOUBLE",
+            "label": "QRi最小值",
+            "conditions": [
+              "source == \"S1\"",
+              "source == \"S2\""
+            ],
+            "expression": "min(QRi)"
+          },
+          {
+            "name": "QRi_MAX",
+            "type": "DOUBLE",
+            "label": "QRi最大值",
+            "conditions": [
+              "source == \"S1\"",
+              "source == \"S2\""
+            ],
+            "expression": "max(QRi)"
+          }
+        ]
+      },
+      "uiParameters": {
+        "componentId": "GroupCondition",
+        "editorData": null
+      }
+    },
+    {
+      "nodeId": "ConditionDerive6",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "Qri归一化计算",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "settings": {
+          "a": 0,
+          "b": 0.2
+        },
+        "conditions": [
+          {
+            "QRi_normalization": "if(a - b == 0 || QRi_MAX - QRi_MIN == 0, 0, (QRi - QRi_MAX) * (a - b) / (QRi_MAX - QRi_MIN) + a)"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "QRi_normalization",
+            "label": "QRi归一化",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "Derive1",
+      "moduleId": "Toolkit:Derive",
+      "name": "Vi期望第一次计算",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "rules": [
+          {
+            "name": "Vi_expect_origin",
+            "type": "DOUBLE",
+            "expression": "(QRi_normalization + 1) * runOpening",
+            "label": "Vi期望"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "188544db84ccbeee",
+      "moduleId": "Toolkit:GroupCondition",
+      "name": "Vi期望max",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "rules": [
+          {
+            "name": "Vi_expect_origin_MAX",
+            "type": "DOUBLE",
+            "label": "Vi期望max",
+            "conditions": [
+              "source == \"S1\"",
+              "source == \"S2\""
+            ],
+            "expression": "max(Vi_expect_origin)"
+          }
+        ]
+      },
+      "uiParameters": {
+        "componentId": "GroupCondition",
+        "editorData": null
+      }
+    },
+    {
+      "nodeId": "ConditionDerive7",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "Vi期望最终结果",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "condition": "Vi_expect_origin_MAX > 100",
+            "Vi_expect": "Vi_expect_origin / Vi_expect_origin_MAX * 100"
+          },
+          {
+            "Vi_expect": "Vi_expect_origin"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "Vi_expect",
+            "label": "Vi期望结果",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "ConditionDerive8",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "Vi变化量计算",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "settings": {
+          "a": 30,
+          "b": 1
+        },
+        "conditions": [
+          {
+            "condition": "abs(Vi_expect - runOpening) >= a",
+            "Vi_change": "a"
+          },
+          {
+            "condition": "abs(Vi_expect - runOpening) <= b",
+            "Vi_change": "0"
+          },
+          {
+            "Vi_change": "abs(Vi_expect - runOpening)"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "Vi_change",
+            "label": "Vi变化量",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "ba193d9555a0162f",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "阀门开度结果计算",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "condition": "Vi_expect > runOpening",
+            "Vi_control_pre": "if(runOpening + Vi_change < 1 , 1 , runOpening + Vi_change)"
+          },
+          {
+            "condition": "Vi_expect < runOpening",
+            "Vi_control_pre": "if(runOpening - Vi_change < 1 , 1 , runOpening - Vi_change)"
+          },
+          {
+            "Vi_control_pre": "if(runOpening < 1 , 1 , runOpening)"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "Vi_control_pre",
+            "label": "Vi控制输出",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "8f7d89d6b0998f87",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "阀门开度阈值计算",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "condition": "Vi_control_pre < v_min",
+            "Vi_control": "v_min"
+          },
+          {
+            "condition": "Vi_control_pre > v_max",
+            "Vi_control": "v_max"
+          },
+          {
+            "Vi_control": "Vi_control_pre"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "Vi_control",
+            "label": "Vi控制输出",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {
+        "componentId": "ConditionDerive",
+        "editorData": null
+      }
+    },
+    {
+      "nodeId": "c7d8b3c19675cffd",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "时间戳归整",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "conditions": [
+          {
+            "timestamp": "timestamp - timestamp % 10000"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "timestamp",
+            "label": "时间戳",
+            "type": "LONG",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "ConditionDerive9",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "更新时刻",
+      "description": "",
+      "parameters": {
+        "channel": "ITERABLE",
+        "settings": {
+          "second": 600000
+        },
+        "conditions": [
+          {
+            "timestamp_Change_enable": "timestamp % second == 0"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "timestamp_Change_enable",
+            "label": "时间更改",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "cd6881bd0a3fe7cf",
+      "moduleId": "ProcessFlow:Module",
+      "name": "adjust_enable",
+      "description": "",
+      "parameters": {
+        "refId": "52732105341f000",
+        "param": {
+          "模块参数名称": "参数映射字段:"
+        }
+      },
+      "uiParameters": {
+        "componentId": "Module",
+        "editorData": null
+      }
+    },
+    {
+      "nodeId": "300244fd3c9b9a49-47d68b69b43a99df",
+      "moduleId": "Toolkit:Keep",
+      "name": "Keep",
+      "description": "",
+      "parameters": {
+        "keepFields": [
+          {
+            "turnOffBy": "timestamp_Change_enable",
+            "pointer": "timestamp"
+          },
+          {
+            "turnOffBy": "timestamp_Change_enable",
+            "pointer": "Vi_control"
+          },
+          {
+            "turnOffBy": "timestamp_Change_enable",
+            "pointer": "runOpening"
+          },
+          {
+            "turnOffBy": "timestamp_Change_enable",
+            "pointer": "QRi"
+          },
+          {
+            "turnOffBy": "timestamp_Change_enable",
+            "pointer": "instantaneousFlowLine1"
+          },
+          {
+            "turnOffBy": "timestamp_Change_enable",
+            "pointer": "supplyWaterTemperatureLine2"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "300244fd3c9b9a49-82c245e201a878dc",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "3个条件的判断条件",
+      "description": "",
+      "parameters": {
+        "conditions": [
+          {
+            "threeMin_condition": "if(timestamp_Change_enable == 1 || Vi_control_last - runOpening_last == 0, 0, (Vi_control_last - runOpening) / (Vi_control_last - runOpening_last) > percent3)",
+            "fourMin_condition": "if(timestamp_Change_enable == 1 || instantaneousFlowLine1_last == 0, 0, (instantaneousFlowLine1 - instantaneousFlowLine1_last) / instantaneousFlowLine1_last * QRi_last > percent4)",
+            "tenMin_condition": "if(timestamp_Change_enable == 1 || supplyWaterTemperatureLine2_last == 0, 0, (supplyWaterTemperatureLine2 - supplyWaterTemperatureLine2_last) / supplyWaterTemperatureLine2_last * QRi_last > percent10)"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "threeMin_condition",
+            "label": "换热站控制时间",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          },
+          {
+            "name": "fourMin_condition",
+            "label": "换热站控制时间",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          },
+          {
+            "name": "tenMin_condition",
+            "label": "换热站控制时间",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "300244fd3c9b9a49-115a4f4300d59e45",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "3个条件的改变时机",
+      "description": "",
+      "parameters": {
+        "conditions": [
+          {
+            "threeMin_enable": "if(timestamp_Change_enable == 1 || (timestamp - timestamp_last <= threeMinutes && threeMin_condition == 1), 1, 0)",
+            "fourMin_enable": "if(timestamp_Change_enable == 1 || (timestamp - timestamp_last <= fourMinutes && fourMin_condition == 1), 1, 0)",
+            "tenMin_enable": "if(timestamp_Change_enable == 1 || (timestamp - timestamp_last <= tenMinutes && tenMin_condition == 1), 1, 0)"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "threeMin_enable",
+            "label": "换热站控制时间",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          },
+          {
+            "name": "fourMin_enable",
+            "label": "换热站控制时间",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          },
+          {
+            "name": "tenMin_enable",
+            "label": "换热站控制时间",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "300244fd3c9b9a49-5db7954221f3e100",
+      "moduleId": "Toolkit:Keep",
+      "name": "Keep",
+      "description": "",
+      "parameters": {
+        "keepFields": [
+          {
+            "turnOffBy": "threeMin_enable",
+            "pointer": "threeMin_condition"
+          },
+          {
+            "turnOffBy": "fourMin_enable",
+            "pointer": "fourMin_condition"
+          },
+          {
+            "turnOffBy": "tenMin_enable",
+            "pointer": "tenMin_condition"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "300244fd3c9b9a49-71faf6cfcaf716bf",
+      "moduleId": "Toolkit:ConditionDerive",
+      "name": "执行结果",
+      "description": "",
+      "parameters": {
+        "conditions": [
+          {
+            "isSuccess": "if(threeMin_condition_last == 1 && (fourMin_condition_last == 1 || tenMin_condition_last == 1), 1, 0)"
+          }
+        ],
+        "derivedFields": [
+          {
+            "name": "isSuccess",
+            "label": "执行结果",
+            "type": "DOUBLE",
+            "measure": "CONTINUOUS"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "9ccdb3a2eae6aaf8",
+      "moduleId": "ProcessFlow:Module",
+      "name": "下发",
+      "description": "",
+      "parameters": {
+        "refId": "51ca9f9bfc1e000",
+        "param": {
+          "模块参数名称": "参数映射字段:"
+        }
+      },
+      "uiParameters": {
+        "componentId": "Module",
+        "editorData": null
+      }
+    },
+    {
+      "nodeId": "81b5da936dc6626c",
+      "moduleId": "Toolkit:Derive",
+      "name": "类型注册",
+      "description": "",
+      "parameters": {
+        "rules": [
+          {
+            "name": "type",
+            "type": "STRING",
+            "expression": "\"smart_data\"",
+            "label": "类型"
+          },
+          {
+            "name": "uid",
+            "type": "STRING",
+            "expression": "\"sd_\" + uid",
+            "label": "UID"
+          }
+        ]
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "5d268d617b91b004",
+      "moduleId": "Toolkit:DataModel",
+      "name": "DataModel",
+      "description": "",
+      "parameters": {
+        "apiAddress": "http://service-zuul:8080/api/service-type/type/registerType?access_token=eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwic3ViIjoiYWRtaW4iLCJleHAiOjI1MzM3MDczNjAwMCwidXQiOiJTWVNfQURNSU4iLCJkdCI6IlBDIn0.ChD-lFH8h1oPMC-FSzd9mfl5Ocdy40jDnt08SetQNbg",
+        "datasource": "smart_data",
+        "datasourceLabel": "介休管网数据",
+        "corpId": "358e6e54840c000",
+        "mode": "CLOUD"
+      },
+      "uiParameters": {}
+    },
+    {
+      "nodeId": "8b31bb7e0445ecae",
+      "moduleId": "Output:Amqp",
+      "name": "Amqp",
+      "description": "",
+      "parameters": {
+        "host": "#{rabbit_host}",
+        "port": "#{rabbit_port}",
+        "user": "iot",
+        "password": "allsmart@iot",
+        "name": "介休数据标准化",
+        "vhost": "/iot",
+        "topic": ".data.smart.358e6e54840c000.valve",
+        "converter": {
+          "converterType": "device",
+          "compressed": true
+        }
+      },
+      "uiParameters": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "SOURCE",
+      "to": "T1"
+    },
+    {
+      "from": "T1",
+      "to": "47d79474c57d60bd"
+    },
+    {
+      "from": "47d79474c57d60bd",
+      "to": "73f8c3734cb34e73"
+    },
+    {
+      "from": "73f8c3734cb34e73",
+      "to": "acf3315c1b0535cc"
+    },
+    {
+      "from": "acf3315c1b0535cc",
+      "to": "bad6a7d8896b26f1"
+    },
+    {
+      "from": "bad6a7d8896b26f1",
+      "to": "ConditionDerive2"
+    },
+    {
+      "from": "ConditionDerive2",
+      "to": "ConditionDerive3"
+    },
+    {
+      "from": "ConditionDerive3",
+      "to": "ConditionDerive4"
+    },
+    {
+      "from": "ConditionDerive4",
+      "to": "ConditionDerive5"
+    },
+    {
+      "from": "ConditionDerive5",
+      "to": "Tree"
+    },
+    {
+      "from": "Tree",
+      "to": "5cca850df74b3945"
+    },
+    {
+      "from": "5cca850df74b3945",
+      "to": "51d19f56fff4a7fb"
+    },
+    {
+      "from": "51d19f56fff4a7fb",
+      "to": "4d0ec1b871269aed"
+    },
+    {
+      "from": "4d0ec1b871269aed",
+      "to": "ConditionDerive6"
+    },
+    {
+      "from": "ConditionDerive6",
+      "to": "Derive1"
+    },
+    {
+      "from": "Derive1",
+      "to": "188544db84ccbeee"
+    },
+    {
+      "from": "188544db84ccbeee",
+      "to": "ConditionDerive7"
+    },
+    {
+      "from": "ConditionDerive7",
+      "to": "ConditionDerive8"
+    },
+    {
+      "from": "ConditionDerive8",
+      "to": "ba193d9555a0162f"
+    },
+    {
+      "from": "ba193d9555a0162f",
+      "to": "8f7d89d6b0998f87"
+    },
+    {
+      "from": "8f7d89d6b0998f87",
+      "to": "c7d8b3c19675cffd"
+    },
+    {
+      "from": "c7d8b3c19675cffd",
+      "to": "ConditionDerive9"
+    },
+    {
+      "from": "ConditionDerive9",
+      "to": "cd6881bd0a3fe7cf"
+    },
+    {
+      "from": "cd6881bd0a3fe7cf",
+      "to": "300244fd3c9b9a49-47d68b69b43a99df"
+    },
+    {
+      "from": "300244fd3c9b9a49-47d68b69b43a99df",
+      "to": "300244fd3c9b9a49-82c245e201a878dc"
+    },
+    {
+      "from": "300244fd3c9b9a49-82c245e201a878dc",
+      "to": "300244fd3c9b9a49-115a4f4300d59e45"
+    },
+    {
+      "from": "300244fd3c9b9a49-115a4f4300d59e45",
+      "to": "300244fd3c9b9a49-5db7954221f3e100"
+    },
+    {
+      "from": "300244fd3c9b9a49-5db7954221f3e100",
+      "to": "300244fd3c9b9a49-71faf6cfcaf716bf"
+    },
+    {
+      "from": "300244fd3c9b9a49-71faf6cfcaf716bf",
+      "to": "81b5da936dc6626c"
+    },
+    {
+      "from": "300244fd3c9b9a49-71faf6cfcaf716bf",
+      "to": "9ccdb3a2eae6aaf8"
+    },
+    {
+      "from": "81b5da936dc6626c",
+      "to": "5d268d617b91b004"
+    },
+    {
+      "from": "5d268d617b91b004",
+      "to": "8b31bb7e0445ecae"
+    }
+  ]
+}

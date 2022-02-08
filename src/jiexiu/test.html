@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="tb">
+
+</table>
+</body>
+<script>
+    // let res = []
+    // let derivedFields = []
+    // for(let i =1; i< 15;i++) {
+    //     // res.push(`temperature${i}_cal_k`)
+    //     derivedFields.push({
+    //         "name": `temperature${i}_cal_k`,
+    //         "type": "DOUBLE"
+    //     })
+    // }
+    //
+    // console.log(JSON.stringify(derivedFields))
+
+
+
+    let arr =  {
+        "temperature1_cal_num": "if(temperature1_use_enable == 1, temperature1, 0)",
+        "temperature2_cal_num": "if(temperature2_use_enable == 1, temperature2, 0)",
+        "temperature3_cal_num": "if(temperature3_use_enable == 1, temperature3, 0)",
+        "temperature4_cal_num": "if(temperature4_use_enable == 1, temperature4, 0)",
+        "temperature5_cal_num": "if(temperature5_use_enable == 1, temperature5, 0)",
+        "temperature6_cal_num": "if(temperature6_use_enable == 1, temperature6, 0)",
+        "temperature7_cal_num": "if(temperature7_use_enable == 1, temperature7, 0)",
+        "temperature8_cal_num": "if(temperature8_use_enable == 1, temperature8, 0)",
+        "temperature9_cal_num": "if(temperature9_use_enable == 1, temperature9, 0)",
+        "temperature10_cal_num": "if(temperature10_use_enable == 1, temperature10, 0)",
+        "temperature11_cal_num": "if(temperature11_use_enable == 1, temperature11, 0)",
+        "temperature12_cal_num": "if(temperature12_use_enable == 1, temperature12, 0)",
+        "temperature13_cal_num": "if(temperature13_use_enable == 1, temperature13, 0)",
+        "temperature14_cal_num": "if(temperature14_use_enable == 1, temperature14, 0)"
+    }
+
+
+
+    for(let i in arr) {
+        let a = arr[i].split(",")
+        a[1] = a[1] +` * ${a[1]}_cal_k`
+        arr[i] = a.join(",")
+    }
+
+    console.log(JSON.stringify(arr))
+
+
+</script>
+</html>

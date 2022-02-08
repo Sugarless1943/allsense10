@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Ajax {
+        get(url, callback) {
+            let timer = setTimeout(() => {
+                callback(`${url},response`)
+                clearTimeout(timer)
+            }, 2000)
+        }
+    }
+
+    class Pro {
+        static sucVal
+
+        constructor(callback) {
+            callback(this.resolve, this.reject)
+        }
+
+        resolve(val) {
+            Pro.sucVal = val
+        }
+
+        reject() {
+
+        }
+
+        then(callback) {
+            callback(Pro.sucVal)
+            return this
+        }
+    }
+
+    function Ax(url) {
+        return new Promise((resolve, reject) => {
+            new Ajax().get(url, res => {
+                resolve(res)
+            })
+        })
+    }
+
+    function Ay(url, callback) {
+        return new Pro(resolve => {
+            new Ajax().get(url, callback)
+            resolve()
+        })
+    }
+
+    // new Promise((resolve, reject) => {
+    //     resolve(1)
+    // }).then(res => {
+    //     console.log(res)
+    // })
+
+    let p = new Pro((resolve, reject) => {
+        let a= 1;
+        resolve(a)
+    }).then(res => {
+        return new Pro(resolve => {
+            let b = 2 + res
+            resolve(b)
+        })
+    }).then(res => {
+        console.log(res)
+    })
+
+    // p.resolve()
+
+
+
+</script>
+</html>

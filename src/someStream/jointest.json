@@ -1,0 +1,129 @@
+{
+  "globalConf": {
+    "engineName": "flink",
+    "name": "join_test",
+    "flink.running.mode": "localui",
+    "flink.running.controller.enabled": false,
+    "globalParameters": {
+      "corp_id": "358e6e54840c000",
+      "rabbit_host": "172.16.1.2",
+      "rabbit_port": 31467
+    }
+  },
+  "nodes": [
+    {
+      "nodeId": "SOURCE",
+      "moduleId": "Source:Mqtt",
+      "name": "SOURCE",
+      "description": "",
+      "parameters": {
+        "clientId": "join_test",
+        "host": "#{rabbit_host}",
+        "port": "#{rabbit_port}",
+        "user": "/iot:iot",
+        "password": "allsmart@iot",
+        "topics": [
+          "/data/#"
+        ]
+      }
+    },
+    {
+      "nodeId": "TYPE",
+      "moduleId": "Toolkit:Type",
+      "name": "TYPE",
+      "description": "",
+      "parameters": {
+        "datasource": "smart_data_heatUser",
+        "expandField": "data",
+        "datamodel": {
+          "fieldList": [
+            {
+              "name": "timestamp",
+              "dataType": "LONG"
+            },
+            {
+              "name": "uid",
+              "dataType": "STRING"
+            },
+            {
+              "name": "corpId",
+              "dataType": "STRING"
+            },
+            {
+              "name": "type",
+              "dataType": "STRING"
+            },
+            {
+              "name": "instantaneousFlowLine1",
+              "dataType": "DOUBLE"
+            },
+            {
+              "name": "instantaneousHeatLine1",
+              "dataType": "DOUBLE"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "nodeType": "PROCESS_PARAM",
+      "nodeId": "TSE",
+      "moduleId": "Toolkit:TimeSeriesExtractor",
+      "name": "TSE",
+      "description": "",
+      "parameters": {
+        "windowSize": 45,
+        "windowSlide": 30,
+        "windowAllowedLateness": 0,
+        "useStartTime": false,
+        "mapping": [
+          {
+            "timeSeries": "Weather:fd198350-6349-3d43-b6b9-fc7bd2d6e8f9:temperature",
+            "name": "weather_0"
+          }
+        ]
+      }
+    },
+    {
+      "nodeId": "JOIN",
+      "moduleId": "Hci:Join",
+      "parameters": {
+        "windowSize": 10,
+        "mainType": "smart_data_heatUser"
+      }
+    },
+    {
+      "nodeId": "OUT",
+      "moduleId": "Output:File",
+      "parameters": {
+        "dataModelOutPath": "src/test/resources/jiexiu/join.dataModel.json",
+        "dataOutPath": "src/test/resources/jiexiu/join",
+        "extension": "csv",
+        "writeHeader": true
+      }
+    }
+  ],
+  "connections": [
+
+    {
+      "from": "SOURCE",
+      "to": "TYPE"
+    },
+    {
+      "from": "SOURCE",
+      "to": "TSE"
+    },
+    {
+      "from": "TYPE",
+      "to":"JOIN"
+    },
+    {
+      "from": "TSE",
+      "to": "JOIN"
+    },
+    {
+      "from": "JOIN",
+      "to": "OUT"
+    }
+  ]
+}

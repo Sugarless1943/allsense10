@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script !src="">
+
+    let data = [
+        {
+            "id": "73d94be0900a0c0",
+            "label": null,
+            "name": "b610_time_offset",
+            "value": "0",
+            "editable": true,
+            "process": "smart_operation_yz",
+            "nodeType": "Hci:Config",
+            "nodeName": "时间窗口配置",
+            "nodeId": "277926f26d80982e-ConditionDerivea1123",
+            "used": false,
+            "pulse": false,
+            "boardName": null
+        },
+        {
+            "id": "73d94be0900a0c1",
+            "label": null,
+            "name": "b611_time_offset",
+            "value": "0",
+            "editable": true,
+            "process": "smart_operation_yz",
+            "nodeType": "Hci:Config",
+            "nodeName": "时间窗口配置",
+            "nodeId": "277926f26d80982e-ConditionDerivea1123",
+            "used": false,
+            "pulse": false,
+            "boardName": null
+        }
+    ]
+
+    let res = {}
+    let reg = /^b[0-9]+\_/
+    let names = ["ValveChangeMax", "ValveChangeMin", "ValveRunOpeningMax", "ValveRunOpeningMin", "priorityLevel1", "priorityLevel2", "priorityLevel3", "scoring_use", "control_enable", "temperature1_cal_enable"]
+    let res2 = []
+    data.map(item => {
+        let name = item.name.split("_")[0] + "_"
+        let controlNameArr = item.name.split("_")
+        controlNameArr.shift()
+        if(reg.test(name)) {
+            if(!res[name]) {
+                res[name] = []
+            }
+
+            if(names.includes(name)) {
+                res[name].push(item.id)
+                res2.push(item.id)
+            }
+        }
+    })
+
+    console.log(JSON.stringify(res), JSON.stringify(res2))
+
+</script>
+</html>

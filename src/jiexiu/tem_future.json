@@ -1,0 +1,401 @@
+[
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来1天高温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_1_high",
+        "target": "temperature_future_1_high_scoring",
+        "targetLabel": "未来1天高温热量预测值",
+        "revise": "temperature_future_1_high_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来1天均温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_1_avg",
+        "target": "temperature_future_1_avg_scoring",
+        "targetLabel": "未来1天均温热量预测值",
+        "revise": "temperature_future_1_avg_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来1天低温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_1_low",
+        "target": "temperature_future_1_low_scoring",
+        "targetLabel": "未来1天低温热量预测值",
+        "revise": "temperature_future_1_low_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来2天高温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_2_high",
+        "target": "temperature_future_2_high_scoring",
+        "targetLabel": "未来2天高温热量预测值",
+        "revise": "temperature_future_2_high_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来2天均温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_2_avg",
+        "target": "temperature_future_2_avg_scoring",
+        "targetLabel": "未来2天均温热量预测值",
+        "revise": "temperature_future_2_avg_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来2天低温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_2_low",
+        "target": "temperature_future_2_low_scoring",
+        "targetLabel": "未来2天低温热量预测值",
+        "revise": "temperature_future_2_low_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来3天高温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_3_high",
+        "target": "temperature_future_3_high_scoring",
+        "targetLabel": "未来3天高温热量预测值",
+        "revise": "temperature_future_3_high_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来3天均温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_3_avg",
+        "target": "temperature_future_3_avg_scoring",
+        "targetLabel": "未来3天均温热量预测值",
+        "revise": "temperature_future_3_avg_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来3天低温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_3_low",
+        "target": "temperature_future_3_low_scoring",
+        "targetLabel": "未来3天低温热量预测值",
+        "revise": "temperature_future_3_low_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来4天高温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_4_high",
+        "target": "temperature_future_4_high_scoring",
+        "targetLabel": "未来4天高温热量预测值",
+        "revise": "temperature_future_4_high_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来4天均温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_4_avg",
+        "target": "temperature_future_4_avg_scoring",
+        "targetLabel": "未来4天均温热量预测值",
+        "revise": "temperature_future_4_avg_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来4天低温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_4_low",
+        "target": "temperature_future_4_low_scoring",
+        "targetLabel": "未来4天低温热量预测值",
+        "revise": "temperature_future_4_low_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来5天高温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_5_high",
+        "target": "temperature_future_5_high_scoring",
+        "targetLabel": "未来5天高温热量预测值",
+        "revise": "temperature_future_5_high_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来5天均温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_5_avg",
+        "target": "temperature_future_5_avg_scoring",
+        "targetLabel": "未来5天均温热量预测值",
+        "revise": "temperature_future_5_avg_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来5天低温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_5_low",
+        "target": "temperature_future_5_low_scoring",
+        "targetLabel": "未来5天低温热量预测值",
+        "revise": "temperature_future_5_low_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来6天高温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_6_high",
+        "target": "temperature_future_6_high_scoring",
+        "targetLabel": "未来6天高温热量预测值",
+        "revise": "temperature_future_6_high_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来6天均温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_6_avg",
+        "target": "temperature_future_6_avg_scoring",
+        "targetLabel": "未来6天均温热量预测值",
+        "revise": "temperature_future_6_avg_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来6天低温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_6_low",
+        "target": "temperature_future_6_low_scoring",
+        "targetLabel": "未来6天低温热量预测值",
+        "revise": "temperature_future_6_low_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来7天高温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_7_high",
+        "target": "temperature_future_7_high_scoring",
+        "targetLabel": "未来7天高温热量预测值",
+        "revise": "temperature_future_7_high_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来7天均温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_7_avg",
+        "target": "temperature_future_7_avg_scoring",
+        "targetLabel": "未来7天均温热量预测值",
+        "revise": "temperature_future_7_avg_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  },
+  {
+    "nodeId": "70f1ff21040d000",
+    "name": "未来7天低温热量预测值",
+    "moduleId": "ProcessFlow:Module",
+    "description": "",
+    "parameters": {
+      "refId": "70f1c4f5040b000",
+      "param": {
+        "temperature": "temperature_future_7_low",
+        "target": "temperature_future_7_low_scoring",
+        "targetLabel": "未来7天低温热量预测值",
+        "revise": "temperature_future_7_low_scoring_revise"
+      }
+    },
+    "uiParameters": {
+      "componentId": "Module",
+      "editorData": null
+    }
+  }
+]

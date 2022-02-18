@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="MyPromise.js"></script>
+</head>
+<body>
+<script>
+
+    let p = new MyPromise((resolve, reject) => {
+        resolve(1)
+    }).then(res => {
+        // console.log(res)
+        return res
+    }).then(res => {
+        return 2
+    }).then(res => {
+        console.log(res)
+    })
+</script>
+</body>
+</html>

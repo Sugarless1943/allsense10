@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./smart_valve.js"></script>
+    <script src="./base.js"></script>
+</head>
+<body>
+<script>
+    let stationConfig =  {
+        "heatExchangeStationUid": "4ffcdaed-d332-498d-8309-e0a26341ca46",
+        "heatExchangeStationControlOn": 1,
+        "valveStraighten": 20.14,
+        "valveRunOpeningMax": 100,
+        "valveRunOpeningMin": 0,
+        "valveChangeMax": 10,
+        "valveChangeMin": 0,
+        "heatExchangeStationSourceIndex": 0,
+        "heatExchangeStationLevel": 1,
+        "controlCycleTimeCorrect": 0,
+        "heatExchangeStationTimeDelay": 50.3,
+        "indoorTempControlOn": 1
+    }
+
+    let tree = [
+        {
+            "source": "sm_a0223d12-469c-42e5-91ff-c2308469c0e7",
+            "target": "HS1"
+        }
+    ]
+
+    let stationConfigs = tree.map(item => {
+        let heatExchangeStationControlOn = getSettings('73f8c3734cb34e73-e700c79087ce9cfa', 'enable', item.target)
+        let valveStraighten = getSettings('13ede6b46bc7001d-b2c6b9e03ef84ba6', 'Vi_straighten', item.target)
+        let valveChangeMax = getSettings('13ede6b46bc7001d-b2c6b9e03ef84ba6', 'Vi_change_max', item.target)
+        let valveChangeMin = getSettings('13ede6b46bc7001d-b2c6b9e03ef84ba6', 'Vi_change_min', item.target)
+        let heatExchangeStationSourceIndex = getFromStationConfig('7e203a55d75a3b3e-afdca2fd9d3a93f0', 'source_num', item.source) - 1
+        let heatExchangeStationLevel = getFromStationConfig('7e203a55d75a3b3e-afdca2fd9d3a93f0', 'level', item.source)
+        let controlCycleTimeCorrect = getSettings('13ede6b46bc7001d-b2c6b9e03ef84ba6', 'Vi_change_min', item.target)
+        let heatExchangeStationTimeDelay = getFromStationConfig('7e203a55d75a3b3e-afdca2fd9d3a93f0', 'assessment', item.source)
+        let indoorTempControlOn = getSettings('13ede6b46bc7001d-578dc988289ea34f', 'heatUserPredictUseOn', item.target)
+
+        console.log(heatExchangeStationControlOn)
+
+        return {
+            heatExchangeStationUid: item.source,
+            heatExchangeStationControlOn,
+            valveStraighten,
+            valveRunOpeningMax: 100,
+            valveRunOpeningMin: 0,
+            valveChangeMax,
+            valveChangeMin,
+            heatExchangeStationSourceIndex,
+            heatExchangeStationLevel,
+            controlCycleTimeCorrect,
+            heatExchangeStationTimeDelay,
+            indoorTempControlOn
+        }
+    })
+
+    console.log(stationConfigs)
+
+
+
+</script>
+</body>
+</html>

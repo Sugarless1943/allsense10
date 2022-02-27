@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./MyPromise.js"></script>
+</head>
+<body>
+<script>
+    let p = new MyPromise((resolve,reject) => {
+        // resolve(1)
+        resolve(2)
+    }).then(res => {
+        console.log('resolve', res)
+        return 1
+    }, error => {
+        console.log('rejected', error)
+        return 2
+    }).then(res => {
+        console.log('then2', res)
+        return res
+    })
+    console.log(p)
+    //
+    MyPromise.all([new MyPromise(resolve => {
+      resolve('a')
+    }).then(res => {
+        return res
+    }), new MyPromise(resolve => {
+        resolve('b')
+    }).then(res => {
+        return res
+    })]).then(res => {
+        console.log(res)
+    })
+
+    // Promise.all
+
+</script>
+</body>
+</html>

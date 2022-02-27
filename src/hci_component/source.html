@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./smart_valve.js"></script>
+    <script src="./base.js"></script>
+</head>
+<body>
+<script>
+    let stationConfig =  {
+
+    }
+
+    let tree = [
+        {
+            "source": "sm_a0223d12-469c-42e5-91ff-c2308469c0e7",
+            "target": "HS1"
+        }
+    ]
+
+    let stationConfigs = tree.map(item => {
+        let heatExchangeStationTimeDelay = getFromStationConfig('7e203a55d75a3b3e-afdca2fd9d3a93f0', 'assessment', item.source)
+        let heatExchangeStationHeatSumEnable = getSettings('7e203a55d75a3b3e-e3fac596c9062f8d', 'calculate_enable', item.target)
+        let modelHeatLoadPredictEnable = getSettings('7e203a55d75a3b3e-f257035b94bd8a7f', 'instantaneous_heat_scoring_use', item.target)
+        let heatLoadColdMax = getSettings('7e203a55d75a3b3e-78ee0f1ebb3693ce', 'Qmax', item.target)
+        let estimateHeatLoadGradient = getSettings('7e203a55d75a3b3e-f257035b94bd8a7f', 'a', item.target)
+        let estimateHeatLoadIntercept = getSettings('7e203a55d75a3b3e-f257035b94bd8a7f', 'b', item.target)
+
+        console.log(heatExchangeStationHeatSumEnable)
+        return {
+            "heatExchangeStationUid": item.source,
+            heatExchangeStationTimeDelay,
+            heatExchangeStationHeatSumEnable,
+            modelHeatLoadPredictEnable,
+            heatLoadColdMax,
+            estimateHeatLoadGradient,
+            estimateHeatLoadIntercept
+        }
+    })
+
+    console.log(stationConfigs)
+
+
+</script>
+</body>
+</html>

@@ -573,14 +573,18 @@
     ]
 
     let obj = {}
+    let idMap = {}
     data.map(item => {
         if (!obj[item.group]) obj[item.group] = []
         if (item.type == "HeatMeter") {
             obj[item.group].unshift(item)
+            idMap[item.uid] = item.label
         } else {
             obj[item.group].push(item)
         }
     })
+
+    console.log(idMap)
 
     let res = []
     let res2 = []
